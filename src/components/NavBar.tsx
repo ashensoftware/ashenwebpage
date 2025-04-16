@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import logoHorizontal from "../assets/logo-horizontal.png";
 import { Home, Users, FolderKanban, Mail, Menu, X } from "lucide-react";
 
 const NavBar: React.FC = () => {
