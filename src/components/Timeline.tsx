@@ -1,42 +1,44 @@
 import React from "react";
 import "../App.css";
-import { timelineEvents } from "../constants/ashenData";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 import { Trophy, Award, Medal, Star } from "lucide-react";
+import { timelineEvents } from "../constants/ashenData";
 
 const getIcon = (index: number) => {
   switch (index) {
     case 0:
-      return <Trophy size={24} className="timeline-icon" />;
+      return <Trophy size={24} />;
     case 1:
-      return <Award size={24} className="timeline-icon" />;
+      return <Award size={24} />;
     case 2:
-      return <Medal size={24} className="timeline-icon" />;
+      return <Medal size={24} />;
     default:
-      return <Star size={24} className="timeline-icon" />;
+      return <Star size={24} />;
   }
 };
 
 const Timeline: React.FC = () => (
   <section className="timeline-section" id="timeline">
     <h2 className="section-title">Logros y Eventos</h2>
-    <div className="timeline-v2">
-      <div className="timeline-v2-line" />
+    <VerticalTimeline>
       {timelineEvents.map((event, idx) => (
-        <div
-          className={`timeline-v2-event ${idx % 2 === 0 ? "left" : "right"}`}
+        <VerticalTimelineElement
           key={idx}
+          className="vertical-timeline-element--work"
+          date={event.date}
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          contentStyle={{ background: "#57329F" }}
+          icon={getIcon(idx)}
         >
-          <div className="timeline-v2-content">
-            {getIcon(idx)}
-            <div>
-              <span className="timeline-v2-date">{event.date}</span>
-              <h3>{event.title}</h3>
-              <p>{event.text}</p>
-            </div>
-          </div>
-        </div>
+          <h3 className="vertical-timeline-element-title">{event.title}</h3>
+          <p>{event.text}</p>
+        </VerticalTimelineElement>
       ))}
-    </div>
+    </VerticalTimeline>
   </section>
 );
 

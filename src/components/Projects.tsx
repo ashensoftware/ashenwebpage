@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "../App.css";
 import { projects } from "../constants/ashenData";
-import logo from "../assets/logo.png";
 import background from "../assets/background.png";
 
 interface ProjectPopupProps {
