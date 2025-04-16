@@ -1,7 +1,7 @@
-import React from 'react';
-import '../App.css';
-import { timelineEvents } from '../constants/ashenData';
-import { Trophy, Award, Medal, Star } from 'lucide-react';
+import React from "react";
+import "../App.css";
+import { timelineEvents } from "../constants/ashenData";
+import { Trophy, Award, Medal, Star } from "lucide-react";
 
 const getIcon = (index: number) => {
   switch (index) {
@@ -23,7 +23,7 @@ const Timeline: React.FC = () => (
       <div className="timeline-v2-line" />
       {timelineEvents.map((event, idx) => (
         <div
-          className={`timeline-v2-event ${idx % 2 === 0 ? 'left' : 'right'}`}
+          className={`timeline-v2-event ${idx % 2 === 0 ? "left" : "right"}`}
           key={idx}
         >
           <div className="timeline-v2-content">
@@ -40,4 +40,4 @@ const Timeline: React.FC = () => (
   </section>
 );
 
-export default Timeline; 
+export default Timeline;

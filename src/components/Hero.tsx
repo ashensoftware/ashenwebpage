@@ -1,8 +1,8 @@
-import React from 'react';
-import '../App.css';
-import logo from '../assets/logo.png';
-import background from '../assets/background.png';
-import ParticlesBackground from './ParticlesBackground';
+import React from "react";
+import "../App.css";
+import logo from "../assets/logo.png";
+import background from "../assets/background.png";
+import ParticlesBackground from "./ParticlesBackground";
 
 const Hero: React.FC = () => (
   <section className="hero-section" id="hero">
@@ -23,9 +23,13 @@ const Hero: React.FC = () => (
       <span className="hero-sub">Desarrollamos tecnología que trasciende</span>
     </div>
     <div className="hero-city">
-      <img src={background} alt="Ciudad" style={{ width: '100vw', height: '100%', objectFit: 'cover' }} />
+      <img
+        src={background}
+        alt="Ciudad"
+        style={{ width: "100vw", height: "100%", objectFit: "cover" }}
+      />
     </div>
   </section>
 );
 
-export default Hero; 
+export default Hero;
