@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import logo from '../assets/logo.png';
+import { Home, Users, FolderKanban, Mail } from 'lucide-react';
 
 const NavBar: React.FC = () => (
   <nav className="ashen-nav-fixed">
@@ -9,10 +10,10 @@ const NavBar: React.FC = () => (
         <img src={logo} alt="ASHEN Logo" className="ashen-nav-logo" />
       </a>
       <div className="ashen-nav-links">
-        <a href="#hero">Inicio</a>
-        <a href="#about">Nosotros</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#contact">Contacto</a>
+        <a href="#hero"><Home size={20} className="nav-icon" /> Inicio</a>
+        <a href="#about"><Users size={20} className="nav-icon" /> Nosotros</a>
+        <a href="#projects"><FolderKanban size={20} className="nav-icon" /> Proyectos</a>
+        <a href="#contact"><Mail size={20} className="nav-icon" /> Contacto</a>
       </div>
     </div>
     <div className="ashen-nav-line" />

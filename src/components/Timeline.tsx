@@ -1,6 +1,20 @@
 import React from 'react';
 import '../App.css';
 import { timelineEvents } from '../constants/ashenData';
+import { Trophy, Award, Medal, Star } from 'lucide-react';
+
+const getIcon = (index: number) => {
+  switch (index) {
+    case 0:
+      return <Trophy size={24} className="timeline-icon" />;
+    case 1:
+      return <Award size={24} className="timeline-icon" />;
+    case 2:
+      return <Medal size={24} className="timeline-icon" />;
+    default:
+      return <Star size={24} className="timeline-icon" />;
+  }
+};
 
 const Timeline: React.FC = () => (
   <section className="timeline-section" id="timeline">
@@ -13,7 +27,7 @@ const Timeline: React.FC = () => (
           key={idx}
         >
           <div className="timeline-v2-content">
-            <img src={event.image} alt={event.title} className="timeline-v2-img" />
+            {getIcon(idx)}
             <div>
               <span className="timeline-v2-date">{event.date}</span>
               <h3>{event.title}</h3>
