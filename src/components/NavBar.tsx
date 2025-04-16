@@ -1,13 +1,13 @@
 import React from 'react';
 import '../App.css';
-import logo from '../assets/logo.png';
+import logoHorizontal from '../assets/logo-horizontal.png';
 import { Home, Users, FolderKanban, Mail } from 'lucide-react';
 
 const NavBar: React.FC = () => (
   <nav className="ashen-nav-fixed">
     <div className="ashen-nav-inner">
       <a href="#hero" className="ashen-nav-logo-link">
-        <img src={logo} alt="ASHEN Logo" className="ashen-nav-logo" />
+        <img src={logoHorizontal} alt="ASHEN Logo" className="ashen-nav-logo" />
       </a>
       <div className="ashen-nav-links">
         <a href="#hero"><Home size={20} className="nav-icon" /> Inicio</a>

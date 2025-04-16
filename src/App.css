@@ -99,7 +99,7 @@
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #1a1333 0%, #6A40BF 60%, #57329F 90%, #231942 100%);
+  background: linear-gradient(180deg, rgba(26,19,51,0.85) 0%, rgba(106,64,191,0.65) 60%, rgba(87,50,159,0.55) 90%, rgba(35,25,66,0.85) 100%);
   z-index: 0;
   opacity: 1;
 }
@@ -137,17 +137,17 @@
 }
 .hero-city img {
   width: 100vw;
-  height: auto;
+  height: 320px;
   min-height: 180px;
   max-height: 320px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   opacity: 1;
   filter: brightness(0.95) contrast(1.1) drop-shadow(0 8px 32px #1a1333cc);
 }
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -164,8 +164,7 @@
   filter: drop-shadow(0 0 32px #a084ee88);
 }
 .hero-title {
-  font-size: 6vw;
-  min-font-size: 3rem;
+  font-size: min(6vw, 5rem);
   font-weight: 800;
   letter-spacing: 0.45em;
   margin: 0;
@@ -505,7 +504,7 @@ html {
   margin-right: 2.2rem;
 }
 .ashen-nav-logo {
-  width: 38px;
+  width: 120px;
   height: 38px;
   object-fit: contain;
   filter: brightness(0) invert(1) drop-shadow(0 0 8px #fff8);
@@ -685,4 +684,54 @@ html {
     max-width: 98vw;
     padding: 1rem 0.7rem;
   }
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+.stars {
+  background: transparent url('https://sylvaingarnot.fr/media/stars.png') repeat top center;
+  z-index: 1;
+}
+
+.twinkle {
+  background: transparent url('https://sylvaingarnot.fr/media/twinkling.png') repeat top center;
+  z-index: 1;
+  animation: move-twink-back 200s linear infinite;
+}
+
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#particles-js canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }

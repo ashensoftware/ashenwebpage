@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "lucide-react": "^0.488.0",
+    "particles.js": "^2.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tsparticles": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

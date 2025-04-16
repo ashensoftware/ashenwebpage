@@ -2,10 +2,14 @@ import React from 'react';
 import '../App.css';
 import logo from '../assets/logo.png';
 import background from '../assets/background.png';
+import ParticlesBackground from './ParticlesBackground';
 
 const Hero: React.FC = () => (
   <section className="hero-section" id="hero">
     <div className="hero-bg" />
+    <div className="stars" />
+    <div className="twinkle" />
+    <ParticlesBackground />
     <div className="hero-bg-logo">
       <img src={logo} alt="ASHEN Marca de agua" />
     </div>
