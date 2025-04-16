@@ -35,26 +35,56 @@ export const projects = [
   {
     name: 'RaiseApp',
     desc: 'Plataforma de recaudación de fondos segura y eficiente.',
+    longDesc: 'RaiseApp es una plataforma innovadora que permite a organizaciones y particulares recaudar fondos de manera segura y transparente. Utilizando tecnología blockchain y sistemas de pago avanzados, garantizamos que cada donación llegue a su destino.',
+    tags: ['Aplicación', 'Tecnología', 'Servicios'],
+    image: '/src/assets/projects/raiseapp.png',
+    link: 'https://www.google.com',
+    source: 'Desarrollado por ASHEN Software'
   },
   {
     name: 'Akala',
     desc: 'Solución de gestión de diversidad e inclusión.',
+    longDesc: 'Akala revoluciona la forma en que las empresas gestionan sus iniciativas de diversidad e inclusión. Nuestra plataforma proporciona herramientas analíticas avanzadas y recursos educativos para crear lugares de trabajo más inclusivos y equitativos.',
+    tags: ['Sitio Web', 'Servicios'],
+    image: '/src/assets/projects/akala.png',
+    link: 'https://www.google.com',
+    source: 'En colaboración con Diverso League'
   },
   {
     name: 'Cryptix',
     desc: 'Herramienta avanzada de cifrado y seguridad.',
+    longDesc: 'Cryptix ofrece soluciones de cifrado de última generación para empresas y particulares. Con algoritmos propietarios y una interfaz intuitiva, protegemos la información sensible contra las amenazas cibernéticas más sofisticadas.',
+    tags: ['Aplicación', 'Tecnología'],
+    image: '/src/assets/projects/cryptix.png',
+    link: 'https://www.google.com',
+    source: 'Proyecto interno de ASHEN'
   },
   {
     name: 'Bragi',
     desc: 'Asistente inteligente impulsado por IA.',
+    longDesc: 'Bragi es un asistente virtual que utiliza inteligencia artificial avanzada para proporcionar respuestas contextuales y ayuda personalizada. Integra procesamiento de lenguaje natural y aprendizaje automático para mejorar continuamente sus capacidades.',
+    tags: ['Aplicación', 'Tecnología', 'Servicios'],
+    image: '/src/assets/projects/bragi.png',
+    link: 'https://www.google.com',
+    source: 'Ganador Hackathon ICP 2024'
   },
   {
     name: 'Ceres',
     desc: 'Plataforma de agricultura inteligente.',
+    longDesc: 'Ceres revoluciona la agricultura moderna combinando IoT, IA y análisis de datos para optimizar el rendimiento de los cultivos. Nuestras soluciones ayudan a los agricultores a tomar decisiones informadas y sostenibles.',
+    tags: ['Sitio Web', 'Tecnología', 'Servicios'],
+    image: '/src/assets/projects/ceres.png',
+    link: 'https://www.google.com',
+    source: 'Colaboración con AgriTech Solutions'
   },
   {
     name: 'GuardIA',
     desc: 'Sistema de vigilancia y protección basado en IA.',
+    longDesc: 'GuardIA es un sistema de seguridad inteligente que utiliza visión por computadora y aprendizaje profundo para detectar y prevenir amenazas en tiempo real. Ideal para espacios comerciales y residenciales que requieren vigilancia avanzada.',
+    tags: ['Aplicación', 'Tecnología', 'Bienes Raíces'],
+    image: '/src/assets/projects/guardia.png',
+    link: 'https://www.google.com',
+    source: 'Premiado en eSummit 2023'
   },
 ];
 
