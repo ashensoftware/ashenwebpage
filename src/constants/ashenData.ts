@@ -35,15 +35,16 @@ export const timelineEvents = [
     text: "3er lugar con RaiseApp (2M COP)",
   },
 ];
+
 export const projects = [
   {
     name: "RaiseApp",
     desc: "Plataforma para apoyar emprendimientos locales mediante tokenización.",
     longDesc:
       "RaiseApp es una plataforma diseñada para apoyar emprendimientos locales a través de la tokenización de acciones. Ganador del tercer lugar en la hackathon 'Kickin' it with KiiChain', permite que las personas inviertan de forma segura y descentralizada en negocios de su comunidad, utilizando blockchain para asegurar transparencia y trazabilidad.",
-    tags: ["Aplicación", "Tecnología", "Servicios"],
+    tags: ["Blockchain", "Finanzas", "Emprendimiento"],
     image: "/src/assets/projects/raiseapp.png",
-    link: "https://www.figma.com/design/E2QdgBQV1xiazDqXGTAl16/raiseapp?node-id=0-1&t=LRiCi2xGc5qOVlEl-0",
+    link: "raise-app-rho.vercel.app",
     source: "Ganador de hackathon Kickin’ it with KiiChain (3er lugar)",
   },
   {
@@ -51,7 +52,7 @@ export const projects = [
     desc: "Plataforma de aprendizaje inclusiva basada en juegos de decisiones.",
     longDesc:
       "Akala es una plataforma educativa innovadora que combina juegos de decisiones y situaciones de la vida real para fomentar el pensamiento lógico en personas con discapacidad intelectual. Con un enfoque inclusivo y pedagógico, Akala busca cerrar brechas en el aprendizaje. Ganador del primer lugar en Diverso League 2024.",
-    tags: ["Sitio Web", "Servicios"],
+    tags: ["Educación", "Inclusión", "Gamificación"],
     image: "/src/assets/projects/akala.png",
     link: "https://www.figma.com/proto/ojC9guT1z2HiQQ1OoMLxnv/Akala?node-id=100-1113&t=9Z9eJvpH1DHEBJgE-1",
     source: "Ganador Diverso League 2024 (1er lugar)",
@@ -61,9 +62,9 @@ export const projects = [
     desc: "Plataforma de venta de entradas basada en blockchain.",
     longDesc:
       "Cryptix es una plataforma innovadora para la venta de entradas basada en tecnología blockchain, que revoluciona la manera en que las personas acceden a eventos culturales, conciertos y espectáculos. Ofrece seguridad, transparencia y facilidad de uso tanto para organizadores como asistentes.",
-    tags: ["Aplicación", "Tecnología"],
+    tags: ["Blockchain", "Eventos", "E-commerce"],
     image: "/src/assets/projects/cryptix.png",
-    link: "https://cryptix-lemon.vercel.app",
+    link: "https://cryptix-fraxtal.vercel.app",
     source: "Desarrollado por ASHEN Software",
   },
   {
@@ -71,7 +72,7 @@ export const projects = [
     desc: "Plataforma para conectar artistas con sus futuros clientes.",
     longDesc:
       "Bragi es un software web que conecta artistas con clientes potenciales, permitiendo a los creativos ofrecer sus servicios y portafolios de forma accesible. Fue desarrollado como solución ganadora del primer lugar en la Hackathon ICP 2024.",
-    tags: ["Aplicación", "Tecnología", "Servicios"],
+    tags: ["Arte", "Marketplace", "Servicios"],
     image: "/src/assets/projects/bragi.png",
     link: "https://www.figma.com/design/AmQPUAtlrZurNAtIAu6WhV/Bragi?node-id=0-1",
     source: "Ganador Hackathon ICP 2024 (1er lugar)",
@@ -81,7 +82,7 @@ export const projects = [
     desc: "Sistema de pagos blockchain para trabajadores informales.",
     longDesc:
       "Ceres es un sistema de pagos innovador basado en tecnología blockchain, diseñado para formalizar y facilitar las transacciones de trabajadores informales. Ofrece una alternativa segura, descentralizada y accesible para gestionar ingresos y pagos sin depender de servicios bancarios tradicionales.",
-    tags: ["Aplicación", "Tecnología", "Servicios"],
+    tags: ["Blockchain", "Fintech", "Trabajo informal"],
     image: "/src/assets/projects/ceres.png",
     link: "https://www.google.com",
     source: "Desarrollado por ASHEN Software",
@@ -91,7 +92,7 @@ export const projects = [
     desc: "IA para detección de publicaciones fraudulentas.",
     longDesc:
       "GuardIA es un sistema de inteligencia artificial desarrollado para detectar publicaciones fraudulentas en marketplaces, ayudando a prevenir estafas y proteger a los usuarios. Fue reconocido con el segundo lugar en el eSummit 2023 Colombia.",
-    tags: ["Aplicación", "Tecnología", "Bienes Raíces"],
+    tags: ["Inteligencia Artificial", "Seguridad", "Marketplace"],
     image: "/src/assets/projects/guardia.png",
     link: "https://www.figma.com/design/KKZ2QH0OboeVKVFIqIE6lu/GuardIA",
     source: "Ganador eSummit 2023 Colombia (2do lugar)",

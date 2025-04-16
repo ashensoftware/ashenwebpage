@@ -89,10 +89,7 @@ const Projects: React.FC = () => {
       <div className="project-bg" />
       <section className="projects-section" id="projects">
         <div className="projects-header">
-          <h2 className="section-title">Proyectos recientes</h2>
-          <a href="#" className="view-all">
-            Ver todos →
-          </a>
+          <h2 className="section-title">Proyectos</h2>
         </div>
 
         <div className="projects-tags">
