@@ -35,67 +35,66 @@ export const timelineEvents = [
     text: "3er lugar con RaiseApp (2M COP)",
   },
 ];
-
 export const projects = [
   {
     name: "RaiseApp",
-    desc: "Plataforma de recaudación de fondos segura y eficiente.",
+    desc: "Plataforma para apoyar emprendimientos locales mediante tokenización.",
     longDesc:
-      "RaiseApp es una plataforma innovadora que permite a organizaciones y particulares recaudar fondos de manera segura y transparente. Utilizando tecnología blockchain y sistemas de pago avanzados, garantizamos que cada donación llegue a su destino.",
+      "RaiseApp es una plataforma diseñada para apoyar emprendimientos locales a través de la tokenización de acciones. Ganador del tercer lugar en la hackathon 'Kickin' it with KiiChain', permite que las personas inviertan de forma segura y descentralizada en negocios de su comunidad, utilizando blockchain para asegurar transparencia y trazabilidad.",
     tags: ["Aplicación", "Tecnología", "Servicios"],
     image: "/src/assets/projects/raiseapp.png",
-    link: "https://www.google.com",
-    source: "Desarrollado por ASHEN Software",
+    link: "https://www.figma.com/design/E2QdgBQV1xiazDqXGTAl16/raiseapp?node-id=0-1&t=LRiCi2xGc5qOVlEl-0",
+    source: "Ganador de hackathon Kickin’ it with KiiChain (3er lugar)",
   },
   {
     name: "Akala",
-    desc: "Solución de gestión de diversidad e inclusión.",
+    desc: "Plataforma de aprendizaje inclusiva basada en juegos de decisiones.",
     longDesc:
-      "Akala revoluciona la forma en que las empresas gestionan sus iniciativas de diversidad e inclusión. Nuestra plataforma proporciona herramientas analíticas avanzadas y recursos educativos para crear lugares de trabajo más inclusivos y equitativos.",
+      "Akala es una plataforma educativa innovadora que combina juegos de decisiones y situaciones de la vida real para fomentar el pensamiento lógico en personas con discapacidad intelectual. Con un enfoque inclusivo y pedagógico, Akala busca cerrar brechas en el aprendizaje. Ganador del primer lugar en Diverso League 2024.",
     tags: ["Sitio Web", "Servicios"],
     image: "/src/assets/projects/akala.png",
-    link: "https://www.google.com",
-    source: "En colaboración con Diverso League",
+    link: "https://www.figma.com/proto/ojC9guT1z2HiQQ1OoMLxnv/Akala?node-id=100-1113&t=9Z9eJvpH1DHEBJgE-1",
+    source: "Ganador Diverso League 2024 (1er lugar)",
   },
   {
     name: "Cryptix",
-    desc: "Herramienta avanzada de cifrado y seguridad.",
+    desc: "Plataforma de venta de entradas basada en blockchain.",
     longDesc:
-      "Cryptix ofrece soluciones de cifrado de última generación para empresas y particulares. Con algoritmos propietarios y una interfaz intuitiva, protegemos la información sensible contra las amenazas cibernéticas más sofisticadas.",
+      "Cryptix es una plataforma innovadora para la venta de entradas basada en tecnología blockchain, que revoluciona la manera en que las personas acceden a eventos culturales, conciertos y espectáculos. Ofrece seguridad, transparencia y facilidad de uso tanto para organizadores como asistentes.",
     tags: ["Aplicación", "Tecnología"],
     image: "/src/assets/projects/cryptix.png",
-    link: "https://www.google.com",
-    source: "Proyecto interno de ASHEN",
+    link: "https://cryptix-lemon.vercel.app",
+    source: "Desarrollado por ASHEN Software",
   },
   {
     name: "Bragi",
-    desc: "Asistente inteligente impulsado por IA.",
+    desc: "Plataforma para conectar artistas con sus futuros clientes.",
     longDesc:
-      "Bragi es un asistente virtual que utiliza inteligencia artificial avanzada para proporcionar respuestas contextuales y ayuda personalizada. Integra procesamiento de lenguaje natural y aprendizaje automático para mejorar continuamente sus capacidades.",
+      "Bragi es un software web que conecta artistas con clientes potenciales, permitiendo a los creativos ofrecer sus servicios y portafolios de forma accesible. Fue desarrollado como solución ganadora del primer lugar en la Hackathon ICP 2024.",
     tags: ["Aplicación", "Tecnología", "Servicios"],
     image: "/src/assets/projects/bragi.png",
-    link: "https://www.google.com",
-    source: "Ganador Hackathon ICP 2024",
+    link: "https://www.figma.com/design/AmQPUAtlrZurNAtIAu6WhV/Bragi?node-id=0-1",
+    source: "Ganador Hackathon ICP 2024 (1er lugar)",
   },
   {
     name: "Ceres",
-    desc: "Plataforma de agricultura inteligente.",
+    desc: "Sistema de pagos blockchain para trabajadores informales.",
     longDesc:
-      "Ceres revoluciona la agricultura moderna combinando IoT, IA y análisis de datos para optimizar el rendimiento de los cultivos. Nuestras soluciones ayudan a los agricultores a tomar decisiones informadas y sostenibles.",
-    tags: ["Sitio Web", "Tecnología", "Servicios"],
+      "Ceres es un sistema de pagos innovador basado en tecnología blockchain, diseñado para formalizar y facilitar las transacciones de trabajadores informales. Ofrece una alternativa segura, descentralizada y accesible para gestionar ingresos y pagos sin depender de servicios bancarios tradicionales.",
+    tags: ["Aplicación", "Tecnología", "Servicios"],
     image: "/src/assets/projects/ceres.png",
     link: "https://www.google.com",
-    source: "Colaboración con AgriTech Solutions",
-  },
+    source: "Desarrollado por ASHEN Software",
+  },  
   {
     name: "GuardIA",
-    desc: "Sistema de vigilancia y protección basado en IA.",
+    desc: "IA para detección de publicaciones fraudulentas.",
     longDesc:
-      "GuardIA es un sistema de seguridad inteligente que utiliza visión por computadora y aprendizaje profundo para detectar y prevenir amenazas en tiempo real. Ideal para espacios comerciales y residenciales que requieren vigilancia avanzada.",
+      "GuardIA es un sistema de inteligencia artificial desarrollado para detectar publicaciones fraudulentas en marketplaces, ayudando a prevenir estafas y proteger a los usuarios. Fue reconocido con el segundo lugar en el eSummit 2023 Colombia.",
     tags: ["Aplicación", "Tecnología", "Bienes Raíces"],
     image: "/src/assets/projects/guardia.png",
-    link: "https://www.google.com",
-    source: "Premiado en eSummit 2023",
+    link: "https://www.figma.com/design/KKZ2QH0OboeVKVFIqIE6lu/GuardIA",
+    source: "Ganador eSummit 2023 Colombia (2do lugar)",
   },
 ];
 
