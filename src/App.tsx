@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import Timeline from './components/Timeline';
 import Projects from './components/Projects';
-import About from './components/About';
+// import About from './components/About';
 import Footer from './components/Footer';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         <Hero />
         <Timeline />
         <Projects />
-        <About />
+        {/* <About /> */}
         <Footer />
       </div>
     </div>
