@@ -2,8 +2,13 @@ import React from "react";
 import "../App.css";
 import logo from "../assets/logo.png";
 import { Instagram, Linkedin, Mail, MapPin, Building2, Calendar, FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const Footer: React.FC = () => (
+const Footer: React.FC = () => {
+  
+  const { t } = useTranslation();
+
+  return(
   <footer className="footer-section" id="contact">
     <div className="footer-bg-logo">
       <img src={logo} alt="ASHEN watermark" />
@@ -11,23 +16,23 @@ const Footer: React.FC = () => (
     <div className="footer-content">
       <div className="footer-info">
         <div className="footer-info-section">
-          <h3>Información Legal</h3>
+          <h3>{t('footer-legal-info')}</h3>
           <div className="info-item">
             <Building2 size={18} className="info-icon" />
             <span>NIT: 901.938.360-1</span>
           </div>
           <div className="info-item">
             <FileText size={18} className="info-icon" />
-            <span>Actividad: Desarrollo de sistemas informáticos</span>
+            <span>{t('footer-economic-activity')}</span>
           </div>
           <div className="info-item">
             <Calendar size={18} className="info-icon" />
-            <span>Inicio de actividades: 04/16/2025</span>
+            <span>{t('footer-start-activities')}</span>
           </div>
         </div>
 
         <div className="footer-info-section">
-          <h3>Contacto</h3>
+          <h3>{t('footer-contact')}</h3>
           <div className="info-item">
             <MapPin size={18} className="info-icon" />
             <span>Medellín, Antioquia</span>
@@ -52,10 +57,10 @@ const Footer: React.FC = () => (
       </div>
 
       <div className="footer-bottom">
-        <p>© 2025 ASHEN Software. Todos los derechos reservados.</p>
+        <p>{t('footer-copyright')}</p>
       </div>
     </div>
   </footer>
 );
-
+}
 export default Footer;

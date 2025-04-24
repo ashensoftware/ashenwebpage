@@ -2,13 +2,15 @@ import React, { useState, useMemo, useEffect } from "react";
 import "../App.css";
 import { projects } from "../constants/ashenData";
 import background from "../assets/background.png";
+import { useTranslation } from "react-i18next";
 
 interface ProjectPopupProps {
   project: (typeof projects)[0];
   onClose: () => void;
+  language: string;
 }
 
-const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
+const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose, language }) => {
   useEffect(() => {
     document.body.classList.add("popup-open");
     return () => {
@@ -28,21 +30,26 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
         <div className="popup-content">
           <h2>{project.name}</h2>
           <div className="popup-tags">
-            {project.tags.map((tag, idx) => (
+            {language ==="es"?project.tags.map((tag, idx) => (
               <span key={idx} className="project-tag">
                 {tag}
-              </span>
-            ))}
+              </span>)):
+              project.tagsEn.map((tag, idx) => (
+                <span key={idx} className="project-tag">
+                  {tag}
+                </span>
+              ))
+            }
           </div>
-          <p className="popup-description">{project.longDesc}</p>
-          <p className="popup-source">{project.source}</p>
+          <p className="popup-description">{ language === "es" ? project.longDesc: project.longDescEn }</p>
+          <p className="popup-source">{ language==="es"?project.source: project.sourceEn }</p>
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
             className="popup-link"
           >
-            Ver proyecto →
+            {language === "es" ? "Ver proyecto →": "View project →"}
           </a>
         </div>
       </div>
@@ -50,25 +57,44 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
   );
 };
 
-const Projects: React.FC = () => {
+const Projects = ({ title }: { title:string }) => {
+  const { i18n } = useTranslation();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
 
-  // Get unique tags from all projects
   const allTags = useMemo(() => {
     const tags = new Set<string>();
-    projects.forEach((project) => {
-      project.tags.forEach((tag) => tags.add(tag));
-    });
-    return ["Todos", ...Array.from(tags)];
-  }, []);
+
+    // Si estamos en español, obtenemos las etiquetas de 'tags', si estamos en inglés, de 'tagsEn'
+    if (i18n.language === "es") {
+      projects.forEach((project) => {
+        project.tags.forEach((tag) => tags.add(tag));
+      });
+    } else {
+      projects.forEach((project) => {
+        project.tagsEn.forEach((tag) => tags.add(tag));
+      });
+    }
+
+    // Agregar "Todos" o "Everything" según el idioma
+    const text = i18n.language === "es" ? "Todos" : "Everything";
+    return [text, ...Array.from(tags)];
+  }, [i18n.language]); 
 
   // Filter projects based on selected tag
   const filteredProjects = useMemo(() => {
-    if (!selectedTag || selectedTag === "Todos") return projects;
-    return projects.filter((project) => project.tags.includes(selectedTag));
+    if (!selectedTag || selectedTag === "Todos" || selectedTag === "Everything") return projects;
+    if (i18n.language === "es") {
+      return projects.filter((project) =>
+        project.tags.includes(selectedTag)
+      );
+    } else {
+      return projects.filter((project) =>
+        project.tagsEn.includes(selectedTag)
+      );
+    }
   }, [selectedTag]);
 
   return (
@@ -89,7 +115,7 @@ const Projects: React.FC = () => {
       <div className="project-bg" />
       <section className="projects-section" id="projects">
         <div className="projects-header">
-          <h2 className="section-title">Proyectos</h2>
+          <h2 className="section-title">{title}</h2>
         </div>
 
         <div className="projects-tags">
@@ -123,7 +149,7 @@ const Projects: React.FC = () => {
               </div>
               <div className="project-info">
                 <h3>{project.name}</h3>
-                <p>{project.desc}</p>
+                <p>{i18n.language === "es"? project.desc : project.descEn}</p>
                 <button className="project-arrow">→</button>
               </div>
             </div>
@@ -134,6 +160,7 @@ const Projects: React.FC = () => {
           <ProjectPopup
             project={selectedProject}
             onClose={() => setSelectedProject(null)}
+            language={i18n.language}
           />
         )}
       </section>

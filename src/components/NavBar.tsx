@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 import { Home, Users, FolderKanban, Mail, Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const NavBar: React.FC = () => {
+const NavBar = ({ home, projects, about, contact }:{
+    home: string;
+    projects: string;
+    about: string;
+    contact: string;
+  }) => {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -26,6 +33,10 @@ const NavBar: React.FC = () => {
     setIsOpen(false);
   };
 
+  const changeLanguage = (lng: string) =>{
+    i18n.changeLanguage(lng);
+  }
+
   return (
     <nav className="ashen-nav-fixed">
       <div className="ashen-nav-inner">
@@ -40,33 +51,53 @@ const NavBar: React.FC = () => {
               </button>
               <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
                 <a href="#hero" onClick={closeMenu}>
-                  <Home size={20} className="nav-icon" /> Inicio
+                  <Home size={20} className="nav-icon" /> {home}
                 </a>
                 <a href="#projects" onClick={closeMenu}>
-                  <FolderKanban size={20} className="nav-icon" /> Proyectos
+                  <FolderKanban size={20} className="nav-icon" /> {projects}
                 </a>
                 <a href="#about" onClick={closeMenu}>
-                  <Users size={20} className="nav-icon" /> Nosotros
+                  <Users size={20} className="nav-icon" /> {about}
                 </a>
                 <a href="#contact" onClick={closeMenu}>
-                  <Mail size={20} className="nav-icon" /> Contacto
+                  <Mail size={20} className="nav-icon" /> {contact}
                 </a>
+                <div className="language-switcher">
+                  <select
+                    value={i18n.language}
+                    onChange={(e) => changeLanguage(e.target.value)}
+                    className="language-select"
+                  >
+                    <option value="es">ES 🇪🇸</option>
+                    <option value="en">EN 🇺🇸</option>
+                  </select>
+                </div>
               </div>
             </>
           ) : (
             <>
               <a href="#hero">
-                <Home size={20} className="nav-icon" /> Inicio
+                <Home size={20} className="nav-icon" /> {t('nav-home')}
               </a>
               <a href="#projects">
-                <FolderKanban size={20} className="nav-icon" /> Proyectos
+                <FolderKanban size={20} className="nav-icon" /> {t('nav-projects')}
               </a>
               <a href="#about">
-                <Users size={20} className="nav-icon" /> Nosotros
+                <Users size={20} className="nav-icon" /> {t('nav-about')}
               </a>
               <a href="#contact">
-                <Mail size={20} className="nav-icon" /> Contacto
+                <Mail size={20} className="nav-icon" /> {t('nav-contact')}
               </a>
+              <div className="language-switcher">
+                <select
+                  value={i18n.language}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  className="language-select"
+                >
+                  <option value="es">ES 🇪🇸</option>
+                  <option value="en">EN 🇺🇸</option>
+                </select>
+              </div>
             </>
           )}
         </div>
