@@ -16,7 +16,7 @@ function App() {
     document.documentElement.style.scrollBehavior = 'smooth';
     
     // Prevenir scroll horizontal
-    const preventHorizontalScroll = (e) => {
+    const preventHorizontalScroll = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
         e.preventDefault();
       }
