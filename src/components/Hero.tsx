@@ -1,10 +1,11 @@
-import React from "react";
 import "../App.css";
 import logo from "../assets/logo.png";
 import background from "../assets/background.png";
 import ParticlesBackground from "./ParticlesBackground";
 
-const Hero: React.FC = () => (
+const Hero = ({ subtitle }: {
+  subtitle: string;
+}) => (
   <section className="hero-section" id="hero">
     <div className="hero-bg" />
     <div className="stars" />
@@ -20,7 +21,7 @@ const Hero: React.FC = () => (
         <span className="hero-software">software</span>
         <span className="hero-line-deco" />
       </div>
-      <span className="hero-sub">Desarrollamos tecnología que trasciende</span>
+      <span className="hero-sub">{subtitle}</span>
     </div>
     <div className="hero-city">
       <img

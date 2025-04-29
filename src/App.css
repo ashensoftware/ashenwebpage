@@ -210,6 +210,31 @@ body {
   color: #a084ee;
 }
 
+
+.language-select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border:  none;
+  background-color: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  option {
+    background-color: #0f0b11;
+    color: #fff;  
+    border: none;
+  }
+  option:hover{
+    background-color: #3a0ca3cc;
+  }
+}
+.language-select:hover {
+  background: #a084ee33;
+  color: #a084ee;
+}
+
 /* HERO */
 @keyframes fadeInUp {
   0% {
