@@ -52,12 +52,14 @@ function FloatingPaths({ position }: { position: number }) {
 export function BackgroundPaths({
     children,
     className = "",
+    id,
 }: {
     children?: React.ReactNode;
     className?: string;
+    id?: string;
 }) {
     return (
-        <div className={`background-paths-container ${className}`}>
+        <div className={`background-paths-container ${className}`} id={id}>
             <div className="background-paths-wrapper">
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />

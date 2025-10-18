@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { team } from '../constants/ashenData';
+import { team, TeamMember } from '../constants/ashenData';
 
 const About: React.FC = () => (
   <section className="about-section" id="about">
@@ -44,7 +44,7 @@ const About: React.FC = () => (
 
       <h2 className="section-title team-title">Nuestro Equipo</h2>
       <div className="team-grid">
-        {team.map((member, idx) => (
+        {team.map((member: TeamMember, idx: number) => (
           <div className="team-card" key={idx}>
             <div className="team-card-inner">
               <div className="team-img-container">

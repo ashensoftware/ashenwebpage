@@ -48,8 +48,6 @@ export const NavBar: React.FC<NavBarProps> = ({ home, services, about, contact }
     }
   };
 
-  const isHomePage = location.pathname === '/';
-
   return (
     <nav className="ashen-nav">
       <div className="ashen-nav-inner">

@@ -9,7 +9,7 @@ export const ClickSpark: React.FC = () => {
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
 
   const createSpark = React.useCallback((x: number, y: number): Spark => {
-    const { PARTICLE_COUNT, COLORS, MIN_SIZE, MAX_SIZE, MIN_SPEED, MAX_SPEED, GRAVITY } = ANIMATION_CONFIG.CLICK_SPARK;
+    const { COLORS, MIN_SIZE, MAX_SIZE, MIN_SPEED, MAX_SPEED, GRAVITY } = ANIMATION_CONFIG.CLICK_SPARK;
     
     const angle = (Math.PI * 2 * Math.random()) + Math.random() * 0.3;
     const speed = Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
@@ -84,7 +84,7 @@ export const ClickSpark: React.FC = () => {
     });
   }, []);
 
-  const animate = React.useCallback((timestamp: number) => {
+  const animate = React.useCallback(() => {
     updateSparks();
     drawSparks();
     requestAnimationFrame(animate);
@@ -114,7 +114,7 @@ export const ClickSpark: React.FC = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    animate(0);
+    animate();
 
     return () => {
       window.removeEventListener('resize', setCanvasSize);
