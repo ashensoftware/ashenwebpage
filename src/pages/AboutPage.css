@@ -1,0 +1,349 @@
+.about-page {
+  min-height: 100vh;
+  background: #010014;
+}
+
+.about-page-section {
+  background: linear-gradient(135deg, #010014 0%, #0a0a2e 25%, #1a0a2e 50%, #16213e 75%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.about-page-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(1, 0, 20, 0.9), rgba(1, 0, 20, 0.3));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.about-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+}
+
+.about-page-logo {
+  text-decoration: none;
+}
+
+.about-page-logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.about-page-back-btn {
+  background: rgba(157, 61, 255, 0.1);
+  border: 1px solid rgba(157, 61, 255, 0.3);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  color: #9d3dff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.about-page-back-btn:hover {
+  background: rgba(157, 61, 255, 0.2);
+  border-color: rgba(157, 61, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Mission and Vision Section */
+.about-mission-vision {
+  margin-bottom: 4rem;
+}
+
+.mission-vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.mission-vision-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 61, 255, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.mission-vision-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(157, 61, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(157, 61, 255, 0.1);
+}
+
+.mission-vision-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #9d3dff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.mission-vision-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+/* Who We Are Section */
+.about-who-we-are {
+  margin-bottom: 4rem;
+}
+
+.about-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #9d3dff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.who-we-are-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 61, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+}
+
+.who-we-are-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.who-we-are-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Value Proposition Section */
+.about-value-proposition {
+  margin-bottom: 4rem;
+}
+
+.value-proposition-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 61, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+}
+
+.value-proposition-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Our Culture Section */
+.about-culture {
+  margin-bottom: 4rem;
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.culture-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 61, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.culture-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(157, 61, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(157, 61, 255, 0.1);
+}
+
+.culture-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #9d3dff;
+  margin-bottom: 1rem;
+}
+
+.culture-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+/* Our Values Section */
+.about-values {
+  margin-bottom: 4rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 61, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(157, 61, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(157, 61, 255, 0.1);
+}
+
+.value-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #9d3dff;
+  margin-bottom: 1rem;
+}
+
+.value-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+/* Footer */
+.about-page-footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(157, 61, 255, 0.2);
+  margin-top: 3rem;
+}
+
+.about-page-footer-text {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.about-page-footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-page-footer-link {
+  color: #9d3dff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.about-page-footer-link:hover {
+  color: #b366ff;
+}
+
+.about-page-footer-separator {
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-page-container {
+    padding: 0 1rem;
+  }
+
+  .about-page-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .mission-vision-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mission-vision-item,
+  .who-we-are-content,
+  .value-proposition-content {
+    padding: 2rem;
+  }
+
+  .culture-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section-title {
+    font-size: 2rem;
+  }
+
+  .mission-vision-title {
+    font-size: 1.5rem;
+  }
+
+  .mission-vision-text,
+  .who-we-are-text,
+  .value-proposition-text {
+    font-size: 1rem;
+  }
+
+  .about-page-footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-vision-item,
+  .who-we-are-content,
+  .value-proposition-content,
+  .culture-item,
+  .value-item {
+    padding: 1.5rem;
+  }
+
+  .about-section-title {
+    font-size: 1.8rem;
+  }
+
+  .mission-vision-title {
+    font-size: 1.3rem;
+  }
+}
