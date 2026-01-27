@@ -30,7 +30,7 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
   trailLength = 3,
   width,
   height,
-  idleSpeed = 0.2,
+  idleSpeed = 0.05,
   glow = true,
   glowRadius = 20,
   children,
@@ -53,16 +53,12 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
   // Detect dark mode
   useEffect(() => {
     const updateDarkMode = () => {
-      const prefersDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDarkMode(
-        document.documentElement.classList.contains("dark") || prefersDark
-      );
+      const isDark = document.body.classList.contains("dark-mode");
+      setIsDarkMode(isDark);
     };
     updateDarkMode();
     const observer = new MutationObserver(() => updateDarkMode());
-    observer.observe(document.documentElement, { attributes: true });
+    observer.observe(document.body, { attributes: true });
     return () => observer.disconnect();
   }, []);
 
@@ -97,45 +93,46 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
 
   // Resize handler
   useEffect(() => {
+    let resizeTimeout: any;
+
     const handleResize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      
-      const container = containerRef.current;
-      if (!container) return;
-      
-      const rect = container.getBoundingClientRect();
-      const canvasWidth = width || rect.width;
-      const canvasHeight = height || rect.height;
-      
-      // Set canvas size to match container
-      canvas.width = canvasWidth;
-      canvas.height = canvasHeight;
-      
-      // Update idle positions for new dimensions
-      const cols = Math.floor(canvasWidth / gridSize);
-      const rows = Math.floor(canvasHeight / gridSize);
-      
-      idleTargetsRef.current = Array.from({ length: idleRandomCount }, () => ({
-        x: Math.floor(Math.random() * cols),
-        y: Math.floor(Math.random() * rows),
-      }));
-      idlePositionsRef.current = idleTargetsRef.current.map((p) => ({ ...p }));
-      
-      // Clear trail on resize
-      trailRef.current = [];
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const container = containerRef.current;
+        if (!container) return;
+
+        const rect = container.getBoundingClientRect();
+        const canvasWidth = width || rect.width;
+        const canvasHeight = height || rect.height;
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        const cols = Math.floor(canvasWidth / gridSize);
+        const rows = Math.floor(canvasHeight / gridSize);
+
+        idleTargetsRef.current = Array.from({ length: idleRandomCount }, () => ({
+          x: Math.floor(Math.random() * cols),
+          y: Math.floor(Math.random() * rows),
+        }));
+        idlePositionsRef.current = idleTargetsRef.current.map((p) => ({ ...p }));
+
+        trailRef.current = [];
+      }, 100); // Debounce 100ms
     };
 
-    // Initial resize
-    handleResize();
-    
-    // Listen for resize events
+    handleResize(); // Initial call
+
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleResize);
+      clearTimeout(resizeTimeout);
     };
   }, [gridSize, width, height, idleRandomCount]);
 
@@ -156,7 +153,7 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
       const rect = container.getBoundingClientRect();
       const canvasWidth = width || rect.width;
       const canvasHeight = height || rect.height;
-      
+
       // Update canvas size if needed
       if (canvas.width !== canvasWidth || canvas.height !== canvasHeight) {
         canvas.width = canvasWidth;

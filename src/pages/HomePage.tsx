@@ -1,48 +1,42 @@
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { NavBar } from '../features/navigation/NavBar';
-import { Hero } from '../features/hero/Hero';
-import ThreeDCarousel from '../features/services/ThreeDCarousel';
-import { Footer } from '../features/footer/Footer';
-import { ClickSpark } from '../features/animations/ClickSpark';
-import { useScrollToSection } from '../core/hooks';
-import '../styles/globals/reset.css';
-import '../styles/globals/base.css';
-import '../i18n';
+import React from 'react';
+import { Hero } from '@/features/hero/Hero';
+import { ServicesSection } from '@/features/services/ServicesSection';
+import { ValueProposition } from '@/features/value-proposition/ValueProposition';
+import { FAQ } from '@/features/faq/FAQ';
+import { ContactUs } from '@/features/contact/ContactUs';
+import { ClickSpark } from '@/features/animations/ClickSpark';
+
+import { AboutPreview } from '@/features/about/AboutPreview';
+
+// Temporarily importing CSS here if removed from main.tsx, but globally it should be in main.
+// Assuming Layout is handled in App.tsx, so we don't wrap with Layout here.
+
+import { SectionDivider } from '@/components/ui/SectionDivider';
+
+// ... other imports
 
 const HomePage: React.FC = () => {
-  const { t } = useTranslation();
-  useScrollToSection();
-
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    const preventHorizontalScroll = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-      }
-    };
-
-    window.addEventListener('wheel', preventHorizontalScroll, { passive: false });
-    
-    return () => {
-      window.removeEventListener('wheel', preventHorizontalScroll);
-    };
-  }, []);
-
   return (
-    <div className="ashen-root">
+    <div className="ashen-home overflow-x-hidden">
       <ClickSpark />
-      <div className="ashen-content">
-        <NavBar 
-          home={t('nav-home')} 
-          services={t('nav-services')}
-          about={t('nav-about')}
-          contact={t('nav-contact')} 
-        />
-        <Hero />
-        <ThreeDCarousel />
-        <Footer />
+
+      {/* Sections */}
+      <Hero />
+
+      {/* Smooth Transition to Services */}
+      <div className="relative -mt-2 z-20">
+        <SectionDivider variant="curve" color="var(--bg-primary)" />
+      </div>
+
+      <ServicesSection />
+
+      <ValueProposition />
+      <AboutPreview />
+
+      <FAQ />
+
+      <div id="contact">
+        <ContactUs />
       </div>
     </div>
   );

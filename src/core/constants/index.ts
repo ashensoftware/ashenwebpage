@@ -12,8 +12,8 @@ export const ANIMATION_CONFIG = {
     COUNT: 35,
     MIN_SIZE: 1.5,
     MAX_SIZE: 3.5,
-    MIN_SPEED: 0.2,
-    MAX_SPEED: 0.6,
+    MIN_SPEED: 0.1,
+    MAX_SPEED: 0.3,
     COLORS: [
       'rgba(157, 61, 255, 0.6)',
       'rgba(93, 97, 208, 0.6)',

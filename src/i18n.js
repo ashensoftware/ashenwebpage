@@ -8,10 +8,10 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "es", // Idioma por defecto
+    fallbackLng: "es",
     debug: true,
     interpolation: {
-      escapeValue: false, // No escapamos las traducciones (ya que estamos usando React)
+      escapeValue: false,
     },
     resources: {
       es: { translation: translationES },

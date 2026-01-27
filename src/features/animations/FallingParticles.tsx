@@ -12,7 +12,11 @@ export const FallingParticles: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return {} as Particle;
 
-    const { MIN_SIZE, MAX_SIZE, MIN_SPEED, MAX_SPEED, COLORS } = ANIMATION_CONFIG.FALLING_PARTICLES;
+    const { MIN_SIZE, MAX_SIZE, MIN_SPEED, MAX_SPEED } = ANIMATION_CONFIG.FALLING_PARTICLES;
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const particleColors = isDarkMode
+      ? ['rgba(255, 255, 255, 0.8)', 'rgba(255, 255, 255, 0.6)', 'rgba(255, 255, 255, 0.4)']
+      : ['rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 0.6)', 'rgba(0, 0, 0, 0.4)'];
 
     return {
       x: Math.random() * canvas.width,
@@ -22,14 +26,14 @@ export const FallingParticles: React.FC = () => {
       rotation: Math.random() * Math.PI * 2,
       rotationSpeed: (Math.random() - 0.5) * 0.05,
       opacity: Math.random() * 0.5 + 0.3,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)]
+      color: particleColors[Math.floor(Math.random() * particleColors.length)]
     };
   }, [canvasRef]);
 
   const initializeParticles = React.useCallback(() => {
     const { COUNT } = ANIMATION_CONFIG.FALLING_PARTICLES;
     particlesRef.current = [];
-    
+
     for (let i = 0; i < COUNT; i++) {
       particlesRef.current.push(createParticle());
     }
@@ -42,10 +46,10 @@ export const FallingParticles: React.FC = () => {
     particlesRef.current.forEach((particle, index) => {
       particle.y += particle.speed;
       particle.rotation += particle.rotationSpeed;
-      
+
       const fadeStart = canvas.height * 0.2;
       const fadeEnd = canvas.height * 0.8;
-      
+
       if (particle.y < fadeStart) {
         particle.opacity = Math.min(1, particle.y / fadeStart);
       } else if (particle.y > fadeEnd) {
@@ -71,15 +75,15 @@ export const FallingParticles: React.FC = () => {
       ctx.save();
       ctx.translate(particle.x, particle.y);
       ctx.rotate(particle.rotation);
-      
+
       const alpha = particle.opacity;
       ctx.fillStyle = particle.color.replace(/[\d.]+\)$/g, `${alpha})`);
       ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
-      
+
       ctx.strokeStyle = particle.color.replace(/[\d.]+\)$/g, `${Math.min(1, alpha + 0.2)})`);
       ctx.lineWidth = 0.5;
       ctx.strokeRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
-      
+
       ctx.restore();
     });
   }, [canvasRef]);

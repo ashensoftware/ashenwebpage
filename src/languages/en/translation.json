@@ -1,15 +1,173 @@
 {
-    "nav-home": "Home",
-    "nav-services": "Services",
-    "nav-about": "About Us",
-    "nav-contact": "Contact",
-    "header-subtitle": "We develop technology that transcends",
-    "timeline-title": "Achievements and Events",
-    "projects-title": "Projects",
-    "footer-legal-info": "Legal Information",
-    "footer-economic-activity": "Activity: Computer system development",
-    "footer-start-activities": "Start of activities: 04/16/2025",
-    "footer-contact": "Contact",
-    "footer-copyright": "© 2025 ASHEN Software. All rights reserved."
-  }
-  
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "cta": "Schedule Demo"
+  },
+  "hero": {
+    "title": "We build technology that <span class='text-gradient'>transcends</span>",
+    "subtitle": "Premium software architecture, artificial intelligence, and digital solutions designed for scalability and impact.",
+    "cta": {
+      "primary": "Schedule Demo",
+      "secondary": "View Services"
+    }
+  },
+  "services": {
+    "label": "Our Solutions",
+    "title": "Engineering for Growth",
+    "subtitle": "Comprehensive technology stacks designed to solve complex business challenges."
+  },
+  "values": {
+    "label": "Why Ashen Software",
+    "heading": "Technology That Drives Business Results",
+    "subheading": "We combine technical expertise with business acumen to deliver solutions that matter.",
+    "innovation": {
+      "title": "Innovation First",
+      "desc": "We stay ahead of the curve, implementing the latest technologies to give you a competitive edge."
+    },
+    "precision": {
+      "title": "Engineering Precision",
+      "desc": "Clean code, scalable architecture, and robust solutions that stand the test of time."
+    },
+    "partnership": {
+      "title": "True Partnership",
+      "desc": "We work as an extension of your team, aligned with your goals and success."
+    },
+    "speed": {
+      "title": "Speed to Market",
+      "desc": "Agile methodologies ensuring rapid delivery without compromising quality."
+    },
+    "stats": {
+      "projects": {
+        "val": "100+",
+        "label": "Projects Delivered",
+        "desc": "Helping startups and enterprises scale through technology."
+      }
+    }
+  },
+  "about": {
+    "label": "Who We Are",
+    "title": "More Than Just Code",
+    "subtitle": "We are a collective of visionaries, engineers, and creatives dedicated to building the future.",
+    "description": "At Ashen Software, we believe in the power of technology to transform lives and businesses. Our culture is built on innovation, transparency, and a relentless pursuit of excellence.",
+    "cta": "Schedule Demo"
+  },
+  "nav-home": "Home",
+  "nav-services": "Services",
+  "nav-about": "About Us",
+  "nav-contact": "Contact",
+  "faq": {
+    "label": "Questions",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our process and how we can help your business grow.",
+    "q1": "What software development services do you offer?",
+    "a1": "We offer custom software development, web and mobile applications, technology consulting, and legacy system modernization.",
+    "q2": "What is your work process like?",
+    "a2": "We work with agile methodologies (Scrum/Kanban). We start with a discovery and design phase, followed by iterative development sprints.",
+    "q3": "Do you offer post-launch support and maintenance?",
+    "a3": "Yes, we offer support and maintenance plans to ensure your software continues to function perfectly.",
+    "q4": "What technologies do you use?",
+    "a4": "We use a robust modern stack including React, Node.js, Python, AWS, Azure, and mobile technologies like React Native and Flutter.",
+    "q5": "Can you sign an NDA?",
+    "a5": "Absolutely. We respect your privacy and intellectual property."
+  },
+  "footer": {
+    "description": "We build technology that transcends. Premium software architecture and digital solutions.",
+    "company": "Company",
+    "legal": "Legal",
+    "contact": "Contact",
+    "services": "Services",
+    "about": "About Us",
+    "work": "Our Work",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {{year}} ASHEN Software. All rights reserved.",
+    "tagline": "Designed for Impact."
+  },
+  "contact": {
+    "title": "Quote a project with us!",
+    "description": "Ready to turn your idea into reality? Share your vision with us, and we'll provide the technology, strategy, and expertise to build something extraordinary together.",
+    "name-label": "What is your name?*",
+    "project-label": "What is the name of your project/idea?",
+    "phone-label": "Your Phone Number*",
+    "email-label": "Your E-mail*",
+    "message-label": "A few words about your project/idea*",
+    "message-placeholder": "Tell us more...",
+    "button": "Send Message"
+  },
+  "service-web-development-title": "Web Development",
+  "service-web-development-description": "We create websites and applications that work perfectly on any device. From corporate pages to complex platforms, we make your digital presence professional and effective.",
+  "service-mobile-development-title": "Mobile Applications",
+  "service-mobile-development-description": "We develop applications for smartphones and tablets that your customers can download from official stores. Solutions that work on both Android and iPhone.",
+  "service-desktop-apps-title": "Desktop Applications",
+  "service-desktop-apps-description": "We create computer programs that install directly on Windows, Mac, or Linux. Perfect for businesses that need specific tools for their daily work.",
+  "service-iot-solutions-title": "Internet of Things (IoT)",
+  "service-iot-solutions-description": "We connect smart devices to the internet to automate your home or business. From sensors to control systems, we make technology work for you.",
+  "service-game-development-title": "Game Development",
+  "service-game-development-description": "We create video games from scratch for mobile, PC, and consoles. From casual games to immersive experiences, we bring your vision to life.",
+  "service-artificial-intelligence-title": "Artificial Intelligence",
+  "service-artificial-intelligence-description": "We implement intelligent systems that can learn and make decisions. From chatbots to predictive analysis, AI can revolutionize your business.",
+  "service-machine-learning-title": "Machine Learning",
+  "service-machine-learning-description": "We develop systems that learn from data to improve continuously. Perfect for companies that want to leverage their information to make better decisions.",
+  "service-deep-learning-title": "Deep Learning",
+  "service-deep-learning-description": "We create advanced neural networks that can process complex information like images, text, and audio. Ideal for projects requiring sophisticated analysis.",
+  "service-data-science-title": "Data Science",
+  "service-data-science-description": "We transform your data into valuable information that drives intelligent decisions. From automated reports to interactive dashboards, we make numbers speak.",
+  "service-blockchain-title": "Blockchain",
+  "service-blockchain-description": "We implement blockchain technology to create secure and transparent systems. Perfect for companies needing traceability, smart contracts, or cryptocurrencies.",
+  "service-automation-title": "Automation",
+  "service-automation-description": "We automate repetitive processes so your team can focus on what matters. From administrative tasks to complex workflows, technology works 24/7.",
+  "learn-more": "Learn more",
+  "faq-q1": "What software development services do you offer?",
+  "faq-a1": "We offer custom software development, web and mobile applications, technology consulting, and legacy system modernization.",
+  "faq-q2": "What is your work process like?",
+  "faq-a2": "We work with agile methodologies (Scrum/Kanban). We start with a discovery and design phase, followed by iterative development sprints.",
+  "faq-q3": "Do you offer post-launch support and maintenance?",
+  "faq-a3": "Yes, we offer support and maintenance plans to ensure your software continues to function perfectly.",
+  "faq-q4": "What technologies do you use?",
+  "faq-a4": "We use a robust modern stack including React, Node.js, Python, AWS, Azure, and mobile technologies like React Native and Flutter.",
+  "faq-q5": "Can you sign an NDA?",
+  "faq-a5": "Absolutely. We respect your privacy and intellectual property.",
+  "contact-title": "Let's Build Something Amazing",
+  "contact-description": "Ready to transform your business? Send us a message and let's discuss your project.",
+  "contact-name-label": "Name",
+  "contact-project-label": "Project Type",
+  "contact-phone-label": "Phone",
+  "contact-email-label": "Email",
+  "contact-message-label": "Message",
+  "contact-message-placeholder": "Tell us about your project...",
+  "about-dna": "The Ashen DNA",
+  "about-hero-title-1": "We Are",
+  "about-hero-title-2": "Architects",
+  "about-hero-title-3": "Of The Future.",
+  "about-hero-desc": "A collective of visionaries, engineers, and creatives dedicated to building technology that transcends boundaries and redefines what's possible.",
+  "about-principles-title-1": "Guiding principles for",
+  "about-principles-title-2": "Ashen's",
+  "about-principles-title-3": "commitment to innovation and impact.",
+  "about-mission-title": "Our Mission",
+  "about-mission-desc": "To empower businesses by bridging the gap between complex technology and human-centric design. We build digital ecosystems that are not just functional, but transformative, scalable, and intuitive.",
+  "about-vision-title": "Our Vision",
+  "about-vision-desc": "To be the global standard for digital excellence, where code meets creativity to solve the world's most pressing challenges. We envision a future where technology is seamless, invisible, and boundless.",
+  "about-stat-years-val": "5+",
+  "about-stat-years-label": "Years of Excellence",
+  "about-stat-projects-val": "50+",
+  "about-stat-projects-label": "Projects Launched",
+  "about-stat-valuation-val": "$2M+",
+  "about-stat-valuation-label": "Client Valuation",
+  "about-stat-commitment-val": "100%",
+  "about-stat-commitment-label": "Commitment",
+  "about-culture-label": "Culture",
+  "about-culture-heading": "Rooted in Excellence",
+  "about-culture-subheading": "Our values are the bedrock of our innovation. They guide how we build, how we partner, and how we grow.",
+  "about-culture-transparency-title": "Transparency",
+  "about-culture-transparency-desc": "Open code, open communication. We believe trust is built on clarity.",
+  "about-culture-innovation-title": "Innovation",
+  "about-culture-innovation-desc": "We don't just follow trends; we set them. Constantly exploring the new.",
+  "about-culture-agility-title": "Agility",
+  "about-culture-agility-desc": "Fast execution without compromising quality. We adapt to conquer.",
+  "about-culture-empathy-title": "Empathy",
+  "about-culture-empathy-desc": "Technology for people. We design with the human experience at the core.",
+  "contact-button": "Send Message"
+}

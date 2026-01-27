@@ -1,10 +1,11 @@
+
 export interface Service {
   id: string;
   title: string;
   description: string;
-  image: string;
   features: string[];
   technologies: string[];
+  image: string;
 }
 
 export const ASHEN_SERVICES: Service[] = [
@@ -12,7 +13,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'web-development',
     title: 'Desarrollo Web',
     description: 'Creamos sitios web y aplicaciones que funcionan perfectamente en cualquier dispositivo. Desde páginas corporativas hasta plataformas complejas, hacemos que tu presencia digital sea profesional y efectiva.',
-    image: '/assets/services/web.jpg',
+    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop',
     features: [
       'Sitios web responsivos y modernos',
       'Optimización para buscadores',
@@ -25,7 +26,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'mobile-development',
     title: 'Aplicaciones Móviles',
     description: 'Desarrollamos aplicaciones para smartphones y tablets que tus clientes pueden descargar desde las tiendas oficiales. Soluciones que funcionan tanto en Android como en iPhone.',
-    image: '/assets/services/mobile.jpg',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop',
     features: [
       'Apps para Android e iPhone',
       'Diseño intuitivo y atractivo',
@@ -38,7 +39,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'desktop-apps',
     title: 'Aplicaciones de Escritorio',
     description: 'Creamos programas para computadoras que se instalan directamente en Windows, Mac o Linux. Perfectas para empresas que necesitan herramientas específicas para su trabajo diario.',
-    image: '/assets/services/desktop.jpg',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop',
     features: [
       'Programas para Windows, Mac y Linux',
       'Interfaz fácil de usar',
@@ -51,7 +52,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'iot-solutions',
     title: 'Internet de las Cosas (IoT)',
     description: 'Conectamos dispositivos inteligentes a internet para automatizar tu hogar o negocio. Desde sensores hasta sistemas de control, hacemos que la tecnología trabaje para ti.',
-    image: '/assets/services/iot.jpg',
+    image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop',
     features: [
       'Dispositivos conectados',
       'Monitoreo en tiempo real',
@@ -64,7 +65,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'game-development',
     title: 'Desarrollo de Videojuegos',
     description: 'Creamos videojuegos desde cero para móviles, computadoras y consolas. Desde juegos casuales hasta experiencias inmersivas, llevamos tu visión a la realidad.',
-    image: '/assets/services/games.jpg',
+    image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop',
     features: [
       'Juegos para móviles y PC',
       'Gráficos atractivos',
@@ -77,7 +78,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'artificial-intelligence',
     title: 'Inteligencia Artificial',
     description: 'Implementamos sistemas inteligentes que pueden aprender y tomar decisiones. Desde chatbots hasta análisis predictivo, la IA puede revolucionar tu negocio.',
-    image: '/assets/services/ai.jpg',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
     features: [
       'Chatbots inteligentes',
       'Análisis predictivo',
@@ -90,7 +91,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'machine-learning',
     title: 'Machine Learning',
     description: 'Desarrollamos sistemas que aprenden de los datos para mejorar continuamente. Perfecto para empresas que quieren aprovechar su información para tomar mejores decisiones.',
-    image: '/assets/services/ml.jpg',
+    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop',
     features: [
       'Análisis de datos avanzado',
       'Predicciones precisas',
@@ -103,7 +104,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'deep-learning',
     title: 'Deep Learning',
     description: 'Creamos redes neuronales avanzadas que pueden procesar información compleja como imágenes, texto y audio. Ideal para proyectos que requieren análisis sofisticado.',
-    image: '/assets/services/deep-learning.jpg',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
     features: [
       'Procesamiento de imágenes',
       'Análisis de texto avanzado',
@@ -116,7 +117,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'data-science',
     title: 'Ciencia de Datos',
     description: 'Transformamos tus datos en información valiosa que impulsa decisiones inteligentes. Desde reportes automáticos hasta dashboards interactivos, hacemos que los números hablen.',
-    image: '/assets/services/data-science.jpg',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
     features: [
       'Análisis de datos empresariales',
       'Dashboards interactivos',
@@ -129,7 +130,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'blockchain',
     title: 'Blockchain',
     description: 'Implementamos tecnología blockchain para crear sistemas seguros y transparentes. Perfecto para empresas que necesitan trazabilidad, contratos inteligentes o criptomonedas.',
-    image: '/assets/services/blockchain.jpg',
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800&auto=format&fit=crop',
     features: [
       'Contratos inteligentes',
       'Sistemas de trazabilidad',
@@ -142,7 +143,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'automation',
     title: 'Automatización',
     description: 'Automatizamos procesos repetitivos para que tu equipo se enfoque en lo importante. Desde tareas administrativas hasta flujos de trabajo complejos, la tecnología trabaja 24/7.',
-    image: '/assets/services/automation.jpg',
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop',
     features: [
       'Automatización de procesos',
       'Integración de sistemas',

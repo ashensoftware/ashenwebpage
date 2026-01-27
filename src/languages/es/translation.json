@@ -1,15 +1,173 @@
 {
-    "nav-home": "Inicio",
-    "nav-services": "Servicios",
-    "nav-about": "Nosotros",
-    "nav-contact": "Contacto",
-    "header-subtitle": "Desarrollamos tecnología que trasciende",
-    "timeline-title": "Logros y Eventos",
-    "projects-title": "Proyectos",
-    "footer-legal-info": "Información Legal",
-    "footer-economic-activity": "Actividad: Desarrollo de sistemas informáticos",
-    "footer-start-activities": "Inicio de actividades: 16/04/2025",
-    "footer-contact": "Contacto",
-    "footer-copyright": "© 2025 ASHEN Software. Todos los derechos reservados."
-  }
-  
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Agendar Demo"
+  },
+  "hero": {
+    "title": "Desarrollamos tecnología que <span class='text-gradient'>trasciende</span>",
+    "subtitle": "Arquitectura de software premium, inteligencia artificial y soluciones digitales diseñadas para escalabilidad e impacto.",
+    "cta": {
+      "primary": "Agendar Demo",
+      "secondary": "Ver Servicios"
+    }
+  },
+  "services": {
+    "label": "Nuestras Soluciones",
+    "title": "Ingeniería para el Crecimiento",
+    "subtitle": "Pilas tecnológicas integrales diseñadas para resolver desafíos empresariales complejos."
+  },
+  "values": {
+    "label": "Por qué Ashen Software",
+    "heading": "Tecnología que Impulsa Resultados",
+    "subheading": "Combinamos experiencia técnica con visión de negocios para entregar soluciones que importan.",
+    "innovation": {
+      "title": "Innovación Primero",
+      "desc": "Nos mantenemos a la vanguardia, implementando las últimas tecnologías para darte una ventaja competitiva."
+    },
+    "precision": {
+      "title": "Precisión en Ingeniería",
+      "desc": "Código limpio, arquitectura escalable y soluciones robustas que perduran en el tiempo."
+    },
+    "partnership": {
+      "title": "Verdadera Asociación",
+      "desc": "Trabajamos como una extensión de tu equipo, alineados con tus objetivos y éxito."
+    },
+    "speed": {
+      "title": "Velocidad de Mercado",
+      "desc": "Metodologías ágiles que aseguran una entrega rápida sin comprometer la calidad."
+    },
+    "stats": {
+      "projects": {
+        "val": "100+",
+        "label": "Proyectos Entregados",
+        "desc": "Ayudando a startups y empresas a escalar mediante tecnología."
+      }
+    }
+  },
+  "about": {
+    "label": "Quiénes Somos",
+    "title": "Más Que Solo Código",
+    "subtitle": "Somos un colectivo de visionarios, ingenieros y creativos dedicados a construir el futuro.",
+    "description": "En Ashen Software, creemos en el poder de la tecnología para transformar vidas y negocios. Nuestra cultura se basa en la innovación, la transparencia y una búsqueda incansable de la excelencia.",
+    "cta": "Agenda tu Demo"
+  },
+  "nav-home": "Inicio",
+  "nav-services": "Servicios",
+  "nav-about": "Nosotros",
+  "nav-contact": "Contacto",
+  "faq": {
+    "label": "Preguntas",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre nuestro proceso y cómo podemos ayudar a que tu negocio crezca.",
+    "q1": "¿Qué servicios de desarrollo de software ofrecen?",
+    "a1": "Ofrecemos desarrollo de software a la medida, aplicaciones web y móviles, consultoría tecnológica, y modernización de sistemas legacy.",
+    "q2": "¿Cómo es su proceso de trabajo?",
+    "a2": "Trabajamos con metodologías ágiles (Scrum/Kanban). Iniciamos con una fase de descubrimiento y diseño, seguida de sprints de desarrollo iterativos.",
+    "q3": "¿Ofrecen soporte y mantenimiento post-lanzamiento?",
+    "a3": "Sí, ofrecemos planes de soporte y mantenimiento para asegurar que su software siga funcionando perfectamente.",
+    "q4": "¿Qué tecnologías utilizan?",
+    "a4": "Utilizamos un stack moderno y robusto que incluye React, Node.js, Python, AWS, Azure, y tecnologías móviles como React Native y Flutter.",
+    "q5": "¿Pueden firmar un NDA?",
+    "a5": "Absolutamente. Respetamos tu privacidad y propiedad intelectual."
+  },
+  "footer": {
+    "description": "Desarrollamos tecnología que trasciende. Arquitectura de software premium y soluciones digitales.",
+    "company": "Empresa",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "work": "Proyectos",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "copyright": "© {{year}} ASHEN Software. Todos los derechos reservados.",
+    "tagline": "Diseñado para Impactar."
+  },
+  "contact": {
+    "title": "¡Cotiza un proyecto con nosotros!",
+    "description": "¿Listo para convertir tu idea en realidad? Comparte tu visión con nosotros y te proporcionaremos la tecnología, estrategia y experiencia para construir algo extraordinario.",
+    "name-label": "¿Cuál es tu nombre?*",
+    "project-label": "¿Cuál es el nombre de tu proyecto/idea?",
+    "phone-label": "Tu número de teléfono*",
+    "email-label": "Tu correo electrónico*",
+    "message-label": "Unas pocas palabras sobre tu proyecto/idea*",
+    "message-placeholder": "Cuéntanos más...",
+    "button": "Enviar Mensaje"
+  },
+  "service-web-development-title": "Desarrollo Web",
+  "service-web-development-description": "Creamos sitios web y aplicaciones que funcionan perfectamente en cualquier dispositivo. Desde páginas corporativas hasta plataformas complejas, hacemos que tu presencia digital sea profesional y efectiva.",
+  "service-mobile-development-title": "Aplicaciones Móviles",
+  "service-mobile-development-description": "Desarrollamos aplicaciones para smartphones y tablets que tus clientes pueden descargar desde las tiendas oficiales. Soluciones que funcionan tanto en Android como en iPhone.",
+  "service-desktop-apps-title": "Aplicaciones de Escritorio",
+  "service-desktop-apps-description": "Creamos programas para computadoras que se instalan directamente en Windows, Mac o Linux. Perfectas para empresas que necesitan herramientas específicas para su trabajo diario.",
+  "service-iot-solutions-title": "Internet de las Cosas (IoT)",
+  "service-iot-solutions-description": "Conectamos dispositivos inteligentes a internet para automatizar tu hogar o negocio. Desde sensores hasta sistemas de control, hacemos que la tecnología trabaje para ti.",
+  "service-game-development-title": "Desarrollo de Videojuegos",
+  "service-game-development-description": "Creamos videojuegos desde cero para móviles, computadoras y consolas. Desde juegos casuales hasta experiencias inmersivas, llevamos tu visión a la realidad.",
+  "service-artificial-intelligence-title": "Inteligencia Artificial",
+  "service-artificial-intelligence-description": "Implementamos sistemas inteligentes que pueden aprender y tomar decisiones. Desde chatbots hasta análisis predictivo, la IA puede revolucionar tu negocio.",
+  "service-machine-learning-title": "Machine Learning",
+  "service-machine-learning-description": "Desarrollamos sistemas que aprenden de los datos para mejorar continuamente. Perfecto para empresas que quieren aprovechar su información para tomar mejores decisiones.",
+  "service-deep-learning-title": "Deep Learning",
+  "service-deep-learning-description": "Creamos redes neuronales avanzadas que pueden procesar información compleja como imágenes, texto y audio. Ideal para proyectos que requieren análisis sofisticado.",
+  "service-data-science-title": "Ciencia de Datos",
+  "service-data-science-description": "Transformamos tus datos en información valiosa que impulsa decisiones inteligentes. Desde reportes automáticos hasta dashboards interactivos, hacemos que los números hablen.",
+  "service-blockchain-title": "Blockchain",
+  "service-blockchain-description": "Implementamos tecnología blockchain para crear sistemas seguros y transparentes. Perfecto para empresas que necesitan trazabilidad, contratos inteligentes o criptomonedas.",
+  "service-automation-title": "Automatización",
+  "service-automation-description": "Automatizamos procesos repetitivos para que tu equipo se enfoque en lo importante. Desde tareas administrativas hasta flujos de trabajo complejos, la tecnología trabaja 24/7.",
+  "learn-more": "Conoce más",
+  "faq-q1": "¿Qué servicios de desarrollo de software ofrecen?",
+  "faq-a1": "Ofrecemos desarrollo de software a la medida, aplicaciones web y móviles, consultoría tecnológica, y modernización de sistemas legacy.",
+  "faq-q2": "¿Cómo es su proceso de trabajo?",
+  "faq-a2": "Trabajamos con metodologías ágiles (Scrum/Kanban). Iniciamos con una fase de descubrimiento y diseño, seguida de sprints de desarrollo iterativos.",
+  "faq-q3": "¿Ofrecen soporte y mantenimiento post-lanzamiento?",
+  "faq-a3": "Sí, ofrecemos planes de soporte y mantenimiento para asegurar que su software siga funcionando perfectamente.",
+  "faq-q4": "¿Qué tecnologías utilizan?",
+  "faq-a4": "Utilizamos un stack moderno y robusto que incluye React, Node.js, Python, AWS, Azure, y tecnologías móviles como React Native y Flutter.",
+  "faq-q5": "¿Pueden firmar un NDA?",
+  "faq-a5": "Absolutamente. Respetamos tu privacidad y propiedad intelectual.",
+  "contact-title": "¡Cotiza un proyecto con nosotros!",
+  "contact-description": "¿Listo para convertir tu idea en realidad? Comparte tu visión con nosotros y te proporcionaremos la tecnología, estrategia y experiencia para construir algo extraordinario.",
+  "contact-name-label": "Nombre",
+  "contact-project-label": "Tipo de Proyecto",
+  "contact-phone-label": "Teléfono",
+  "contact-email-label": "Correo Electrónico",
+  "contact-message-label": "Mensaje",
+  "contact-message-placeholder": "Cuéntanos sobre tu proyecto...",
+  "about-dna": "El ADN Ashen",
+  "about-hero-title-1": "Somos",
+  "about-hero-title-2": "Arquitectos",
+  "about-hero-title-3": "Del Futuro.",
+  "about-hero-desc": "Un colectivo de visionarios, ingenieros y creativos dedicados a construir tecnología que trasciende límites y redefine lo posible.",
+  "about-principles-title-1": "Principios que guían el compromiso de",
+  "about-principles-title-2": "Ashen",
+  "about-principles-title-3": "con la innovación y el impacto.",
+  "about-mission-title": "Nuestra Misión",
+  "about-mission-desc": "Empoderar empresas puenteando la brecha entre tecnología compleja y diseño centrado en humanos. Construimos ecosistemas digitales transformadores, escalables e intuitivos.",
+  "about-vision-title": "Nuestra Visión",
+  "about-vision-desc": "Ser el estándar global de excelencia digital, donde el código encuentra la creatividad. Imaginamos un futuro donde la tecnología es invisible, fluida y sin límites.",
+  "about-stat-years-val": "5+",
+  "about-stat-years-label": "Años de Excelencia",
+  "about-stat-projects-val": "50+",
+  "about-stat-projects-label": "Proyectos Lanzados",
+  "about-stat-valuation-val": "$2M+",
+  "about-stat-valuation-label": "Valoración de Clientes",
+  "about-stat-commitment-val": "100%",
+  "about-stat-commitment-label": "Compromiso",
+  "about-culture-label": "Cultura",
+  "about-culture-heading": "Arraigados en la Excelencia",
+  "about-culture-subheading": "Nuestros valores son la base de nuestra innovación. Guían cómo construimos, cómo nos asociamos y cómo crecemos.",
+  "about-culture-transparency-title": "Transparencia",
+  "about-culture-transparency-desc": "Código abierto, comunicación abierta. Creemos que la confianza se construye con claridad.",
+  "about-culture-innovation-title": "Innovación",
+  "about-culture-innovation-desc": "No seguimos tendencias; las marcamos. Explorando constantemente lo nuevo.",
+  "about-culture-agility-title": "Agilidad",
+  "about-culture-agility-desc": "Ejecución rápida sin comprometer calidad. Nos adaptamos para conquistar.",
+  "about-culture-empathy-title": "Empatía",
+  "about-culture-empathy-desc": "Tecnología para personas. Diseñamos con la experiencia humana en el centro.",
+  "contact-button": "Enviar Mensaje"
+}

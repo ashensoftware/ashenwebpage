@@ -1,0 +1,126 @@
+:root {
+  /* === Background Colors === */
+  --color-bg-primary: #010014;
+  --bg-primary: #010014;
+  /* Alias for compatibility */
+  --color-bg-secondary: #0a0a1f;
+  --color-bg-tertiary: #12122a;
+
+  /* === Text Colors === */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+
+  /* === Accent Colors === */
+  --color-accent-primary: #8b5cf6;
+  /* Violet */
+  --color-accent-secondary: #a084ee;
+  --color-accent-tertiary: #d946ef;
+  /* Fuchsia */
+  --color-accent-glow: rgba(139, 92, 246, 0.5);
+
+  /* === Glass/Card Styles === */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --card-bg: rgba(255, 255, 255, 0.05);
+
+  /* === Input Styles === */
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+
+  /* === Navigation === */
+  --nav-bg: rgba(1, 0, 20, 0.8);
+
+  /* === Gradients === */
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+  --gradient-dark: linear-gradient(to bottom, #010014 0%, #0a0a1f 100%);
+  --gradient-surface: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%);
+
+  /* === Typography === */
+  --font-family-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* === Spacing === */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* === Border Radius === */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* === Transitions === */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Icons === */
+  --icon-filter: brightness(0) invert(1);
+}
+
+/* === Light Mode Theme === */
+body.light-mode {
+  --color-bg-primary: #ffffff;
+  --bg-primary: #ffffff;
+  --color-bg-secondary: #f4f4f9;
+  --color-bg-tertiary: #e5e5ea;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #6b7280;
+
+  --color-accent-primary: #6d28d9;
+  --color-accent-secondary: #7c3aed;
+  --color-accent-tertiary: #c026d3;
+
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-highlight: rgba(0, 0, 0, 0.05);
+  --card-bg: #ffffff;
+
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+
+  --nav-bg: rgba(255, 255, 255, 0.9);
+
+  --icon-filter: brightness(0);
+}
+
+/* === Base Styles === */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* === Scrollbar Styles === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-primary);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-secondary);
+}

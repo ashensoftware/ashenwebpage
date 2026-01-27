@@ -1,9 +1,11 @@
+/* === Utility Classes === */
 .ashen-root {
   min-height: 100vh;
   width: 100%;
-  background: #010014;
-  color: #ddd;
+  background: var(--bg-primary);
+  color: var(--color-text-primary);
   position: relative;
+  transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 .ashen-content {
@@ -13,12 +15,13 @@
 
 .section-title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   margin-bottom: 1.5rem;
-  color: #a084ee;
+  color: var(--color-accent-primary);
   text-align: center;
 }
 
+/* === Responsive Utilities === */
 @media (max-width: 768px) {
   .section-title {
     font-size: 1.5rem;
