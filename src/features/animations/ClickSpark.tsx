@@ -10,10 +10,10 @@ export const ClickSpark: React.FC = () => {
 
   const createSpark = React.useCallback((x: number, y: number): Spark => {
     const { COLORS, MIN_SIZE, MAX_SIZE, MIN_SPEED, MAX_SPEED, GRAVITY } = ANIMATION_CONFIG.CLICK_SPARK;
-    
+
     const angle = (Math.PI * 2 * Math.random()) + Math.random() * 0.3;
     const speed = Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
-    
+
     return {
       id: sparkIdRef.current++,
       x: x + (Math.random() - 0.5) * 5,
@@ -29,12 +29,13 @@ export const ClickSpark: React.FC = () => {
   }, []);
 
   const handleClick = React.useCallback((e: MouseEvent) => {
-    const rect = document.body.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Canvas is fixed to viewport (0,0), so clientX/Y are correct coordinates.
+    // No need for getBoundingClientRect() which causes reflows.
+    const x = e.clientX;
+    const y = e.clientY;
 
     const { PARTICLE_COUNT } = ANIMATION_CONFIG.CLICK_SPARK;
-    
+
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const spark = createSpark(x, y);
       sparksRef.current.push(spark);
@@ -102,7 +103,7 @@ export const ClickSpark: React.FC = () => {
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = Z_INDEX.SPARK.toString();
-    
+
     document.body.appendChild(canvas);
     canvasRef.current = canvas;
 

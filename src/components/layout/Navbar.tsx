@@ -61,6 +61,8 @@ export const Navbar: React.FC = () => {
                             src={theme === 'dark' ? "/assets/logo/Logo-Iso-Horizontal.png" : "/assets/logo/Logo-Iso-Horizontal-black.png"}
                             alt="ASHEN Logo"
                             className="h-8 md:h-9 w-auto hover:opacity-80 transition-opacity"
+                            width="137"
+                            height="45"
                         />
                     </Link>
 

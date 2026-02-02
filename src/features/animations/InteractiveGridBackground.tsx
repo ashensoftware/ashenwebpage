@@ -150,15 +150,11 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
     const glowColor = isDarkMode ? darkEffectColor : effectColor;
 
     const draw = () => {
-      const rect = container.getBoundingClientRect();
-      const canvasWidth = width || rect.width;
-      const canvasHeight = height || rect.height;
+      // Use canvas dimensions directly to avoid forced reflow from getBoundingClientRect() every frame
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
 
-      // Update canvas size if needed
-      if (canvas.width !== canvasWidth || canvas.height !== canvasHeight) {
-        canvas.width = canvasWidth;
-        canvas.height = canvasHeight;
-      }
+      // Sizing is handled by the resize effect separately
 
       const cols = Math.floor(canvasWidth / gridSize);
       const rows = Math.floor(canvasHeight / gridSize);

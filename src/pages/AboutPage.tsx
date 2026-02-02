@@ -60,9 +60,12 @@ export const AboutPage: React.FC = () => {
         {/* Background Image with Parallax-like feel */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1920&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1200&auto=format&fit=crop"
             alt="Background"
             className="w-full h-full object-cover opacity-20"
+            width="1200"
+            height="800"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-primary/80 to-bg-primary" />
         </div>
@@ -88,12 +91,19 @@ export const AboutPage: React.FC = () => {
                 {/* Images Row - Responsive */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                   {[
-                    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600",
-                    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600",
-                    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600"
+                    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=300",
+                    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400&h=300",
+                    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400&h=300"
                   ].map((src, idx) => (
                     <div key={idx} className={`rounded-3xl overflow-hidden h-[250px] md:h-[350px] relative group ${idx === 1 ? 'md:-translate-y-8' : ''}`}>
-                      <img src={src} alt="Culture" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                      <img
+                        src={src}
+                        alt="Culture"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                      />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
                     </div>
                   ))}
