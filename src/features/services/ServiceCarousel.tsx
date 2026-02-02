@@ -6,6 +6,7 @@ import {
     useAnimationFrame,
     PanInfo
 } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { Typography } from '@/components/ui/Typography';
@@ -108,12 +109,13 @@ export const ServiceCarousel: React.FC = () => {
                     whileTap={{ cursor: "grabbing" }}
                 >
                     {services.map((service, index) => (
-                        <ServiceCard
-                            key={`${service.id}-${index}`}
-                            service={service}
-                            t={t}
-                            index={index % ASHEN_SERVICES.length}
-                        />
+                        <Link key={`${service.id}-${index}`} to={`/services/${service.id}`} className="block">
+                            <ServiceCard
+                                service={service}
+                                t={t}
+                                index={index % ASHEN_SERVICES.length}
+                            />
+                        </Link>
                     ))}
                 </motion.div>
             </div>

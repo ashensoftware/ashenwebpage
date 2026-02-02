@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowRight, Sun, Moon, ChevronDown, Code } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
+import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 
 export const Navbar: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -68,7 +69,61 @@ export const Navbar: React.FC = () => {
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
+                        <div
+                            className="relative group"
+                            onMouseEnter={() => { }} // Keep logic simple with CSS group-hover or State if needed for animation
+                        >
+                            <Link
+                                to="/#services"
+                                onClick={(e) => handleNavClick(e, '/#services')}
+                                className={`text-sm font-medium px-4 py-2 rounded-full transition-all relative z-10 flex items-center gap-1 ${location.pathname === '/#services' || location.hash === '#services'
+                                    ? 'text-[var(--color-text-primary)]'
+                                    : 'text-text-secondary hover:text-[var(--color-text-primary)]'
+                                    }`}
+                            >
+                                {t('nav.services', 'Services')}
+                                <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                            </Link>
+
+                            {/* Hover Backdrop for Link */}
+                            <span className="absolute inset-0 bg-black/5 dark:bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 ease-out -z-0" />
+
+                            {/* Dropdown Menu */}
+                            <div className="absolute top-full left-0 mt-2 w-[600px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl p-6 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                                <div className="grid grid-cols-2 gap-4">
+                                    {ASHEN_SERVICES.slice(0, 6).map((service) => (
+                                        <Link
+                                            key={service.id}
+                                            to={`/services/${service.id}`}
+                                            className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group/item"
+                                        >
+                                            <div className="mt-1 w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover/item:bg-brand-primary group-hover/item:text-white transition-colors">
+                                                {/* Simple icon mapping or just generic */}
+                                                <Code size={16} />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-white group-hover/item:text-brand-primary transition-colors text-sm">
+                                                    {t(`services_data.${service.id}.title`, service.title)}
+                                                </h4>
+                                                <p className="text-xs text-text-secondary line-clamp-1 mt-0.5">
+                                                    {t(`services_data.${service.id}.description`, service.description)}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                                <div className="mt-4 pt-4 border-t border-white/5 flex justify-between items-center px-2">
+                                    <div className="text-xs text-text-secondary">
+                                        Empowering businesses with <span className="text-brand-primary">premium technology</span>
+                                    </div>
+                                    <Link to="/#services" className="text-xs font-bold text-white hover:text-brand-primary flex items-center gap-1 transition-colors">
+                                        View All Services <ArrowRight size={12} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {navLinks.slice(1).map((link) => (
                             <div key={link.name} className="relative group">
                                 <Link
                                     to={link.href}

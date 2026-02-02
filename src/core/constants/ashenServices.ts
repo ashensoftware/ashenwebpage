@@ -6,6 +6,11 @@ export interface Service {
   features: string[];
   technologies: string[];
   image: string;
+  priceRange: {
+    min: string;
+    max: string;
+    currency: string;
+  };
 }
 
 export const ASHEN_SERVICES: Service[] = [
@@ -20,7 +25,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Experiencia de usuario intuitiva',
       'Integración con redes sociales'
     ],
-    technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS']
+    technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'],
+    priceRange: { min: '1,500', max: '5,000+', currency: 'USD' }
   },
   {
     id: 'mobile-development',
@@ -33,7 +39,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Funcionalidad offline',
       'Notificaciones push'
     ],
-    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin']
+    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin'],
+    priceRange: { min: '2,500', max: '8,000+', currency: 'USD' }
   },
   {
     id: 'desktop-apps',
@@ -46,7 +53,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Integración con sistemas existentes',
       'Actualizaciones automáticas'
     ],
-    technologies: ['Electron', 'Tauri', 'Qt', 'WPF']
+    technologies: ['Electron', 'Tauri', 'Qt', 'WPF'],
+    priceRange: { min: '2,000', max: '6,000+', currency: 'USD' }
   },
   {
     id: 'iot-solutions',
@@ -59,7 +67,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Automatización inteligente',
       'Control remoto'
     ],
-    technologies: ['Arduino', 'Raspberry Pi', 'MQTT', 'LoRaWAN']
+    technologies: ['Arduino', 'Raspberry Pi', 'MQTT', 'LoRaWAN'],
+    priceRange: { min: '3,000', max: '10,000+', currency: 'USD' }
   },
   {
     id: 'game-development',
@@ -72,7 +81,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Mecánicas divertidas',
       'Multiplataforma'
     ],
-    technologies: ['Unity', 'Unreal Engine', 'Godot', 'Phaser']
+    technologies: ['Unity', 'Unreal Engine', 'Godot', 'Phaser'],
+    priceRange: { min: '5,000', max: '15,000+', currency: 'USD' }
   },
   {
     id: 'artificial-intelligence',
@@ -85,7 +95,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Reconocimiento de patrones',
       'Automatización de procesos'
     ],
-    technologies: ['Python', 'TensorFlow', 'PyTorch', 'OpenAI']
+    technologies: ['Python', 'TensorFlow', 'PyTorch', 'OpenAI'],
+    priceRange: { min: '4,000', max: '12,000+', currency: 'USD' }
   },
   {
     id: 'machine-learning',
@@ -98,7 +109,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Detección de patrones',
       'Recomendaciones personalizadas'
     ],
-    technologies: ['Python', 'Scikit-learn', 'Pandas', 'NumPy']
+    technologies: ['Python', 'Scikit-learn', 'Pandas', 'NumPy'],
+    priceRange: { min: '3,500', max: '10,000+', currency: 'USD' }
   },
   {
     id: 'deep-learning',
@@ -111,7 +123,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Reconocimiento de voz',
       'Sistemas de recomendación'
     ],
-    technologies: ['TensorFlow', 'PyTorch', 'Keras', 'OpenCV']
+    technologies: ['TensorFlow', 'PyTorch', 'Keras', 'OpenCV'],
+    priceRange: { min: '5,000', max: '15,000+', currency: 'USD' }
   },
   {
     id: 'data-science',
@@ -124,7 +137,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Reportes automáticos',
       'Visualizaciones claras'
     ],
-    technologies: ['Python', 'R', 'Tableau', 'Power BI']
+    technologies: ['Python', 'R', 'Tableau', 'Power BI'],
+    priceRange: { min: '2,000', max: '7,000+', currency: 'USD' }
   },
   {
     id: 'blockchain',
@@ -137,7 +151,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Tokens y criptomonedas',
       'Seguridad avanzada'
     ],
-    technologies: ['Solidity', 'Web3', 'Ethereum', 'IPFS']
+    technologies: ['Solidity', 'Web3', 'Ethereum', 'IPFS'],
+    priceRange: { min: '4,000', max: '12,000+', currency: 'USD' }
   },
   {
     id: 'automation',
@@ -150,7 +165,8 @@ export const ASHEN_SERVICES: Service[] = [
       'Flujos de trabajo inteligentes',
       'Reducción de errores'
     ],
-    technologies: ['Python', 'Zapier', 'Microsoft Power Automate', 'RPA']
+    technologies: ['Python', 'Zapier', 'Microsoft Power Automate', 'RPA'],
+    priceRange: { min: '1,500', max: '5,000+', currency: 'USD' }
   }
 ];
 
@@ -160,4 +176,11 @@ export const getServiceById = (id: string): Service | undefined => {
 
 export const getServicesCount = (): number => {
   return ASHEN_SERVICES.length;
+};
+
+export const getRelatedServices = (currentId: string, limit: number = 3): Service[] => {
+  const otherServices = ASHEN_SERVICES.filter(service => service.id !== currentId);
+  // Simple shuffle
+  const shuffled = otherServices.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, limit);
 };

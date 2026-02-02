@@ -17,7 +17,15 @@
   "services": {
     "label": "Our Solutions",
     "title": "Engineering for Growth",
-    "subtitle": "Comprehensive technology stacks designed to solve complex business challenges."
+    "subtitle": "Comprehensive technology stacks designed to solve complex business challenges.",
+    "pricing-label": "Estimated Investment",
+    "pricing-disclaimer": "*Final price depends on project scope and requirements.",
+    "cta": "Get a Quote",
+    "features-label": "Key Features",
+    "tech-label": "Technologies",
+    "back": "Back to Services",
+    "view-all": "View All Services",
+    "related": "You might also be interested in"
   },
   "values": {
     "label": "Why Ashen Software",
@@ -87,38 +95,16 @@
     "tagline": "Designed for Impact."
   },
   "contact": {
-    "title": "Quote a project with us!",
-    "description": "Ready to turn your idea into reality? Share your vision with us, and we'll provide the technology, strategy, and expertise to build something extraordinary together.",
-    "name-label": "What is your name?*",
-    "project-label": "What is the name of your project/idea?",
-    "phone-label": "Your Phone Number*",
-    "email-label": "Your E-mail*",
-    "message-label": "A few words about your project/idea*",
-    "message-placeholder": "Tell us more...",
+    "title": "Let's Build Something Amazing",
+    "description": "Ready to transform your business? Send us a message and let's discuss your project.",
+    "name-label": "Name",
+    "project-label": "Project Type",
+    "phone-label": "Phone",
+    "email-label": "Email",
+    "message-label": "Message",
+    "message-placeholder": "Tell us about your project...",
     "button": "Send Message"
   },
-  "service-web-development-title": "Web Development",
-  "service-web-development-description": "We create websites and applications that work perfectly on any device. From corporate pages to complex platforms, we make your digital presence professional and effective.",
-  "service-mobile-development-title": "Mobile Applications",
-  "service-mobile-development-description": "We develop applications for smartphones and tablets that your customers can download from official stores. Solutions that work on both Android and iPhone.",
-  "service-desktop-apps-title": "Desktop Applications",
-  "service-desktop-apps-description": "We create computer programs that install directly on Windows, Mac, or Linux. Perfect for businesses that need specific tools for their daily work.",
-  "service-iot-solutions-title": "Internet of Things (IoT)",
-  "service-iot-solutions-description": "We connect smart devices to the internet to automate your home or business. From sensors to control systems, we make technology work for you.",
-  "service-game-development-title": "Game Development",
-  "service-game-development-description": "We create video games from scratch for mobile, PC, and consoles. From casual games to immersive experiences, we bring your vision to life.",
-  "service-artificial-intelligence-title": "Artificial Intelligence",
-  "service-artificial-intelligence-description": "We implement intelligent systems that can learn and make decisions. From chatbots to predictive analysis, AI can revolutionize your business.",
-  "service-machine-learning-title": "Machine Learning",
-  "service-machine-learning-description": "We develop systems that learn from data to improve continuously. Perfect for companies that want to leverage their information to make better decisions.",
-  "service-deep-learning-title": "Deep Learning",
-  "service-deep-learning-description": "We create advanced neural networks that can process complex information like images, text, and audio. Ideal for projects requiring sophisticated analysis.",
-  "service-data-science-title": "Data Science",
-  "service-data-science-description": "We transform your data into valuable information that drives intelligent decisions. From automated reports to interactive dashboards, we make numbers speak.",
-  "service-blockchain-title": "Blockchain",
-  "service-blockchain-description": "We implement blockchain technology to create secure and transparent systems. Perfect for companies needing traceability, smart contracts, or cryptocurrencies.",
-  "service-automation-title": "Automation",
-  "service-automation-description": "We automate repetitive processes so your team can focus on what matters. From administrative tasks to complex workflows, technology works 24/7.",
   "learn-more": "Learn more",
   "faq-q1": "What software development services do you offer?",
   "faq-a1": "We offer custom software development, web and mobile applications, technology consulting, and legacy system modernization.",
@@ -146,6 +132,118 @@
   "about-principles-title-1": "Guiding principles for",
   "about-principles-title-2": "Ashen's",
   "about-principles-title-3": "commitment to innovation and impact.",
+  "services_data": {
+    "web-development": {
+      "title": "Web Development",
+      "description": "We create websites and applications that work perfectly on any device. From corporate pages to complex platforms, we make your digital presence professional and effective.",
+      "features": [
+        "Responsive and modern websites",
+        "Search engine optimization (SEO)",
+        "Intuitive user experience",
+        "Social media integration"
+      ]
+    },
+    "mobile-development": {
+      "title": "Mobile Applications",
+      "description": "We develop applications for smartphones and tablets that your customers can download from official stores. Solutions that work on both Android and iPhone.",
+      "features": [
+        "Apps for Android and iPhone",
+        "Intuitive and attractive design",
+        "Offline functionality",
+        "Push notifications"
+      ]
+    },
+    "desktop-apps": {
+      "title": "Desktop Applications",
+      "description": "We create computer programs that install directly on Windows, Mac, or Linux. Perfect for businesses that need specific tools for their daily work.",
+      "features": [
+        "Programs for Windows, Mac, and Linux",
+        "Easy-to-use interface",
+        "Integration with existing systems",
+        "Automatic updates"
+      ]
+    },
+    "iot-solutions": {
+      "title": "Internet of Things (IoT)",
+      "description": "We connect smart devices to the internet to automate your home or business. From sensors to control systems, we make technology work for you.",
+      "features": [
+        "Connected devices",
+        "Real-time monitoring",
+        "Smart automation",
+        "Remote control"
+      ]
+    },
+    "game-development": {
+      "title": "Game Development",
+      "description": "We create video games from scratch for mobile, PC, and consoles. From casual games to immersive experiences, we bring your vision to life.",
+      "features": [
+        "Games for mobile and PC",
+        "Attractive graphics",
+        "Fun mechanics",
+        "Multiplatform"
+      ]
+    },
+    "artificial-intelligence": {
+      "title": "Artificial Intelligence",
+      "description": "We implement intelligent systems that can learn and make decisions. From chatbots to predictive analysis, AI can revolutionize your business.",
+      "features": [
+        "Intelligent chatbots",
+        "Predictive analysis",
+        "Pattern recognition",
+        "Process automation"
+      ]
+    },
+    "machine-learning": {
+      "title": "Machine Learning",
+      "description": "We develop systems that learn from data to improve continuously. Perfect for companies that want to leverage their information to make better decisions.",
+      "features": [
+        "Advanced data analysis",
+        "Accurate predictions",
+        "Pattern detection",
+        "Personalized recommendations"
+      ]
+    },
+    "deep-learning": {
+      "title": "Deep Learning",
+      "description": "We create advanced neural networks that can process complex information like images, text, and audio. Ideal for projects requiring sophisticated analysis.",
+      "features": [
+        "Image processing",
+        "Advanced text analysis",
+        "Voice recognition",
+        "Recommendation systems"
+      ]
+    },
+    "data-science": {
+      "title": "Data Science",
+      "description": "We transform your data into valuable information that drives intelligent decisions. From automated reports to interactive dashboards, we make numbers speak.",
+      "features": [
+        "Business data analysis",
+        "Interactive dashboards",
+        "Automated reports",
+        "Clear visualizations"
+      ]
+    },
+    "blockchain": {
+      "title": "Blockchain",
+      "description": "We implement blockchain technology to create secure and transparent systems. Perfect for companies needing traceability, smart contracts, or cryptocurrencies.",
+      "features": [
+        "Smart contracts",
+        "Traceability systems",
+        "Tokens and cryptocurrencies",
+        "Advanced security"
+      ]
+    },
+    "automation": {
+      "title": "Automation",
+      "description": "We automate repetitive processes so your team can focus on what matters. From administrative tasks to complex workflows, technology works 24/7.",
+      "features": [
+        "Process automation",
+        "System integration",
+        "Intelligent workflows",
+        "Error reduction"
+      ]
+    }
+  },
   "about-mission-title": "Our Mission",
   "about-mission-desc": "To empower businesses by bridging the gap between complex technology and human-centric design. We build digital ecosystems that are not just functional, but transformative, scalable, and intuitive.",
   "about-vision-title": "Our Vision",
