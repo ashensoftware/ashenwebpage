@@ -15,9 +15,15 @@ import { SectionDivider } from '@/components/ui/SectionDivider';
 
 // ... other imports
 
+import { SEO } from '@/components/SEO';
+
 const HomePage: React.FC = () => {
   return (
     <div className="ashen-home overflow-x-hidden">
+      <SEO
+        title="Ashen Software | Premium Digital Engineering"
+        description="Premium software architecture, AI solutions, and digital engineering for scalable impact."
+      />
       <ClickSpark />
 
       {/* Sections */}

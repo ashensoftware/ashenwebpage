@@ -6,11 +6,18 @@ import { Container } from '@/components/ui/Container';
 import { BackgroundPaths } from '@/features/animations/BackgroundPaths';
 import { Rocket, Users, Globe, Target, Zap, Shield, ArrowRight } from 'lucide-react';
 
+import { SEO } from '@/components/SEO';
+
 export const AboutPage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-bg-primary overflow-x-hidden text-[var(--color-text-primary)]">
+      <SEO
+        title={t('about-seo-title', 'About Us | Ashen Software')}
+        description={t('about-seo-desc', 'We are architects of the future. Discover the story, mission, and vision behind Ashen Software.')}
+        url="https://ashensoftware.com/about"
+      />
 
       {/* --- HERO SECTION ---
                 Clean, dark, focused on the main slogan.
