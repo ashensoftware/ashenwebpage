@@ -7,9 +7,11 @@ const __dirname = path.dirname(__filename);
 
 const DOMAIN = 'https://ashensoftware.com';
 
+const today = new Date().toISOString().split('T')[0];
+
 const routes = [
-  '/',
-  '/about',
+  { path: '/', priority: '1.0', changefreq: 'weekly' },
+  { path: '/about', priority: '0.8', changefreq: 'monthly' },
 ];
 
 const generateSitemap = () => {
@@ -18,9 +20,10 @@ const generateSitemap = () => {
 ${routes
   .map((route) => {
     return `  <url>
-    <loc>${DOMAIN}${route}</loc>
-    <changefreq>weekly</changefreq>
-    <priority>${route === '/' ? '1.0' : '0.8'}</priority>
+    <loc>${DOMAIN}${route.path}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
   </url>`;
   })
   .join('\n')}

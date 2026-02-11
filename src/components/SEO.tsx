@@ -18,6 +18,15 @@ export const SEO: React.FC<SEOProps> = ({
     url = 'https://ashensoftware.com',
     image = 'https://ashensoftware.com/assets/og-image.png',
 }) => {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": name,
+        "url": "https://ashensoftware.com",
+        "logo": "https://ashensoftware.com/assets/logo/Logo-Iso.png",
+        "description": description,
+    };
+
     return (
         <Helmet>
             {/* Standard metadata tags */}
@@ -39,6 +48,12 @@ export const SEO: React.FC<SEOProps> = ({
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={image} />
+
+            {/* Structured Data */}
+            <script type="application/ld+json">
+                {JSON.stringify(structuredData)}
+            </script>
         </Helmet>
     );
 };
+
