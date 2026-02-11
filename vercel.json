@@ -2,18 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install --legacy-peer-deps",
-  "framework": "vite",
-  "redirects": [
-    {
-      "source": "/:path(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.ashensoftware.com"
-        }
-      ],
-      "destination": "https://ashensoftware.com/:path",
-      "permanent": true
-    }
-  ]
+  "framework": "vite"
 }
