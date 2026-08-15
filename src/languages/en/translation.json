@@ -7,7 +7,7 @@
     "language": "Switch language"
   },
   "cta": {
-    "startProject": "Start a Project",
+    "startProject": "Discuss Your Project",
     "seeWork": "See Our Work",
     "talkWhatsapp": "Message on WhatsApp"
   },
@@ -18,7 +18,7 @@
     "work": "Work",
     "about": "About",
     "contact": "Contact",
-    "cta": "Start a Project"
+    "cta": "Discuss Your Project"
   },
   "hero": {
     "eyebrow": "Software engineering · Medellín & remote",
@@ -26,7 +26,7 @@
     "titleEmphasis": "Built for Real Operations",
     "subtitle": "Ashen designs and ships production systems: AI agents connected to your tools, custom software, data platforms and integrations, with human oversight.",
     "cta": {
-      "primary": "Start a Project",
+      "primary": "Discuss Your Project",
       "secondary": "See Our Work"
     }
   },
@@ -40,15 +40,15 @@
     },
     "software": {
       "title": "Custom Software Engineering",
-      "description": "Web applications, SaaS products, internal tools, APIs and backend systems designed around how your operation actually runs."
+      "description": "Web apps, SaaS, internal tools, APIs and backends built around how the work is already done. We design for operators, data and the systems you already pay for, then hand over something your team can run."
     },
     "data-ai": {
       "title": "Data & AI Engineering",
-      "description": "Pipelines, analytics platforms, machine learning systems and the infrastructure needed to keep models and data products reliable."
+      "description": "Pipelines, warehouses, analytics and models treated as production systems: quality checks, access, scheduled jobs and a way to debug a wrong number. Useful when a dashboard or a model has to survive next quarter."
     },
     "integrations": {
       "title": "Integrations & Modernization",
-      "description": "APIs, CRM/ERP connections, workflow modernization and replacements for brittle manual processes and aging systems."
+      "description": "Connect the CRMs, ERPs, inboxes and APIs you already pay for, and retire the copy-paste between them. When a system is too brittle to keep, we replace the workflow, not the whole company overnight."
     },
     "learn": "Explore"
   },
@@ -97,7 +97,7 @@
     "label": "Capabilities",
     "title": "Engineering for operations",
     "subtitle": "Specialized work that sits under the four commercial pillars.",
-    "cta": "Start a Project",
+    "cta": "Discuss Your Project",
     "features-label": "What this includes",
     "tech-label": "Typical technologies",
     "back": "Back to services",
@@ -164,7 +164,7 @@
   },
   "contact": {
     "title": "Tell us what you need to ship",
-    "description": "Describe the system, the workflow and the constraint. We reply to serious project inquiries.",
+    "description": "Tell us what you're building. We'll reply with the next technical step.",
     "name-label": "Name",
     "company-label": "Company / Organization",
     "service-label": "Service / project interest",
@@ -179,10 +179,12 @@
     "error-generic": "The message could not be sent. Check the fields and try again.",
     "retry": "Try again",
     "service-options": {
+      "select": "Select an area",
       "ai-agents": "AI Agents",
       "software": "Custom software",
       "data-ai": "Data & AI engineering",
       "integrations": "Integrations",
+      "not-sure": "Not sure yet",
       "other": "Something else"
     }
   },
@@ -228,27 +230,117 @@
   },
   "softwarePage": {
     "seoTitle": "Custom Software Engineering | Ashen Software",
-    "seoDesc": "Custom web applications, SaaS, internal tools, APIs and backend systems built for how your operation actually runs.",
+    "seoDesc": "Custom web applications, SaaS, internal tools, APIs and backends built around how your operation already runs, with a handover your team can operate.",
     "title": "Custom software for the way you already work",
-    "subtitle": "Web products, internal tools and APIs designed around real users, data and integrations."
+    "subtitle": "Web products, internal tools and APIs designed around real users, data and constraints. We start from how the work is done today, then ship a system your team can run without us in the room.",
+    "outcomesTitle": "What this is for",
+    "outcomes": [
+      "Replace spreadsheets and chat threads with a tool operators actually open",
+      "Give customers or partners a portal that matches your process",
+      "Expose a stable API so other systems stop re-keying the same record",
+      "Ship a SaaS slice with tenancy, roles and an audit trail",
+      "Modernize a web or desktop surface without pretending the old process does not exist"
+    ],
+    "workTitle": "What we build",
+    "work": [
+      { "title": "Web and SaaS", "body": "Customer-facing and internal products with authentication, roles and a front-end architecture someone can maintain after launch." },
+      { "title": "Internal tools", "body": "Operator interfaces for finance, operations, support or warehouse work, designed around the real sequence of the job." },
+      { "title": "APIs and backends", "body": "Services, jobs and data stores sized for the load you have, with logs and access that survive the first incident." },
+      { "title": "Desktop when needed", "body": "Installed tools for Windows, macOS or Linux when a browser is the wrong surface." },
+      { "title": "Mobile when the work is phone-first", "body": "Android and iOS products when the workflow lives on a phone, not as a thin wrapper around a desktop site." }
+    ],
+    "approachTitle": "How we design it",
+    "approach": "We map users, data and the systems you already pay for before we draw screens. Scope is a written slice, not an open-ended rebuild. The first release should be usable in production, even if it is narrow.",
+    "qualityTitle": "Quality and ownership",
+    "quality": "We pick a stack your team can operate, usually TypeScript and React on the client and the backend that fits the rest of the estate. Tests, environments and a handover are part of the work, not a zip of source at the end.",
+    "deliveryTitle": "Delivery",
+    "delivery": "Technical assessment of the current process, a first production-shaped release, then hardening: monitoring, access, documentation and a path to iterate.",
+    "faqTitle": "Software FAQ",
+    "faq": [
+      { "q": "Do you only build greenfield products?", "a": "No. Most engagements sit next to an existing process or system. We say what we will replace and what we will leave alone." },
+      { "q": "Will we be locked into your stack?", "a": "The contract is the system, not a framework fashion. We choose tools the people who will operate it can live with." },
+      { "q": "How do you start?", "a": "With the users, the data and the constraint. We do not start with a page of screens until those are clear." }
+    ],
+    "ctaTitle": "Have a process that deserves a real product?",
+    "ctaBody": "Tell us who uses it, which systems it touches and what fails today. We will tell you if custom software is the right shape."
   },
   "dataPage": {
     "seoTitle": "Data & AI Engineering | Ashen Software",
-    "seoDesc": "Data pipelines, analytics platforms, machine learning systems and AI infrastructure built to stay operable.",
+    "seoDesc": "Data pipelines, analytics, machine learning and AI infrastructure treated as production systems your team can operate.",
     "title": "Data and AI systems you can operate",
-    "subtitle": "Pipelines, models and analytics that connect to the rest of the business, with quality, access and jobs treated as product work."
+    "subtitle": "Pipelines, models and analytics connected to the rest of the business. Quality, access and jobs are product work, not a side notebook.",
+    "outcomesTitle": "What this is for",
+    "outcomes": [
+      "Land trusted tables on a schedule instead of a file someone emails",
+      "Give operations a dashboard they will actually open",
+      "Attach a model to a real decision, with evaluation and a fallback",
+      "Answer where a number came from when finance or compliance asks",
+      "Replace a hand-run notebook with jobs, alerts and an owner"
+    ],
+    "workTitle": "What we build",
+    "work": [
+      { "title": "Pipelines and warehouses", "body": "Ingestion, transformation and storage with checks, retries and a way to see why a run failed." },
+      { "title": "Analytics and reporting", "body": "Decision support that matches how the team already talks about the business, not a wall of unused charts." },
+      { "title": "Machine learning", "body": "Models when a rules engine is no longer enough, with training, evaluation and a path into a product." },
+      { "title": "Deep learning when the problem needs it", "body": "Vision or language systems only when the input is high-dimensional and a simpler approach will not hold." },
+      { "title": "Applied data science", "body": "Analysis and automation that operations can use, with the same access and logging as any other service." }
+    ],
+    "approachTitle": "How we treat data work",
+    "approach": "A pipeline or a model is a production system. We define the decision it supports, the source of truth, who can see the output and what happens when it is wrong. We do not ship a notebook and call it done.",
+    "qualityTitle": "Quality and access",
+    "quality": "Checks on freshness and shape, documented ownership, and credentials that stay out of notebooks. If a number moves, someone should be able to trace it.",
+    "deliveryTitle": "Delivery",
+    "delivery": "Assessment of sources and the first decision worth automating, a narrow pipeline or model in production, then monitoring, access review and iteration.",
+    "faqTitle": "Data & AI FAQ",
+    "faq": [
+      { "q": "Do we need a data team first?", "a": "You need an owner and a decision. We can start with one pipeline or one model. A platform for its own sake is usually the wrong first step." },
+      { "q": "Will you train a model on day one?", "a": "Only if a simpler rule or a better report will not do the job. The first work is often quality of the data and the process." },
+      { "q": "How is this different from AI Agents?", "a": "This pillar is data, models and infrastructure. Agents that call tools inside a workflow live on the AI Agents offering." }
+    ],
+    "ctaTitle": "Have a number or a model that has to be trustworthy?",
+    "ctaBody": "Tell us the source, the decision and who gets blamed when it is wrong. We will tell you if a pipeline or a model is the right next step."
   },
   "integrationsPage": {
     "seoTitle": "Integrations & Modernization | Ashen Software",
-    "seoDesc": "API integrations, CRM/ERP connections, workflow modernization and replacements for brittle legacy processes.",
+    "seoDesc": "API, CRM and ERP integrations and workflow modernization so teams stop copying data between tools they already pay for.",
     "title": "Connect the systems you already pay for",
-    "subtitle": "APIs, CRM/ERP links and modernization work so people stop copying data between tools."
+    "subtitle": "APIs, CRM and ERP links, and modernization of the one process that is holding the rest hostage. People should not re-type the same record in three tools.",
+    "outcomesTitle": "What this is for",
+    "outcomes": [
+      "Keep CRM, billing and operations in the same state without re-entry",
+      "Replace a pile of fragile scripts with something you can observe",
+      "Modernize one painful workflow without a multi-year ERP program",
+      "Give operators a log they can read when a sync fails",
+      "Bring device or IoT data into the same operational picture when hardware is part of the job"
+    ],
+    "workTitle": "What we build",
+    "work": [
+      { "title": "API integrations", "body": "Stable connections between the tools you already run, with retries, mapping and an owner when a field changes." },
+      { "title": "CRM and ERP links", "body": "The records sales, finance and operations already depend on, written once and kept consistent." },
+      { "title": "Workflow modernization", "body": "Replace the brittle manual path first. We do not rip out a working system to prove a point." },
+      { "title": "Automation you can see", "body": "Scheduled and event-driven jobs with logs operators can read, not a hidden script on someone's laptop." },
+      { "title": "Devices when they matter", "body": "Telemetry and control hooks when hardware is part of the operation, tied back to the same systems of record." }
+    ],
+    "approachTitle": "How we modernize",
+    "approach": "We start with the copy-paste and the failure you cannot afford. Then we map which system is the source of truth for each field. The first integration should remove a daily tax, not announce a platform.",
+    "qualityTitle": "Reliability",
+    "quality": "Mappings are documented. Failures retry and surface. Secrets stay out of the workflow. If a sync breaks on a Friday, someone should see why without opening five admin panels.",
+    "deliveryTitle": "Delivery",
+    "delivery": "Assessment of the current tools and the first workflow worth connecting, a production integration with monitoring, then the next slice.",
+    "faqTitle": "Integrations FAQ",
+    "faq": [
+      { "q": "Can you work with the tools we already bought?", "a": "That is the point. We integrate what you already pay for unless a tool is genuinely the blocker." },
+      { "q": "Is this the same as AI Agents?", "a": "No. This is connections and process modernization. An agent that uses those connections to do work is the AI Agents offering." },
+      { "q": "Will you replace our ERP?", "a": "Not as a first move. We replace the painful workflow around it. A rip-and-replace is a different, explicit decision." }
+    ],
+    "ctaTitle": "Tired of the same record in three systems?",
+    "ctaBody": "Tell us the tools, the field that never matches and the failure you cannot afford. We will tell you if an integration is the right first slice."
   },
   "cases": {
     "seoTitle": "Case Studies | Ashen Software",
     "seoDesc": "Selected software delivery by Ashen Software, starting with the Trengie railway engineering website.",
     "title": "Case studies",
-    "subtitle": "We only list work we can describe honestly. Trengie is a live website Ashen designed and built.",
+    "subtitle": "Look at some of our previous work. Live products we designed and built for technical teams.",
     "empty": "More studies will be added when we can describe them without inventing outcomes.",
     "items": {
       "trengie": {
@@ -278,29 +370,40 @@
   "aboutPage": {
     "seoTitle": "About Ashen Software",
     "seoDesc": "Ashen Software is an engineering company in Medellín that builds custom software, AI agents and data systems for real operations.",
-    "dna": "The Ashen DNA",
-    "heroTitle1": "We Are",
-    "heroTitle2": "Architects",
-    "heroTitle3": "Of The Future.",
-    "heroDesc": "A collective of engineers and designers dedicated to building technology that holds up in production.",
-    "principles1": "Guiding principles for",
-    "principles2": "Ashen's",
-    "principles3": "commitment.",
-    "missionTitle": "Our Mission",
-    "missionDesc": "To help teams ship software, agents and data systems that sit next to real operations.",
-    "visionTitle": "Our Vision",
-    "visionDesc": "To be a trusted engineering partner for companies that need production systems.",
-    "cultureLabel": "Culture",
-    "cultureHeading": "Rooted in excellence",
-    "cultureSubheading": "How we work with clients and with each other.",
-    "transparencyTitle": "Transparency",
-    "transparencyDesc": "Clear communication and visible progress.",
-    "innovationTitle": "Innovation",
-    "innovationDesc": "Practical use of new tools when they improve the system.",
-    "agilityTitle": "Agility",
-    "agilityDesc": "Narrow slices and fast feedback.",
-    "empathyTitle": "Empathy",
-    "empathyDesc": "Technology built around the people who operate it."
+    "dna": "Ashen Software",
+    "heroTitle1": "Engineers",
+    "heroTitle2": "in Medellín",
+    "heroTitle3": "for real operations.",
+    "heroDesc": "Ashen Software designs and ships custom software, AI agents, data platforms and integrations. You work with the engineers who scope the system and put it into production.",
+    "principles1": "Who we are and",
+    "principles2": "how",
+    "principles3": "we deliver.",
+    "missionTitle": "Mission",
+    "missionDesc": "Help companies ship custom software, AI agents and data systems that sit next to real operations, with a handover their team can run.",
+    "visionTitle": "Vision",
+    "visionDesc": "Be a trusted engineering partner from Medellín for teams in Colombia and abroad that need production systems, not demos.",
+    "whoTitle": "Who you work with",
+    "whoDesc": "Ashen is a software engineering company based in Medellín, working in English and Spanish, on-site when needed and remotely with teams abroad. You work with the engineers who scope the system and put it into production.",
+    "photoPoblado": "Night view of El Poblado, Medellín",
+    "photoValley": "Medellín and the Aburrá Valley from the south",
+    "photoCentro": "Downtown Medellín from Pueblito Paisa",
+    "photoCredit": "Photos of Medellín via Wikimedia Commons (CC BY / CC BY-SA).",
+    "evidence": "A live example is the public website we designed and built for Trengie, a railway engineering consultancy.",
+    "evidenceCta": "Read the Trengie case",
+    "cultureLabel": "How we work",
+    "cultureHeading": "A delivery model you can inspect",
+    "cultureSubheading": "The same four stages we use on the homepage, written for a buying conversation.",
+    "transparencyTitle": "Discovery",
+    "transparencyDesc": "Map systems, constraints, data and the first workflow worth automating or rebuilding.",
+    "innovationTitle": "Pilot",
+    "innovationDesc": "A narrow, production-shaped slice to validate architecture, integrations and operator trust.",
+    "agilityTitle": "Production",
+    "agilityDesc": "Harden, observe, document and hand over a system your team can run.",
+    "empathyTitle": "Support",
+    "empathyDesc": "Iterate on reliability, integrations and evaluations after go-live when the engagement includes it.",
+    "statLocation": "Colombia",
+    "statLanguage": "Delivery languages",
+    "statRemote": "International"
   },
   "legal": {
     "privacyTitle": "Privacy Policy | Ashen Software",

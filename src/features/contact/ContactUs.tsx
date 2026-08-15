@@ -187,14 +187,16 @@ export const ContactUs: React.FC = () => {
                     id="service"
                     name="service"
                     className={`${fieldClass} [color-scheme:inherit]`}
-                    defaultValue="ai-agents"
+                    defaultValue=""
                     onFocus={markStarted}
                   >
+                    <option value="">{t('contact.service-options.select')}</option>
                     {SERVICE_VALUES.map((value) => (
                       <option key={value} value={value}>
                         {t(`contact.service-options.${value}`)}
                       </option>
                     ))}
+                    <option value="not-sure">{t('contact.service-options.not-sure')}</option>
                   </select>
                   <ValidationError prefix="Service" field="service" errors={state.errors} />
                 </div>

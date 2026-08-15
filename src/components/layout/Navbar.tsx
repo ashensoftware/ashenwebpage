@@ -5,7 +5,8 @@ import { ArrowRight, Bot, ChevronDown, Code, Database, Menu, Moon, Sun, Workflow
 import { Button } from '@/components/ui/Button';
 import { useTheme } from '@/hooks/useTheme';
 import { useLocale, useT } from '@/hooks/useLocale';
-import { alternatePath, contactPath, pathFor } from '@/config/routes';
+import { alternatePath, contactPath, pathFor, servicePath } from '@/config/routes';
+import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { SERVICE_PILLARS } from '@/content/pillars';
 import { FlagEN, FlagES } from '@/components/icons/BrandIcons';
 
@@ -110,7 +111,7 @@ export const Navbar: React.FC = () => {
                 <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
               </Link>
               <div
-                className={`absolute top-full left-0 pt-3 w-[min(28rem,calc(100vw-2rem))] z-50 transition-all duration-200 ${
+                className={`absolute top-full left-0 pt-3 w-[min(32rem,calc(100vw-2rem))] z-50 transition-all duration-200 ${
                   servicesOpen
                     ? 'opacity-100 translate-y-0 pointer-events-auto visible'
                     : 'opacity-0 -translate-y-1 pointer-events-none invisible'
@@ -141,6 +142,22 @@ export const Navbar: React.FC = () => {
                       </Link>
                     );
                   })}
+                  <div className="mt-1 border-t border-[var(--glass-border)] pt-2 px-2 pb-1">
+                    <p className="px-1 pb-2 text-[11px] font-bold uppercase tracking-widest text-text-muted">
+                      {t('services.label')}
+                    </p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {ASHEN_SERVICES.map((service) => (
+                        <Link
+                          key={service.id}
+                          to={servicePath(service.id, locale)}
+                          className="px-2 py-1.5 rounded-lg text-xs text-text-secondary hover:text-[var(--color-text-primary)] hover:bg-[var(--glass-bg)]"
+                        >
+                          {t(`services_data.${service.id}.title`)}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -166,7 +183,7 @@ export const Navbar: React.FC = () => {
             </button>
             <button
               onClick={switchLocale}
-              className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold tracking-wider rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-text-secondary uppercase"
+              className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold tracking-wider rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-text-secondary uppercase cursor-pointer"
               aria-label={t('a11y.language')}
             >
               <span className={`inline-flex items-center gap-1.5 ${locale === 'es' ? 'text-brand-primary' : 'opacity-50'}`}>
@@ -203,7 +220,7 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="absolute top-full left-4 right-4 mt-2 bg-bg-secondary/95 backdrop-blur-2xl rounded-2xl border border-[var(--glass-border)] shadow-2xl md:hidden p-6 flex flex-col gap-5"
+            className="absolute top-full left-4 right-4 mt-2 max-h-[min(70dvh,32rem)] overflow-y-auto overscroll-contain bg-bg-secondary/95 backdrop-blur-2xl rounded-2xl border border-[var(--glass-border)] shadow-2xl md:hidden p-6 flex flex-col gap-5"
           >
             <nav className="flex flex-col gap-3" aria-label="Mobile">
               <button
@@ -214,27 +231,42 @@ export const Navbar: React.FC = () => {
                 {t('nav.services')}
                 <ChevronDown size={18} className={servicesOpen ? 'rotate-180' : ''} />
               </button>
-              {servicesOpen &&
-                SERVICE_PILLARS.map((pillar) => {
-                  const Icon = PILLAR_ICONS[pillar.icon];
-                  return (
+              {servicesOpen && (
+                <>
+                  {SERVICE_PILLARS.map((pillar) => {
+                    const Icon = PILLAR_ICONS[pillar.icon];
+                    return (
+                      <Link
+                        key={pillar.id}
+                        to={pathFor(pillar.routeId, locale)}
+                        className="pl-1 text-text-secondary flex items-center gap-2"
+                      >
+                        <Icon size={16} className="text-brand-primary" />
+                        {t(`pillars.${pillar.id}.title`)}
+                      </Link>
+                    );
+                  })}
+                  <p className="pt-2 text-[11px] font-bold uppercase tracking-widest text-text-muted">
+                    {t('services.label')}
+                  </p>
+                  {ASHEN_SERVICES.map((service) => (
                     <Link
-                      key={pillar.id}
-                      to={pathFor(pillar.routeId, locale)}
-                      className="pl-1 text-text-secondary flex items-center gap-2"
+                      key={service.id}
+                      to={servicePath(service.id, locale)}
+                      className="pl-1 text-sm text-text-secondary"
                     >
-                      <Icon size={16} className="text-brand-primary" />
-                      {t(`pillars.${pillar.id}.title`)}
+                      {t(`services_data.${service.id}.title`)}
                     </Link>
-                  );
-                })}
+                  ))}
+                </>
+              )}
               {navLinks.map((link) => (
                 <Link key={link.name} to={link.href} className="text-xl font-bold text-[var(--color-text-primary)]">
                   {link.name}
                 </Link>
               ))}
             </nav>
-            <button onClick={switchLocale} className="text-sm text-text-secondary text-left inline-flex items-center gap-2">
+            <button onClick={switchLocale} className="text-sm text-text-secondary text-left inline-flex items-center gap-2 cursor-pointer">
               {locale === 'en' ? <FlagES size={16} /> : <FlagEN size={16} />}
               {locale === 'en' ? 'Español' : 'English'}
             </button>

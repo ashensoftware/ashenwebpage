@@ -13,7 +13,7 @@ vi.mock('@/features/animations/FallingParticles', () => ({
 }));
 
 describe('Hero CTAs', () => {
-  it('links Start a Project to contact and See Our Work to case studies', () => {
+  it('links the primary CTA to contact and See Our Work to case studies', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -22,7 +22,7 @@ describe('Hero CTAs', () => {
       </HelmetProvider>,
     );
 
-    expect(screen.getByRole('link', { name: /start a project/i })).toHaveAttribute('href', '/#contact');
+    expect(screen.getByRole('link', { name: /discuss your project/i })).toHaveAttribute('href', '/#contact');
     expect(screen.getByRole('link', { name: /see our work/i })).toHaveAttribute('href', '/case-studies');
   });
 });

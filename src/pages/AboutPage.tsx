@@ -8,7 +8,7 @@ import { Rocket, Users, Globe, Target, ArrowRight } from 'lucide-react';
 
 import { SEO } from '@/components/SEO';
 import { organizationJsonLd } from '@/config/schema';
-import { contactPath } from '@/config/routes';
+import { contactPath, pathFor } from '@/config/routes';
 import { useLocale, useT } from '@/hooks/useLocale';
 
 export const AboutPage: React.FC = () => {
@@ -26,7 +26,7 @@ export const AboutPage: React.FC = () => {
       {/* --- HERO SECTION ---
                 Clean, dark, focused on the main slogan.
             */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      <section className="relative pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden">
         <BackgroundPaths className="absolute inset-0 h-full opacity-30" />
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -36,13 +36,6 @@ export const AboutPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 mb-8 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
-              <span className="text-xs font-bold tracking-widest uppercase text-[var(--color-text-primary)]">
-                {t('aboutPage.dna')}
-              </span>
-            </div>
-
             <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
               {t('aboutPage.heroTitle1')} <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-white from-black dark:via-gray-200 via-gray-700 dark:to-gray-500 to-gray-900">{t('aboutPage.heroTitle2')}</span>
               <br />
@@ -64,7 +57,7 @@ export const AboutPage: React.FC = () => {
         {/* Background Image with Parallax-like feel */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/og-image.png"
+            src="/assets/about/medellin-valley.jpg"
             alt=""
             className="w-full h-full object-cover opacity-20"
             width="1200"
@@ -93,16 +86,16 @@ export const AboutPage: React.FC = () => {
                 </div>
 
                 {/* Images Row - Responsive */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                   {[
-                    "/assets/og-image.png",
-                    "/assets/logo/Logo-Iso.png",
-                    "/assets/logo/Logo-Iso-Slogan.png"
-                  ].map((src, idx) => (
-                    <div key={idx} className={`rounded-3xl overflow-hidden h-[250px] md:h-[350px] relative group ${idx === 1 ? 'md:-translate-y-8' : ''}`}>
+                    { src: '/assets/about/medellin-poblado.jpg', alt: t('aboutPage.photoPoblado') },
+                    { src: '/assets/about/medellin-valley.jpg', alt: t('aboutPage.photoValley') },
+                    { src: '/assets/about/medellin-centro.jpg', alt: t('aboutPage.photoCentro') },
+                  ].map((photo, idx) => (
+                    <div key={photo.src} className={`rounded-3xl overflow-hidden h-[250px] md:h-[350px] relative group ${idx === 1 ? 'md:-translate-y-8' : ''}`}>
                       <img
-                        src={src}
-                        alt=""
+                        src={photo.src}
+                        alt={photo.alt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                         width="400"
                         height="300"
@@ -112,6 +105,7 @@ export const AboutPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
+                <p className="text-xs text-text-muted mb-16">{t('aboutPage.photoCredit')}</p>
 
                 {/* Mission / Vision Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-white/10 pt-16">
@@ -138,14 +132,27 @@ export const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
+                <div className="mt-12">
+                  <h3 className="text-2xl font-bold mb-3">{t('aboutPage.whoTitle')}</h3>
+                  <p className="text-text-secondary text-lg leading-relaxed">
+                    {t('aboutPage.whoDesc')}
+                  </p>
+                </div>
+                <p className="text-text-secondary text-lg leading-relaxed mt-8">
+                  {t('aboutPage.evidence')}{' '}
+                  <Link to={pathFor('trengie', locale)} className="text-brand-primary font-semibold hover:underline">
+                    {t('aboutPage.evidenceCta')}
+                  </Link>
+                  .
+                </p>
               </div>
 
               {/* Stats Strip - Full Width inside card */}
               <div className="bg-black/5 dark:bg-white/5 border-t border-black/10 dark:border-white/10 py-10 px-8 md:px-16 overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <StatItem value="Medellín" label="Colombia" icon={Globe} />
-                  <StatItem value="EN / ES" label="Delivery" icon={Users} />
-                  <StatItem value="Remote" label="International" icon={Rocket} />
+                  <StatItem value="Medellín" label={t('aboutPage.statLocation')} icon={Globe} />
+                  <StatItem value="EN / ES" label={t('aboutPage.statLanguage')} icon={Users} />
+                  <StatItem value="Remote" label={t('aboutPage.statRemote')} icon={Rocket} />
                 </div>
               </div>
             </div>

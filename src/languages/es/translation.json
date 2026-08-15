@@ -7,7 +7,7 @@
     "language": "Cambiar idioma"
   },
   "cta": {
-    "startProject": "Iniciar un proyecto",
+    "startProject": "Hablemos de tu proyecto",
     "seeWork": "Ver nuestro trabajo",
     "talkWhatsapp": "Escribir por WhatsApp"
   },
@@ -18,7 +18,7 @@
     "work": "Trabajo",
     "about": "Nosotros",
     "contact": "Contacto",
-    "cta": "Iniciar un proyecto"
+    "cta": "Hablemos de tu proyecto"
   },
   "hero": {
     "eyebrow": "Ingeniería de software · Medellín y remoto",
@@ -26,7 +26,7 @@
     "titleEmphasis": "para operaciones reales",
     "subtitle": "Ashen diseña y pone en producción sistemas: agentes conectados a tus herramientas, software a medida, plataformas de datos e integraciones, con supervisión humana.",
     "cta": {
-      "primary": "Iniciar un proyecto",
+      "primary": "Hablemos de tu proyecto",
       "secondary": "Ver nuestro trabajo"
     }
   },
@@ -40,15 +40,15 @@
     },
     "software": {
       "title": "Ingeniería de software a medida",
-      "description": "Aplicaciones web, productos SaaS, herramientas internas, APIs y backends diseñados alrededor de cómo opera tu empresa."
+      "description": "Apps web, SaaS, herramientas internas, APIs y backends construidos alrededor de cómo ya se hace el trabajo. Diseñamos para operadores, datos y los sistemas que ya pagas, y entregamos algo que tu equipo pueda operar."
     },
     "data-ai": {
       "title": "Datos e ingeniería de IA",
-      "description": "Pipelines, analítica, machine learning y la infraestructura para que modelos y productos de datos se puedan operar."
+      "description": "Pipelines, warehouses, analítica y modelos tratados como sistemas en producción: calidad, acceso, jobs programados y forma de depurar un número mal. Útil cuando un dashboard o un modelo tiene que sobrevivir al próximo trimestre."
     },
     "integrations": {
       "title": "Integraciones y modernización",
-      "description": "APIs, conexiones CRM/ERP, modernización de flujos y reemplazo de procesos manuales o sistemas que ya no aguantan."
+      "description": "Conectamos los CRM, ERP, bandejas y APIs que ya pagas, y retiramos el copiar y pegar entre ellos. Si un sistema ya no aguanta, reemplazamos el flujo, no la empresa de un día para otro."
     },
     "learn": "Ver más"
   },
@@ -97,7 +97,7 @@
     "label": "Capacidades",
     "title": "Ingeniería para operaciones",
     "subtitle": "Trabajo especializado que vive debajo de los cuatro pilares comerciales.",
-    "cta": "Iniciar un proyecto",
+    "cta": "Hablemos de tu proyecto",
     "features-label": "Qué incluye",
     "tech-label": "Tecnologías habituales",
     "back": "Volver a servicios",
@@ -165,7 +165,7 @@
   },
   "contact": {
     "title": "Cuéntanos qué hay que entregar",
-    "description": "Describe el sistema, el flujo y la restricción. Respondemos consultas de proyecto serias.",
+    "description": "Cuéntanos qué estás construyendo. Te responderemos con el siguiente paso técnico.",
     "name-label": "Nombre",
     "company-label": "Empresa / organización",
     "service-label": "Interés de servicio / proyecto",
@@ -180,10 +180,12 @@
     "error-generic": "No se pudo enviar el mensaje. Revisa los campos e inténtalo de nuevo.",
     "retry": "Reintentar",
     "service-options": {
+      "select": "Elige un área",
       "ai-agents": "Agentes de IA",
       "software": "Software a medida",
       "data-ai": "Datos e IA",
       "integrations": "Integraciones",
+      "not-sure": "Aún no lo tengo claro",
       "other": "Otro"
     }
   },
@@ -229,27 +231,117 @@
   },
   "softwarePage": {
     "seoTitle": "Desarrollo de software a medida | Ashen Software",
-    "seoDesc": "Aplicaciones web, SaaS, herramientas internas, APIs y backends construidos para cómo opera tu empresa.",
+    "seoDesc": "Aplicaciones web, SaaS, herramientas internas, APIs y backends construidos alrededor de cómo ya opera tu empresa, con un handover que tu equipo pueda operar.",
     "title": "Software a medida para cómo ya trabajan",
-    "subtitle": "Productos web, herramientas internas y APIs diseñados alrededor de usuarios, datos e integraciones reales."
+    "subtitle": "Productos web, herramientas internas y APIs diseñados alrededor de usuarios, datos y restricciones reales. Partimos de cómo se hace el trabajo hoy y entregamos un sistema que tu equipo pueda operar sin nosotros en la sala.",
+    "outcomesTitle": "Para qué sirve",
+    "outcomes": [
+      "Reemplazar hojas y hilos de chat por una herramienta que los operadores sí abran",
+      "Dar a clientes o partners un portal que coincida con tu proceso",
+      "Exponer una API estable para que otros sistemas dejen de recapturar el mismo registro",
+      "Entregar una rebanada de SaaS con tenancy, roles y bitácora",
+      "Modernizar una superficie web o de escritorio sin fingir que el proceso viejo no existe"
+    ],
+    "workTitle": "Qué construimos",
+    "work": [
+      { "title": "Web y SaaS", "body": "Productos para clientes e internos, con autenticación, roles y un front-end que alguien pueda mantener después del lanzamiento." },
+      { "title": "Herramientas internas", "body": "Interfaces para finanzas, operaciones, soporte o bodega, diseñadas alrededor de la secuencia real del trabajo." },
+      { "title": "APIs y backends", "body": "Servicios, jobs y almacenes dimensionados para la carga que tienes, con logs y acceso que sobrevivan el primer incidente." },
+      { "title": "Escritorio cuando hace falta", "body": "Herramientas instaladas en Windows, macOS o Linux cuando el navegador no es la superficie correcta." },
+      { "title": "Móvil cuando el trabajo es el teléfono", "body": "Productos Android e iOS cuando el flujo vive en el teléfono, no como una capa delgada sobre un sitio de escritorio." }
+    ],
+    "approachTitle": "Cómo lo diseñamos",
+    "approach": "Mapeamos usuarios, datos y los sistemas que ya pagas antes de dibujar pantallas. El alcance es una rebanada escrita, no un rebuild abierto. El primer release debe poder usarse en producción, aunque sea estrecho.",
+    "qualityTitle": "Calidad y dueño",
+    "quality": "Elegimos un stack que tu equipo pueda operar, suele ser TypeScript y React en el cliente y el backend que encaje con el resto. Tests, ambientes y handover son parte del trabajo, no un zip de código al final.",
+    "deliveryTitle": "Entrega",
+    "delivery": "Evaluación técnica del proceso actual, un primer release con forma de producción y luego endurecimiento: monitoreo, acceso, documentación y un camino para iterar.",
+    "faqTitle": "Preguntas de software",
+    "faq": [
+      { "q": "¿Solo hacen producto nuevo?", "a": "No. La mayoría de encargos conviven con un proceso o sistema existente. Decimos qué reemplazamos y qué dejamos quieto." },
+      { "q": "¿Quedamos atados a su stack?", "a": "El contrato es el sistema, no una moda de framework. Elegimos herramientas con las que pueda vivir quien lo va a operar." },
+      { "q": "¿Cómo empiezan?", "a": "Con los usuarios, los datos y la restricción. No empezamos con una página de pantallas hasta que eso esté claro." }
+    ],
+    "ctaTitle": "¿Tienes un proceso que merece un producto de verdad?",
+    "ctaBody": "Cuéntanos quién lo usa, con qué sistemas habla y qué falla hoy. Te diremos si el software a medida es la forma correcta."
   },
   "dataPage": {
     "seoTitle": "Datos e ingeniería de IA | Ashen Software",
-    "seoDesc": "Pipelines de datos, analítica, machine learning e infraestructura de IA que se puedan operar.",
+    "seoDesc": "Pipelines, analítica, machine learning e infraestructura de IA tratados como sistemas en producción que tu equipo pueda operar.",
     "title": "Sistemas de datos e IA que se pueden operar",
-    "subtitle": "Pipelines, modelos y analítica conectados al resto del negocio, con calidad, acceso y jobs tratados como parte del producto."
+    "subtitle": "Pipelines, modelos y analítica conectados al resto del negocio. Calidad, acceso y jobs son parte del producto, no un notebook al lado.",
+    "outcomesTitle": "Para qué sirve",
+    "outcomes": [
+      "Dejar tablas confiables en un horario, no un archivo que alguien reenvía",
+      "Dar a operaciones un dashboard que sí abran",
+      "Atar un modelo a una decisión real, con evaluación y un respaldo",
+      "Responder de dónde salió un número cuando lo pide finanzas o cumplimiento",
+      "Reemplazar un notebook a mano por jobs, alertas y un dueño"
+    ],
+    "workTitle": "Qué construimos",
+    "work": [
+      { "title": "Pipelines y warehouses", "body": "Ingesta, transformación y almacenamiento con chequeos, reintentos y forma de ver por qué falló una corrida." },
+      { "title": "Analítica y reportes", "body": "Apoyo a decisiones con el lenguaje que el equipo ya usa, no un muro de gráficos que nadie abre." },
+      { "title": "Machine learning", "body": "Modelos cuando un motor de reglas ya no alcanza, con entrenamiento, evaluación y un camino hacia un producto." },
+      { "title": "Deep learning cuando el problema lo pide", "body": "Sistemas de visión o lenguaje solo cuando la entrada es de alta dimensión y un enfoque más simple no aguanta." },
+      { "title": "Ciencia de datos aplicada", "body": "Análisis y automatización que operaciones puedan usar, con el mismo acceso y logging que cualquier otro servicio." }
+    ],
+    "approachTitle": "Cómo tratamos el trabajo de datos",
+    "approach": "Un pipeline o un modelo es un sistema en producción. Definimos la decisión que apoya, la fuente de verdad, quién ve el resultado y qué pasa cuando está mal. No entregamos un notebook y lo damos por cerrado.",
+    "qualityTitle": "Calidad y acceso",
+    "quality": "Chequeos de frescura y forma, dueño documentado y credenciales fuera de los notebooks. Si un número se mueve, alguien debería poder rastrearlo.",
+    "deliveryTitle": "Entrega",
+    "delivery": "Evaluación de fuentes y de la primera decisión que valga la pena automatizar, un pipeline o modelo estrecho en producción, y luego monitoreo, revisión de acceso e iteración.",
+    "faqTitle": "Preguntas de datos e IA",
+    "faq": [
+      { "q": "¿Necesitamos un equipo de datos primero?", "a": "Necesitas un dueño y una decisión. Podemos empezar con un pipeline o un modelo. Una plataforma por sí misma suele ser el primer paso equivocado." },
+      { "q": "¿Entrenan un modelo el primer día?", "a": "Solo si una regla más simple o un mejor reporte no resuelven el trabajo. El primer paso suele ser calidad de datos y de proceso." },
+      { "q": "¿En qué se diferencia de Agentes de IA?", "a": "Este pilar es datos, modelos e infraestructura. Los agentes que llaman herramientas dentro de un flujo viven en la oferta de Agentes de IA." }
+    ],
+    "ctaTitle": "¿Tienes un número o un modelo que tiene que ser confiable?",
+    "ctaBody": "Cuéntanos la fuente, la decisión y a quién le cae si está mal. Te diremos si un pipeline o un modelo es el siguiente paso."
   },
   "integrationsPage": {
     "seoTitle": "Integraciones y modernización | Ashen Software",
-    "seoDesc": "Integraciones API, conexiones CRM/ERP y modernización de procesos legacy frágiles.",
+    "seoDesc": "Integraciones API, CRM y ERP y modernización de flujos para dejar de copiar datos entre herramientas que ya pagas.",
     "title": "Conecta los sistemas que ya pagas",
-    "subtitle": "APIs, vínculos CRM/ERP y modernización para que la gente deje de copiar datos entre herramientas."
+    "subtitle": "APIs, vínculos CRM y ERP, y modernización del proceso que tiene al resto de rehén. La gente no debería volver a escribir el mismo registro en tres herramientas.",
+    "outcomesTitle": "Para qué sirve",
+    "outcomes": [
+      "Dejar CRM, facturación y operaciones en el mismo estado sin recaptura",
+      "Reemplazar un montón de scripts frágiles por algo que se pueda observar",
+      "Modernizar un flujo doloroso sin un programa de ERP de varios años",
+      "Dar a los operadores un log que puedan leer cuando falle un sync",
+      "Meter datos de dispositivos o IoT en la misma foto operativa cuando el hardware es parte del trabajo"
+    ],
+    "workTitle": "Qué construimos",
+    "work": [
+      { "title": "Integraciones API", "body": "Conexiones estables entre las herramientas que ya corres, con reintentos, mapeo y un dueño cuando cambia un campo." },
+      { "title": "Vínculos CRM y ERP", "body": "Los registros de los que ya dependen ventas, finanzas y operaciones, escritos una vez y mantenidos consistentes." },
+      { "title": "Modernización de flujos", "body": "Primero el camino manual frágil. No sacamos un sistema que funciona para demostrar un punto." },
+      { "title": "Automatización visible", "body": "Jobs programados y por evento, con logs que un operador pueda leer, no un script escondido en un portátil." },
+      { "title": "Dispositivos cuando importan", "body": "Telemetría y control cuando el hardware es parte de la operación, atados al mismo sistema de registro." }
+    ],
+    "approachTitle": "Cómo modernizamos",
+    "approach": "Empezamos por el copiar y pegar y por el fallo que no te puedes permitir. Luego mapeamos cuál sistema es la fuente de verdad de cada campo. La primera integración debería quitar un impuesto diario, no anunciar una plataforma.",
+    "qualityTitle": "Confiabilidad",
+    "quality": "Los mapeos quedan documentados. Los fallos reintentan y se ven. Los secretos no van al flujo. Si un sync se rompe un viernes, alguien debería ver por qué sin abrir cinco paneles.",
+    "deliveryTitle": "Entrega",
+    "delivery": "Evaluación de las herramientas actuales y del primer flujo que valga la pena conectar, una integración en producción con monitoreo, y luego la siguiente rebanada.",
+    "faqTitle": "Preguntas de integraciones",
+    "faq": [
+      { "q": "¿Pueden trabajar con lo que ya compramos?", "a": "Ese es el punto. Integramos lo que ya pagas, salvo que una herramienta sea de verdad el bloqueo." },
+      { "q": "¿Esto es lo mismo que Agentes de IA?", "a": "No. Esto es conexiones y modernización de proceso. Un agente que usa esas conexiones para hacer trabajo es la oferta de Agentes de IA." },
+      { "q": "¿Van a reemplazar el ERP?", "a": "No como primer movimiento. Reemplazamos el flujo doloroso alrededor. Un rip-and-replace es otra decisión, explícita." }
+    ],
+    "ctaTitle": "¿Cansado del mismo registro en tres sistemas?",
+    "ctaBody": "Cuéntanos las herramientas, el campo que nunca cuadra y el fallo que no te puedes permitir. Te diremos si una integración es la primera rebanada correcta."
   },
   "cases": {
     "seoTitle": "Casos | Ashen Software",
     "seoDesc": "Entregas de software de Ashen Software, empezando por el sitio de ingeniería ferroviaria de Trengie.",
     "title": "Casos",
-    "subtitle": "Solo listamos trabajo que podemos describir con honestidad. Trengie es un sitio en vivo que Ashen diseñó y construyó.",
+    "subtitle": "Mira parte de nuestro trabajo anterior. Productos en vivo que diseñamos y construimos para equipos técnicos.",
     "empty": "Agregaremos más casos cuando podamos describirlos sin inventar resultados.",
     "items": {
       "trengie": {
@@ -279,29 +371,40 @@
   "aboutPage": {
     "seoTitle": "Sobre Ashen Software",
     "seoDesc": "Ashen Software es una empresa de ingeniería en Medellín que construye software a medida, agentes de IA y sistemas de datos para operaciones reales.",
-    "dna": "El ADN de Ashen",
-    "heroTitle1": "Somos",
-    "heroTitle2": "arquitectos",
-    "heroTitle3": "del futuro.",
-    "heroDesc": "Un equipo de ingenieros y diseñadores dedicado a construir tecnología que aguante en producción.",
-    "principles1": "Principios que guían el",
-    "principles2": "compromiso",
-    "principles3": "de Ashen.",
-    "missionTitle": "Nuestra misión",
-    "missionDesc": "Ayudar a los equipos a entregar software, agentes y sistemas de datos que convivan con operaciones reales.",
-    "visionTitle": "Nuestra visión",
-    "visionDesc": "Ser un socio de ingeniería de confianza para empresas que necesitan sistemas en producción.",
-    "cultureLabel": "Cultura",
-    "cultureHeading": "Construida sobre la excelencia",
-    "cultureSubheading": "Cómo trabajamos con clientes y entre nosotros.",
-    "transparencyTitle": "Transparencia",
-    "transparencyDesc": "Comunicación clara y progreso visible.",
-    "innovationTitle": "Innovación",
-    "innovationDesc": "Uso práctico de herramientas nuevas cuando mejoran el sistema.",
-    "agilityTitle": "Agilidad",
-    "agilityDesc": "Rebanadas estrechas y feedback rápido.",
-    "empathyTitle": "Empatía",
-    "empathyDesc": "Tecnología pensada para quien la opera."
+    "dna": "Ashen Software",
+    "heroTitle1": "Ingenieros",
+    "heroTitle2": "en Medellín",
+    "heroTitle3": "para operaciones reales.",
+    "heroDesc": "Ashen Software diseña y pone en producción software a medida, agentes de IA, plataformas de datos e integraciones. Trabajas con los ingenieros que definen el sistema y lo llevan a producción.",
+    "principles1": "Quiénes somos y",
+    "principles2": "cómo",
+    "principles3": "entregamos.",
+    "missionTitle": "Misión",
+    "missionDesc": "Ayudar a las empresas a entregar software a medida, agentes de IA y sistemas de datos que convivan con operaciones reales, con un handover que su equipo pueda operar.",
+    "visionTitle": "Visión",
+    "visionDesc": "Ser un socio de ingeniería de confianza desde Medellín para equipos en Colombia y fuera que necesitan sistemas en producción, no demos.",
+    "whoTitle": "Con quién trabajas",
+    "whoDesc": "Ashen es una empresa de ingeniería de software en Medellín. Trabajamos en inglés y español, en sitio cuando hace falta y en remoto con equipos fuera de Colombia. Trabajas con los ingenieros que definen el sistema y lo llevan a producción.",
+    "photoPoblado": "Vista nocturna de El Poblado, Medellín",
+    "photoValley": "Medellín y el Valle de Aburrá desde el sur",
+    "photoCentro": "Centro de Medellín desde el Pueblito Paisa",
+    "photoCredit": "Fotos de Medellín vía Wikimedia Commons (CC BY / CC BY-SA).",
+    "evidence": "Un ejemplo en vivo es el sitio público que diseñamos y construimos para Trengie, una consultora de ingeniería ferroviaria.",
+    "evidenceCta": "Leer el caso Trengie",
+    "cultureLabel": "Cómo trabajamos",
+    "cultureHeading": "Un modelo de entrega que se puede revisar",
+    "cultureSubheading": "Las mismas cuatro etapas de la página de inicio, escritas para una conversación de compra.",
+    "transparencyTitle": "Descubrimiento",
+    "transparencyDesc": "Mapear sistemas, restricciones, datos y el primer flujo que valga la pena automatizar o reconstruir.",
+    "innovationTitle": "Piloto",
+    "innovationDesc": "Una rebanada estrecha, con forma de producción, para validar arquitectura, integraciones y confianza del operador.",
+    "agilityTitle": "Producción",
+    "agilityDesc": "Endurecer, observar, documentar y entregar un sistema que tu equipo pueda operar.",
+    "empathyTitle": "Soporte",
+    "empathyDesc": "Iterar fiabilidad, integraciones y evaluaciones después del go-live cuando el engagement lo incluye.",
+    "statLocation": "Colombia",
+    "statLanguage": "Idiomas de entrega",
+    "statRemote": "Internacional"
   },
   "legal": {
     "privacyTitle": "Política de privacidad | Ashen Software",

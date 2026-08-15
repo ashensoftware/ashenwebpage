@@ -70,6 +70,14 @@ describe('ContactUs', () => {
     expect(reset).toHaveBeenCalled();
   });
 
+  it('does not default the service dropdown to AI Agents', () => {
+    renderForm();
+    const select = screen.getByLabelText(/service \/ project interest/i) as HTMLSelectElement;
+    expect(select.value).toBe('');
+    expect(screen.getByRole('option', { name: /select an area/i })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: /not sure yet/i })).toBeInTheDocument();
+  });
+
   it('does not double-submit while submitting', async () => {
     formState.submitting = true;
     renderForm();

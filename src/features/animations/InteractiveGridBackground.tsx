@@ -49,6 +49,7 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
   const idlePositionsRef = useRef<{ x: number; y: number }[]>([]);
   const mouseActiveRef = useRef(false);
   const lastMouseTimeRef = useRef(Date.now());
+  const paintRef = useRef<(() => void) | null>(null);
 
   // Detect dark mode
   useEffect(() => {
@@ -121,6 +122,7 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
         idlePositionsRef.current = idleTargetsRef.current.map((p) => ({ ...p }));
 
         trailRef.current = [];
+        paintRef.current?.();
       }, 100); // Debounce 100ms
     };
 
@@ -162,19 +164,12 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
       frame = requestAnimationFrame(draw);
     };
 
-    const draw = () => {
-      // Use canvas dimensions directly to avoid forced reflow from getBoundingClientRect() every frame
+    const paintStatic = () => {
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
 
-      // Sizing is handled by the resize effect separately
-
-      const cols = Math.floor(canvasWidth / gridSize);
-      const rows = Math.floor(canvasHeight / gridSize);
-
       ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-      // Draw grid lines
+      ctx.shadowBlur = 0;
       ctx.strokeStyle = lineColor;
       ctx.lineWidth = 1;
       for (let x = 0; x <= canvasWidth; x += gridSize) {
@@ -189,6 +184,19 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
         ctx.lineTo(canvasWidth, y);
         ctx.stroke();
       }
+    };
+
+    const draw = () => {
+      paintStatic();
+
+      if (!shouldAnimate()) {
+        return;
+      }
+
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const cols = Math.floor(canvasWidth / gridSize);
+      const rows = Math.floor(canvasHeight / gridSize);
 
       // Idle animation logic
       const idleThreshold = 2000;
@@ -250,6 +258,7 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
       } else {
         cancelAnimationFrame(frame);
         frame = 0;
+        paintStatic();
       }
     };
 
@@ -260,18 +269,30 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
       } else {
         cancelAnimationFrame(frame);
         frame = 0;
+        paintStatic();
       }
     });
     observer.observe(container);
     document.addEventListener('visibilitychange', onVisibility);
 
+    paintRef.current = () => {
+      if (shouldAnimate()) {
+        schedule();
+      } else {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        paintStatic();
+      }
+    };
+
     if (shouldAnimate()) {
       schedule();
     } else {
-      draw();
+      paintStatic();
     }
 
     return () => {
+      paintRef.current = null;
       cancelAnimationFrame(frame);
       observer.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
