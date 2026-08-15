@@ -94,8 +94,15 @@ export const FallingParticles: React.FC = () => {
   }, [updateParticles, drawParticles]);
 
   React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 768) return;
+
     initializeParticles();
-    startAnimation(animate);
+    const stopVisibility = startAnimation(animate);
+    return () => {
+      stopVisibility?.();
+    };
   }, [initializeParticles, startAnimation, animate]);
 
   return (

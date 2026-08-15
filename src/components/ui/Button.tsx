@@ -26,9 +26,9 @@ export const Button: React.FC<ButtonProps> = ({
 
     const variants = {
         primary: "bg-gradient-primary text-white shadow-[0_4px_14px_0_rgba(139,92,246,0.39)] hover:shadow-[0_6px_20px_rgba(139,92,246,0.23)] hover:-translate-y-0.5 border border-transparent",
-        secondary: "bg-black/5 dark:bg-white/10 text-[var(--color-text-primary)] dark:text-white backdrop-blur-md border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/20",
+        secondary: "bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] border border-[var(--glass-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-accent-primary)] hover:text-white",
         outline: "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10",
-        ghost: "bg-transparent text-text-secondary hover:text-[var(--color-text-primary)] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5",
+        ghost: "bg-transparent text-text-secondary hover:text-[var(--color-text-primary)] hover:bg-[var(--glass-bg)]",
         glow: "bg-black dark:bg-black text-white border border-brand-primary/50 shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:shadow-[0_0_25px_rgba(139,92,246,0.8)]"
     };
 

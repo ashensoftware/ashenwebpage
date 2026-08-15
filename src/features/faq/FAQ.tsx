@@ -1,34 +1,20 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useT } from '@/hooks/useLocale';
 import { Section } from '../../components/ui/Section';
 import { Accordion } from '../../components/ui/Accordion';
 import { Typography } from '../../components/ui/Typography';
 import { motion } from 'framer-motion';
+import { CircleHelp } from 'lucide-react';
 
 export const FAQ: React.FC = () => {
-    const { t } = useTranslation();
+    const t = useT();
 
     const faqItems = [
-        {
-            title: t('faq.q1', 'What services do you offer?'),
-            content: t('faq.a1', 'We offer a wide range of software development services including web, mobile, and AI solutions.')
-        },
-        {
-            title: t('faq.q2', 'How does the process work?'),
-            content: t('faq.a2', 'Our process involves discovery, design, development, testing, and deployment.')
-        },
-        {
-            title: t('faq.q3', 'Do you provide support?'),
-            content: t('faq.a3', 'Yes, we provide ongoing support and maintenance for all our projects.')
-        },
-        {
-            title: t('faq.q4', 'What technologies do you use?'),
-            content: t('faq.a4', 'We use modern technologies like React, Node.js, Python, and cloud services.')
-        },
-        {
-            title: t('faq.q5', 'Can you sign a NDA?'),
-            content: t('faq.a5', 'Absolutely, we respect your privacy and intellectual property.')
-        }
+        { title: t('faq.q1'), content: t('faq.a1') },
+        { title: t('faq.q2'), content: t('faq.a2') },
+        { title: t('faq.q3'), content: t('faq.a3') },
+        { title: t('faq.q4'), content: t('faq.a4') },
+        { title: t('faq.q5'), content: t('faq.a5') },
     ];
 
     return (
@@ -56,16 +42,17 @@ export const FAQ: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="relative z-10 text-center lg:text-left"
                     >
-                        <div className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6">
+                            <CircleHelp size={16} className="text-brand-primary" />
                             <Typography variant="small" className="uppercase tracking-[0.2em] text-brand-primary font-bold">
-                                {t('faq.label', 'Questions')}
+                                {t('faq.label')}
                             </Typography>
                         </div>
                         <Typography variant="h2" className="mb-6">
-                            {t('faq.title', 'Frequently Asked Questions')}
+                            {t('faq.title')}
                         </Typography>
                         <Typography variant="lead" className="max-w-md text-text-secondary/80">
-                            {t('faq.subtitle', 'Everything you need to know about our process and how we can help your business grow.')}
+                            {t('faq.subtitle')}
                         </Typography>
                     </motion.div>
                 </div>

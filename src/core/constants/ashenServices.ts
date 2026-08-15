@@ -18,7 +18,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'web-development',
     title: 'Desarrollo Web',
     description: 'Creamos sitios web y aplicaciones que funcionan perfectamente en cualquier dispositivo. Desde páginas corporativas hasta plataformas complejas, hacemos que tu presencia digital sea profesional y efectiva.',
-    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/web.jpg',
     features: [
       'Sitios web responsivos y modernos',
       'Optimización para buscadores',
@@ -32,7 +32,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'mobile-development',
     title: 'Aplicaciones Móviles',
     description: 'Desarrollamos aplicaciones para smartphones y tablets que tus clientes pueden descargar desde las tiendas oficiales. Soluciones que funcionan tanto en Android como en iPhone.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/mobile.jpg',
     features: [
       'Apps para Android e iPhone',
       'Diseño intuitivo y atractivo',
@@ -46,7 +46,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'desktop-apps',
     title: 'Aplicaciones de Escritorio',
     description: 'Creamos programas para computadoras que se instalan directamente en Windows, Mac o Linux. Perfectas para empresas que necesitan herramientas específicas para su trabajo diario.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/desktop.jpg',
     features: [
       'Programas para Windows, Mac y Linux',
       'Interfaz fácil de usar',
@@ -60,7 +60,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'iot-solutions',
     title: 'Internet de las Cosas (IoT)',
     description: 'Conectamos dispositivos inteligentes a internet para automatizar tu hogar o negocio. Desde sensores hasta sistemas de control, hacemos que la tecnología trabaje para ti.',
-    image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/iot.jpg',
     features: [
       'Dispositivos conectados',
       'Monitoreo en tiempo real',
@@ -74,7 +74,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'game-development',
     title: 'Desarrollo de Videojuegos',
     description: 'Creamos videojuegos desde cero para móviles, computadoras y consolas. Desde juegos casuales hasta experiencias inmersivas, llevamos tu visión a la realidad.',
-    image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/game.jpg',
     features: [
       'Juegos para móviles y PC',
       'Gráficos atractivos',
@@ -88,7 +88,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'artificial-intelligence',
     title: 'Inteligencia Artificial',
     description: 'Implementamos sistemas inteligentes que pueden aprender y tomar decisiones. Desde chatbots hasta análisis predictivo, la IA puede revolucionar tu negocio.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/ai.jpg',
     features: [
       'Chatbots inteligentes',
       'Análisis predictivo',
@@ -102,7 +102,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'machine-learning',
     title: 'Machine Learning',
     description: 'Desarrollamos sistemas que aprenden de los datos para mejorar continuamente. Perfecto para empresas que quieren aprovechar su información para tomar mejores decisiones.',
-    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/ml.jpg',
     features: [
       'Análisis de datos avanzado',
       'Predicciones precisas',
@@ -116,7 +116,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'deep-learning',
     title: 'Deep Learning',
     description: 'Creamos redes neuronales avanzadas que pueden procesar información compleja como imágenes, texto y audio. Ideal para proyectos que requieren análisis sofisticado.',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/dl.jpg',
     features: [
       'Procesamiento de imágenes',
       'Análisis de texto avanzado',
@@ -130,7 +130,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'data-science',
     title: 'Ciencia de Datos',
     description: 'Transformamos tus datos en información valiosa que impulsa decisiones inteligentes. Desde reportes automáticos hasta dashboards interactivos, hacemos que los números hablen.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/data.jpg',
     features: [
       'Análisis de datos empresariales',
       'Dashboards interactivos',
@@ -144,7 +144,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'blockchain',
     title: 'Blockchain',
     description: 'Implementamos tecnología blockchain para crear sistemas seguros y transparentes. Perfecto para empresas que necesitan trazabilidad, contratos inteligentes o criptomonedas.',
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/blockchain.jpg',
     features: [
       'Contratos inteligentes',
       'Sistemas de trazabilidad',
@@ -158,7 +158,7 @@ export const ASHEN_SERVICES: Service[] = [
     id: 'automation',
     title: 'Automatización',
     description: 'Automatizamos procesos repetitivos para que tu equipo se enfoque en lo importante. Desde tareas administrativas hasta flujos de trabajo complejos, la tecnología trabaja 24/7.',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop',
+    image: '/assets/services/automation.jpg',
     features: [
       'Automatización de procesos',
       'Integración de sistemas',
@@ -179,8 +179,8 @@ export const getServicesCount = (): number => {
 };
 
 export const getRelatedServices = (currentId: string, limit: number = 3): Service[] => {
-  const otherServices = ASHEN_SERVICES.filter(service => service.id !== currentId);
-  // Simple shuffle
-  const shuffled = otherServices.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, limit);
+  const currentIndex = ASHEN_SERVICES.findIndex((service) => service.id === currentId);
+  const others = ASHEN_SERVICES.filter((service) => service.id !== currentId);
+  const start = currentIndex < 0 ? 0 : currentIndex % others.length;
+  return [...others.slice(start), ...others.slice(0, start)].slice(0, limit);
 };

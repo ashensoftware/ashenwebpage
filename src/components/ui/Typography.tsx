@@ -6,7 +6,7 @@ interface TypographyProps {
     className?: string;
     variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'small' | 'lead';
     gradient?: boolean;
-    as?: any;
+    as?: React.ElementType;
 }
 
 export const Typography: React.FC<TypographyProps> = ({

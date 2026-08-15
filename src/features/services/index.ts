@@ -1,2 +1,2 @@
 export { ServicesSection } from './ServicesSection';
-export { default as GradualBlur } from './GradualBlur';
+export { PillarsSection } from './PillarsSection';

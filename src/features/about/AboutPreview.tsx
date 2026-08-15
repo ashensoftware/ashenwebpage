@@ -1,13 +1,15 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useLocale, useT } from '@/hooks/useLocale';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Typography } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import { Link } from 'react-router-dom';
+import { pathFor } from '@/config/routes';
 
 export const AboutPreview: React.FC = () => {
-    const { t } = useTranslation();
+    const t = useT();
+    const locale = useLocale();
 
     return (
         <Section id="about-preview" className="bg-bg-secondary py-0 relative overflow-hidden" fullWidth>
@@ -20,8 +22,11 @@ export const AboutPreview: React.FC = () => {
                     <div className="absolute inset-0 bg-brand-primary/10 mix-blend-overlay z-10" />
                     <div className="absolute inset-0 bg-gradient-to-l from-bg-secondary via-transparent to-transparent z-20" />
                     <img
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
-                        alt="Team collaboration"
+                        src="/assets/og-image.png"
+                        alt=""
+                        width={1200}
+                        height={800}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                 </div>
@@ -33,22 +38,22 @@ export const AboutPreview: React.FC = () => {
 
                     <Container className="w-full max-w-2xl mx-auto lg:mx-0">
                         <Typography variant="small" className="uppercase tracking-widest text-brand-primary font-bold mb-4">
-                            {t('about.label', 'Who We Are')}
+                            {t('about.label')}
                         </Typography>
                         <Typography variant="h2" className="mb-6 relative z-10">
-                            {t('about.title', 'More Than Just Code')}
+                            {t('about.title')}
                         </Typography>
                         <Typography variant="lead" className="mb-8 relative z-10">
-                            {t('about.subtitle', 'We are a collective of visionaries, engineers, and creatives dedicated to building the future.')}
+                            {t('about.subtitle')}
                         </Typography>
 
                         <Typography className="mb-8 text-text-secondary/80 leading-relaxed relative z-10">
-                            {t('about.description', 'At Ashen Software, we believe in the power of technology to transform lives and businesses. Our culture is built on innovation, transparency, and a relentless pursuit of excellence.')}
+                            {t('about.description')}
                         </Typography>
 
-                        <Link to="/about" className="relative z-10 inline-block pointer-events-auto">
+                        <Link to={pathFor('about', locale)} className="relative z-10 inline-block pointer-events-auto">
                             <Button variant="outline" size="lg" className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">
-                                {t('about.cta', 'Meet the Team')}
+                                {t('about.cta')}
                             </Button>
                         </Link>
                     </Container>

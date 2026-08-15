@@ -1,15 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ashensoftware.com/</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/ai-agents</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/ai-agents" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/agentes-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/ai-agents" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/agentes-ia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/ai-agents" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/agentes-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/ai-agents" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/software-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/software-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/desarrollo-software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/software-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/desarrollo-software</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/software-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/desarrollo-software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/software-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/data-ai-engineering</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/data-ai-engineering" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/datos-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/data-ai-engineering" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/datos-ia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/data-ai-engineering" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/datos-ia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/data-ai-engineering" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/integrations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/integrations" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/integraciones" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/integrations" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/integraciones</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/integrations" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/integraciones" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/integrations" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/case-studies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/casos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/case-studies" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/casos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/casos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/case-studies" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/case-studies/trengie</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/case-studies/trengie" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/casos/trengie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/case-studies/trengie" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/casos/trengie</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/case-studies/trengie" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/casos/trengie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/case-studies/trengie" />
   </url>
   <url>
     <loc>https://ashensoftware.com/about</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/nosotros" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/about" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/nosotros" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/about" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/privacidad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/privacy" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/privacidad</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/privacidad" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/privacy" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/terminos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/terms" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/terminos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/terminos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/terms" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/web-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/web-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/web-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/web-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/web-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/web-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/mobile-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/mobile-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/mobile-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/mobile-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/mobile-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/mobile-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/mobile-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/mobile-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/desktop-apps</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/desktop-apps" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/desktop-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/desktop-apps" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/desktop-apps</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/desktop-apps" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/desktop-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/desktop-apps" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/iot-solutions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/iot-solutions" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/iot-solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/iot-solutions" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/iot-solutions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/iot-solutions" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/iot-solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/iot-solutions" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/game-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/game-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/game-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/game-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/game-development</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/game-development" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/game-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/game-development" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/artificial-intelligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/artificial-intelligence" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/artificial-intelligence" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/artificial-intelligence" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/artificial-intelligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/artificial-intelligence" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/artificial-intelligence" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/artificial-intelligence" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/machine-learning</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/machine-learning" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/machine-learning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/machine-learning" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/machine-learning</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/machine-learning" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/machine-learning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/machine-learning" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/deep-learning</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/deep-learning" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/deep-learning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/deep-learning" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/deep-learning</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/deep-learning" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/deep-learning" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/deep-learning" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/data-science</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/data-science" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/data-science" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/data-science" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/data-science</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/data-science" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/data-science" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/data-science" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/blockchain</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/blockchain" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/blockchain" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/blockchain" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/blockchain</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/blockchain" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/blockchain" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/blockchain" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/services/automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/automation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/automation" />
+  </url>
+  <url>
+    <loc>https://ashensoftware.com/es/servicios/automation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ashensoftware.com/services/automation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ashensoftware.com/es/servicios/automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ashensoftware.com/services/automation" />
   </url>
 </urlset>

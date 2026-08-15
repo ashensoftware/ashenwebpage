@@ -1,271 +1,375 @@
 {
+  "a11y": {
+    "skip": "Saltar al contenido",
+    "menu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "theme": "Cambiar tema",
+    "language": "Cambiar idioma"
+  },
+  "cta": {
+    "startProject": "Iniciar un proyecto",
+    "seeWork": "Ver nuestro trabajo",
+    "talkWhatsapp": "Escribir por WhatsApp"
+  },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
+    "aiAgents": "Agentes de IA",
+    "work": "Trabajo",
     "about": "Nosotros",
     "contact": "Contacto",
-    "cta": "Agendar Demo"
+    "cta": "Iniciar un proyecto"
   },
   "hero": {
-    "title": "Desarrollamos tecnología que <span class='text-gradient'>trasciende</span>",
-    "subtitle": "Arquitectura de software premium, inteligencia artificial y soluciones digitales diseñadas para escalabilidad e impacto.",
+    "eyebrow": "Ingeniería de software · Medellín y remoto",
+    "titleBefore": "Software a medida y agentes de IA",
+    "titleEmphasis": "para operaciones reales",
+    "subtitle": "Ashen diseña y pone en producción sistemas: agentes conectados a tus herramientas, software a medida, plataformas de datos e integraciones, con supervisión humana.",
     "cta": {
-      "primary": "Agendar Demo",
-      "secondary": "Ver Servicios"
+      "primary": "Iniciar un proyecto",
+      "secondary": "Ver nuestro trabajo"
     }
   },
-  "services": {
-    "label": "Nuestras Soluciones",
-    "title": "Ingeniería para el Crecimiento",
-    "subtitle": "Pilas tecnológicas integrales diseñadas para resolver desafíos empresariales complejos.",
-    "cta": "Solicitar Cotización",
-    "pricing-label": "Inversión Estimada",
-    "pricing-disclaimer": "*El precio final depende del alcance y requerimientos del proyecto.",
-    "features-label": "Características Clave",
-    "tech-label": "Tecnologías",
-    "back": "Volver a Servicios",
-    "view-all": "Ver Todos los Servicios",
-    "related": "También te podría interesar"
+  "pillars": {
+    "label": "Qué construimos",
+    "title": "Cuatro formas de ayudar a un equipo a entregar",
+    "subtitle": "Oferta principal para empresas que necesitan software que aguante en producción.",
+    "ai-agents": {
+      "title": "Agentes de IA y automatización inteligente",
+      "description": "Agentes, flujos de voz y sistemas con tool calling que ejecutan trabajo dentro de CRMs, bandejas, bases de conocimiento y APIs, con evaluación, guardrails y aprobación humana."
+    },
+    "software": {
+      "title": "Ingeniería de software a medida",
+      "description": "Aplicaciones web, productos SaaS, herramientas internas, APIs y backends diseñados alrededor de cómo opera tu empresa."
+    },
+    "data-ai": {
+      "title": "Datos e ingeniería de IA",
+      "description": "Pipelines, analítica, machine learning y la infraestructura para que modelos y productos de datos se puedan operar."
+    },
+    "integrations": {
+      "title": "Integraciones y modernización",
+      "description": "APIs, conexiones CRM/ERP, modernización de flujos y reemplazo de procesos manuales o sistemas que ya no aguantan."
+    },
+    "learn": "Ver más"
   },
-  "values": {
-    "label": "Por qué Ashen Software",
-    "heading": "Tecnología que Impulsa Resultados",
-    "subheading": "Combinamos experiencia técnica con visión de negocios para entregar soluciones que importan.",
-    "innovation": {
-      "title": "Innovación Primero",
-      "desc": "Nos mantenemos a la vanguardia, implementando las últimas tecnologías para darte una ventaja competitiva."
-    },
-    "precision": {
-      "title": "Precisión en Ingeniería",
-      "desc": "Código limpio, arquitectura escalable y soluciones robustas que perduran en el tiempo."
-    },
-    "partnership": {
-      "title": "Verdadera Asociación",
-      "desc": "Trabajamos como una extensión de tu equipo, alineados con tus objetivos y éxito."
-    },
-    "speed": {
-      "title": "Velocidad de Mercado",
-      "desc": "Metodologías ágiles que aseguran una entrega rápida sin comprometer la calidad."
-    },
-    "stats": {
-      "projects": {
-        "val": "100+",
-        "label": "Proyectos Entregados",
-        "desc": "Ayudando a startups y empresas a escalar mediante tecnología."
+  "proof": {
+    "label": "Evidencia",
+    "title": "Trabajo que podemos mostrar",
+    "subtitle": "Un sitio en vivo que diseñamos y construimos para una organización B2B técnica.",
+    "cta": "Leer el caso",
+    "visit": "Ver sitio en vivo"
+  },
+  "spotlight": {
+    "label": "Oferta principal",
+    "title": "Agentes que ejecutan el trabajo",
+    "body": "Conectamos modelos de lenguaje con los sistemas que tu equipo ya usa, y agregamos permisos, registro y un punto de control humano cuando el riesgo lo pide.",
+    "cta": "Ver agentes de IA",
+    "chips": {
+      "agents": "Agentes que ejecutan trabajo",
+      "tools": "Conectados a tus herramientas",
+      "guardrails": "Guardrails y revisión humana"
+    }
+  },
+  "process": {
+    "label": "Cómo entregamos",
+    "title": "Un modelo de entrega claro",
+    "subtitle": "El alcance y la inversión dependen del sistema. Los encargos suelen pasar por cuatro etapas.",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento / evaluación técnica",
+        "body": "Mapear sistemas, restricciones, datos y el primer flujo que vale la pena automatizar o reconstruir."
+      },
+      "pilot": {
+        "title": "Piloto / prototipo",
+        "body": "Una rebanada estrecha con forma de producción: suficiente para validar arquitectura, integraciones y confianza del operador."
+      },
+      "production": {
+        "title": "Despliegue en producción",
+        "body": "Endurecer, observar, documentar y entregar un sistema que tu equipo pueda operar."
+      },
+      "support": {
+        "title": "Optimización y soporte",
+        "body": "Iterar evaluaciones, prompts, integraciones y confiabilidad después del go-live."
       }
     }
   },
-  "about": {
-    "label": "Quiénes Somos",
-    "title": "Más Que Solo Código",
-    "subtitle": "Somos un colectivo de visionarios, ingenieros y creativos dedicados a construir el futuro.",
-    "description": "En Ashen Software, creemos en el poder de la tecnología para transformar vidas y negocios. Nuestra cultura se basa en la innovación, la transparencia y una búsqueda incansable de la excelencia.",
-    "cta": "Agenda tu Demo"
+  "services": {
+    "label": "Capacidades",
+    "title": "Ingeniería para operaciones",
+    "subtitle": "Trabajo especializado que vive debajo de los cuatro pilares comerciales.",
+    "cta": "Iniciar un proyecto",
+    "features-label": "Qué incluye",
+    "tech-label": "Tecnologías habituales",
+    "back": "Volver a servicios",
+    "view-all": "Ver capacidades",
+    "related": "Capacidades relacionadas",
+    "delivery-label": "Encargo",
+    "delivery-body": "Definimos descubrimiento, piloto y producción alrededor de tus sistemas. Escríbenos para una conversación técnica."
   },
-  "nav-home": "Inicio",
-  "nav-services": "Servicios",
-  "nav-about": "Nosotros",
-  "nav-contact": "Contacto",
+  "values": {
+    "label": "Por qué Ashen",
+    "heading": "Una empresa de ingeniería para sistemas en producción",
+    "subheading": "Construimos sistemas que conviven con finanzas, operaciones, soporte y producto, con la misma seriedad que cualquier otro servicio en producción.",
+    "innovation": {
+      "title": "Automatización útil",
+      "desc": "Agentes y software que terminan un trabajo en un sistema real."
+    },
+    "precision": {
+      "title": "Disciplina de producción",
+      "desc": "Control de acceso, evaluación, observabilidad y código que otro ingeniero pueda mantener."
+    },
+    "partnership": {
+      "title": "Ingeniería directa",
+      "desc": "Trabajas con quien diseña el sistema. Nos quedamos cerca de las restricciones, los datos y los operadores."
+    },
+    "speed": {
+      "title": "Primera rebanada estrecha",
+      "desc": "Empezamos por un flujo que importa y ampliamos cuando la integración y la calidad ya son reales."
+    }
+  },
+  "about": {
+    "label": "Quiénes somos",
+    "title": "Un estudio que entrega software",
+    "subtitle": "Ashen Software es una empresa de ingeniería en Medellín, que trabaja con equipos en Colombia, LATAM e internacionalmente.",
+    "description": "Diseñamos software a medida, agentes de IA y sistemas de datos para organizaciones que ya tienen operaciones que cuidar. El trabajo es técnico, con alcance y con responsables.",
+    "cta": "Sobre Ashen"
+  },
   "faq": {
     "label": "Preguntas",
-    "title": "Preguntas Frecuentes",
-    "subtitle": "Todo lo que necesitas saber sobre nuestro proceso y cómo podemos ayudar a que tu negocio crezca.",
-    "q1": "¿Qué servicios de desarrollo de software ofrecen?",
-    "a1": "Ofrecemos desarrollo de software a la medida, aplicaciones web y móviles, consultoría tecnológica, y modernización de sistemas legacy.",
-    "q2": "¿Cómo es su proceso de trabajo?",
-    "a2": "Trabajamos con metodologías ágiles (Scrum/Kanban). Iniciamos con una fase de descubrimiento y diseño, seguida de sprints de desarrollo iterativos.",
-    "q3": "¿Ofrecen soporte y mantenimiento post-lanzamiento?",
-    "a3": "Sí, ofrecemos planes de soporte y mantenimiento para asegurar que su software siga funcionando perfectamente.",
-    "q4": "¿Qué tecnologías utilizan?",
-    "a4": "Utilizamos un stack moderno y robusto que incluye React, Node.js, Python, AWS, Azure, y tecnologías móviles como React Native y Flutter.",
+    "title": "Preguntas frecuentes",
+    "subtitle": "Respuestas directas sobre cómo trabajamos con producto, operaciones e ingeniería.",
+    "q1": "¿Qué construye Ashen en la práctica?",
+    "a1": "Software a medida, agentes de IA conectados a sistemas de negocio, plataformas de datos/ML e integraciones que reemplazan trabajo manual frágil. IoT, escritorio, juegos y blockchain siguen disponibles cuando un proyecto los necesita.",
+    "q2": "¿Cómo empieza un proyecto?",
+    "a2": "Con una evaluación técnica: sistemas, datos, permisos y el primer flujo. Eso se convierte en un piloto y, si funciona, en un despliegue de producción.",
+    "q3": "¿Dan soporte después del lanzamiento?",
+    "a3": "Sí. El trabajo de producción incluye un camino de monitoreo, iteración y soporte.",
+    "q4": "¿Qué stack usan?",
+    "a4": "Depende del sistema. Piezas habituales: TypeScript/React, Python, Node.js, nubes y APIs de modelos con tool calling. Elegimos herramientas que el cliente pueda operar.",
     "q5": "¿Pueden firmar un NDA?",
-    "a5": "Absolutamente. Respetamos tu privacidad y propiedad intelectual."
+    "a5": "Sí. Tratamos sistemas, datos y propiedad intelectual del cliente como información confidencial."
   },
   "footer": {
-    "description": "Desarrollamos tecnología que trasciende. Arquitectura de software premium y soluciones digitales.",
+    "description": "Software a medida y agentes de IA para operaciones reales. Hecho en Medellín, entregado en remoto.",
     "company": "Empresa",
     "legal": "Legal",
     "contact": "Contacto",
     "services": "Servicios",
     "about": "Nosotros",
-    "work": "Proyectos",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio",
-    "copyright": "© {{year}} ASHEN Software. Todos los derechos reservados.",
-    "tagline": "Diseñado para Impactar."
+    "work": "Trabajo",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "copyright": "© {{year}} Ashen Software. Todos los derechos reservados.",
+    "tagline": "Ingeniería para operaciones reales.",
+    "languageHint": "Cambiar idioma"
   },
   "contact": {
-    "title": "¡Cotiza un proyecto con nosotros!",
-    "description": "¿Listo para convertir tu idea en realidad? Comparte tu visión con nosotros y te proporcionaremos la tecnología, estrategia y experiencia para construir algo extraordinario.",
-    "name-label": "¿Cuál es tu nombre?*",
-    "project-label": "¿Cuál es el nombre de tu proyecto/idea?",
-    "phone-label": "Tu número de teléfono*",
-    "email-label": "Tu correo electrónico*",
-    "message-label": "Unas pocas palabras sobre tu proyecto/idea*",
-    "message-placeholder": "Cuéntanos más...",
-    "button": "Enviar Mensaje"
+    "title": "Cuéntanos qué hay que entregar",
+    "description": "Describe el sistema, el flujo y la restricción. Respondemos consultas de proyecto serias.",
+    "name-label": "Nombre",
+    "company-label": "Empresa / organización",
+    "service-label": "Interés de servicio / proyecto",
+    "phone-label": "Teléfono (opcional)",
+    "email-label": "Correo de trabajo",
+    "message-label": "Mensaje",
+    "message-placeholder": "¿Qué debe hacer el sistema y con qué herramientas tiene que hablar?",
+    "button": "Enviar mensaje",
+    "sending": "Enviando…",
+    "success-title": "Mensaje recibido",
+    "success-body": "Lo revisaremos y te escribiremos. Si es urgente, también puedes contactarnos por WhatsApp.",
+    "error-generic": "No se pudo enviar el mensaje. Revisa los campos e inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "service-options": {
+      "ai-agents": "Agentes de IA",
+      "software": "Software a medida",
+      "data-ai": "Datos e IA",
+      "integrations": "Integraciones",
+      "other": "Otro"
+    }
+  },
+  "aiAgents": {
+    "seoTitle": "Agentes de IA y automatización | Ashen Software",
+    "seoDesc": "Agentes de IA, agentes de voz y flujos agentic conectados a sistemas de negocio, con evaluación, observabilidad, guardrails y supervisión humana.",
+    "eyebrow": "Agentes de IA",
+    "title": "Agentes de IA que ejecutan trabajo real dentro de tu empresa",
+    "subtitle": "Diseñamos y desplegamos agentes de IA, agentes de voz y flujos agentic conectados a sistemas, datos y APIs, con evaluación, observabilidad, guardrails y supervisión humana.",
+    "outcomesTitle": "Para qué sirve",
+    "outcomes": [
+      "Calificar y enrutar leads con un proceso consistente",
+      "Responder soporte desde conocimiento aprobado y escalar",
+      "Mover documentos por revisión, extracción y seguimiento",
+      "Agendar, onboardear y actualizar registros entre herramientas",
+      "Dar a equipos internos un copiloto que llame la API correcta"
+    ],
+    "workflowsTitle": "Flujos de ejemplo",
+    "workflows": [
+      { "title": "Soporte", "body": "Recuperar respuestas de política y producto, redactar y detenerse para una persona cuando la confianza o la política lo exijan." },
+      { "title": "Calificación de leads", "body": "Hacer las preguntas que ya usa tu proceso comercial, escribir los campos del CRM y entregar un brief limpio." },
+      { "title": "Operaciones de ventas", "body": "Resumir llamadas, actualizar pipeline y preparar seguimientos sin inventar cifras." },
+      { "title": "Documentos", "body": "Extraer datos estructurados de contratos o formularios y llevarlos al sistema de registro." },
+      { "title": "Agenda y onboarding", "body": "Recolectar información, reservar tiempo y crear cuentas con permisos explícitos." },
+      { "title": "Voz", "body": "Agentes telefónicos o de voz para operaciones de alto volumen y guion, con transcripción y respaldo humano." }
+    ],
+    "architectureTitle": "Cómo los construimos",
+    "architecture": "Un agente es un bucle controlado: recuperar contexto, elegir una herramienta, actuar, registrar lo ocurrido y parar cuando una regla lo dice. El modelo es un componente junto a APIs, permisos, evaluaciones y logs.",
+    "securityTitle": "Seguridad y aprobación humana",
+    "security": "El acceso a herramientas está acotado. Las acciones sensibles pueden exigir a una persona. Los secretos no van al prompt. Diseñamos el menor privilegio que el flujo necesita.",
+    "evalTitle": "Evaluación y observabilidad",
+    "eval": "Definimos qué significa “bien” para el flujo, probamos con ejemplos reales y dejamos trazas para diagnosticar fallos después del lanzamiento.",
+    "deliveryTitle": "Entrega",
+    "delivery": "Evaluación de sistemas y riesgo, un piloto estrecho en un flujo, y luego endurecimiento de producción: monitoreo, permisos, runbooks e iteración.",
+    "faqTitle": "Preguntas sobre agentes",
+    "faq": [
+      { "q": "¿Esto reemplaza al equipo?", "a": "No. El patrón útil es un agente que hace trabajo repetible y bien especificado, y escala el resto." },
+      { "q": "¿Solo hacen chatbots?", "a": "El chat puede ser la interfaz. El producto es el flujo: herramientas, datos, permisos y la bitácora." },
+      { "q": "¿Y si los datos están desordenados?", "a": "Entonces el primer trabajo suele ser calidad de recuperación y diseño de proceso." }
+    ],
+    "ctaTitle": "¿Tienes un flujo que valga la pena automatizar?",
+    "ctaBody": "Cuéntanos el sistema, el volumen y el fallo que no te puedes permitir. Te diremos si un agente es la forma correcta."
+  },
+  "softwarePage": {
+    "seoTitle": "Desarrollo de software a medida | Ashen Software",
+    "seoDesc": "Aplicaciones web, SaaS, herramientas internas, APIs y backends construidos para cómo opera tu empresa.",
+    "title": "Software a medida para cómo ya trabajan",
+    "subtitle": "Productos web, herramientas internas y APIs diseñados alrededor de usuarios, datos e integraciones reales."
+  },
+  "dataPage": {
+    "seoTitle": "Datos e ingeniería de IA | Ashen Software",
+    "seoDesc": "Pipelines de datos, analítica, machine learning e infraestructura de IA que se puedan operar.",
+    "title": "Sistemas de datos e IA que se pueden operar",
+    "subtitle": "Pipelines, modelos y analítica conectados al resto del negocio, con calidad, acceso y jobs tratados como parte del producto."
+  },
+  "integrationsPage": {
+    "seoTitle": "Integraciones y modernización | Ashen Software",
+    "seoDesc": "Integraciones API, conexiones CRM/ERP y modernización de procesos legacy frágiles.",
+    "title": "Conecta los sistemas que ya pagas",
+    "subtitle": "APIs, vínculos CRM/ERP y modernización para que la gente deje de copiar datos entre herramientas."
+  },
+  "cases": {
+    "seoTitle": "Casos | Ashen Software",
+    "seoDesc": "Entregas de software de Ashen Software, empezando por el sitio de ingeniería ferroviaria de Trengie.",
+    "title": "Casos",
+    "subtitle": "Solo listamos trabajo que podemos describir con honestidad. Trengie es un sitio en vivo que Ashen diseñó y construyó.",
+    "empty": "Agregaremos más casos cuando podamos describirlos sin inventar resultados.",
+    "items": {
+      "trengie": {
+        "title": "Trengie: sitio web de ingeniería ferroviaria",
+        "summary": "Ashen diseñó y construyó el sitio público de Trengie, una firma de ingeniería y consultoría ferroviaria que presenta servicios de señalización, electrificación, telecomunicaciones, material rodante y gestión de proyectos.",
+        "industry": "Ingeniería ferroviaria y consultoría de proyectos",
+        "imageAlt": "Página de inicio del sitio de ingeniería ferroviaria de Trengie",
+        "challenge": "Trengie necesitaba una presencia digital creíble para compradores institucionales y corporativos. La empresa cubre señalización, electrificación, telecomunicaciones, material rodante y consultoría técnica: una oferta B2B densa que debía verse clara en móvil y escritorio.",
+        "built": "Ashen entregó el sitio de marketing en producción en trengie.com: módulos de servicio, portafolio de proyectos, posicionamiento normativo (ISO, CENELEC, RAMS/SIL4, PMI/IPMA) y un canal de contacto para solicitudes institucionales.",
+        "approach": "El sitio está organizado como evalúa un comprador técnico a un consultor ferroviario: capacidades, evidencia de proyectos y luego una solicitud directa. El layout, la tipografía y el comportamiento responsive mantienen legibles las descripciones técnicas en el teléfono sin esconder el CTA.",
+        "outcome": "Trengie tiene un sitio público en producción que presenta una práctica de ingeniería compleja como una oferta comercial coherente."
+      }
+    }
+  },
+  "trengie": {
+    "seoTitle": "Caso Trengie | Ashen Software",
+    "seoDesc": "Ashen construyó el sitio público de Trengie, una empresa de ingeniería y consultoría ferroviaria. Reto, enfoque y sitio en vivo.",
+    "client": "Cliente",
+    "industry": "Industria",
+    "challenge": "Reto",
+    "built": "Qué construyó Ashen",
+    "approach": "Enfoque de UX e ingeniería",
+    "stack": "Tecnología",
+    "outcome": "Resultado",
+    "live": "Ver sitio en vivo"
+  },
+  "aboutPage": {
+    "seoTitle": "Sobre Ashen Software",
+    "seoDesc": "Ashen Software es una empresa de ingeniería en Medellín que construye software a medida, agentes de IA y sistemas de datos para operaciones reales.",
+    "dna": "El ADN de Ashen",
+    "heroTitle1": "Somos",
+    "heroTitle2": "arquitectos",
+    "heroTitle3": "del futuro.",
+    "heroDesc": "Un equipo de ingenieros y diseñadores dedicado a construir tecnología que aguante en producción.",
+    "principles1": "Principios que guían el",
+    "principles2": "compromiso",
+    "principles3": "de Ashen.",
+    "missionTitle": "Nuestra misión",
+    "missionDesc": "Ayudar a los equipos a entregar software, agentes y sistemas de datos que convivan con operaciones reales.",
+    "visionTitle": "Nuestra visión",
+    "visionDesc": "Ser un socio de ingeniería de confianza para empresas que necesitan sistemas en producción.",
+    "cultureLabel": "Cultura",
+    "cultureHeading": "Construida sobre la excelencia",
+    "cultureSubheading": "Cómo trabajamos con clientes y entre nosotros.",
+    "transparencyTitle": "Transparencia",
+    "transparencyDesc": "Comunicación clara y progreso visible.",
+    "innovationTitle": "Innovación",
+    "innovationDesc": "Uso práctico de herramientas nuevas cuando mejoran el sistema.",
+    "agilityTitle": "Agilidad",
+    "agilityDesc": "Rebanadas estrechas y feedback rápido.",
+    "empathyTitle": "Empatía",
+    "empathyDesc": "Tecnología pensada para quien la opera."
+  },
+  "legal": {
+    "privacyTitle": "Política de privacidad | Ashen Software",
+    "privacyDesc": "Cómo Ashen Software trata la información del formulario de contacto y del sitio.",
+    "termsTitle": "Términos de uso | Ashen Software",
+    "termsDesc": "Términos para el uso del sitio de Ashen Software.",
+    "disclaimer": "Esta página es un aviso básico para el sitio de una consultora de software. No es asesoría legal y no ha sido revisada por un abogado."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "Esta URL no es una página de Ashen Software. Usa la navegación para volver a servicios, trabajo o contacto.",
+    "home": "Volver al inicio"
   },
   "services_data": {
     "web-development": {
-      "title": "Desarrollo Web",
-      "description": "Creamos sitios web y aplicaciones que funcionan perfectamente en cualquier dispositivo. Desde páginas corporativas hasta plataformas complejas, hacemos que tu presencia digital sea profesional y efectiva.",
-      "features": [
-        "Sitios web responsivos y modernos",
-        "Optimización para motores de búsqueda (SEO)",
-        "Experiencia de usuario intuitiva",
-        "Integración con redes sociales"
-      ]
+      "title": "Desarrollo web",
+      "description": "Sitios y aplicaciones web usables en teléfono y escritorio, desde presencia corporativa hasta plataformas internas.",
+      "features": ["Interfaces responsivas", "Estructura lista para SEO", "Integración con herramientas existentes", "Front-end mantenible"]
     },
     "mobile-development": {
-      "title": "Aplicaciones Móviles",
-      "description": "Desarrollamos aplicaciones para smartphones y tablets que tus clientes pueden descargar desde las tiendas oficiales. Soluciones que funcionan tanto en Android como en iPhone.",
-      "features": [
-        "Apps para Android y iPhone",
-        "Diseño intuitivo y atractivo",
-        "Funcionalidad offline",
-        "Notificaciones push"
-      ]
+      "title": "Aplicaciones móviles",
+      "description": "Productos móviles para Android e iOS cuando el flujo en el teléfono es el producto.",
+      "features": ["Entrega Android e iOS", "UX práctica", "Flujos con offline si hace falta", "Builds listos para tiendas"]
     },
     "desktop-apps": {
-      "title": "Aplicaciones de Escritorio",
-      "description": "Creamos programas para computadoras que se instalan directamente en Windows, Mac o Linux. Perfectas para empresas que necesitan herramientas específicas para su trabajo diario.",
-      "features": [
-        "Programas para Windows, Mac y Linux",
-        "Interfaz fácil de usar",
-        "Integración con sistemas existentes",
-        "Actualizaciones automáticas"
-      ]
+      "title": "Aplicaciones de escritorio",
+      "description": "Herramientas instaladas en Windows, macOS o Linux cuando el navegador no es la superficie correcta.",
+      "features": ["Opciones multiplataforma", "Integración con sistemas locales o internos", "Estrategia de actualizaciones", "UX para operadores"]
     },
     "iot-solutions": {
       "title": "Internet de las Cosas (IoT)",
-      "description": "Conectamos dispositivos inteligentes a internet para automatizar tu hogar o negocio. Desde sensores hasta sistemas de control, hacemos que la tecnología trabaje para ti.",
-      "features": [
-        "Dispositivos conectados",
-        "Monitoreo en tiempo real",
-        "Automatización inteligente",
-        "Control remoto"
-      ]
+      "description": "Conectividad de dispositivos, telemetría y control cuando el hardware es parte de la operación.",
+      "features": ["Conectividad", "Monitoreo", "Ganchos de automatización", "Control remoto"]
     },
     "game-development": {
-      "title": "Desarrollo de Videojuegos",
-      "description": "Creamos videojuegos desde cero para móviles, computadoras y consolas. Desde juegos casuales hasta experiencias inmersivas, llevamos tu visión a la realidad.",
-      "features": [
-        "Juegos para móviles y PC",
-        "Gráficos atractivos",
-        "Mecánicas divertidas",
-        "Multiplataforma"
-      ]
+      "title": "Desarrollo de videojuegos",
+      "description": "Productos interactivos cuando el brief es un juego.",
+      "features": ["Objetivos móvil y PC", "Sistemas de juego", "Opciones multiplataforma", "Herramientas de producción"]
     },
     "artificial-intelligence": {
-      "title": "Inteligencia Artificial",
-      "description": "Implementamos sistemas inteligentes que pueden aprender y tomar decisiones. Desde chatbots hasta análisis predictivo, la IA puede revolucionar tu negocio.",
-      "features": [
-        "Chatbots inteligentes",
-        "Análisis predictivo",
-        "Reconocimiento de patrones",
-        "Automatización de procesos"
-      ]
+      "title": "Inteligencia artificial",
+      "description": "IA aplicada dentro de productos y operaciones existentes. Para sistemas de agentes, ver la oferta de Agentes de IA.",
+      "features": ["Integración de modelos", "Recuperación y clasificación", "Automatización de procesos", "Revisión humana"]
     },
     "machine-learning": {
       "title": "Machine Learning",
-      "description": "Desarrollamos sistemas que aprenden de los datos para mejorar continuamente. Perfecto para empresas que quieren aprovechar su información para tomar mejores decisiones.",
-      "features": [
-        "Análisis de datos avanzado",
-        "Predicciones precisas",
-        "Detección de patrones",
-        "Recomendaciones personalizadas"
-      ]
+      "description": "Modelos que aprenden de tus datos cuando un motor de reglas ya no alcanza.",
+      "features": ["Pipelines de entrenamiento", "Evaluación", "Features", "Despliegue en un producto"]
     },
     "deep-learning": {
       "title": "Deep Learning",
-      "description": "Creamos redes neuronales avanzadas que pueden procesar información compleja como imágenes, texto y audio. Ideal para proyectos que requieren análisis sofisticado.",
-      "features": [
-        "Procesamiento de imágenes",
-        "Análisis de texto avanzado",
-        "Reconocimiento de voz",
-        "Sistemas de recomendación"
-      ]
+      "description": "Sistemas neuronales para imagen, lenguaje u otras entradas de alta dimensión cuando el problema lo pide.",
+      "features": ["Modelos de visión y lenguaje", "Entrenamiento e inferencia", "Sets de evaluación", "Integración con APIs"]
     },
     "data-science": {
-      "title": "Ciencia de Datos",
-      "description": "Transformamos tus datos en información valiosa que impulsa decisiones inteligentes. Desde reportes automáticos hasta dashboards interactivos, hacemos que los números hablen.",
-      "features": [
-        "Análisis de datos empresariales",
-        "Dashboards interactivos",
-        "Reportes automatizados",
-        "Visualizaciones claras"
-      ]
+      "title": "Ciencia de datos",
+      "description": "Análisis, reportes y apoyo a decisiones que operaciones sí puedan usar.",
+      "features": ["Análisis de negocio", "Dashboards", "Reportes automáticos", "Visualizaciones claras"]
     },
     "blockchain": {
       "title": "Blockchain",
-      "description": "Implementamos tecnología blockchain para crear sistemas seguros y transparentes. Perfecto para empresas que necesitan trazabilidad, contratos inteligentes o criptomonedas.",
-      "features": [
-        "Contratos inteligentes",
-        "Sistemas de trazabilidad",
-        "Tokens y criptomonedas",
-        "Seguridad avanzada"
-      ]
+      "description": "Trabajo de ledger distribuido cuando hay un requisito concreto.",
+      "features": ["Contratos inteligentes", "Trazabilidad", "Integración con sistemas existentes", "Revisión de seguridad"]
     },
     "automation": {
       "title": "Automatización",
-      "description": "Automatizamos procesos repetitivos para que tu equipo se enfoque en lo importante. Desde tareas administrativas hasta flujos de trabajo complejos, la tecnología trabaja 24/7.",
-      "features": [
-        "Automatización de procesos",
-        "Integración de sistemas",
-        "Flujos de trabajo inteligentes",
-        "Reducción de errores"
-      ]
+      "description": "Flujos repetibles entre herramientas para dejar de copiar y pegar todos los días.",
+      "features": ["Automatización de procesos", "Integración de sistemas", "Menos errores", "Logs visibles para el operador"]
     }
-  },
-  "learn-more": "Conoce más",
-  "faq-q1": "¿Qué servicios de desarrollo de software ofrecen?",
-  "faq-a1": "Ofrecemos desarrollo de software a la medida, aplicaciones web y móviles, consultoría tecnológica, y modernización de sistemas legacy.",
-  "faq-q2": "¿Cómo es su proceso de trabajo?",
-  "faq-a2": "Trabajamos con metodologías ágiles (Scrum/Kanban). Iniciamos con una fase de descubrimiento y diseño, seguida de sprints de desarrollo iterativos.",
-  "faq-q3": "¿Ofrecen soporte y mantenimiento post-lanzamiento?",
-  "faq-a3": "Sí, ofrecemos planes de soporte y mantenimiento para asegurar que su software siga funcionando perfectamente.",
-  "faq-q4": "¿Qué tecnologías utilizan?",
-  "faq-a4": "Utilizamos un stack moderno y robusto que incluye React, Node.js, Python, AWS, Azure, y tecnologías móviles como React Native y Flutter.",
-  "faq-q5": "¿Pueden firmar un NDA?",
-  "faq-a5": "Absolutamente. Respetamos tu privacidad y propiedad intelectual.",
-  "contact-title": "¡Cotiza un proyecto con nosotros!",
-  "contact-description": "¿Listo para convertir tu idea en realidad? Comparte tu visión con nosotros y te proporcionaremos la tecnología, estrategia y experiencia para construir algo extraordinario.",
-  "contact-name-label": "Nombre",
-  "contact-project-label": "Tipo de Proyecto",
-  "contact-phone-label": "Teléfono",
-  "contact-email-label": "Correo Electrónico",
-  "contact-message-label": "Mensaje",
-  "contact-message-placeholder": "Cuéntanos sobre tu proyecto...",
-  "about-dna": "El ADN Ashen",
-  "about-hero-title-1": "Somos",
-  "about-hero-title-2": "Arquitectos",
-  "about-hero-title-3": "Del Futuro.",
-  "about-hero-desc": "Un colectivo de visionarios, ingenieros y creativos dedicados a construir tecnología que trasciende límites y redefine lo posible.",
-  "about-principles-title-1": "Principios que guían el compromiso de",
-  "about-principles-title-2": "Ashen",
-  "about-principles-title-3": "con la innovación y el impacto.",
-  "about-mission-title": "Nuestra Misión",
-  "about-mission-desc": "Empoderar empresas puenteando la brecha entre tecnología compleja y diseño centrado en humanos. Construimos ecosistemas digitales transformadores, escalables e intuitivos.",
-  "about-vision-title": "Nuestra Visión",
-  "about-vision-desc": "Ser el estándar global de excelencia digital, donde el código encuentra la creatividad. Imaginamos un futuro donde la tecnología es invisible, fluida y sin límites.",
-  "about-stat-years-val": "5+",
-  "about-stat-years-label": "Años de Excelencia",
-  "about-stat-projects-val": "50+",
-  "about-stat-projects-label": "Proyectos Lanzados",
-  "about-stat-valuation-val": "$2M+",
-  "about-stat-valuation-label": "Valoración de Clientes",
-  "about-stat-commitment-val": "100%",
-  "about-stat-commitment-label": "Compromiso",
-  "about-culture-label": "Cultura",
-  "about-culture-heading": "Arraigados en la Excelencia",
-  "about-culture-subheading": "Nuestros valores son la base de nuestra innovación. Guían cómo construimos, cómo nos asociamos y cómo crecemos.",
-  "about-culture-transparency-title": "Transparencia",
-  "about-culture-transparency-desc": "Código abierto, comunicación abierta. Creemos que la confianza se construye con claridad.",
-  "about-culture-innovation-title": "Innovación",
-  "about-culture-innovation-desc": "No seguimos tendencias; las marcamos. Explorando constantemente lo nuevo.",
-  "about-culture-agility-title": "Agilidad",
-  "about-culture-agility-desc": "Ejecución rápida sin comprometer calidad. Nos adaptamos para conquistar.",
-  "about-culture-empathy-title": "Empatía",
-  "about-culture-empathy-desc": "Tecnología para personas. Diseñamos con la experiencia humana en el centro.",
-  "contact-button": "Enviar Mensaje"
+  }
 }

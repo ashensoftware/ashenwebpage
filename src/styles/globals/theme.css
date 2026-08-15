@@ -103,7 +103,22 @@ body {
   font-family: var(--font-family-primary);
   overflow-x: hidden;
   line-height: 1.6;
+  color-scheme: dark;
   transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body.light-mode {
+  color-scheme: light;
+}
+
+body.dark-mode {
+  color-scheme: dark;
+}
+
+select,
+select option {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
 }
 
 /* === Scrollbar Styles === */

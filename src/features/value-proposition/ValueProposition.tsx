@@ -1,34 +1,34 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useT } from '@/hooks/useLocale';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Typography } from '@/components/ui/Typography';
 import { motion } from 'framer-motion';
-import { Rocket, Target, Users, Zap } from 'lucide-react';
+import { Building2, Rocket, Target, Users, Zap } from 'lucide-react';
 
 export const ValueProposition: React.FC = () => {
-    const { t } = useTranslation();
+    const t = useT();
 
     const values = [
         {
             icon: Rocket,
-            title: t('values.innovation.title', 'Innovation First'),
-            description: t('values.innovation.desc', 'We stay ahead of the curve, implementing the latest technologies to give you a competitive edge.')
+            title: t('values.innovation.title'),
+            description: t('values.innovation.desc')
         },
         {
             icon: Target,
-            title: t('values.precision.title', 'Engineering Precision'),
-            description: t('values.precision.desc', 'Clean code, scalable architecture, and robust solutions that stand the test of time.')
+            title: t('values.precision.title'),
+            description: t('values.precision.desc')
         },
         {
             icon: Users,
-            title: t('values.partnership.title', 'True Partnership'),
-            description: t('values.partnership.desc', 'We work as an extension of your team, aligned with your goals and success.')
+            title: t('values.partnership.title'),
+            description: t('values.partnership.desc')
         },
         {
             icon: Zap,
-            title: t('values.speed.title', 'Speed to Market'),
-            description: t('values.speed.desc', 'Agile methodologies ensuring rapid delivery without compromising quality.')
+            title: t('values.speed.title'),
+            description: t('values.speed.desc')
         }
     ];
 
@@ -52,13 +52,13 @@ export const ValueProposition: React.FC = () => {
                             transition={{ duration: 0.6 }}
                         >
                             <Typography variant="small" className="uppercase tracking-widest text-brand-primary font-bold mb-4">
-                                {t('values.label', 'Why Ashen Software')}
+                                {t('values.label')}
                             </Typography>
                             <Typography variant="h2" className="mb-6 leading-tight">
-                                {t('values.heading', 'Technology That Drives Business Results')}
+                                {t('values.heading')}
                             </Typography>
                             <Typography variant="lead" className="mb-8 text-text-secondary/80">
-                                {t('values.subheading', 'We combine technical expertise with business acumen to deliver solutions that matter.')}
+                                {t('values.subheading')}
                             </Typography>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
@@ -91,18 +91,21 @@ export const ValueProposition: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-transparent to-transparent z-20" />
 
                         <img
-                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070"
-                            alt="Technology Innovation"
+                            src="/assets/placeholders/engineering.jpg"
+                            alt=""
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover"
                         />
 
-                        {/* Stats Overlay */}
                         <div className="absolute bottom-12 left-12 lg:left-20 max-w-xs z-30 font-outfit">
-                            <div className="glass p-6 rounded-xl border-l-4 border-brand-primary backdrop-blur-md bg-white/5 dark:bg-white/5 border border-black/5 dark:border-white/10">
-                                <Typography variant="h3" className="mb-1 text-[var(--color-text-primary)]">{t('values.stats.projects.val', '100+')}</Typography>
-                                <Typography variant="h4" className="mb-3 text-brand-accent">{t('values.stats.projects.label', 'Projects Delivered')}</Typography>
-                                <Typography variant="small" className="text-text-secondary leading-relaxed">
-                                    {t('values.stats.projects.desc', 'Helping startups and enterprises scale through technology.')}
+                            <div className="glass p-6 rounded-xl border-l-4 border-brand-primary backdrop-blur-md bg-black/40 border border-white/10">
+                                <Building2 size={22} className="text-brand-primary mb-3" />
+                                <Typography variant="h4" className="mb-3 text-white">{t('values.heading')}</Typography>
+                                <Typography variant="small" className="text-white/80 leading-relaxed">
+                                    {t('values.subheading')}
                                 </Typography>
                             </div>
                         </div>
@@ -111,8 +114,6 @@ export const ValueProposition: React.FC = () => {
                 </div>
             </div>
 
-            {/* Bottom Smooth Transition */}
-            <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-bg-secondary to-transparent z-20 pointer-events-none" />
         </Section>
     );
 };

@@ -1,124 +1,102 @@
-
-import React, { useRef, useLayoutEffect, useState } from 'react';
-import {
-    motion,
-    useMotionValue,
-    useAnimationFrame,
-    PanInfo
-} from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useLocale, useT } from '@/hooks/useLocale';
+import { Bot, Code, Database, Workflow } from 'lucide-react';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { Typography } from '@/components/ui/Typography';
+import { SERVICE_PILLARS } from '@/content/pillars';
+import { pathFor, servicePath } from '@/config/routes';
 import { ServiceCard } from './ServiceCard';
+import './ServiceCarousel.css';
 
-/**
- * ServiceCarousel Component
- * 
- * Displays an infinite scrolling carousel of service cards.
- * Features:
- * - Physics-based animation using `useAnimationFrame`
- * - Pause on hover
- * - Drag to scroll support
- * - Infinite looping via list duplication
- */
+const PILLAR_ICONS = {
+  bot: Bot,
+  code: Code,
+  database: Database,
+  workflow: Workflow,
+};
+
 export const ServiceCarousel: React.FC = () => {
-    const { t } = useTranslation();
+  const t = useT();
+  const locale = useLocale();
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
 
-    // Duplicate list 3x for seamless looping coverage
-    const services = [...ASHEN_SERVICES, ...ASHEN_SERVICES, ...ASHEN_SERVICES];
-
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [totalWidth, setTotalWidth] = useState(0);
-
-    const x = useMotionValue(0);
-    const [isHovered, setIsHovered] = useState(false);
-
-    // Animation Loop Logic
-    useAnimationFrame((_, delta) => {
-        if (!totalWidth) return;
-
-        let moveBy = -0.5 * (delta / 16); // Base speed
-
-        if (isHovered) {
-            moveBy = 0;
-        }
-
-        let newX = x.get() + moveBy;
-        const singleSetWidth = totalWidth / 3;
-
-        // Reset position for infinite loop illusion
-        if (newX <= -singleSetWidth) {
-            newX = 0;
-        } else if (newX > 0) {
-            newX = -singleSetWidth;
-        }
-
-        x.set(newX);
-    });
-
-    useLayoutEffect(() => {
-        if (containerRef.current) {
-            const scrollW = containerRef.current.scrollWidth;
-            setTotalWidth(scrollW);
-        }
-    }, [services.length]);
-
-    const handleDrag = (_: any, info: PanInfo) => {
-        const newX = x.get() + info.delta.x;
-        x.set(newX);
-    };
-
-    return (
-        // Changed bg to a rich radial gradient
-        <div className="relative w-full py-20 md:py-32 overflow-hidden bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-[var(--bg-primary)] via-[#0d0b26] to-[#000000]">
-            {/* Background Effects */}
-            {/* A subtle noise or grid could be cool here too */}
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
-
-            {/* Orbs */}
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-primary/10 blur-[100px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
-
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mb-16 text-center select-none">
-                <Typography variant="small" className="uppercase tracking-[0.3em] text-brand-primary mb-4 font-bold">
-                    {t('services.subtitle', 'OUR EXPERTISE')}
-                </Typography>
-                <Typography variant="h2" className="text-4xl md:text-6xl font-black text-white">
-                    {t('services.title', 'Services')} <span className="text-brand-primary">.</span>
-                </Typography>
-            </div>
-
-            {/* Carousel Track */}
-            <div
-                className="relative w-full overflow-hidden"
-                ref={containerRef}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                {/* Horizon Fades */}
-                <div className="absolute top-0 bottom-0 left-0 w-24 md:w-64 bg-gradient-to-r from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
-                <div className="absolute top-0 bottom-0 right-0 w-24 md:w-64 bg-gradient-to-l from-[#0a0a0a] to-transparent z-20 pointer-events-none" />
-
-                <motion.div
-                    className="flex gap-8 px-8 w-max cursor-grab active:cursor-grabbing"
-                    style={{ x }}
-                    drag="x"
-                    dragConstraints={{ left: -10000, right: 10000 }}
-                    onDrag={handleDrag}
-                    whileTap={{ cursor: "grabbing" }}
-                >
-                    {services.map((service, index) => (
-                        <Link key={`${service.id}-${index}`} to={`/services/${service.id}`} className="block">
-                            <ServiceCard
-                                service={service}
-                                t={t}
-                                index={index % ASHEN_SERVICES.length}
-                            />
-                        </Link>
-                    ))}
-                </motion.div>
-            </div>
-        </div>
+  useEffect(() => {
+    const node = rootRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.15 },
     );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const loop = [...ASHEN_SERVICES, ...ASHEN_SERVICES];
+  const isPaused = paused || !inView;
+
+  return (
+    <div className="relative w-full py-20 md:py-28 overflow-hidden bg-bg-primary">
+      <div className="absolute top-0 left-1/4 w-[420px] h-[420px] bg-brand-primary/10 blur-[110px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] bg-[var(--color-accent-tertiary)]/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mb-12 text-center">
+        <Typography variant="small" className="uppercase tracking-[0.3em] text-brand-primary mb-4 font-bold">
+          {t('services.subtitle')}
+        </Typography>
+        <Typography variant="h2" className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)]">
+          {t('services.title')}
+        </Typography>
+        <p className="mt-4 max-w-2xl mx-auto text-text-secondary">
+          {t('pillars.subtitle')}
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {SERVICE_PILLARS.map((pillar) => {
+            const Icon = PILLAR_ICONS[pillar.icon];
+            return (
+              <Link
+                key={pillar.id}
+                to={pathFor(pillar.routeId, locale)}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] hover:border-brand-primary hover:text-brand-primary transition-colors"
+              >
+                <Icon size={16} className="text-brand-primary" />
+                {t(`pillars.${pillar.id}.title`)}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      <div
+        ref={rootRef}
+        className="relative w-full overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocusCapture={() => setPaused(true)}
+        onBlurCapture={() => setPaused(false)}
+      >
+        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-20 pointer-events-none" />
+
+        <div className={`ashen-marquee px-6 ${isPaused ? 'is-paused' : ''}`}>
+          {loop.map((service, index) => (
+            <Link
+              key={`${service.id}-${index}`}
+              to={servicePath(service.id, locale)}
+              className="block"
+            >
+              <ServiceCard
+                service={service}
+                index={index % ASHEN_SERVICES.length}
+                eager={index < 3}
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };

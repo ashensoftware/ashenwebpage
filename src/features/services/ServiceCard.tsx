@@ -1,63 +1,58 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Typography } from '@/components/ui/Typography';
-import { Service } from '@/core/constants/ashenServices';
+import { useT } from '@/hooks/useLocale';
+import { ArrowUpRight } from 'lucide-react';
+import type { Service } from '@/core/constants/ashenServices';
 
 interface ServiceCardProps {
-    service: Service;
-    t: any;
-    index: number;
+  service: Service;
+  index: number;
+  eager?: boolean;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ service, t, index }) => {
-    return (
-        <motion.div
-            className="relative w-[280px] md:w-[420px] h-[380px] md:h-[520px] rounded-[32px] overflow-hidden group flex-shrink-0 bg-white/5 border border-white/10"
-            whileHover={{ scale: 1.05, y: -10, zIndex: 10 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        >
-            {/* Background Image */}
-            <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 group-hover:scale-110"
-                draggable={false}
-            />
+export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, eager = false }) => {
+  const t = useT();
+  const title = t(`services_data.${service.id}.title`);
+  const description = t(`services_data.${service.id}.description`);
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-300" />
+  return (
+    <article className="relative w-[260px] md:w-[380px] h-[360px] md:h-[480px] rounded-[28px] overflow-hidden flex-shrink-0 border border-[var(--glass-border)] bg-[var(--color-bg-tertiary)] group transition-transform duration-500 ease-out hover:-translate-y-2">
+      <img
+        src={service.image}
+        alt=""
+        width={760}
+        height={960}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        draggable={false}
+        className="absolute inset-0 w-full h-full object-cover grayscale opacity-70 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+      />
 
-            {/* Content */}
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <span className="text-6xl font-black text-white/5 absolute top-6 right-6 pointer-events-none transition-opacity group-hover:opacity-100 opacity-0">
-                        {String(index + 1).padStart(2, '0')}
-                    </span>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" />
 
-                    <Typography variant="h4" className="text-white font-bold leading-tight mb-3 text-2xl md:text-3xl drop-shadow-lg">
-                        {t(`service-${service.id}-title`, service.title)}
-                    </Typography>
+      <div className="absolute top-5 right-5 flex items-center gap-2 text-white/70">
+        <span className="text-xs font-black tracking-widest">{String(index + 1).padStart(2, '0')}</span>
+        <ArrowUpRight size={16} className="opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
+      </div>
 
-                    {/* Expandable Description */}
-                    <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-500 delay-75">
-                        <p className="text-gray-200 text-sm md:text-base mb-5 leading-relaxed drop-shadow-md">
-                            {t(`service-${service.id}-description`, service.description)}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 pb-2">
-                            {service.technologies.slice(0, 3).map((tech: string) => (
-                                <span key={tech} className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-white/20 backdrop-blur-md rounded-full text-white border border-white/10 shadow-sm">
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Indicator Bar */}
-                    <div className="w-12 h-1 bg-white/30 rounded-full mt-4 group-hover:w-full group-hover:bg-brand-primary transition-all duration-500" />
-                </div>
-            </div>
-        </motion.div>
-    );
+      <div className="absolute inset-0 p-7 flex flex-col justify-end">
+        <h3 className="text-white font-bold leading-tight mb-3 text-2xl md:text-3xl drop-shadow-lg">
+          {title}
+        </h3>
+        <p className="text-white/80 text-sm leading-relaxed max-h-0 overflow-hidden opacity-0 group-hover:max-h-28 group-hover:opacity-100 transition-all duration-500">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2 mt-3 max-h-0 overflow-hidden opacity-0 group-hover:max-h-16 group-hover:opacity-100 transition-all duration-500">
+          {service.technologies.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-white/15 backdrop-blur-md rounded-full text-white border border-white/10"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div className="w-12 h-1 bg-white/30 rounded-full mt-4 group-hover:w-full group-hover:bg-[var(--color-accent-primary)] transition-all duration-500" />
+      </div>
+    </article>
+  );
 };

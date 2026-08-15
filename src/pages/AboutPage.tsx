@@ -1,22 +1,26 @@
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { BackgroundPaths } from '@/features/animations/BackgroundPaths';
-import { Rocket, Users, Globe, Target, Zap, Shield, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Rocket, Users, Globe, Target, ArrowRight } from 'lucide-react';
 
 import { SEO } from '@/components/SEO';
+import { organizationJsonLd } from '@/config/schema';
+import { contactPath } from '@/config/routes';
+import { useLocale, useT } from '@/hooks/useLocale';
 
 export const AboutPage: React.FC = () => {
-  const { t } = useTranslation();
+  const t = useT();
+  const locale = useLocale();
 
   return (
     <div className="min-h-screen bg-bg-primary overflow-x-hidden text-[var(--color-text-primary)]">
       <SEO
-        title={t('about-seo-title', 'About Us | Ashen Software')}
-        description={t('about-seo-desc', 'We are architects of the future. Discover the story, mission, and vision behind Ashen Software.')}
-        url="https://ashensoftware.com/about"
+        title={t('aboutPage.seoTitle')}
+        description={t('aboutPage.seoDesc')}
+        jsonLd={organizationJsonLd()}
       />
 
       {/* --- HERO SECTION ---
@@ -35,18 +39,18 @@ export const AboutPage: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 mb-8 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
               <span className="text-xs font-bold tracking-widest uppercase text-[var(--color-text-primary)]">
-                {t('about-dna', 'The Ashen DNA')}
+                {t('aboutPage.dna')}
               </span>
             </div>
 
             <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
-              {t('about-hero-title-1', 'We Are')} <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-white from-black dark:via-gray-200 via-gray-700 dark:to-gray-500 to-gray-900">{t('about-hero-title-2', 'Architects')}</span>
+              {t('aboutPage.heroTitle1')} <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-white from-black dark:via-gray-200 via-gray-700 dark:to-gray-500 to-gray-900">{t('aboutPage.heroTitle2')}</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-500">{t('about-hero-title-3', 'Of The Future.')}</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-500">{t('aboutPage.heroTitle3')}</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-light">
-              {t('about-hero-desc', 'A collective of visionaries, engineers, and creatives dedicated to building technology that transcends boundaries.')}
+              {t('aboutPage.heroDesc')}
             </p>
           </motion.div>
         </Container>
@@ -60,8 +64,8 @@ export const AboutPage: React.FC = () => {
         {/* Background Image with Parallax-like feel */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1200&auto=format&fit=crop"
-            alt="Background"
+            src="/assets/og-image.png"
+            alt=""
             className="w-full h-full object-cover opacity-20"
             width="1200"
             height="800"
@@ -83,7 +87,7 @@ export const AboutPage: React.FC = () => {
               <div className="p-8 md:p-16">
                 <div className="max-w-4xl mb-16">
                   <h2 className="text-3xl md:text-6xl font-bold leading-tight mb-6">
-                    {t('about-principles-title-1', 'Guiding principles for')} <span className="text-brand-primary">{t('about-principles-title-2', 'Ashen\'s')}</span> {t('about-principles-title-3', 'commitment.')}
+                    {t('aboutPage.principles1')} <span className="text-brand-primary">{t('aboutPage.principles2')}</span> {t('aboutPage.principles3')}
                   </h2>
                   <div className="h-1 w-24 bg-brand-primary rounded-full" />
                 </div>
@@ -91,14 +95,14 @@ export const AboutPage: React.FC = () => {
                 {/* Images Row - Responsive */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                   {[
-                    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400&h=300",
-                    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400&h=300",
-                    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400&h=300"
+                    "/assets/og-image.png",
+                    "/assets/logo/Logo-Iso.png",
+                    "/assets/logo/Logo-Iso-Slogan.png"
                   ].map((src, idx) => (
                     <div key={idx} className={`rounded-3xl overflow-hidden h-[250px] md:h-[350px] relative group ${idx === 1 ? 'md:-translate-y-8' : ''}`}>
                       <img
                         src={src}
-                        alt="Culture"
+                        alt=""
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                         width="400"
                         height="300"
@@ -116,10 +120,10 @@ export const AboutPage: React.FC = () => {
                       <div className="p-3 rounded-2xl bg-brand-primary/20 text-brand-primary">
                         <Target size={32} />
                       </div>
-                      <h3 className="text-3xl font-bold">{t('about-mission-title', 'Our Mission')}</h3>
+                      <h3 className="text-3xl font-bold">{t('aboutPage.missionTitle')}</h3>
                     </div>
                     <p className="text-text-secondary text-lg leading-relaxed">
-                      {t('about-mission-desc', 'To empower businesses by bridging the gap between complex technology and human-centric design.')}
+                      {t('aboutPage.missionDesc')}
                     </p>
                   </div>
                   <div>
@@ -127,10 +131,10 @@ export const AboutPage: React.FC = () => {
                       <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-400">
                         <Globe size={32} />
                       </div>
-                      <h3 className="text-3xl font-bold">{t('about-vision-title', 'Our Vision')}</h3>
+                      <h3 className="text-3xl font-bold">{t('aboutPage.visionTitle')}</h3>
                     </div>
                     <p className="text-text-secondary text-lg leading-relaxed">
-                      {t('about-vision-desc', 'To be the global standard for digital excellence, where code meets creativity.')}
+                      {t('aboutPage.visionDesc')}
                     </p>
                   </div>
                 </div>
@@ -138,11 +142,10 @@ export const AboutPage: React.FC = () => {
 
               {/* Stats Strip - Full Width inside card */}
               <div className="bg-black/5 dark:bg-white/5 border-t border-black/10 dark:border-white/10 py-10 px-8 md:px-16 overflow-hidden">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                  <StatItem value={t('about-stat-years-val', '5+')} label={t('about-stat-years-label', 'Years')} icon={Rocket} />
-                  <StatItem value={t('about-stat-projects-val', '50+')} label={t('about-stat-projects-label', 'Projects')} icon={Zap} />
-                  <StatItem value={t('about-stat-valuation-val', '$2M+')} label={t('about-stat-valuation-label', 'Valuation')} icon={Shield} />
-                  <StatItem value={t('about-stat-commitment-val', '100%')} label={t('about-stat-commitment-label', 'Commitment')} icon={Users} />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <StatItem value="Medellín" label="Colombia" icon={Globe} />
+                  <StatItem value="EN / ES" label="Delivery" icon={Users} />
+                  <StatItem value="Remote" label="International" icon={Rocket} />
                 </div>
               </div>
             </div>
@@ -161,39 +164,39 @@ export const AboutPage: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-16">
             <div className="max-w-2xl">
               <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-                {t('about-culture-label', 'Culture')}
+                {t('aboutPage.cultureLabel')}
               </span>
               <h2 className="text-4xl md:text-6xl font-black mb-6">
-                {t('about-culture-heading', 'Rooted in Excellence')}
+                {t('aboutPage.cultureHeading')}
               </h2>
               <p className="text-xl text-text-secondary">
-                {t('about-culture-subheading', 'Our values are the bedrock of our innovation.')}
+                {t('aboutPage.cultureSubheading')}
               </p>
             </div>
-            <a href="#contact" className="group flex items-center gap-3 text-[var(--color-text-primary)] font-bold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-6 py-3 rounded-full transition-all border border-black/10 dark:border-white/10">
-              {t('contact.cta', 'Join Us')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <Link to={contactPath(locale)} className="group flex items-center gap-3 text-[var(--color-text-primary)] font-bold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-6 py-3 rounded-full transition-all border border-black/10 dark:border-white/10">
+              {t('cta.startProject')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <CultureCard
-              title={t('about-culture-transparency-title', 'Transparency')}
-              description={t('about-culture-transparency-desc', 'Open code, open communication.')}
+              title={t('aboutPage.transparencyTitle')}
+              description={t('aboutPage.transparencyDesc')}
               index={0}
             />
             <CultureCard
-              title={t('about-culture-innovation-title', 'Innovation')}
-              description={t('about-culture-innovation-desc', 'Exploring the new.')}
+              title={t('aboutPage.innovationTitle')}
+              description={t('aboutPage.innovationDesc')}
               index={1}
             />
             <CultureCard
-              title={t('about-culture-agility-title', 'Agility')}
-              description={t('about-culture-agility-desc', 'Fast execution.')}
+              title={t('aboutPage.agilityTitle')}
+              description={t('aboutPage.agilityDesc')}
               index={2}
             />
             <CultureCard
-              title={t('about-culture-empathy-title', 'Empathy')}
-              description={t('about-culture-empathy-desc', 'Technology for people.')}
+              title={t('aboutPage.empathyTitle')}
+              description={t('aboutPage.empathyDesc')}
               index={3}
             />
           </div>
@@ -204,7 +207,7 @@ export const AboutPage: React.FC = () => {
   );
 };
 
-const StatItem = ({ value, label, icon: Icon }: { value: string, label: string, icon: any }) => (
+const StatItem = ({ value, label, icon: Icon }: { value: string, label: string, icon: React.ComponentType<{ size?: number; className?: string }> }) => (
   <div className="flex flex-col">
     <div className="flex items-center gap-3 mb-2 text-[var(--color-text-primary)]">
       <div className="p-2 rounded-lg bg-black/5 dark:bg-white/5">
