@@ -1,6 +1,13 @@
 import { COMPANY } from './company';
 import { DEFAULT_LOCALE, type Locale, localeFromPathname } from './i18n';
-import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
+import {
+  ROUTE_PATHS as REGISTRY_PATHS,
+  SERVICE_IDS,
+  canonicalUrl as registryCanonicalUrl,
+  getIndexableRoutes as registryIndexableRoutes,
+  getPrerenderPaths as registryPrerenderPaths,
+  servicePath as registryServicePath,
+} from './site-registry.mjs';
 
 export type RouteId =
   | 'home'
@@ -16,18 +23,7 @@ export type RouteId =
 
 export type LocalizedPath = Record<Locale, string>;
 
-export const ROUTE_PATHS: Record<RouteId, LocalizedPath> = {
-  home: { en: '/', es: '/es' },
-  aiAgents: { en: '/ai-agents', es: '/es/agentes-ia' },
-  software: { en: '/software-development', es: '/es/desarrollo-software' },
-  dataAi: { en: '/data-ai-engineering', es: '/es/datos-ia' },
-  integrations: { en: '/integrations', es: '/es/integraciones' },
-  caseStudies: { en: '/case-studies', es: '/es/casos' },
-  trengie: { en: '/case-studies/trengie', es: '/es/casos/trengie' },
-  about: { en: '/about', es: '/es/nosotros' },
-  privacy: { en: '/privacy', es: '/es/privacidad' },
-  terms: { en: '/terms', es: '/es/terminos' },
-};
+export const ROUTE_PATHS = REGISTRY_PATHS as Record<RouteId, LocalizedPath>;
 
 export const SERVICE_PILLAR: Record<string, RouteId> = {
   'web-development': 'software',
@@ -48,7 +44,7 @@ export function pathFor(id: RouteId, locale: Locale): string {
 }
 
 export function servicePath(serviceId: string, locale: Locale): string {
-  return locale === 'es' ? `/es/servicios/${serviceId}` : `/services/${serviceId}`;
+  return registryServicePath(serviceId, locale);
 }
 
 export function contactPath(locale: Locale): string {
@@ -78,8 +74,7 @@ export function alternatePath(pathname: string, targetLocale: Locale): string {
 }
 
 export function canonicalUrl(pathname: string): string {
-  if (pathname === '/') return `${COMPANY.origin}/`;
-  return `${COMPANY.origin}${pathname}`;
+  return registryCanonicalUrl(pathname) || `${COMPANY.origin}${pathname}`;
 }
 
 export interface IndexableRoute {
@@ -90,39 +85,16 @@ export interface IndexableRoute {
 }
 
 export function getIndexableRoutes(): IndexableRoute[] {
-  const routes: IndexableRoute[] = [];
-
-  (Object.keys(ROUTE_PATHS) as RouteId[]).forEach((id) => {
-    (['en', 'es'] as Locale[]).forEach((locale) => {
-      routes.push({
-        id: `${id}:${locale}`,
-        locale,
-        path: ROUTE_PATHS[id][locale],
-        alternate: ROUTE_PATHS[id],
-      });
-    });
-  });
-
-  ASHEN_SERVICES.forEach((service) => {
-    (['en', 'es'] as Locale[]).forEach((locale) => {
-      const paths = {
-        en: servicePath(service.id, 'en'),
-        es: servicePath(service.id, 'es'),
-      };
-      routes.push({
-        id: `service:${service.id}:${locale}`,
-        locale,
-        path: paths[locale],
-        alternate: paths,
-      });
-    });
-  });
-
-  return routes;
+  return registryIndexableRoutes().map(({ id, locale, path, alternate }) => ({
+    id,
+    locale,
+    path,
+    alternate,
+  }));
 }
 
 export function getPrerenderPaths(): string[] {
-  return getIndexableRoutes().map((route) => route.path);
+  return registryPrerenderPaths();
 }
 
-export { DEFAULT_LOCALE };
+export { DEFAULT_LOCALE, SERVICE_IDS };

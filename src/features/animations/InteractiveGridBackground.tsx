@@ -149,10 +149,18 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
     const lineColor = isDarkMode ? darkGridColor : gridColor;
     const glowColor = isDarkMode ? darkEffectColor : effectColor;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 768;
     let frame = 0;
     let visible = true;
     let inView = true;
+
+    const shouldAnimate = () =>
+      visible && inView && !reduceMotion && window.innerWidth >= 768;
+
+    const schedule = () => {
+      if (!shouldAnimate()) return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(draw);
+    };
 
     const draw = () => {
       // Use canvas dimensions directly to avoid forced reflow from getBoundingClientRect() every frame
@@ -230,31 +238,37 @@ const InteractiveGridBackground: React.FC<InteractiveGridBackgroundProps> = ({
         ctx.fillRect(cell.x * gridSize, cell.y * gridSize, gridSize, gridSize);
       });
 
-      if (visible && inView && !reduceMotion) {
-        frame = requestAnimationFrame(draw);
+      if (shouldAnimate()) {
+        schedule();
       }
     };
 
     const onVisibility = () => {
       visible = document.visibilityState === 'visible';
-      if (visible && inView && !reduceMotion) {
-        frame = requestAnimationFrame(draw);
+      if (shouldAnimate()) {
+        schedule();
+      } else {
+        cancelAnimationFrame(frame);
+        frame = 0;
       }
     };
 
     const observer = new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
-      if (inView && visible && !reduceMotion) {
-        frame = requestAnimationFrame(draw);
+      if (shouldAnimate()) {
+        schedule();
+      } else {
+        cancelAnimationFrame(frame);
+        frame = 0;
       }
     });
     observer.observe(container);
     document.addEventListener('visibilitychange', onVisibility);
 
-    if (reduceMotion || isMobile) {
-      draw();
+    if (shouldAnimate()) {
+      schedule();
     } else {
-      frame = requestAnimationFrame(draw);
+      draw();
     }
 
     return () => {

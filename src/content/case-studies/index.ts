@@ -10,7 +10,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'trengie',
     liveUrl: 'https://trengie.com',
     image: '/assets/case-studies/trengie.png',
-    stack: ['React', 'TypeScript', 'Vite', 'Responsive UI'],
+    stack: ['React', 'TypeScript', 'Responsive UI'],
   },
 ];
 

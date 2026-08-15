@@ -1,11 +1,12 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SEO } from '@/components/SEO';
 import { breadcrumbJsonLd } from '@/config/schema';
 import { caseStudyKey, getCaseStudy } from '@/content/case-studies';
 import { pathFor } from '@/config/routes';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import { useLocale, useT } from '@/hooks/useLocale';
 import { track } from '@/config/analytics';
 
@@ -16,7 +17,7 @@ export default function CaseStudyDetailPage() {
   const study = getCaseStudy(slug || '');
 
   if (!study) {
-    return <Navigate to={pathFor('caseStudies', locale)} replace />;
+    return <NotFoundPage />;
   }
 
   const title = t(caseStudyKey(study.slug, 'title'));

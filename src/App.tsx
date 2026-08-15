@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ScrollToHash } from './components/layout/ScrollToHash';
 import { Layout } from './components/layout';
 import HomePage from './pages/HomePage';
@@ -27,9 +29,32 @@ const PageFallback = () => (
   <div className="min-h-[40vh] flex items-center justify-center text-text-secondary">…</div>
 );
 
+function SiteObservability() {
+  const { pathname } = useLocation();
+
+  return (
+    <>
+      <Analytics
+        beforeSend={(event) => {
+          try {
+            const url = new URL(event.url);
+            url.search = '';
+            url.hash = '';
+            return { ...event, url: url.href };
+          } catch {
+            return event;
+          }
+        }}
+      />
+      <SpeedInsights route={pathname} />
+    </>
+  );
+}
+
 const App: React.FC = () => {
   return (
     <Router>
+      <SiteObservability />
       <ScrollToHash />
       <Layout>
         <Suspense fallback={<PageFallback />}>

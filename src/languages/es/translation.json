@@ -308,7 +308,18 @@
     "privacyDesc": "Cómo Ashen Software trata la información del formulario de contacto y del sitio.",
     "termsTitle": "Términos de uso | Ashen Software",
     "termsDesc": "Términos para el uso del sitio de Ashen Software.",
-    "disclaimer": "Esta página es un aviso básico para el sitio de una consultora de software. No es asesoría legal y no ha sido revisada por un abogado."
+    "disclaimer": "Esta página es un aviso básico para el sitio de una consultora de software. No es asesoría legal y no ha sido revisada por un abogado.",
+    "privacy": {
+      "collects": "{{legalName}} ({{domain}}) recopila la información que envías en el formulario de contacto: nombre, empresa, correo de trabajo, teléfono opcional, interés del proyecto, mensaje y la página o idioma desde el que lo enviaste.",
+      "formspree": "Formspree procesa esos datos del formulario para que Ashen pueda recibir y responder las consultas. Los usamos solo para responder solicitudes de proyecto. No los vendemos.",
+      "analytics": "El sitio puede guardar una preferencia de tema en tu navegador. Vercel Web Analytics registra vistas de página y Vercel Speed Insights registra métricas de rendimiento. Esas herramientas no reciben campos del formulario como nombre, correo, teléfono, empresa o mensaje.",
+      "questions": "Preguntas:"
+    },
+    "terms": {
+      "services": "Este sitio describe servicios de software y consultoría de {{legalName}}. El contenido es informativo. No es una oferta vinculante, y el alcance de cada proyecto se acuerda por escrito.",
+      "use": "No puedes extraer, copiar ni presentar este sitio como un producto propio. Las marcas y los nombres de clientes siguen siendo de sus dueños. Los casos describen trabajo entregado por Ashen; no implican un respaldo más allá de los hechos públicos de la página.",
+      "contact": "Contacto:"
+    }
   },
   "notFound": {
     "title": "Página no encontrada",

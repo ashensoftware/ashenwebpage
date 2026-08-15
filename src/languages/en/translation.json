@@ -259,7 +259,7 @@
         "challenge": "Trengie needed a credible digital presence for institutional and corporate buyers. The company works across signaling, electrification, telecommunications, rolling stock and technical project consulting: a dense B2B offering that had to stay clear on mobile and desktop.",
         "built": "Ashen delivered the production marketing website at trengie.com: service modules, project portfolio storytelling, standards-focused positioning (ISO, CENELEC, RAMS/SIL4, PMI/IPMA) and a contact path for institutional inquiries.",
         "approach": "The site is structured around how a technical buyer evaluates a railway consultant: capabilities first, then project evidence, then a direct request for consulting. Layout, typography and responsive behavior were designed so long technical descriptions remain readable on phones without hiding the commercial CTA.",
-        "outcome": "Trengie now has a live, bilingual-capable public site that presents a complex engineering practice as a coherent commercial offer."
+        "outcome": "Trengie has a live Spanish-language public website that presents a complex engineering practice as a coherent commercial offer."
       }
     }
   },
@@ -307,7 +307,18 @@
     "privacyDesc": "How Ashen Software handles contact-form and website information.",
     "termsTitle": "Terms of Use | Ashen Software",
     "termsDesc": "Terms for using the Ashen Software website.",
-    "disclaimer": "This page is a basic notice for a software consultancy website. It is not legal advice and has not been reviewed by an attorney."
+    "disclaimer": "This page is a basic notice for a software consultancy website. It is not legal advice and has not been reviewed by an attorney.",
+    "privacy": {
+      "collects": "{{legalName}} ({{domain}}) collects the information you send through the contact form: name, company, work email, optional phone, project interest, message, and the page or locale you sent it from.",
+      "formspree": "Formspree processes that contact-form data so Ashen can receive and respond to inquiries. We use it only to reply to project requests. We do not sell it.",
+      "analytics": "The site may store a theme preference in your browser. Vercel Web Analytics records page views, and Vercel Speed Insights records performance metrics. Those tools do not receive contact-form fields such as name, email, phone, company, or message.",
+      "questions": "Questions:"
+    },
+    "terms": {
+      "services": "This website describes software and consulting services offered by {{legalName}}. Content is informational. It is not a binding offer, and project scope is agreed in writing.",
+      "use": "You may not scrape, copy or present this site as your own product. Trademarks and client names remain their owners'. Case studies describe work Ashen delivered; they do not imply endorsement beyond the public facts stated on the page.",
+      "contact": "Contact:"
+    }
   },
   "notFound": {
     "title": "Page not found",

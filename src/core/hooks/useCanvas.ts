@@ -26,6 +26,8 @@ export const useCanvas = (options: UseCanvasOptions = {}) => {
   }, []);
 
   const startAnimation = useCallback((animate: (timestamp: number) => void) => {
+    stopAnimation();
+
     const animateLoop = (timestamp: number) => {
       if (document.hidden) {
         animationRef.current = 0;
@@ -44,8 +46,11 @@ export const useCanvas = (options: UseCanvasOptions = {}) => {
     document.addEventListener('visibilitychange', resume);
     animationRef.current = requestAnimationFrame(animateLoop);
 
-    return () => document.removeEventListener('visibilitychange', resume);
-  }, []);
+    return () => {
+      document.removeEventListener('visibilitychange', resume);
+      stopAnimation();
+    };
+  }, [stopAnimation]);
 
   useEffect(() => {
     resizeCanvas();
