@@ -85,6 +85,29 @@
     text-shadow: 0 0 24px var(--color-accent-glow);
 }
 
+.hero-stage {
+    min-height: 88svh;
+}
+
+@media (min-width: 768px) and (min-height: 800px) {
+    .hero-stage {
+        min-height: 100svh;
+    }
+}
+
+.hero-grid {
+    background-image:
+        linear-gradient(rgba(139, 92, 246, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.18) 1px, transparent 1px);
+    background-size: 64px 64px;
+}
+
+@media (min-width: 768px) {
+    .hero-grid {
+        background-size: 46px 46px;
+    }
+}
+
 .section-wash {
     background:
         radial-gradient(ellipse at 10% 0%, rgba(139, 92, 246, 0.16), transparent 42%),

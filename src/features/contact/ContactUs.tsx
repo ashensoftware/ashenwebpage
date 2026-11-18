@@ -24,13 +24,13 @@ export const ContactUs: React.FC = () => {
 
   useEffect(() => {
     if (state.succeeded) {
-      track('contact_form_success', { locale, source: pathname });
+      track('contact_form_success', { locale, source: pathname, cta_location: 'contact' });
     }
   }, [state.succeeded, locale, pathname]);
 
   useEffect(() => {
     if (state.errors) {
-      track('contact_form_error', { locale });
+      track('contact_form_error', { locale, cta_location: 'contact' });
     }
   }, [state.errors, locale]);
 
@@ -38,11 +38,11 @@ export const ContactUs: React.FC = () => {
     if (startedRef.current) return;
     startedRef.current = true;
     setStarted(true);
-    track('contact_form_start', { locale, source: pathname });
+    track('contact_form_start', { locale, source: pathname, cta_location: 'contact' });
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    track('contact_form_submit', { locale, source: pathname });
+    track('contact_form_submit', { locale, source: pathname, cta_location: 'contact' });
     void handleSubmit(event);
   };
 

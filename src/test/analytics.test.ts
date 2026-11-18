@@ -33,6 +33,9 @@ describe('analytics adapter', () => {
   it('drops contact-form PII keys', () => {
     const clean = sanitizeAnalyticsProps({
       locale: 'en',
+      route: '/ai-agents',
+      offer: 'ai-agents',
+      cta_location: 'hero',
       source: '/contact?email=ada@example.com',
       email: 'ada@example.com',
       phone: '+573000000000',
@@ -43,6 +46,9 @@ describe('analytics adapter', () => {
 
     expect(clean).toEqual({
       locale: 'en',
+      route: '/ai-agents',
+      offer: 'ai-agents',
+      cta_location: 'hero',
       source: '/contact',
     });
     expect(sanitizeAnalyticsProps({ source: 'hero' })).toEqual({ source: 'hero' });

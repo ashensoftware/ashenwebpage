@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { canonicalUrl, getIndexableRoutes } from '../src/config/site-registry.mjs';
+import { canonicalUrl, getIndexableRoutes, SERVICE_IDS, servicePath } from '../src/config/site-registry.mjs';
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(rootDir, 'dist');
@@ -121,6 +121,38 @@ if (!homeHtml.includes('/fonts/outfit-latin-600-normal.woff2')) fail('Homepage d
 if (!fs.existsSync(path.join(distDir, 'assets/logo/Logo-Iso.png'))) fail('Favicon file missing from dist');
 if (!fs.existsSync(path.join(distDir, 'robots.txt')) || !fs.readFileSync(path.join(distDir, 'robots.txt'), 'utf8').includes('OAI-SearchBot')) {
   fail('robots.txt does not mention OAI-SearchBot');
+}
+
+function assertSingleCapabilityCatalog(urlPath, locale) {
+  const html = read(urlPath);
+  const start = html.indexOf('id="capabilities"');
+  if (start < 0) {
+    fail(`${urlPath} is missing the capabilities section`);
+    return;
+  }
+  const end = html.indexOf('<section', start + 20);
+  const section = end < 0 ? html.slice(start) : html.slice(start, end);
+  for (const id of SERVICE_IDS) {
+    const href = servicePath(id, locale);
+    const inSection = section.split(`href="${href}"`).length - 1;
+    const inPage = html.split(`href="${href}"`).length - 1;
+    if (inSection !== 1) fail(`${urlPath} lists ${href} ${inSection} times inside capabilities`);
+    if (inPage !== 2) fail(`${urlPath} has ${inPage} links to ${href}; expected navigation plus one catalog entry`);
+  }
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  for (const id of new Set(ids.filter((value, index) => ids.indexOf(value) !== index))) {
+    fail(`${urlPath} duplicates id="${id}"`);
+  }
+}
+
+assertSingleCapabilityCatalog('/', 'en');
+assertSingleCapabilityCatalog('/es', 'es');
+
+for (const urlPath of ['/case-studies/trengie', '/es/casos/trengie']) {
+  const html = read(urlPath);
+  if (text(html).length < 1200) fail(`${urlPath} case study HTML is thin`);
+  if (!html.includes('https://trengie.com')) fail(`${urlPath} is missing the live Trengie URL`);
+  if ((html.match(/<h1[\s>]/gi) || []).length !== 1) fail(`${urlPath} does not have exactly one H1`);
 }
 
 if (failures.length) {

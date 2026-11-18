@@ -23,9 +23,9 @@ const HomePage: React.FC = () => {
         jsonLd={[organizationJsonLd(), websiteJsonLd()]}
       />
       <Hero />
-      <ServicesSection />
       <ProofSection />
       <PillarsSection />
+      <ServicesSection />
       <ProcessSection />
       <ValueProposition />
       <AboutPreview />

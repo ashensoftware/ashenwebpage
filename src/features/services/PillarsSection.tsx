@@ -19,7 +19,7 @@ export const PillarsSection: React.FC = () => {
   const [lead, ...rest] = SERVICE_PILLARS;
 
   return (
-    <section id="pillars" className="section-wash border-b border-[var(--color-line)] py-16 md:py-24">
+    <section id="services" className="section-wash border-b border-[var(--color-line)] py-16 md:py-24">
       <Container>
         <div className="mb-10 max-w-3xl">
           <p className="eyebrow mb-3">{t('pillars.label')}</p>
