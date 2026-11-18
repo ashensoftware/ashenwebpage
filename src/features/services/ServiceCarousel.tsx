@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLocale, useT } from '@/hooks/useLocale';
+import { Link, useNavigate } from 'react-router-dom';
 import { Bot, Code, Database, Workflow } from 'lucide-react';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { SERVICE_PILLARS } from '@/content/pillars';
 import { pathFor, servicePath } from '@/config/routes';
+import { useLocale, useT } from '@/hooks/useLocale';
 import { ServiceCard } from './ServiceCard';
 import './ServiceCarousel.css';
 
@@ -18,6 +18,7 @@ const PILLAR_ICONS = {
 export const ServiceCarousel: React.FC = () => {
   const t = useT();
   const locale = useLocale();
+  const navigate = useNavigate();
   const rootRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
   const [inView, setInView] = useState(true);
@@ -25,26 +26,22 @@ export const ServiceCarousel: React.FC = () => {
   useEffect(() => {
     const node = rootRef.current;
     if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.15 },
-    );
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.15 });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
-  const loop = [...ASHEN_SERVICES, ...ASHEN_SERVICES];
   const isPaused = paused || !inView;
 
   return (
-    <div className="relative w-full py-20 md:py-28 overflow-hidden bg-bg-primary">
-      <div className="absolute top-0 left-1/4 w-[420px] h-[420px] bg-brand-primary/10 blur-[110px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] bg-[var(--color-accent-tertiary)]/10 blur-[120px] rounded-full pointer-events-none" />
+    <section id="catalog" className="relative w-full overflow-hidden border-b border-[var(--color-line)] bg-[var(--bg-primary)] py-20 md:py-28" aria-labelledby="catalog-title">
+      <div className="pointer-events-none absolute left-1/4 top-0 h-[420px] w-[420px] rounded-full bg-[var(--color-accent-primary)]/10 blur-[110px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[420px] w-[420px] rounded-full bg-[var(--color-accent-tertiary)]/10 blur-[120px]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mb-12 text-center">
-        <p className="eyebrow mb-4">{t('services.label')}</p>
-        <h2 className="font-display text-4xl font-semibold text-[var(--color-text-primary)] md:text-6xl">
-          {t('services.title')}
+      <div className="relative z-10 mx-auto mb-12 w-full max-w-7xl px-6 text-center">
+        <p className="eyebrow mb-4">{t('services.carouselLabel')}</p>
+        <h2 id="catalog-title" className="font-display text-4xl font-semibold text-[var(--color-text-primary)] md:text-6xl">
+          {t('services.carouselTitle')}
         </h2>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -54,9 +51,9 @@ export const ServiceCarousel: React.FC = () => {
               <Link
                 key={pillar.id}
                 to={pathFor(pillar.routeId, locale)}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] hover:border-brand-primary hover:text-brand-primary transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]"
               >
-                <Icon size={16} className="text-brand-primary" />
+                <Icon size={16} className="text-[var(--color-accent-primary)]" aria-hidden />
                 {t(`pillars.${pillar.id}.title`)}
               </Link>
             );
@@ -72,25 +69,27 @@ export const ServiceCarousel: React.FC = () => {
         onFocusCapture={() => setPaused(true)}
         onBlurCapture={() => setPaused(false)}
       >
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-40 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-40 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-20 pointer-events-none" />
+        <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-20 w-16 bg-gradient-to-r from-[var(--bg-primary)] to-transparent md:w-40" />
+        <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-20 w-16 bg-gradient-to-l from-[var(--bg-primary)] to-transparent md:w-40" />
 
         <div className={`ashen-marquee px-6 ${isPaused ? 'is-paused' : ''}`}>
-          {loop.map((service, index) => (
-            <Link
-              key={`${service.id}-${index}`}
-              to={servicePath(service.id, locale)}
-              className="block"
-            >
-              <ServiceCard
-                service={service}
-                index={index % ASHEN_SERVICES.length}
-                eager={index < 3}
-              />
+          {ASHEN_SERVICES.map((service, index) => (
+            <Link key={service.id} to={servicePath(service.id, locale)} className="block">
+              <ServiceCard service={service} index={index} eager={index < 3} />
             </Link>
+          ))}
+          {ASHEN_SERVICES.map((service, index) => (
+            <div
+              key={`${service.id}-clone`}
+              className="ashen-marquee-clone block cursor-pointer"
+              aria-hidden="true"
+              onClick={() => navigate(servicePath(service.id, locale))}
+            >
+              <ServiceCard service={service} index={index} />
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

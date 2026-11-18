@@ -29,6 +29,7 @@
       "primary": "Hablemos de tu proyecto",
       "secondary": "Ver nuestro trabajo"
     },
+    "selectedWork": "Trabajo seleccionado — Trengie",
     "seoTitle": "Ashen Software",
     "meta": {
       "base": "Base",
@@ -120,6 +121,8 @@
     }
   },
   "services": {
+    "carouselLabel": "Capacidades",
+    "carouselTitle": "Ingeniería para operaciones",
     "label": "Capacidades",
     "title": "Ingeniería para operaciones",
     "subtitle": "Trabajo especializado que vive debajo de los cuatro pilares comerciales.",

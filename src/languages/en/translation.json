@@ -29,6 +29,7 @@
       "primary": "Discuss Your Project",
       "secondary": "See Our Work"
     },
+    "selectedWork": "Selected work — Trengie",
     "seoTitle": "Ashen Software",
     "meta": {
       "base": "Base",
@@ -120,6 +121,8 @@
     }
   },
   "services": {
+    "carouselLabel": "Capabilities",
+    "carouselTitle": "Engineering for operations",
     "label": "Capabilities",
     "title": "Engineering for operations",
     "subtitle": "Specialized work that sits under the four commercial pillars.",

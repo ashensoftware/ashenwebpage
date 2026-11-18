@@ -24,4 +24,8 @@
     animation: none;
     will-change: auto;
   }
+
+  .ashen-marquee-clone {
+    display: none;
+  }
 }

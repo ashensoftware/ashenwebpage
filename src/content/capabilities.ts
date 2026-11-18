@@ -7,7 +7,7 @@ export interface CapabilityGroup {
 }
 
 export const CAPABILITY_GROUPS: CapabilityGroup[] = [
-  { pillarId: 'ai-agents', ids: ['artificial-intelligence'], secondary: [] },
+  { pillarId: 'ai-agents', ids: ['artificial-intelligence', 'automation'], secondary: [] },
   {
     pillarId: 'software',
     ids: ['web-development', 'mobile-development', 'desktop-apps'],
@@ -20,7 +20,7 @@ export const CAPABILITY_GROUPS: CapabilityGroup[] = [
   },
   {
     pillarId: 'integrations',
-    ids: ['automation', 'iot-solutions'],
+    ids: ['iot-solutions'],
     secondary: ['blockchain'],
   },
 ];

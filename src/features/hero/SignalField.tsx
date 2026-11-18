@@ -47,26 +47,24 @@ export function SignalField() {
       }));
     };
 
+    const glow = document.createElement('canvas');
+    glow.width = 18;
+    glow.height = 18;
+    const glowCtx = glow.getContext('2d');
+    if (glowCtx) {
+      const gradient = glowCtx.createRadialGradient(9, 9, 0, 9, 9, 9);
+      gradient.addColorStop(0, '#c4b5fd');
+      gradient.addColorStop(0.45, 'rgba(139, 92, 246, 0.55)');
+      gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+      glowCtx.fillStyle = gradient;
+      glowCtx.fillRect(0, 0, 18, 18);
+    }
+
     const paint = (animate: boolean) => {
       const w = parent.clientWidth;
       const h = parent.clientHeight;
       const mobile = mobileQuery.matches;
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = 'rgba(139, 92, 246, 0.18)';
-      ctx.lineWidth = 1;
-      const step = mobile ? 64 : 46;
-      for (let x = 0; x <= w; x += step) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= h; y += step) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
 
       if (animate) {
         for (const node of nodes) {
@@ -78,21 +76,24 @@ export function SignalField() {
             const dx = pointer.x - node.x;
             const dy = pointer.y - node.y;
             if (dx * dx + dy * dy < 200 * 200) {
-              node.x += dx * 0.01;
-              node.y += dy * 0.01;
+              node.x += dx * 0.012;
+              node.y += dy * 0.012;
             }
           }
         }
       }
 
       const reach = mobile ? 88 : 128;
+      const reach2 = reach * reach;
       for (let i = 0; i < nodes.length; i += 1) {
         for (let j = i + 1; j < nodes.length; j += 1) {
           const a = nodes[i];
           const b = nodes[j];
-          const dist = Math.hypot(a.x - b.x, a.y - b.y);
-          if (dist < reach) {
-            const alpha = 1 - dist / reach;
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist2 = dx * dx + dy * dy;
+          if (dist2 < reach2) {
+            const alpha = 1 - Math.sqrt(dist2) / reach;
             ctx.strokeStyle = `rgba(217, 70, 239, ${0.12 + alpha * 0.5})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -103,19 +104,22 @@ export function SignalField() {
       }
 
       for (const node of nodes) {
-        ctx.fillStyle = '#c4b5fd';
-        ctx.shadowColor = '#8b5cf6';
-        ctx.shadowBlur = 12;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, 2.2, 0, Math.PI * 2);
-        ctx.fill();
+        if (glowCtx) ctx.drawImage(glow, node.x - 9, node.y - 9);
+        else {
+          ctx.fillStyle = '#c4b5fd';
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
-      ctx.shadowBlur = 0;
     };
 
-    const loop = () => {
-      paint(true);
+    let lastFrame = 0;
+    const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
+      if (time - lastFrame < 33) return;
+      lastFrame = time;
+      paint(true);
     };
 
     const start = () => {

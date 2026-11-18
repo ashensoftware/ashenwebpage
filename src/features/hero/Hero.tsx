@@ -14,9 +14,10 @@ export const Hero: React.FC = () => {
   const locale = useLocale();
 
   return (
-    <section id="hero" className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section id="hero" className="hero-stage relative flex items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.38),transparent_58%),radial-gradient(ellipse_at_80%_80%,rgba(217,70,239,0.22),transparent_46%)]" />
+        <div className="hero-grid absolute inset-0" />
         <Suspense fallback={null}>
           <SignalField />
         </Suspense>
@@ -36,7 +37,7 @@ export const Hero: React.FC = () => {
           <Link
             to={contactPath(locale)}
             className={buttonClass({ size: 'lg', className: 'w-full sm:w-auto sm:min-w-[200px]' })}
-            onClick={() => track('hero_primary_cta', { locale })}
+            onClick={() => track('hero_primary_cta', { locale, cta_location: 'hero' })}
           >
             {t('hero.cta.primary')}
             <ArrowRight size={18} aria-hidden />
@@ -44,12 +45,19 @@ export const Hero: React.FC = () => {
           <Link
             to={pathFor('caseStudies', locale)}
             className={buttonClass({ variant: 'secondary', size: 'lg', className: 'w-full sm:w-auto sm:min-w-[200px]' })}
-            onClick={() => track('hero_case_studies', { locale })}
+            onClick={() => track('hero_case_studies', { locale, cta_location: 'hero' })}
           >
             {t('hero.cta.secondary')}
           </Link>
         </div>
-        <dl className="mt-12 grid w-full max-w-xl grid-cols-3 gap-2 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-3 py-4 backdrop-blur-md sm:px-6">
+        <Link
+          to={pathFor('trengie', locale)}
+          className="mt-5 text-sm text-[var(--color-text-secondary)] underline-offset-4 hover:text-[var(--color-accent-primary)] hover:underline"
+          onClick={() => track('case_study_open', { slug: 'trengie', locale, cta_location: 'hero' })}
+        >
+          {t('hero.selectedWork')}
+        </Link>
+        <dl className="mt-8 grid w-full max-w-xl grid-cols-3 gap-2 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-3 py-4 backdrop-blur-md sm:px-6">
           <div>
             <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('hero.meta.base')}</dt>
             <dd className="mt-1 text-sm">Medellín</dd>
