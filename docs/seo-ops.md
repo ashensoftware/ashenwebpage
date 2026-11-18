@@ -30,7 +30,7 @@ Checked against production on 2026-11-18, before this change:
 
 `vercel.json` now adds a permanent host redirect from `www.ashensoftware.com` to `https://ashensoftware.com/:path*`. Trailing slashes stay off via `trailingSlash: false`.
 
-`http://www` still takes two hops: Vercel upgrades HTTP to HTTPS on the same host, then this redirect removes `www`. That first hop is the platform TLS redirect. After deploy, confirm:
+`http://www` still takes two hops: Vercel upgrades HTTP to HTTPS on the same host, then this redirect removes `www`. That first hop is the platform TLS redirect. Confirmed in production on 2026-11-18 after deploy `dd2ceaf`:
 
 ```text
 curl -sI https://www.ashensoftware.com/
@@ -38,7 +38,13 @@ curl -sI http://www.ashensoftware.com/
 curl -sI https://ashensoftware.com/about/
 ```
 
-Expect one hop from `https://www` to the apex, and no chain longer than the platform HTTP→HTTPS hop plus that host redirect.
+Measured after `dd2ceaf`:
+
+- `https://www.ashensoftware.com/` → `308` `https://ashensoftware.com/`
+- `https://www.ashensoftware.com/about` → `308` `https://ashensoftware.com/about`
+- `http://www.ashensoftware.com/` → `308` `https://www.ashensoftware.com/` (platform TLS hop; the next request removes `www`)
+
+The first deploy redirected nested paths and still served the www homepage with `200`. The homepage needed its own redirect rule because `/:path*` did not match `/`.
 
 Canonical tags ignore query strings, so `utm_*` and similar parameters do not create a second canonical URL. They are not stripped with a redirect, because that would drop campaign parameters.
 
