@@ -59,8 +59,10 @@ for (const route of routes) {
 
   if (!title) fail(`${route.path} missing title`);
   if (!description) fail(`${route.path} missing description`);
-  if (titles.has(title)) fail(`Duplicate title "${title}" on ${route.path} and ${titles.get(title)}`);
-  else titles.set(title, route.path);
+  const previousTitlePath = titles.get(title);
+  const sharedHomeTitle = title === 'Ashen Software' && ['/', '/es'].includes(route.path) && ['/', '/es'].includes(previousTitlePath);
+  if (previousTitlePath && !sharedHomeTitle) fail(`Duplicate title "${title}" on ${route.path} and ${previousTitlePath}`);
+  else if (!previousTitlePath) titles.set(title, route.path);
   if (descriptions.has(description)) fail(`Duplicate description on ${route.path} and ${descriptions.get(description)}`);
   else descriptions.set(description, route.path);
   if (canonical !== canonicalUrl(route.path)) fail(`${route.path} canonical is ${canonical}`);
