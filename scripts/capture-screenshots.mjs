@@ -22,6 +22,7 @@ const viewports = [
   ['mobile', 390, 844],
   ['tablet', 768, 1024],
   ['desktop', 1440, 1000],
+  ['wide', 1920, 1080],
 ];
 
 const browser = await puppeteer.launch({

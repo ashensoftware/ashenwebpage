@@ -28,9 +28,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Schibsted Grotesk', 'Segoe UI', 'sans-serif'],
-        display: ['Newsreader', 'Georgia', 'serif'],
-        mono: ['DM Mono', 'ui-monospace', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'Cascadia Code', 'monospace'],
       },
       backgroundImage: {},
       animation: {

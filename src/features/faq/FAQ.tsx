@@ -14,7 +14,7 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="border-b border-[var(--color-line)] py-16 md:py-24">
+    <section id="faq" className="section-wash border-b border-[var(--color-line)] py-16 md:py-24">
       <Container className="grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <p className="eyebrow mb-3">{t('faq.label')}</p>

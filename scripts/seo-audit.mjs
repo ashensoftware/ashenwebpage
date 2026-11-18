@@ -59,8 +59,10 @@ for (const route of routes) {
 
   if (!title) fail(`${route.path} missing title`);
   if (!description) fail(`${route.path} missing description`);
-  if (titles.has(title)) fail(`Duplicate title "${title}" on ${route.path} and ${titles.get(title)}`);
-  else titles.set(title, route.path);
+  const previousTitlePath = titles.get(title);
+  const sharedHomeTitle = title === 'Ashen Software' && ['/', '/es'].includes(route.path) && ['/', '/es'].includes(previousTitlePath);
+  if (previousTitlePath && !sharedHomeTitle) fail(`Duplicate title "${title}" on ${route.path} and ${previousTitlePath}`);
+  else if (!previousTitlePath) titles.set(title, route.path);
   if (descriptions.has(description)) fail(`Duplicate description on ${route.path} and ${descriptions.get(description)}`);
   else descriptions.set(description, route.path);
   if (canonical !== canonicalUrl(route.path)) fail(`${route.path} canonical is ${canonical}`);
@@ -112,10 +114,10 @@ if (!fs.existsSync(keyFile) || fs.readFileSync(keyFile, 'utf8').trim() !== key) 
   fail('IndexNow key file is not in the build output');
 }
 if (!fs.existsSync(path.join(distDir, 'assets/og-image.png'))) fail('OG image missing from dist');
-const displayFont = path.join(distDir, 'fonts/newsreader-latin-500-normal.woff2');
+const displayFont = path.join(distDir, 'fonts/outfit-latin-600-normal.woff2');
 if (!fs.existsSync(displayFont)) fail('Display font missing from dist/fonts');
 const homeHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
-if (!homeHtml.includes('/fonts/newsreader-latin-500-normal.woff2')) fail('Homepage does not preload the display font');
+if (!homeHtml.includes('/fonts/outfit-latin-600-normal.woff2')) fail('Homepage does not preload the display font');
 if (!fs.existsSync(path.join(distDir, 'assets/logo/Logo-Iso.png'))) fail('Favicon file missing from dist');
 if (!fs.existsSync(path.join(distDir, 'robots.txt')) || !fs.readFileSync(path.join(distDir, 'robots.txt'), 'utf8').includes('OAI-SearchBot')) {
   fail('robots.txt does not mention OAI-SearchBot');

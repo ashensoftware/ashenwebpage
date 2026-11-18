@@ -7,6 +7,13 @@
         scroll-behavior: smooth;
     }
 
+    button,
+    a,
+    summary,
+    [role='button'] {
+        cursor: pointer;
+    }
+
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;
@@ -39,9 +46,10 @@
 }
 
 .eyebrow {
-    font-family: var(--font-family-mono);
+    font-family: var(--font-family-display);
     font-size: 0.75rem;
-    letter-spacing: 0.14em;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-accent-primary);
 }
@@ -50,30 +58,50 @@
     border-color: var(--color-line);
 }
 
-.panel {
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-line);
-    border-radius: 2px;
+.panel,
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.glass,
-.glass-card {
-    background: var(--color-bg-secondary);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: 1px solid var(--color-line);
-    box-shadow: none;
-    border-radius: 2px;
+.glass-card:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.18);
 }
 
 .text-gradient {
-    background: none;
-    -webkit-text-fill-color: currentColor;
-    color: var(--color-accent-primary);
+    background-image: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .glow-text {
-    text-shadow: none;
+    text-shadow: 0 0 24px var(--color-accent-glow);
+}
+
+.section-wash {
+    background:
+        radial-gradient(ellipse at 10% 0%, rgba(139, 92, 246, 0.16), transparent 42%),
+        radial-gradient(ellipse at 90% 100%, rgba(217, 70, 239, 0.1), transparent 38%);
+}
+
+.rise {
+    animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(18px);
+    }
+    to {
+        transform: none;
+    }
 }
 
 .container-width {
@@ -92,12 +120,3 @@
     }
 }
 
-.rounded-lg,
-.rounded-xl,
-.rounded-2xl,
-.rounded-3xl,
-.rounded-\[2rem\],
-.rounded-\[2\.5rem\],
-.rounded-full {
-    border-radius: 2px !important;
-}

@@ -86,7 +86,7 @@ export const ContactUs: React.FC = () => {
           </dl>
         </div>
 
-        <div className="border border-[var(--color-line)] bg-[var(--bg-primary)] p-6 md:p-8 lg:col-span-7">
+        <div className="glass-card p-6 md:p-8 lg:col-span-7">
           {state.succeeded ? (
             <div role="status" aria-live="polite" className="space-y-6">
               <h3 className="font-display text-3xl">{t('contact.success-title')}</h3>

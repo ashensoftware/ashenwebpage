@@ -1,70 +1,62 @@
 :root,
 body.dark-mode {
-  --color-bg-primary: #101210;
-  --bg-primary: #101210;
-  --color-bg-secondary: #171a17;
-  --color-bg-tertiary: #1e231f;
-  --color-text-primary: #ece7dc;
-  --color-text-secondary: #c4beb2;
-  --color-text-muted: #9a9488;
-  --color-accent-primary: #e07a3d;
-  --color-accent-secondary: #c4a574;
-  --color-accent-tertiary: #c4a574;
-  --color-brass: #c4a574;
-  --color-line: rgba(236, 231, 220, 0.16);
-  --color-line-strong: rgba(236, 231, 220, 0.32);
-  --color-ink: #141614;
-  --glass-bg: #171a17;
-  --glass-border: rgba(236, 231, 220, 0.16);
-  --glass-highlight: rgba(236, 231, 220, 0.16);
-  --card-bg: #171a17;
-  --input-bg: #101210;
-  --input-border: rgba(236, 231, 220, 0.24);
-  --nav-bg: rgba(16, 18, 16, 0.92);
-  --font-family-primary: "Schibsted Grotesk", "Segoe UI", sans-serif;
-  --font-family-display: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --font-family-mono: "DM Mono", ui-monospace, monospace;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 600;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4.5rem;
-  --spacing-xl: 6.5rem;
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-full: 2px;
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.2s ease;
-  --transition-slow: 0.2s ease;
-  --icon-filter: none;
+  --color-bg-primary: #010014;
+  --bg-primary: #010014;
+  --color-bg-secondary: #0a0a1f;
+  --color-bg-tertiary: #12122a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-accent-primary: #8b5cf6;
+  --color-accent-secondary: #a084ee;
+  --color-accent-tertiary: #d946ef;
+  --color-accent-glow: rgba(139, 92, 246, 0.5);
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(139, 92, 246, 0.45);
+  --color-ink: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.14);
+  --nav-bg: rgba(1, 0, 20, 0.72);
+  --gradient-primary: linear-gradient(135deg, #6d28d9 0%, #c026d3 100%);
+  --gradient-text: linear-gradient(90deg, #8b5cf6 0%, #d946ef 100%);
+  --font-family-primary: "Inter", system-ui, sans-serif;
+  --font-family-display: "Outfit", "Inter", system-ui, sans-serif;
+  --font-family-mono: ui-monospace, "Cascadia Code", monospace;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.light-mode {
-  --color-bg-primary: #f3f0e8;
-  --bg-primary: #f3f0e8;
-  --color-bg-secondary: #e7e2d6;
-  --color-bg-tertiary: #ddd6c6;
-  --color-text-primary: #161815;
-  --color-text-secondary: #3c413c;
-  --color-text-muted: #5c6158;
-  --color-accent-primary: #9a3e16;
-  --color-accent-secondary: #7a5b32;
-  --color-accent-tertiary: #7a5b32;
-  --color-brass: #7a5b32;
-  --color-line: rgba(22, 24, 21, 0.14);
-  --color-line-strong: rgba(22, 24, 21, 0.28);
-  --color-ink: #f3f0e8;
-  --glass-bg: #e7e2d6;
-  --glass-border: rgba(22, 24, 21, 0.14);
-  --card-bg: #f3f0e8;
-  --input-bg: #f3f0e8;
-  --input-border: rgba(22, 24, 21, 0.22);
-  --nav-bg: rgba(243, 240, 232, 0.94);
-  --icon-filter: none;
+  --color-bg-primary: #ffffff;
+  --bg-primary: #ffffff;
+  --color-bg-secondary: #f4f4f9;
+  --color-bg-tertiary: #e5e5ea;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #3f3f46;
+  --color-text-muted: #52525b;
+  --color-accent-primary: #6d28d9;
+  --color-accent-secondary: #7c3aed;
+  --color-accent-tertiary: #c026d3;
+  --color-accent-glow: rgba(109, 40, 217, 0.35);
+  --color-line: rgba(0, 0, 0, 0.08);
+  --color-line-strong: rgba(109, 40, 217, 0.45);
+  --color-ink: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(109, 40, 217, 0.16);
+  --glass-shadow: 0 8px 24px rgba(76, 29, 149, 0.08);
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #d4d4d8;
+  --nav-bg: rgba(255, 255, 255, 0.86);
+  --gradient-primary: linear-gradient(135deg, #6d28d9 0%, #c026d3 100%);
+  --gradient-text: linear-gradient(90deg, #6d28d9 0%, #c026d3 100%);
 }
 
 body {
@@ -78,21 +70,6 @@ body {
 
 body.light-mode {
   color-scheme: light;
-}
-
-body.dark-mode {
-  color-scheme: dark;
-}
-
-h1,
-h2,
-h3 {
-  text-wrap: balance;
-}
-
-::selection {
-  background: var(--color-accent-primary);
-  color: var(--color-ink);
 }
 
 select,
@@ -115,6 +92,6 @@ select option {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-line-strong);
-  border-radius: 0;
+  background: var(--color-accent-primary);
+  border-radius: 999px;
 }

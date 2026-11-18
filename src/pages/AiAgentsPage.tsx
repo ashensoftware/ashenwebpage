@@ -47,27 +47,15 @@ export default function AiAgentsPage() {
         ]}
       />
 
-      <section className="border-b border-[var(--color-line)]">
-        <Container className="grid items-end gap-10 py-16 md:py-24 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <p className="eyebrow mb-4">{t('aiAgents.eyebrow')}</p>
-            <h1 className="font-display text-4xl font-medium leading-tight md:text-6xl">{t('aiAgents.title')}</h1>
-            <p className="mt-6 text-lg text-[var(--color-text-secondary)]">{t('aiAgents.subtitle')}</p>
-            <Link to={contactPath(locale)} className="mt-8 inline-block" onClick={() => track('ai_agents_cta', { source: 'hero' })}>
-              <Button variant="primary" size="lg">{t('cta.startProject')}</Button>
-            </Link>
-          </div>
-          <div className="lg:col-span-6">
-            <SystemDiagram
-              label={t('system.label')}
-              operator={t('system.operator')}
-              agent={t('system.agent')}
-              tools={t('system.tools')}
-              records={t('system.records')}
-              approval={t('system.approval')}
-              caption={t('system.caption')}
-            />
-          </div>
+      <section className="relative overflow-hidden border-b border-[var(--color-line)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.32),transparent_58%)]" aria-hidden="true" />
+        <Container className="relative max-w-3xl py-24 md:py-32">
+          <p className="eyebrow mb-4">{t('aiAgents.eyebrow')}</p>
+          <h1 className="font-display text-4xl font-medium leading-tight md:text-6xl">{t('aiAgents.title')}</h1>
+          <p className="mt-6 text-lg text-[var(--color-text-secondary)]">{t('aiAgents.subtitle')}</p>
+          <Link to={contactPath(locale)} className="mt-8 inline-block" onClick={() => track('ai_agents_cta', { source: 'hero' })}>
+            <Button variant="primary" size="lg">{t('cta.startProject')}</Button>
+          </Link>
         </Container>
       </section>
 
@@ -101,6 +89,17 @@ export default function AiAgentsPage() {
           <div>
             <h2 className="text-3xl font-bold mb-4">{t('aiAgents.architectureTitle')}</h2>
             <p className="text-text-secondary leading-relaxed">{t('aiAgents.architecture')}</p>
+            <div className="mt-8">
+              <SystemDiagram
+                label={t('system.label')}
+                operator={t('system.operator')}
+                agent={t('system.agent')}
+                tools={t('system.tools')}
+                records={t('system.records')}
+                approval={t('system.approval')}
+                caption={t('system.caption')}
+              />
+            </div>
           </div>
           <div>
             <h2 className="text-3xl font-bold mb-4">{t('aiAgents.securityTitle')}</h2>
