@@ -1,0 +1,31 @@
+.ashen-marquee {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: ashen-marquee 70s linear infinite;
+  will-change: transform;
+}
+
+.ashen-marquee.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes ashen-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ashen-marquee {
+    animation: none;
+    will-change: auto;
+  }
+
+  .ashen-marquee-clone {
+    display: none;
+  }
+}

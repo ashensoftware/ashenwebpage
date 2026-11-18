@@ -163,6 +163,14 @@ Not published. These are topics the current site already speaks to, so a later p
 - Modernizing an integration without replacing the system that already holds the data.
 - How a technical B2B offer stays readable on a phone, using Trengie as the concrete example.
 
+## Follow-up after review
+
+The service carousel is back immediately after the hero, with the same cards, pillar chips, and “Engineering for operations” title. The loop still paints a second set of cards so the motion is continuous. Those clones are not links and are `aria-hidden`. With reduced motion they are not rendered. The capabilities list stays one link per capability.
+
+Automation now sits with AI Agents, next to Artificial Intelligence. Integrations keeps IoT and blockchain.
+
+The delivery model and Why Ashen sections moved from the homepage to About.
+
 ## Remaining hypotheses
 
 - No Chrome performance trace was captured before editing SignalField. The grid stroke and `shadowBlur` were visible in the frame loop, so they were removed. The 30 fps cap and the squared-distance check were applied in that same edit and were not A/B measured. Desktop TBT stayed at 0–10 ms, so they did not show up as a lab regression.

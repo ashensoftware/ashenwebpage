@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Container } from '@/components/ui/Container';
 import { buttonClass } from '@/components/ui/button-styles';
 import { SEO } from '@/components/SEO';
+import { ProcessSection } from '@/features/process/ProcessSection';
+import { ValueProposition } from '@/features/value-proposition/ValueProposition';
 import { organizationJsonLd } from '@/config/schema';
 import { contactPath, pathFor } from '@/config/routes';
 import { useLocale, useT } from '@/hooks/useLocale';
@@ -95,6 +97,9 @@ export const AboutPage: React.FC = () => {
           </dl>
         </Container>
       </section>
+
+      <ProcessSection />
+      <ValueProposition />
 
       <section className="py-16 md:py-24">
         <Container>

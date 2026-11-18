@@ -137,7 +137,7 @@ function assertSingleCapabilityCatalog(urlPath, locale) {
     const inSection = section.split(`href="${href}"`).length - 1;
     const inPage = html.split(`href="${href}"`).length - 1;
     if (inSection !== 1) fail(`${urlPath} lists ${href} ${inSection} times inside capabilities`);
-    if (inPage !== 2) fail(`${urlPath} has ${inPage} links to ${href}; expected navigation plus one catalog entry`);
+    if (inPage !== 3) fail(`${urlPath} has ${inPage} links to ${href}; expected navigation, carousel, and one catalog entry`);
   }
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
   for (const id of new Set(ids.filter((value, index) => ids.indexOf(value) !== index))) {

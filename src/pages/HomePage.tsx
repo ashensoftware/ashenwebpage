@@ -2,10 +2,9 @@ import React from 'react';
 import { useT } from '@/hooks/useLocale';
 import { Hero } from '@/features/hero/Hero';
 import { PillarsSection } from '@/features/services/PillarsSection';
+import { ServiceCarousel } from '@/features/services/ServiceCarousel';
 import { ServicesSection } from '@/features/services/ServicesSection';
 import { ProofSection } from '@/features/proof/ProofSection';
-import { ProcessSection } from '@/features/process/ProcessSection';
-import { ValueProposition } from '@/features/value-proposition/ValueProposition';
 import { AboutPreview } from '@/features/about/AboutPreview';
 import { FAQ } from '@/features/faq/FAQ';
 import { ContactUs } from '@/features/contact/ContactUs';
@@ -23,11 +22,10 @@ const HomePage: React.FC = () => {
         jsonLd={[organizationJsonLd(), websiteJsonLd()]}
       />
       <Hero />
+      <ServiceCarousel />
       <ProofSection />
       <PillarsSection />
       <ServicesSection />
-      <ProcessSection />
-      <ValueProposition />
       <AboutPreview />
       <FAQ />
       <div id="contact">

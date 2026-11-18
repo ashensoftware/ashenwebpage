@@ -121,6 +121,8 @@
     }
   },
   "services": {
+    "carouselLabel": "Capacidades",
+    "carouselTitle": "Ingeniería para operaciones",
     "label": "Capacidades",
     "title": "Ingeniería para operaciones",
     "subtitle": "Trabajo especializado que vive debajo de los cuatro pilares comerciales.",
