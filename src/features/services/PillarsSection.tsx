@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Bot, Code, Database, Workflow } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SERVICE_PILLARS } from '@/content/pillars';
 import { pathFor } from '@/config/routes';
 import { useLocale, useT } from '@/hooks/useLocale';
+
+const PILLAR_ICONS = {
+  bot: Bot,
+  code: Code,
+  database: Database,
+  workflow: Workflow,
+};
 
 export const PillarsSection: React.FC = () => {
   const t = useT();
@@ -11,7 +19,7 @@ export const PillarsSection: React.FC = () => {
   const [lead, ...rest] = SERVICE_PILLARS;
 
   return (
-    <section id="services" className="section-wash border-b border-[var(--color-line)] py-16 md:py-24">
+    <section id="pillars" className="section-wash border-b border-[var(--color-line)] py-16 md:py-24">
       <Container>
         <div className="mb-10 max-w-3xl">
           <p className="eyebrow mb-3">{t('pillars.label')}</p>
@@ -21,11 +29,13 @@ export const PillarsSection: React.FC = () => {
 
         <Link
           to={pathFor(lead.routeId, locale)}
-          className="glass-card group grid gap-8 p-6 md:p-8 lg:grid-cols-12"
+          className="glass-card group grid items-center gap-8 p-6 md:p-8 lg:grid-cols-12"
         >
           <div className="lg:col-span-7">
-            <p className="font-mono text-xs text-[var(--color-accent-primary)]">01 — {t('pillars.learn')}</p>
-            <h3 className="mt-3 font-display text-3xl font-medium md:text-4xl">{t(`pillars.${lead.id}.title`)}</h3>
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-primary)]/15 text-[var(--color-accent-primary)]">
+              {React.createElement(PILLAR_ICONS[lead.icon], { size: 20, 'aria-hidden': true })}
+            </span>
+            <h3 className="mt-4 font-display text-3xl font-medium md:text-4xl">{t(`pillars.${lead.id}.title`)}</h3>
             <p className="mt-4 max-w-xl text-[var(--color-text-secondary)] leading-relaxed">
               {t(`pillars.${lead.id}.description`)}
             </p>
@@ -46,7 +56,10 @@ export const PillarsSection: React.FC = () => {
               className="glass-card flex flex-col justify-between p-5"
             >
               <div>
-                <h3 className="font-display text-2xl font-medium">{t(`pillars.${pillar.id}.title`)}</h3>
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent-primary)]/15 text-[var(--color-accent-primary)]">
+                  {React.createElement(PILLAR_ICONS[pillar.icon], { size: 20, 'aria-hidden': true })}
+                </span>
+                <h3 className="mt-4 font-display text-2xl font-medium">{t(`pillars.${pillar.id}.title`)}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
                   {t(`pillars.${pillar.id}.description`)}
                 </p>

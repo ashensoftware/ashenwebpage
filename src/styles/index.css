@@ -7,6 +7,13 @@
         scroll-behavior: smooth;
     }
 
+    button,
+    a,
+    summary,
+    [role='button'] {
+        cursor: pointer;
+    }
+
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;

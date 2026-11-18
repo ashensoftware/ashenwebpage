@@ -1,12 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
+import { Bot, ChevronDown, Code, Database, Menu, Moon, Sun, Workflow, X } from 'lucide-react';
+import { FlagEN, FlagES } from '@/components/icons/BrandIcons';
 import { buttonClass } from '@/components/ui/button-styles';
 import { useTheme } from '@/hooks/useTheme';
 import { useLocale, useT } from '@/hooks/useLocale';
 import { alternatePath, contactPath, pathFor, servicePath } from '@/config/routes';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { SERVICE_PILLARS } from '@/content/pillars';
+
+const PILLAR_ICONS = {
+  bot: Bot,
+  code: Code,
+  database: Database,
+  workflow: Workflow,
+};
 
 export const Navbar: React.FC = () => {
   const t = useT();
@@ -74,7 +82,7 @@ export const Navbar: React.FC = () => {
           <div className="relative" onMouseEnter={openServices} onMouseLeave={scheduleCloseServices}>
             <Link
               to={`${pathFor('home', locale)}#services`}
-              className="inline-flex min-h-11 items-center gap-1 px-3 text-sm"
+              className="inline-flex min-h-11 cursor-pointer items-center gap-1 px-3 text-sm"
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               onFocus={openServices}
@@ -89,12 +97,18 @@ export const Navbar: React.FC = () => {
               onMouseEnter={openServices}
               onMouseLeave={scheduleCloseServices}
             >
-              <div className="glass-card p-3">
-                {SERVICE_PILLARS.map((pillar) => (
-                  <Link key={pillar.id} to={pathFor(pillar.routeId, locale)} className="block px-2 py-2 hover:text-[var(--color-accent-primary)]">
-                    <span className="block text-sm">{t(`pillars.${pillar.id}.title`)}</span>
-                  </Link>
-                ))}
+              <div className="max-h-[70vh] overflow-y-auto rounded-2xl border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] p-3 shadow-2xl">
+                {SERVICE_PILLARS.map((pillar) => {
+                  const Icon = PILLAR_ICONS[pillar.icon];
+                  return (
+                    <Link key={pillar.id} to={pathFor(pillar.routeId, locale)} className="flex cursor-pointer items-center gap-3 rounded-xl px-2 py-2 hover:bg-[var(--glass-bg)] hover:text-[var(--color-accent-primary)]">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent-primary)]/15 text-[var(--color-accent-primary)]">
+                        <Icon size={18} aria-hidden />
+                      </span>
+                      <span className="text-sm">{t(`pillars.${pillar.id}.title`)}</span>
+                    </Link>
+                  );
+                })}
                 <p className="mt-2 border-t border-[var(--color-line)] px-2 pt-3 font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">
                   {t('services.label')}
                 </p>
@@ -113,20 +127,26 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
           {navLinks.map((link) => (
-            <Link key={link.name} to={link.href} className="inline-flex min-h-11 items-center px-3 text-sm">
+            <Link key={link.name} to={link.href} className="inline-flex min-h-11 cursor-pointer items-center px-3 text-sm">
               {link.name}
             </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 min-w-11 items-center justify-center" aria-label={t('a11y.theme')}>
+          <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-[var(--glass-border)] bg-[var(--color-bg-secondary)]" aria-label={t('a11y.theme')}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button type="button" onClick={switchLocale} className="min-h-11 px-2 font-mono text-xs" aria-label={`${t('a11y.language')}: EN / ES`}>
-            <span className={locale === 'en' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}>EN</span>
-            <span className="px-1 text-[var(--color-text-muted)]">/</span>
-            <span className={locale === 'es' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}>ES</span>
+          <button type="button" onClick={switchLocale} className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] px-3 font-mono text-xs" aria-label={`${t('a11y.language')}: EN / ES`}>
+            <span className={`inline-flex items-center gap-1.5 ${locale === 'en' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}`}>
+              <FlagEN size={14} />
+              EN
+            </span>
+            <span className="text-[var(--color-text-muted)]">/</span>
+            <span className={`inline-flex items-center gap-1.5 ${locale === 'es' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}`}>
+              <FlagES size={14} />
+              ES
+            </span>
           </button>
           <Link to={contactPath(locale)} className={buttonClass({ size: 'sm' })}>
             {t('nav.cta')}
@@ -135,7 +155,7 @@ export const Navbar: React.FC = () => {
 
         <button
           type="button"
-          className="inline-flex min-h-11 min-w-11 items-center justify-center md:hidden"
+          className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center md:hidden"
           onClick={() => setMobileMenuOpen((open) => !open)}
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? t('a11y.closeMenu') : t('a11y.menu')}
@@ -181,10 +201,10 @@ export const Navbar: React.FC = () => {
             </Link>
           </nav>
           <div className="mt-4 flex gap-3">
-            <button type="button" onClick={switchLocale} className="min-h-11 font-mono text-sm" aria-label={`${t('a11y.language')}: EN / ES`}>
+            <button type="button" onClick={switchLocale} className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-mono text-sm" aria-label={`${t('a11y.language')}: EN / ES`}>
               {locale === 'en' ? 'ES' : 'EN'}
             </button>
-            <button type="button" onClick={toggleTheme} className="min-h-11 font-mono text-sm" aria-label={t('a11y.theme')}>
+            <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-mono text-sm" aria-label={t('a11y.theme')}>
               {theme === 'dark' ? 'Light' : 'Dark'}
             </button>
           </div>

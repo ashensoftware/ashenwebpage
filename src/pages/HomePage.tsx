@@ -1,8 +1,8 @@
 import React from 'react';
 import { useT } from '@/hooks/useLocale';
 import { Hero } from '@/features/hero/Hero';
-import { CapabilitiesSection } from '@/features/services/CapabilitiesSection';
 import { PillarsSection } from '@/features/services/PillarsSection';
+import { ServicesSection } from '@/features/services/ServicesSection';
 import { ProofSection } from '@/features/proof/ProofSection';
 import { ProcessSection } from '@/features/process/ProcessSection';
 import { ValueProposition } from '@/features/value-proposition/ValueProposition';
@@ -23,9 +23,9 @@ const HomePage: React.FC = () => {
         jsonLd={[organizationJsonLd(), websiteJsonLd()]}
       />
       <Hero />
+      <ServicesSection />
       <ProofSection />
       <PillarsSection />
-      <CapabilitiesSection />
       <ProcessSection />
       <ValueProposition />
       <AboutPreview />
