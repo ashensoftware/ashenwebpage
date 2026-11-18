@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--color-line)] bg-[var(--nav-bg)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--glass-border)] bg-[var(--nav-bg)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link to={pathFor('home', locale)} className="flex items-center">
           <img
@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
               onMouseEnter={openServices}
               onMouseLeave={scheduleCloseServices}
             >
-              <div className="border border-[var(--color-line)] bg-[var(--color-bg-secondary)] p-3">
+              <div className="glass-card p-3">
                 {SERVICE_PILLARS.map((pillar) => (
                   <Link key={pillar.id} to={pathFor(pillar.routeId, locale)} className="block px-2 py-2 hover:text-[var(--color-accent-primary)]">
                     <span className="block text-sm">{t(`pillars.${pillar.id}.title`)}</span>

@@ -50,7 +50,7 @@ export const ProofSection: React.FC = () => {
               <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('trengie.stack')}</p>
               <ul className="mt-2 flex flex-wrap gap-2">
                 {study.stack.map((item) => (
-                  <li key={item} className="border border-[var(--color-line-strong)] px-2 py-1 font-mono text-xs">
+                  <li key={item} className="rounded-full border border-[var(--color-line-strong)] px-3 py-1 font-mono text-xs">
                     {item}
                   </li>
                 ))}
@@ -78,7 +78,7 @@ export const ProofSection: React.FC = () => {
           <Link
             to={pathFor('trengie', locale)}
             onClick={() => track('case_study_open', { slug: study.slug, source: 'home_preview' })}
-            className="block border border-[var(--color-line-strong)] bg-[var(--bg-primary)] lg:col-span-7"
+            className="glass-card block overflow-hidden bg-[var(--bg-primary)] lg:col-span-7"
           >
             <div className="flex items-center justify-between border-b border-[var(--color-line)] px-3 py-2 font-mono text-[11px] text-[var(--color-text-muted)]">
               <span>trengie.com</span>

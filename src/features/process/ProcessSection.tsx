@@ -17,10 +17,10 @@ export const ProcessSection: React.FC = () => {
           </h2>
           <p className="mt-4 text-[var(--color-text-secondary)]">{t('process.subtitle')}</p>
         </div>
-        <ol className="grid gap-0 md:grid-cols-4">
+        <ol className="grid gap-4 md:grid-cols-4">
           {STEPS.map((step, index) => (
-            <li key={step} className="relative border-t border-[var(--color-accent-primary)] pt-5 md:pr-6">
-              <span className="font-mono text-xs text-[var(--color-accent-primary)]">0{index + 1}</span>
+            <li key={step} className="glass-card p-5">
+              <span className="font-display text-3xl font-semibold text-gradient">0{index + 1}</span>
               <h3 className="mt-3 font-display text-2xl font-medium">{t(`process.steps.${step}.title`)}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">{t(`process.steps.${step}.body`)}</p>
             </li>

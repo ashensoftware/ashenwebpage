@@ -20,7 +20,7 @@ export const AboutPreview: React.FC = () => {
             height={800}
             loading="lazy"
             decoding="async"
-            className="aspect-[16/10] w-full object-cover"
+            className="aspect-[16/10] w-full rounded-3xl object-cover ring-1 ring-[var(--glass-border)]"
           />
           <figcaption className="mt-2 font-mono text-[11px] text-[var(--color-text-muted)]">{t('aboutPage.photoCredit')}</figcaption>
         </figure>

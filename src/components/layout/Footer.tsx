@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--color-line-strong)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]"
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[var(--color-line-strong)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />

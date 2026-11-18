@@ -11,14 +11,14 @@ interface ButtonStyle {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    'bg-[var(--color-accent-primary)] text-[var(--color-ink)] border border-[var(--color-accent-primary)] hover:brightness-110',
+    'bg-[image:var(--gradient-primary)] text-white border border-transparent shadow-[0_10px_30px_rgba(139,92,246,0.35)] hover:brightness-110',
   secondary:
-    'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-line-strong)] hover:border-[var(--color-accent-primary)]',
+    'bg-[var(--glass-bg)] text-[var(--color-text-primary)] border border-[var(--glass-border)] backdrop-blur-md hover:border-[var(--color-accent-primary)]',
   outline:
-    'bg-transparent border border-[var(--color-accent-primary)] text-[var(--color-accent-primary)] hover:bg-[var(--color-accent-primary)] hover:text-[var(--color-ink)]',
+    'bg-transparent border border-[var(--color-accent-primary)] text-[var(--color-accent-primary)] hover:bg-[var(--color-accent-primary)] hover:text-white',
   ghost: 'bg-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
   glow:
-    'bg-[var(--color-accent-primary)] text-[var(--color-ink)] border border-[var(--color-accent-primary)]',
+    'bg-[image:var(--gradient-primary)] text-white border border-transparent shadow-[0_0_24px_var(--color-accent-glow)]',
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -29,7 +29,7 @@ const sizes: Record<ButtonSize, string> = {
 
 export function buttonClass({ variant = 'primary', size = 'md', className = '' }: ButtonStyle = {}) {
   return cn(
-    'inline-flex items-center justify-center gap-2 rounded-[2px] font-medium cursor-pointer transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent-primary)] disabled:opacity-50 disabled:cursor-not-allowed',
+    'inline-flex items-center justify-center gap-2 rounded-full font-medium cursor-pointer transition-[filter,border-color,background-color] duration-200 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent-primary)] disabled:opacity-50 disabled:cursor-not-allowed',
     variants[variant],
     sizes[size],
     className,

@@ -1,56 +1,48 @@
-/* Latin subsets. Files in /fonts. Upstream: Fontsource, SIL Open Font License. */
+/* Latin subsets. SIL Open Font License. Inter and Outfit, the faces used before the 2026 rebrand. */
 @font-face {
-    font-family: "Schibsted Grotesk";
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("/fonts/schibsted-grotesk-latin-400-normal.woff2") format("woff2");
+    src: url("/fonts/inter-latin-400-normal.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Schibsted Grotesk";
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("/fonts/schibsted-grotesk-latin-500-normal.woff2") format("woff2");
+    src: url("/fonts/inter-latin-500-normal.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Schibsted Grotesk";
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url("/fonts/schibsted-grotesk-latin-600-normal.woff2") format("woff2");
+    src: url("/fonts/inter-latin-600-normal.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Newsreader";
+    font-family: "Outfit";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("/fonts/newsreader-latin-500-normal.woff2") format("woff2");
+    src: url("/fonts/outfit-latin-500-normal.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Newsreader";
+    font-family: "Outfit";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url("/fonts/newsreader-latin-600-normal.woff2") format("woff2");
+    src: url("/fonts/outfit-latin-600-normal.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "DM Mono";
+    font-family: "Outfit";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-display: swap;
-    src: url("/fonts/dm-mono-latin-400-normal.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "DM Mono";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
+    src: url("/fonts/outfit-latin-700-normal.woff2") format("woff2");
 }

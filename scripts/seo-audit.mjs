@@ -112,10 +112,10 @@ if (!fs.existsSync(keyFile) || fs.readFileSync(keyFile, 'utf8').trim() !== key) 
   fail('IndexNow key file is not in the build output');
 }
 if (!fs.existsSync(path.join(distDir, 'assets/og-image.png'))) fail('OG image missing from dist');
-const displayFont = path.join(distDir, 'fonts/newsreader-latin-500-normal.woff2');
+const displayFont = path.join(distDir, 'fonts/outfit-latin-600-normal.woff2');
 if (!fs.existsSync(displayFont)) fail('Display font missing from dist/fonts');
 const homeHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
-if (!homeHtml.includes('/fonts/newsreader-latin-500-normal.woff2')) fail('Homepage does not preload the display font');
+if (!homeHtml.includes('/fonts/outfit-latin-600-normal.woff2')) fail('Homepage does not preload the display font');
 if (!fs.existsSync(path.join(distDir, 'assets/logo/Logo-Iso.png'))) fail('Favicon file missing from dist');
 if (!fs.existsSync(path.join(distDir, 'robots.txt')) || !fs.readFileSync(path.join(distDir, 'robots.txt'), 'utf8').includes('OAI-SearchBot')) {
   fail('robots.txt does not mention OAI-SearchBot');
