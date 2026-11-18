@@ -7,6 +7,12 @@
   "redirects": [
     { "source": "/es/services/:id", "destination": "/es/servicios/:id", "permanent": true },
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.ashensoftware.com" }],
+      "destination": "https://ashensoftware.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.ashensoftware.com" }],
       "destination": "https://ashensoftware.com/:path*",
