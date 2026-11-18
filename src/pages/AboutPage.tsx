@@ -1,244 +1,124 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Container } from '@/components/ui/Container';
-import { BackgroundPaths } from '@/features/animations/BackgroundPaths';
 import { Link } from 'react-router-dom';
-import { Rocket, Users, Globe, Target, ArrowRight } from 'lucide-react';
-
+import { Container } from '@/components/ui/Container';
+import { buttonClass } from '@/components/ui/button-styles';
 import { SEO } from '@/components/SEO';
 import { organizationJsonLd } from '@/config/schema';
 import { contactPath, pathFor } from '@/config/routes';
 import { useLocale, useT } from '@/hooks/useLocale';
 
+const PHOTOS = [
+  { src: '/assets/about/medellin-poblado.jpg', altKey: 'aboutPage.photoPoblado' },
+  { src: '/assets/about/medellin-valley.jpg', altKey: 'aboutPage.photoValley' },
+  { src: '/assets/about/medellin-centro.jpg', altKey: 'aboutPage.photoCentro' },
+] as const;
+
 export const AboutPage: React.FC = () => {
   const t = useT();
   const locale = useLocale();
+  const stages = [
+    { title: t('aboutPage.transparencyTitle'), body: t('aboutPage.transparencyDesc') },
+    { title: t('aboutPage.innovationTitle'), body: t('aboutPage.innovationDesc') },
+    { title: t('aboutPage.agilityTitle'), body: t('aboutPage.agilityDesc') },
+    { title: t('aboutPage.empathyTitle'), body: t('aboutPage.empathyDesc') },
+  ];
 
   return (
-    <div className="min-h-screen bg-bg-primary overflow-x-hidden text-[var(--color-text-primary)]">
-      <SEO
-        title={t('aboutPage.seoTitle')}
-        description={t('aboutPage.seoDesc')}
-        jsonLd={organizationJsonLd()}
-      />
+    <article className="bg-[var(--bg-primary)] pb-24">
+      <SEO title={t('aboutPage.seoTitle')} description={t('aboutPage.seoDesc')} jsonLd={organizationJsonLd()} />
 
-      {/* --- HERO SECTION ---
-                Clean, dark, focused on the main slogan.
-            */}
-      <section className="relative pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden">
-        <BackgroundPaths className="absolute inset-0 h-full opacity-30" />
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
-
-        <Container className="relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
-              {t('aboutPage.heroTitle1')} <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-white from-black dark:via-gray-200 via-gray-700 dark:to-gray-500 to-gray-900">{t('aboutPage.heroTitle2')}</span>
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-500">{t('aboutPage.heroTitle3')}</span>
-            </h1>
-
-            <p className="text-lg md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-light">
-              {t('aboutPage.heroDesc')}
-            </p>
-          </motion.div>
+      <section className="border-b border-[var(--color-line)]">
+        <Container className="py-16 md:py-24">
+          <p className="eyebrow mb-4">{t('aboutPage.dna')}</p>
+          <h1 className="max-w-4xl font-display text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.02]">
+            {t('aboutPage.heroTitle1')} {t('aboutPage.heroTitle2')} {t('aboutPage.heroTitle3')}
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-[var(--color-text-secondary)]">{t('aboutPage.heroDesc')}</p>
         </Container>
       </section>
 
-
-      {/* --- PRINCIPLES SECTION (Parallax Background) ---
-                Dramatically separates content with a rich visual background.
-            */}
-      <section className="relative py-20 md:py-32">
-        {/* Background Image with Parallax-like feel */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/assets/about/medellin-valley.jpg"
-            alt=""
-            className="w-full h-full object-cover opacity-20"
-            width="1200"
-            height="800"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-primary/80 to-bg-primary" />
-        </div>
-
-        <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* The Glass Card */}
-            <div className="bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-white/5">
-
-              <div className="p-8 md:p-16">
-                <div className="max-w-4xl mb-16">
-                  <h2 className="text-3xl md:text-6xl font-bold leading-tight mb-6">
-                    {t('aboutPage.principles1')} <span className="text-brand-primary">{t('aboutPage.principles2')}</span> {t('aboutPage.principles3')}
-                  </h2>
-                  <div className="h-1 w-24 bg-brand-primary rounded-full" />
-                </div>
-
-                {/* Images Row - Responsive */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                  {[
-                    { src: '/assets/about/medellin-poblado.jpg', alt: t('aboutPage.photoPoblado') },
-                    { src: '/assets/about/medellin-valley.jpg', alt: t('aboutPage.photoValley') },
-                    { src: '/assets/about/medellin-centro.jpg', alt: t('aboutPage.photoCentro') },
-                  ].map((photo, idx) => (
-                    <div key={photo.src} className={`rounded-3xl overflow-hidden h-[250px] md:h-[350px] relative group ${idx === 1 ? 'md:-translate-y-8' : ''}`}>
-                      <img
-                        src={photo.src}
-                        alt={photo.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                        width="400"
-                        height="300"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-text-muted mb-16">{t('aboutPage.photoCredit')}</p>
-
-                {/* Mission / Vision Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-white/10 pt-16">
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-2xl bg-brand-primary/20 text-brand-primary">
-                        <Target size={32} />
-                      </div>
-                      <h3 className="text-3xl font-bold">{t('aboutPage.missionTitle')}</h3>
-                    </div>
-                    <p className="text-text-secondary text-lg leading-relaxed">
-                      {t('aboutPage.missionDesc')}
-                    </p>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-400">
-                        <Globe size={32} />
-                      </div>
-                      <h3 className="text-3xl font-bold">{t('aboutPage.visionTitle')}</h3>
-                    </div>
-                    <p className="text-text-secondary text-lg leading-relaxed">
-                      {t('aboutPage.visionDesc')}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-12">
-                  <h3 className="text-2xl font-bold mb-3">{t('aboutPage.whoTitle')}</h3>
-                  <p className="text-text-secondary text-lg leading-relaxed">
-                    {t('aboutPage.whoDesc')}
-                  </p>
-                </div>
-                <p className="text-text-secondary text-lg leading-relaxed mt-8">
-                  {t('aboutPage.evidence')}{' '}
-                  <Link to={pathFor('trengie', locale)} className="text-brand-primary font-semibold hover:underline">
-                    {t('aboutPage.evidenceCta')}
-                  </Link>
-                  .
-                </p>
-              </div>
-
-              {/* Stats Strip - Full Width inside card */}
-              <div className="bg-black/5 dark:bg-white/5 border-t border-black/10 dark:border-white/10 py-10 px-8 md:px-16 overflow-hidden">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <StatItem value="Medellín" label={t('aboutPage.statLocation')} icon={Globe} />
-                  <StatItem value="EN / ES" label={t('aboutPage.statLanguage')} icon={Users} />
-                  <StatItem value="Remote" label={t('aboutPage.statRemote')} icon={Rocket} />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
-
-
-      {/* --- CULTURE SECTION ---
-                Distinct dark background to separate from the previous section.
-            */}
-      <section className="py-20 md:py-32 bg-bg-secondary relative">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
-
+      <section className="border-b border-[var(--color-line)] py-16 md:py-24">
         <Container>
-          <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-16">
-            <div className="max-w-2xl">
-              <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-                {t('aboutPage.cultureLabel')}
-              </span>
-              <h2 className="text-4xl md:text-6xl font-black mb-6">
-                {t('aboutPage.cultureHeading')}
-              </h2>
-              <p className="text-xl text-text-secondary">
-                {t('aboutPage.cultureSubheading')}
-              </p>
+          <h2 className="max-w-3xl font-display text-4xl font-medium">
+            {t('aboutPage.principles1')} {t('aboutPage.principles2')} {t('aboutPage.principles3')}
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {PHOTOS.map((photo) => (
+              <img
+                key={photo.src}
+                src={photo.src}
+                alt={t(photo.altKey)}
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            ))}
+          </div>
+          <p className="mt-3 font-mono text-[11px] text-[var(--color-text-muted)]">{t('aboutPage.photoCredit')}</p>
+
+          <div className="mt-12 grid gap-10 border-t border-[var(--color-line)] pt-10 md:grid-cols-2">
+            <div>
+              <h3 className="font-display text-2xl">{t('aboutPage.missionTitle')}</h3>
+              <p className="mt-3 text-[var(--color-text-secondary)]">{t('aboutPage.missionDesc')}</p>
             </div>
-            <Link to={contactPath(locale)} className="group flex items-center gap-3 text-[var(--color-text-primary)] font-bold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-6 py-3 rounded-full transition-all border border-black/10 dark:border-white/10">
-              {t('cta.startProject')} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <div>
+              <h3 className="font-display text-2xl">{t('aboutPage.visionTitle')}</h3>
+              <p className="mt-3 text-[var(--color-text-secondary)]">{t('aboutPage.visionDesc')}</p>
+            </div>
+          </div>
+
+          <h3 className="mt-10 font-display text-2xl">{t('aboutPage.whoTitle')}</h3>
+          <p className="mt-3 max-w-3xl text-[var(--color-text-secondary)]">{t('aboutPage.whoDesc')}</p>
+          <p className="mt-6 max-w-3xl text-[var(--color-text-secondary)]">
+            {t('aboutPage.evidence')}{' '}
+            <Link to={pathFor('trengie', locale)} className="text-[var(--color-accent-primary)] underline-offset-2 hover:underline">
+              {t('aboutPage.evidenceCta')}
+            </Link>
+            .
+          </p>
+
+          <dl className="mt-10 grid gap-6 border-t border-[var(--color-line)] pt-8 sm:grid-cols-3">
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('aboutPage.statLocation')}</dt>
+              <dd className="mt-1 font-display text-3xl">Medellín</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('aboutPage.statLanguage')}</dt>
+              <dd className="mt-1 font-display text-3xl">EN / ES</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('aboutPage.statRemote')}</dt>
+              <dd className="mt-1 font-display text-3xl">{t('hero.meta.remote')}</dd>
+            </div>
+          </dl>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="eyebrow mb-3">{t('aboutPage.cultureLabel')}</p>
+              <h2 className="font-display text-4xl font-medium">{t('aboutPage.cultureHeading')}</h2>
+              <p className="mt-4 text-[var(--color-text-secondary)]">{t('aboutPage.cultureSubheading')}</p>
+            </div>
+            <Link to={contactPath(locale)} className={buttonClass({ size: 'md' })}>
+              {t('cta.startProject')}
             </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <CultureCard
-              title={t('aboutPage.transparencyTitle')}
-              description={t('aboutPage.transparencyDesc')}
-              index={0}
-            />
-            <CultureCard
-              title={t('aboutPage.innovationTitle')}
-              description={t('aboutPage.innovationDesc')}
-              index={1}
-            />
-            <CultureCard
-              title={t('aboutPage.agilityTitle')}
-              description={t('aboutPage.agilityDesc')}
-              index={2}
-            />
-            <CultureCard
-              title={t('aboutPage.empathyTitle')}
-              description={t('aboutPage.empathyDesc')}
-              index={3}
-            />
-          </div>
+          <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {stages.map((stage, index) => (
+              <li key={stage.title} className="border-t border-[var(--color-accent-primary)] pt-4">
+                <p className="font-mono text-xs text-[var(--color-accent-primary)]">0{index + 1}</p>
+                <h3 className="mt-2 font-display text-xl">{stage.title}</h3>
+                <p className="mt-2 text-sm text-[var(--color-text-secondary)]">{stage.body}</p>
+              </li>
+            ))}
+          </ol>
         </Container>
       </section>
-
-    </div>
+    </article>
   );
 };
-
-const StatItem = ({ value, label, icon: Icon }: { value: string, label: string, icon: React.ComponentType<{ size?: number; className?: string }> }) => (
-  <div className="flex flex-col">
-    <div className="flex items-center gap-3 mb-2 text-[var(--color-text-primary)]">
-      <div className="p-2 rounded-lg bg-black/5 dark:bg-white/5">
-        <Icon size={18} className="text-brand-primary" />
-      </div>
-      <span className="text-3xl md:text-4xl font-black tracking-tight">{value}</span>
-    </div>
-    <span className="text-sm font-medium text-text-secondary uppercase tracking-widest pl-1">{label}</span>
-  </div>
-);
-
-const CultureCard = ({ title, description, index }: { title: string, description: string, index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1, duration: 0.5 }}
-    whileHover={{ y: -5 }}
-    className="p-8 rounded-[2rem] bg-gradient-to-br from-black/[0.03] dark:from-white/[0.03] to-black/[0.01] dark:to-white/[0.01] border border-black/5 dark:border-white/5 hover:border-brand-primary/40 transition-all duration-300 group"
-  >
-    <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-primary/20 group-hover:text-brand-primary transition-colors">
-      <span className="font-bold text-xl text-[var(--color-text-primary)]">0{index + 1}</span>
-    </div>
-    <h4 className="text-xl font-bold text-[var(--color-text-primary)] mb-4 group-hover:text-brand-primary transition-colors">{title}</h4>
-    <p className="text-base text-text-secondary leading-relaxed">{description}</p>
-  </motion.div>
-);

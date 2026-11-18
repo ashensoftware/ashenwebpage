@@ -1,84 +1,68 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import InteractiveGridBackground from '../animations/InteractiveGridBackground';
-import { FallingParticles } from '../animations/FallingParticles';
-import { Button } from '@/components/ui/Button';
-import { Typography } from '@/components/ui/Typography';
+import { buttonClass } from '@/components/ui/button-styles';
 import { Container } from '@/components/ui/Container';
-import { pathFor } from '@/config/routes';
-import { contactPath } from '@/config/routes';
+import { SystemDiagram } from '@/features/diagrams/SystemDiagram';
+import { contactPath, pathFor } from '@/config/routes';
 import { track } from '@/config/analytics';
 import { useLocale, useT } from '@/hooks/useLocale';
-import { ArrowRight, Briefcase } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const t = useT();
   const locale = useLocale();
 
   return (
-    <section
-      className="relative w-full min-h-svh -mt-20 flex items-center justify-center overflow-hidden bg-bg-primary"
-      id="hero"
-    >
-      <div className="absolute inset-0 z-0">
-        <InteractiveGridBackground
-          gridSize={40}
-          effectColor="#000000"
-          darkEffectColor="#ffffff"
-          trailLength={4}
-          idleSpeed={0.01}
-          glow={true}
-          glowRadius={25}
-          fadeIntensity={15}
-          idleRandomCount={8}
-          showFade={false}
-          className="w-full h-full opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-[var(--bg-primary)] pointer-events-none" />
-        <FallingParticles />
-      </div>
-
-      <Container className="relative z-10 flex flex-col items-center text-center px-4 pt-20 pb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <Typography variant="small" className="uppercase tracking-[0.2em] text-brand-primary mb-3 font-bold">
-            {t('hero.eyebrow')}
-          </Typography>
-
-          <Typography variant="h1" className="mb-4 max-w-4xl mx-auto leading-tight text-4xl md:text-5xl lg:text-6xl">
+    <section id="hero" className="border-b border-[var(--color-line)]">
+      <Container className="grid items-end gap-10 py-12 md:py-20 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-5">
+          <p className="eyebrow mb-5">{t('hero.eyebrow')}</p>
+          <h1 className="font-display text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] font-medium text-[var(--color-text-primary)]">
             {t('hero.titleBefore')}{' '}
-            <span className="text-gradient">{t('hero.titleEmphasis')}</span>
-          </Typography>
-
-          <Typography variant="lead" className="max-w-2xl mx-auto mb-6 text-base md:text-lg text-text-secondary">
-            {t('hero.subtitle')}
-          </Typography>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <span className="text-[var(--color-accent-primary)]">{t('hero.titleEmphasis')}</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-text-secondary)]">{t('hero.subtitle')}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               to={contactPath(locale)}
+              className={buttonClass({ size: 'lg' })}
               onClick={() => track('hero_primary_cta', { locale })}
             >
-              <Button size="lg" variant="primary" className="min-w-[180px]">
-                {t('hero.cta.primary')}
-                <ArrowRight size={18} />
-              </Button>
+              {t('hero.cta.primary')}
             </Link>
             <Link
               to={pathFor('caseStudies', locale)}
+              className={buttonClass({ variant: 'secondary', size: 'lg' })}
               onClick={() => track('hero_case_studies', { locale })}
             >
-              <Button size="lg" variant="secondary" className="min-w-[180px]">
-                <Briefcase size={18} />
-                {t('hero.cta.secondary')}
-              </Button>
+              {t('hero.cta.secondary')}
             </Link>
           </div>
-        </motion.div>
+          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-[var(--color-line)] pt-5 text-sm">
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('hero.meta.base')}</dt>
+              <dd className="mt-1">Medellín</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('hero.meta.delivery')}</dt>
+              <dd className="mt-1">{t('hero.meta.remote')}</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('hero.meta.languages')}</dt>
+              <dd className="mt-1">EN / ES</dd>
+            </div>
+          </dl>
+        </div>
+        <div className="lg:col-span-7">
+          <SystemDiagram
+            label={t('system.label')}
+            operator={t('system.operator')}
+            agent={t('system.agent')}
+            tools={t('system.tools')}
+            records={t('system.records')}
+            approval={t('system.approval')}
+            caption={t('system.caption')}
+          />
+        </div>
       </Container>
     </section>
   );

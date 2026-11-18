@@ -1,51 +1,26 @@
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
-import { cn } from '@/core/utils/cn'; // We need to create this utility or use clsx directly. Let's assume we will create it.
+import { buttonClass, type ButtonSize, type ButtonVariant } from './button-styles';
 
-// Check if cn util exists, if not I will use template string for now, but plan to create it.
-// Actually better to create the utility first.
-// I'll assume standard atomic design means I should have a util for class merging.
-
-interface ButtonProps extends HTMLMotionProps<"button"> {
-    variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'glow';
-    size?: 'sm' | 'md' | 'lg';
-    icon?: React.ReactNode;
-    children: React.ReactNode;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  icon?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const Button: React.FC<ButtonProps> = ({
-    children,
-    variant = 'primary',
-    size = 'md',
-    className = '',
-    icon,
-    ...props
+  children,
+  variant = 'primary',
+  size = 'md',
+  className = '',
+  icon,
+  type = 'button',
+  ...props
 }) => {
-
-    const baseStyles = "inline-flex items-center justify-center gap-2 rounded-full font-medium cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 disabled:opacity-50 disabled:cursor-not-allowed";
-
-    const variants = {
-        primary: "bg-gradient-primary text-white shadow-[0_4px_14px_0_rgba(139,92,246,0.39)] hover:shadow-[0_6px_20px_rgba(139,92,246,0.23)] hover:-translate-y-0.5 border border-transparent",
-        secondary: "bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] border border-[var(--glass-border)] hover:border-[var(--color-accent-primary)] hover:bg-[var(--color-accent-primary)] hover:text-white",
-        outline: "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10",
-        ghost: "bg-transparent text-text-secondary hover:text-[var(--color-text-primary)] hover:bg-[var(--glass-bg)]",
-        glow: "bg-black dark:bg-black text-white border border-brand-primary/50 shadow-[0_0_15px_rgba(139,92,246,0.5)] hover:shadow-[0_0_25px_rgba(139,92,246,0.8)]"
-    };
-
-    const sizes = {
-        sm: "px-4 py-2 text-sm",
-        md: "px-6 py-3 text-base",
-        lg: "px-8 py-4 text-lg",
-    };
-
-    return (
-        <motion.button
-            whileTap={{ scale: 0.98 }}
-            className={cn(baseStyles, variants[variant], sizes[size], className)}
-            {...props}
-        >
-            {children}
-            {icon && <span className="ml-1">{icon}</span>}
-        </motion.button>
-    );
+  return (
+    <button type={type} className={buttonClass({ variant, size, className })} {...props}>
+      {children}
+      {icon ? <span>{icon}</span> : null}
+    </button>
+  );
 };

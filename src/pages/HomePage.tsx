@@ -1,15 +1,14 @@
 import React from 'react';
 import { useT } from '@/hooks/useLocale';
 import { Hero } from '@/features/hero/Hero';
-import { ServicesSection } from '@/features/services/ServicesSection';
+import { CapabilitiesSection } from '@/features/services/CapabilitiesSection';
+import { PillarsSection } from '@/features/services/PillarsSection';
 import { ProofSection } from '@/features/proof/ProofSection';
-import { AgentsSpotlight } from '@/features/agents-spotlight/AgentsSpotlight';
 import { ProcessSection } from '@/features/process/ProcessSection';
 import { ValueProposition } from '@/features/value-proposition/ValueProposition';
+import { AboutPreview } from '@/features/about/AboutPreview';
 import { FAQ } from '@/features/faq/FAQ';
 import { ContactUs } from '@/features/contact/ContactUs';
-import { ClickSpark } from '@/features/animations/ClickSpark';
-import { SectionDivider } from '@/components/ui/SectionDivider';
 import { SEO } from '@/components/SEO';
 import { organizationJsonLd, websiteJsonLd } from '@/config/schema';
 
@@ -17,22 +16,19 @@ const HomePage: React.FC = () => {
   const t = useT();
 
   return (
-    <div className="ashen-home overflow-x-hidden">
+    <div className="ashen-home">
       <SEO
-        title="Ashen Software"
+        title={t('hero.seoTitle')}
         description={t('hero.subtitle')}
         jsonLd={[organizationJsonLd(), websiteJsonLd()]}
       />
-      <ClickSpark />
       <Hero />
-      <div className="relative -mt-2 z-20">
-        <SectionDivider variant="curve" color="var(--bg-primary)" />
-      </div>
-      <ServicesSection />
       <ProofSection />
-      <AgentsSpotlight />
-      <ValueProposition />
+      <PillarsSection />
+      <CapabilitiesSection />
       <ProcessSection />
+      <ValueProposition />
+      <AboutPreview />
       <FAQ />
       <div id="contact">
         <ContactUs />

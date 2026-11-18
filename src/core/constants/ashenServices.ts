@@ -6,11 +6,6 @@ export interface Service {
   features: string[];
   technologies: string[];
   image: string;
-  priceRange: {
-    min: string;
-    max: string;
-    currency: string;
-  };
 }
 
 export const ASHEN_SERVICES: Service[] = [
@@ -26,7 +21,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Integración con redes sociales'
     ],
     technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'],
-    priceRange: { min: '1,500', max: '5,000+', currency: 'USD' }
   },
   {
     id: 'mobile-development',
@@ -40,7 +34,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Notificaciones push'
     ],
     technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin'],
-    priceRange: { min: '2,500', max: '8,000+', currency: 'USD' }
   },
   {
     id: 'desktop-apps',
@@ -54,7 +47,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Actualizaciones automáticas'
     ],
     technologies: ['Electron', 'Tauri', 'Qt', 'WPF'],
-    priceRange: { min: '2,000', max: '6,000+', currency: 'USD' }
   },
   {
     id: 'iot-solutions',
@@ -68,7 +60,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Control remoto'
     ],
     technologies: ['Arduino', 'Raspberry Pi', 'MQTT', 'LoRaWAN'],
-    priceRange: { min: '3,000', max: '10,000+', currency: 'USD' }
   },
   {
     id: 'game-development',
@@ -82,7 +73,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Multiplataforma'
     ],
     technologies: ['Unity', 'Unreal Engine', 'Godot', 'Phaser'],
-    priceRange: { min: '5,000', max: '15,000+', currency: 'USD' }
   },
   {
     id: 'artificial-intelligence',
@@ -96,7 +86,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Automatización de procesos'
     ],
     technologies: ['Python', 'TensorFlow', 'PyTorch', 'OpenAI'],
-    priceRange: { min: '4,000', max: '12,000+', currency: 'USD' }
   },
   {
     id: 'machine-learning',
@@ -110,7 +99,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Recomendaciones personalizadas'
     ],
     technologies: ['Python', 'Scikit-learn', 'Pandas', 'NumPy'],
-    priceRange: { min: '3,500', max: '10,000+', currency: 'USD' }
   },
   {
     id: 'deep-learning',
@@ -124,7 +112,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Sistemas de recomendación'
     ],
     technologies: ['TensorFlow', 'PyTorch', 'Keras', 'OpenCV'],
-    priceRange: { min: '5,000', max: '15,000+', currency: 'USD' }
   },
   {
     id: 'data-science',
@@ -138,7 +125,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Visualizaciones claras'
     ],
     technologies: ['Python', 'R', 'Tableau', 'Power BI'],
-    priceRange: { min: '2,000', max: '7,000+', currency: 'USD' }
   },
   {
     id: 'blockchain',
@@ -152,7 +138,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Seguridad avanzada'
     ],
     technologies: ['Solidity', 'Web3', 'Ethereum', 'IPFS'],
-    priceRange: { min: '4,000', max: '12,000+', currency: 'USD' }
   },
   {
     id: 'automation',
@@ -166,7 +151,6 @@ export const ASHEN_SERVICES: Service[] = [
       'Reducción de errores'
     ],
     technologies: ['Python', 'Zapier', 'Microsoft Power Automate', 'RPA'],
-    priceRange: { min: '1,500', max: '5,000+', currency: 'USD' }
   }
 ];
 

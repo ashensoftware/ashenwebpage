@@ -10,11 +10,13 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.ssr
 *.local
 .env
 .env.*
 !.env.example
 lighthouse-*.json
+docs/qa/
 
 # Editor directories and files
 .vscode/*

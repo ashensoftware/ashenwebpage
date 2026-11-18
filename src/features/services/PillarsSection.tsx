@@ -1,65 +1,72 @@
 import React from 'react';
-import { useLocale, useT } from '@/hooks/useLocale';
 import { Link } from 'react-router-dom';
-import { Bot, Code, Database, Workflow, ArrowRight } from 'lucide-react';
-import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
-import { Typography } from '@/components/ui/Typography';
+import { IntegrationDiagram, PipelineDiagram, StackDiagram } from '@/features/diagrams/SystemDiagram';
 import { SERVICE_PILLARS } from '@/content/pillars';
 import { pathFor } from '@/config/routes';
-
-const ICONS = {
-  bot: Bot,
-  code: Code,
-  database: Database,
-  workflow: Workflow,
-};
+import { useLocale, useT } from '@/hooks/useLocale';
 
 export const PillarsSection: React.FC = () => {
   const t = useT();
   const locale = useLocale();
+  const [lead, ...rest] = SERVICE_PILLARS;
 
   return (
-    <Section id="services" className="bg-bg-primary py-24">
+    <section id="services" className="border-b border-[var(--color-line)] py-16 md:py-24">
       <Container>
-        <div className="max-w-3xl mb-14">
-          <Typography variant="small" className="uppercase tracking-widest text-brand-primary font-bold mb-4">
-            {t('pillars.label')}
-          </Typography>
-          <Typography variant="h2" className="mb-4">
-            {t('pillars.title')}
-          </Typography>
-          <Typography variant="lead" className="text-text-secondary">
-            {t('pillars.subtitle')}
-          </Typography>
+        <div className="mb-10 max-w-3xl">
+          <p className="eyebrow mb-3">{t('pillars.label')}</p>
+          <h2 className="font-display text-4xl font-medium md:text-5xl">{t('pillars.title')}</h2>
+          <p className="mt-4 text-lg text-[var(--color-text-secondary)]">{t('pillars.subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {SERVICE_PILLARS.map((pillar) => {
-            const Icon = ICONS[pillar.icon];
-            return (
-              <Link
-                key={pillar.id}
-                to={pathFor(pillar.routeId, locale)}
-                className="group p-8 rounded-3xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] hover:border-brand-primary/40 transition-colors"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
-                  <Icon size={22} />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-brand-primary transition-colors">
-                  {t(`pillars.${pillar.id}.title`)}
-                </h3>
-                <p className="text-text-secondary leading-relaxed mb-6">
+        <Link
+          to={pathFor(lead.routeId, locale)}
+          className="group grid gap-8 border border-[var(--color-line-strong)] p-6 md:p-8 lg:grid-cols-12"
+        >
+          <div className="lg:col-span-7">
+            <p className="font-mono text-xs text-[var(--color-accent-primary)]">01 — {t('pillars.learn')}</p>
+            <h3 className="mt-3 font-display text-3xl font-medium md:text-4xl">{t(`pillars.${lead.id}.title`)}</h3>
+            <p className="mt-4 max-w-xl text-[var(--color-text-secondary)] leading-relaxed">
+              {t(`pillars.${lead.id}.description`)}
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <PipelineDiagram
+              steps={[t('system.operator'), t('system.agent'), t('system.tools'), t('system.approval')]}
+            />
+          </div>
+        </Link>
+
+        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+          {rest.map((pillar, index) => (
+            <Link
+              key={pillar.id}
+              to={pathFor(pillar.routeId, locale)}
+              className="flex flex-col justify-between border border-[var(--color-line)] p-5 hover:border-[var(--color-line-strong)]"
+            >
+              <div>
+                <p className="font-mono text-xs text-[var(--color-text-muted)]">0{index + 2}</p>
+                <h3 className="mt-3 font-display text-2xl font-medium">{t(`pillars.${pillar.id}.title`)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
                   {t(`pillars.${pillar.id}.description`)}
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary">
-                  {t('pillars.learn')} <ArrowRight size={16} />
-                </span>
-              </Link>
-            );
-          })}
+              </div>
+              <div className="mt-6">
+                {pillar.id === 'software' && (
+                  <StackDiagram layers={[t('system.ui'), t('system.api'), t('system.data')]} />
+                )}
+                {pillar.id === 'data-ai' && (
+                  <PipelineDiagram steps={[t('system.ingest'), t('system.check'), t('system.model')]} />
+                )}
+                {pillar.id === 'integrations' && (
+                  <IntegrationDiagram nodes={[t('system.crm'), t('system.erp'), t('system.inbox')]} />
+                )}
+              </div>
+            </Link>
+          ))}
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };

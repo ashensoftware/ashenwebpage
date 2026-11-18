@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BadgeCheck, ExternalLink } from 'lucide-react';
-import { Section } from '@/components/ui/Section';
+import { buttonClass } from '@/components/ui/button-styles';
 import { Container } from '@/components/ui/Container';
-import { Typography } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 import { CASE_STUDIES, caseStudyKey } from '@/content/case-studies';
 import { pathFor } from '@/config/routes';
 import { track } from '@/config/analytics';
@@ -17,52 +14,75 @@ export const ProofSection: React.FC = () => {
 
   if (!study) return null;
 
+  const facts = [
+    { label: t('trengie.challenge'), body: t(caseStudyKey(study.slug, 'challenge')) },
+    { label: t('trengie.built'), body: t(caseStudyKey(study.slug, 'built')) },
+    { label: t('trengie.outcome'), body: t(caseStudyKey(study.slug, 'outcome')) },
+  ];
+
   return (
-    <Section id="work" fullWidth className="bg-bg-primary py-16 md:py-24">
+    <section id="work" className="border-b border-[var(--color-line)] bg-[var(--color-bg-secondary)] py-16 md:py-24">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <Typography variant="small" className="uppercase tracking-widest text-brand-primary font-bold mb-4 inline-flex items-center gap-2">
-              <BadgeCheck size={16} />
-              {t('proof.label')}
-            </Typography>
-            <Typography variant="h2" className="mb-4">
-              {t('proof.title')}
-            </Typography>
-            <Typography variant="lead" className="text-text-secondary mb-6 text-lg">
-              {t('proof.subtitle')}
-            </Typography>
-            <h3 className="text-xl font-bold mb-3">{t(caseStudyKey(study.slug, 'title'))}</h3>
-            <p className="text-text-secondary leading-relaxed mb-8">{t(caseStudyKey(study.slug, 'summary'))}</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link to={pathFor('trengie', locale)} onClick={() => track('case_study_open', { slug: study.slug })}>
-                <Button variant="primary">
-                  {t('proof.cta')} <ArrowRight size={16} />
-                </Button>
+            <p className="eyebrow mb-3">{t('proof.label')}</p>
+            <h2 className="font-display text-4xl font-medium md:text-5xl">{t('proof.title')}</h2>
+          </div>
+          <p className="max-w-sm text-sm text-[var(--color-text-secondary)]">{t('proof.subtitle')}</p>
+        </div>
+
+        <div className="grid items-start gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)]">
+              {t(caseStudyKey(study.slug, 'industry'))}
+            </p>
+            <h3 className="mt-2 font-display text-3xl font-medium">{t(caseStudyKey(study.slug, 'title'))}</h3>
+            <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">{t(caseStudyKey(study.slug, 'summary'))}</p>
+            <dl className="mt-8 space-y-5">
+              {facts.map((fact) => (
+                <div key={fact.label} className="border-t border-[var(--color-line)] pt-4">
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-accent-primary)]">{fact.label}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{fact.body}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-6">
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('trengie.stack')}</p>
+              <ul className="mt-2 flex flex-wrap gap-2">
+                {study.stack.map((item) => (
+                  <li key={item} className="border border-[var(--color-line-strong)] px-2 py-1 font-mono text-xs">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to={pathFor('trengie', locale)}
+                className={buttonClass({ size: 'md' })}
+                onClick={() => track('case_study_open', { slug: study.slug })}
+              >
+                {t('proof.cta')}
               </Link>
               <a
                 href={study.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={buttonClass({ variant: 'secondary', size: 'md' })}
                 onClick={() => track('trengie_live_site', { source: 'home' })}
               >
-                <Button variant="secondary">
-                  {t('proof.visit')} <ExternalLink size={16} />
-                </Button>
+                {t('proof.visit')}
               </a>
             </div>
           </div>
-
           <Link
             to={pathFor('trengie', locale)}
             onClick={() => track('case_study_open', { slug: study.slug, source: 'home_preview' })}
-            className="block w-full rounded-2xl overflow-hidden border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] shadow-2xl"
+            className="block border border-[var(--color-line-strong)] bg-[var(--bg-primary)] lg:col-span-7"
           >
-            <div className="flex items-center gap-2 px-3 py-2.5 border-b border-[var(--glass-border)]">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-              <span className="ml-2 truncate text-[11px] text-text-muted">{study.liveUrl.replace(/^https?:\/\//, '')}</span>
+            <div className="flex items-center justify-between border-b border-[var(--color-line)] px-3 py-2 font-mono text-[11px] text-[var(--color-text-muted)]">
+              <span>trengie.com</span>
+              <span>{t('proof.liveFrame')}</span>
             </div>
             <img
               src={study.image}
@@ -70,11 +90,12 @@ export const ProofSection: React.FC = () => {
               width={1200}
               height={750}
               loading="lazy"
-              className="w-full h-auto object-contain align-middle"
+              decoding="async"
+              className="h-auto w-full"
             />
           </Link>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };

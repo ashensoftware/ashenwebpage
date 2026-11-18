@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# Ashen Software
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site for [ashensoftware.com](https://ashensoftware.com). English and Spanish. The commercial story is four offers: AI agents, custom software, data and AI engineering, and integrations. Older capabilities stay as a secondary index.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```text
+npm ci
+npm run dev
+npm run type-check
+npm run lint
+npm test
+npm run build
+npm run seo:check
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+`npm run build` type-checks, writes the sitemap, builds the client, prerenders every indexable route with React (`renderToString`), and writes `404.html`. The HTML served for each route contains the page content, not a short summary shell. The client hydrates that HTML.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+`npm run seo:indexnow` submits the sitemap URLs to IndexNow only when `VERCEL_ENV=production` or `INDEXNOW_FORCE=1`. Production deploys call it from `vercel.json`. A failed submission does not fail the deploy.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Design and operations
+
+- `DESIGN.md` — visual system
+- `docs/website-overhaul-2026.md` — what changed and how it was measured
+- `docs/seo-ops.md` — canonical host, crawlers, IndexNow, Bing, Search Console
+- `docs/analytics.md` — Vercel Analytics and Speed Insights
+
+## Contact form
+
+The contact form uses Formspree (`@formspree/react`) and the project in `src/config/company.ts`. Do not rename the form fields without updating `formspree.json`.

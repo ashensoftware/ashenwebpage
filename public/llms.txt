@@ -1,0 +1,18 @@
+# Ashen Software
+
+> Experimental pointer for agents that choose to read llms.txt. This file is not a Google ranking signal and is not required for AI Overviews or AI Mode.
+
+Ashen Software is an engineering company in Medellín that designs and ships production systems, in English and Spanish, for local and remote teams.
+
+Primary offers:
+
+- AI Agents & Intelligent Automation: https://ashensoftware.com/ai-agents
+- Custom Software Engineering: https://ashensoftware.com/software-development
+- Data & AI Engineering: https://ashensoftware.com/data-ai-engineering
+- Integrations & Modernization: https://ashensoftware.com/integrations
+
+Proof: https://ashensoftware.com/case-studies/trengie
+About: https://ashensoftware.com/about
+Spanish home: https://ashensoftware.com/es
+
+Contact: softwareashen@gmail.com

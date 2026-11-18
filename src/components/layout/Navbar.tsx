@@ -1,21 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowRight, Bot, ChevronDown, Code, Database, Menu, Moon, Sun, Workflow, X } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
+import { buttonClass } from '@/components/ui/button-styles';
 import { useTheme } from '@/hooks/useTheme';
 import { useLocale, useT } from '@/hooks/useLocale';
 import { alternatePath, contactPath, pathFor, servicePath } from '@/config/routes';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { SERVICE_PILLARS } from '@/content/pillars';
-import { FlagEN, FlagES } from '@/components/icons/BrandIcons';
-
-const PILLAR_ICONS = {
-  bot: Bot,
-  code: Code,
-  database: Database,
-  workflow: Workflow,
-};
 
 export const Navbar: React.FC = () => {
   const t = useT();
@@ -23,7 +14,6 @@ export const Navbar: React.FC = () => {
   const locale = useLocale();
   const location = useLocation();
   const navigate = useNavigate();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<number | null>(null);
@@ -37,12 +27,6 @@ export const Navbar: React.FC = () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     closeTimer.current = window.setTimeout(() => setServicesOpen(false), 180);
   };
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -71,214 +55,141 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { name: t('nav.work'), href: pathFor('caseStudies', locale) },
     { name: t('nav.about'), href: pathFor('about', locale) },
-    { name: t('nav.contact'), href: contactPath(locale) },
   ];
 
   return (
-    <header className="fixed top-2 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-0">
-      <div
-        className={`mx-auto max-w-6xl rounded-2xl transition-all duration-300 ${
-          scrolled
-            ? 'bg-bg-primary/80 backdrop-blur-xl border border-[var(--glass-border)] shadow-lg py-2 px-6'
-            : 'bg-transparent py-2 px-4'
-        }`}
-      >
-        <div className="flex items-center justify-between">
-          <Link to={pathFor('home', locale)} className="z-50 relative flex items-center">
-            <img
-              src={theme === 'dark' ? '/assets/logo/Logo-Iso-Horizontal.png' : '/assets/logo/Logo-Iso-Horizontal-black.png'}
-              alt="Ashen Software"
-              className="h-8 md:h-9 w-auto hover:opacity-80 transition-opacity"
-              width="137"
-              height="45"
-            />
-          </Link>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--color-line)] bg-[var(--nav-bg)]">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
+        <Link to={pathFor('home', locale)} className="flex items-center">
+          <img
+            src={theme === 'dark' ? '/assets/logo/Logo-Iso-Horizontal.png' : '/assets/logo/Logo-Iso-Horizontal-black.png'}
+            alt="Ashen Software"
+            className="h-8 w-auto"
+            width="137"
+            height="45"
+          />
+        </Link>
 
-          <nav className="hidden md:flex items-center gap-1" aria-label="Primary">
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+          <div className="relative" onMouseEnter={openServices} onMouseLeave={scheduleCloseServices}>
+            <Link
+              to={`${pathFor('home', locale)}#services`}
+              className="inline-flex min-h-11 items-center gap-1 px-3 text-sm"
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              onFocus={openServices}
+            >
+              {t('nav.services')}
+              <ChevronDown size={14} className={servicesOpen ? 'rotate-180' : ''} aria-hidden />
+            </Link>
             <div
-              className="relative"
+              className={`absolute left-0 top-full z-50 w-[min(36rem,calc(100vw-2rem))] pt-2 ${
+                servicesOpen ? 'visible' : 'invisible pointer-events-none'
+              }`}
               onMouseEnter={openServices}
               onMouseLeave={scheduleCloseServices}
             >
-              <Link
-                to={`${pathFor('home', locale)}#services`}
-                className="text-sm font-medium px-4 py-2 rounded-full text-text-secondary hover:text-[var(--color-text-primary)] flex items-center gap-1"
-                aria-expanded={servicesOpen}
-                aria-haspopup="true"
-                onFocus={openServices}
-              >
-                {t('nav.services')}
-                <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-              </Link>
-              <div
-                className={`absolute top-full left-0 pt-3 w-[min(32rem,calc(100vw-2rem))] z-50 transition-all duration-200 ${
-                  servicesOpen
-                    ? 'opacity-100 translate-y-0 pointer-events-auto visible'
-                    : 'opacity-0 -translate-y-1 pointer-events-none invisible'
-                }`}
-                onMouseEnter={openServices}
-                onMouseLeave={scheduleCloseServices}
-              >
-                <div className="rounded-2xl border border-[var(--glass-border)] bg-[var(--color-bg-secondary)]/95 backdrop-blur-2xl shadow-2xl p-2">
-                  {SERVICE_PILLARS.map((pillar) => {
-                    const Icon = PILLAR_ICONS[pillar.icon];
-                    return (
-                      <Link
-                        key={pillar.id}
-                        to={pathFor(pillar.routeId, locale)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-[var(--glass-bg)] transition-colors"
-                      >
-                        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary">
-                          <Icon size={18} />
-                        </span>
-                        <span>
-                          <span className="block font-bold text-[var(--color-text-primary)] text-sm">
-                            {t(`pillars.${pillar.id}.title`)}
-                          </span>
-                          <span className="block text-xs text-text-secondary leading-relaxed mt-1">
-                            {t(`pillars.${pillar.id}.description`)}
-                          </span>
-                        </span>
-                      </Link>
-                    );
-                  })}
-                  <div className="mt-1 border-t border-[var(--glass-border)] pt-2 px-2 pb-1">
-                    <p className="px-1 pb-2 text-[11px] font-bold uppercase tracking-widest text-text-muted">
-                      {t('services.label')}
-                    </p>
-                    <div className="grid grid-cols-2 gap-1">
-                      {ASHEN_SERVICES.map((service) => (
-                        <Link
-                          key={service.id}
-                          to={servicePath(service.id, locale)}
-                          className="px-2 py-1.5 rounded-lg text-xs text-text-secondary hover:text-[var(--color-text-primary)] hover:bg-[var(--glass-bg)]"
-                        >
-                          {t(`services_data.${service.id}.title`)}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-sm font-medium px-4 py-2 rounded-full text-text-secondary hover:text-[var(--color-text-primary)]"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-text-secondary"
-              aria-label={t('a11y.theme')}
-            >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
-              onClick={switchLocale}
-              className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold tracking-wider rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-text-secondary uppercase cursor-pointer"
-              aria-label={t('a11y.language')}
-            >
-              <span className={`inline-flex items-center gap-1.5 ${locale === 'es' ? 'text-brand-primary' : 'opacity-50'}`}>
-                <FlagES size={14} />
-                ES
-              </span>
-              <span className="opacity-30">/</span>
-              <span className={`inline-flex items-center gap-1.5 ${locale === 'en' ? 'text-brand-primary' : 'opacity-50'}`}>
-                <FlagEN size={14} />
-                EN
-              </span>
-            </button>
-            <Link to={contactPath(locale)}>
-              <Button variant="primary" size="sm" className="rounded-xl px-5">
-                {t('nav.cta')} <ArrowRight size={16} className="ml-2" />
-              </Button>
-            </Link>
-          </div>
-
-          <button
-            className="md:hidden text-[var(--color-text-primary)] z-50 p-2 bg-[var(--glass-bg)] rounded-lg"
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-expanded={mobileMenuOpen}
-            aria-label={mobileMenuOpen ? t('a11y.closeMenu') : t('a11y.menu')}
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            className="absolute top-full left-4 right-4 mt-2 max-h-[min(70dvh,32rem)] overflow-y-auto overscroll-contain bg-bg-secondary/95 backdrop-blur-2xl rounded-2xl border border-[var(--glass-border)] shadow-2xl md:hidden p-6 flex flex-col gap-5"
-          >
-            <nav className="flex flex-col gap-3" aria-label="Mobile">
-              <button
-                className="text-left text-xl font-bold text-[var(--color-text-primary)] flex items-center justify-between"
-                onClick={() => setServicesOpen((open) => !open)}
-                aria-expanded={servicesOpen}
-              >
-                {t('nav.services')}
-                <ChevronDown size={18} className={servicesOpen ? 'rotate-180' : ''} />
-              </button>
-              {servicesOpen && (
-                <>
-                  {SERVICE_PILLARS.map((pillar) => {
-                    const Icon = PILLAR_ICONS[pillar.icon];
-                    return (
-                      <Link
-                        key={pillar.id}
-                        to={pathFor(pillar.routeId, locale)}
-                        className="pl-1 text-text-secondary flex items-center gap-2"
-                      >
-                        <Icon size={16} className="text-brand-primary" />
-                        {t(`pillars.${pillar.id}.title`)}
-                      </Link>
-                    );
-                  })}
-                  <p className="pt-2 text-[11px] font-bold uppercase tracking-widest text-text-muted">
-                    {t('services.label')}
-                  </p>
+              <div className="border border-[var(--color-line)] bg-[var(--color-bg-secondary)] p-3">
+                {SERVICE_PILLARS.map((pillar) => (
+                  <Link key={pillar.id} to={pathFor(pillar.routeId, locale)} className="block px-2 py-2 hover:text-[var(--color-accent-primary)]">
+                    <span className="block text-sm">{t(`pillars.${pillar.id}.title`)}</span>
+                  </Link>
+                ))}
+                <p className="mt-2 border-t border-[var(--color-line)] px-2 pt-3 font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">
+                  {t('services.label')}
+                </p>
+                <div className="mt-1 grid grid-cols-2">
                   {ASHEN_SERVICES.map((service) => (
                     <Link
                       key={service.id}
                       to={servicePath(service.id, locale)}
-                      className="pl-1 text-sm text-text-secondary"
+                      className="px-2 py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                     >
                       {t(`services_data.${service.id}.title`)}
                     </Link>
                   ))}
-                </>
-              )}
-              {navLinks.map((link) => (
-                <Link key={link.name} to={link.href} className="text-xl font-bold text-[var(--color-text-primary)]">
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-            <button onClick={switchLocale} className="text-sm text-text-secondary text-left inline-flex items-center gap-2 cursor-pointer">
-              {locale === 'en' ? <FlagES size={16} /> : <FlagEN size={16} />}
-              {locale === 'en' ? 'Español' : 'English'}
-            </button>
-            <Link to={contactPath(locale)}>
-              <Button variant="primary" className="w-full justify-between">
-                {t('nav.cta')}
-                <ArrowRight size={18} />
-              </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {navLinks.map((link) => (
+            <Link key={link.name} to={link.href} className="inline-flex min-h-11 items-center px-3 text-sm">
+              {link.name}
             </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-2 md:flex">
+          <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 min-w-11 items-center justify-center" aria-label={t('a11y.theme')}>
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button type="button" onClick={switchLocale} className="min-h-11 px-2 font-mono text-xs" aria-label={`${t('a11y.language')}: EN / ES`}>
+            <span className={locale === 'en' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}>EN</span>
+            <span className="px-1 text-[var(--color-text-muted)]">/</span>
+            <span className={locale === 'es' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}>ES</span>
+          </button>
+          <Link to={contactPath(locale)} className={buttonClass({ size: 'sm' })}>
+            {t('nav.cta')}
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center md:hidden"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? t('a11y.closeMenu') : t('a11y.menu')}
+        >
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {mobileMenuOpen ? (
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-[var(--color-line)] bg-[var(--color-bg-secondary)] px-5 py-4 md:hidden">
+          <nav className="flex flex-col" aria-label="Mobile">
+            <button
+              type="button"
+              className="flex min-h-11 items-center justify-between text-left text-lg"
+              onClick={() => setServicesOpen((open) => !open)}
+              aria-expanded={servicesOpen}
+            >
+              {t('nav.services')}
+              <ChevronDown size={16} className={servicesOpen ? 'rotate-180' : ''} />
+            </button>
+            {servicesOpen ? (
+              <div className="mb-3 border-l border-[var(--color-line)] pl-3">
+                {SERVICE_PILLARS.map((pillar) => (
+                  <Link key={pillar.id} to={pathFor(pillar.routeId, locale)} className="flex min-h-11 items-center text-sm">
+                    {t(`pillars.${pillar.id}.title`)}
+                  </Link>
+                ))}
+                <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)]">{t('services.label')}</p>
+                {ASHEN_SERVICES.map((service) => (
+                  <Link key={service.id} to={servicePath(service.id, locale)} className="flex min-h-11 items-center text-sm text-[var(--color-text-secondary)]">
+                    {t(`services_data.${service.id}.title`)}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+            {navLinks.map((link) => (
+              <Link key={link.name} to={link.href} className="flex min-h-11 items-center text-lg">
+                {link.name}
+              </Link>
+            ))}
+            <Link to={contactPath(locale)} className="flex min-h-11 items-center text-lg">
+              {t('nav.contact')}
+            </Link>
+          </nav>
+          <div className="mt-4 flex gap-3">
+            <button type="button" onClick={switchLocale} className="min-h-11 font-mono text-sm" aria-label={`${t('a11y.language')}: EN / ES`}>
+              {locale === 'en' ? 'ES' : 'EN'}
+            </button>
+            <button type="button" onClick={toggleTheme} className="min-h-11 font-mono text-sm" aria-label={t('a11y.theme')}>
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </button>
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 };

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
+import { allCapabilityIds } from '@/content/capabilities';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { alternatePath, getIndexableRoutes, pathFor, SERVICE_IDS, servicePath } from '@/config/routes';
 import { localeFromPathname } from '@/config/i18n';
@@ -39,6 +40,7 @@ describe('locale routing', () => {
 
   it('keeps service IDs aligned with service content', () => {
     expect([...SERVICE_IDS]).toEqual(ASHEN_SERVICES.map((service) => service.id));
+    expect(allCapabilityIds().sort()).toEqual([...SERVICE_IDS].sort());
   });
 
   it('renders a noindex 404', () => {

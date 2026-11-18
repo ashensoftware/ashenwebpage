@@ -1,3 +1,22 @@
+# OAI-SearchBot crawls for ChatGPT Search. Allowing it is required for the site
+# to be eligible to appear in ChatGPT search answers.
+# https://developers.openai.com/api/docs/bots
+User-agent: OAI-SearchBot
+Allow: /
+
+# GPTBot is the training-related crawler. The previous robots.txt allowed every
+# bot via User-agent: *. This explicit Allow keeps that policy. It is not a
+# change. Search eligibility is controlled by OAI-SearchBot, not by GPTBot.
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User is a user-triggered fetch (someone asks ChatGPT to open a page).
+# OpenAI says robots.txt may not be enforced for these requests. Allow states
+# the preference anyway.
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://ashensoftware.com/sitemap.xml

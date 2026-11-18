@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle, Code } from 'lucide-react';
 import { getRelatedServices, getServiceById } from '@/core/constants/ashenServices';
 import { SEO } from '@/components/SEO';
@@ -9,7 +8,8 @@ import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { ServiceHeroBackdrop } from '@/components/ui/ServiceHeroBackdrop';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { contactPath, pathFor, servicePath } from '@/config/routes';
+import { contactPath, pathFor, SERVICE_PILLAR, servicePath, type RouteId } from '@/config/routes';
+import { SERVICE_PILLARS } from '@/content/pillars';
 import { useLocale, useT } from '@/hooks/useLocale';
 import { track } from '@/config/analytics';
 
@@ -27,6 +27,8 @@ export const ServiceDetailsPage: React.FC = () => {
     return <NotFoundPage />;
   }
 
+  const pillarRoute = SERVICE_PILLAR[service.id] as RouteId | undefined;
+  const pillar = SERVICE_PILLARS.find((item) => item.routeId === pillarRoute);
   const title = t(`services_data.${service.id}.title`, service.title);
   const description = t(`services_data.${service.id}.description`, service.description);
   const featuresRaw = t(`services_data.${service.id}.features`, { returnObjects: true });
@@ -35,7 +37,7 @@ export const ServiceDetailsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-bg-primary overflow-x-hidden text-[var(--color-text-primary)]">
       <SEO
-        title={`${title} | Ashen Software`}
+        title={locale === 'es' ? `${title} · Ashen Software` : `${title} | Ashen Software`}
         description={description}
         jsonLd={[
           {
@@ -55,16 +57,23 @@ export const ServiceDetailsPage: React.FC = () => {
       <section className="relative min-h-[70vh] flex items-center pt-28 pb-20 md:pt-32 md:pb-28 overflow-hidden">
         <ServiceHeroBackdrop src={service.image} />
         <Container className="relative z-10">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="mb-8">
-            <Link to={`${pathFor('home', locale)}#services`} className="inline-flex items-center gap-2 text-text-secondary hover:text-brand-primary">
+          <div className="mb-8">
+            <Link to={`${pathFor('home', locale)}#services`} className="inline-flex min-h-11 items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)]">
               <ArrowLeft size={20} />
               <span>{t('services.back')}</span>
             </Link>
-          </motion.div>
+          </div>
 
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">{title}</h1>
-            <p className="text-xl text-text-secondary mb-8 leading-relaxed">{description}</p>
+            <p className="text-xl text-text-secondary mb-4 leading-relaxed">{description}</p>
+            {pillar ? (
+              <p className="mb-8 text-sm text-[var(--color-text-secondary)]">
+                <Link to={pathFor(pillar.routeId, locale)} className="text-[var(--color-accent-primary)] underline-offset-2 hover:underline">
+                  {t(`pillars.${pillar.id}.title`)}
+                </Link>
+              </p>
+            ) : null}
             <Link to={contactPath(locale)} onClick={() => track('service_cta', { service: service.id })}>
               <Button variant="primary" size="lg">{t('services.cta')}</Button>
             </Link>

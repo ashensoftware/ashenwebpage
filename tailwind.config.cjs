@@ -28,14 +28,11 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Schibsted Grotesk', 'Segoe UI', 'sans-serif'],
+        display: ['Newsreader', 'Georgia', 'serif'],
+        mono: ['DM Mono', 'ui-monospace', 'monospace'],
       },
-      backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)',
-        'gradient-dark': 'linear-gradient(to bottom, #010014 0%, #0a0a1f 100%)',
-        'gradient-glow': 'radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, rgba(1, 0, 20, 0) 70%)',
-      },
+      backgroundImage: {},
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

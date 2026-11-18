@@ -14,7 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <HtmlLang />
       <SkipLink />
       <Navbar />
-      <main id="main-content" className="flex-grow pt-20" tabIndex={-1}>
+      <main id="main-content" className="flex-grow pt-16" tabIndex={-1}>
         {children}
       </main>
       <Footer />

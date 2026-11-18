@@ -1,66 +1,39 @@
 import React from 'react';
-import { useLocale, useT } from '@/hooks/useLocale';
-import { Section } from '@/components/ui/Section';
-import { Container } from '@/components/ui/Container';
-import { Typography } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 import { Link } from 'react-router-dom';
+import { buttonClass } from '@/components/ui/button-styles';
+import { Container } from '@/components/ui/Container';
 import { pathFor } from '@/config/routes';
+import { useLocale, useT } from '@/hooks/useLocale';
 
 export const AboutPreview: React.FC = () => {
-    const t = useT();
-    const locale = useLocale();
+  const t = useT();
+  const locale = useLocale();
 
-    return (
-        <Section id="about-preview" className="bg-bg-secondary py-0 relative overflow-hidden" fullWidth>
-            {/* Smooth Top Transition Mask (from previous section) */}
-            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-bg-primary/20 to-transparent z-10" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[70vh]">
-                {/* Visual Content - Left Side Edge-to-Edge */}
-                <div className="relative order-2 lg:order-1 h-[60vh] lg:h-auto overflow-hidden group lg:col-span-7">
-                    <div className="absolute inset-0 bg-brand-primary/10 mix-blend-overlay z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-l from-bg-secondary via-transparent to-transparent z-20" />
-                    <img
-                        src="/assets/og-image.png"
-                        alt=""
-                        width={1200}
-                        height={800}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    />
-                </div>
-
-                {/* Text Content - Right Side */}
-                <div className="relative order-1 lg:order-2 flex items-center justify-center lg:justify-start py-24 px-6 lg:pr-0 lg:pl-16 bg-bg-secondary lg:col-span-5">
-                    {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
-
-                    <Container className="w-full max-w-2xl mx-auto lg:mx-0">
-                        <Typography variant="small" className="uppercase tracking-widest text-brand-primary font-bold mb-4">
-                            {t('about.label')}
-                        </Typography>
-                        <Typography variant="h2" className="mb-6 relative z-10">
-                            {t('about.title')}
-                        </Typography>
-                        <Typography variant="lead" className="mb-8 relative z-10">
-                            {t('about.subtitle')}
-                        </Typography>
-
-                        <Typography className="mb-8 text-text-secondary/80 leading-relaxed relative z-10">
-                            {t('about.description')}
-                        </Typography>
-
-                        <Link to={pathFor('about', locale)} className="relative z-10 inline-block pointer-events-auto">
-                            <Button variant="outline" size="lg" className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">
-                                {t('about.cta')}
-                            </Button>
-                        </Link>
-                    </Container>
-                </div>
-            </div>
-            {/* Bottom Smooth Transition */}
-            <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-bg-primary to-transparent z-20 pointer-events-none" />
-        </Section>
-    );
+  return (
+    <section id="about-preview" className="border-b border-[var(--color-line)] py-16 md:py-24">
+      <Container className="grid items-center gap-8 lg:grid-cols-12">
+        <figure className="lg:col-span-6">
+          <img
+            src="/assets/about/medellin-valley.jpg"
+            alt={t('aboutPage.photoValley')}
+            width={1200}
+            height={800}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[16/10] w-full object-cover"
+          />
+          <figcaption className="mt-2 font-mono text-[11px] text-[var(--color-text-muted)]">{t('aboutPage.photoCredit')}</figcaption>
+        </figure>
+        <div className="lg:col-span-6">
+          <p className="eyebrow mb-3">{t('about.label')}</p>
+          <h2 className="font-display text-4xl font-medium">{t('about.title')}</h2>
+          <p className="mt-4 text-lg text-[var(--color-text-secondary)]">{t('about.subtitle')}</p>
+          <p className="mt-4 text-[var(--color-text-secondary)]">{t('about.description')}</p>
+          <Link to={pathFor('about', locale)} className={`${buttonClass({ variant: 'secondary', size: 'md' })} mt-8`}>
+            {t('about.cta')}
+          </Link>
+        </div>
+      </Container>
+    </section>
+  );
 };

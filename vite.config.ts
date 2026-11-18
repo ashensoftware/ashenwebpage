@@ -42,19 +42,16 @@ function servePrerenderedOr404() {
   }
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), servePrerenderedOr404()],
   root: '.',
   build: {
-    outDir: 'dist',
+    outDir: isSsrBuild ? '.ssr' : 'dist',
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          motion: ['framer-motion'],
-        },
-      },
-    },
+    rollupOptions: {},
+  },
+  ssr: {
+    noExternal: true,
   },
   resolve: {
     alias: {
@@ -66,4 +63,4 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/test/setup.ts',
   },
-})
+}))

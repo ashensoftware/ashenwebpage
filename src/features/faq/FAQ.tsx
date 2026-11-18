@@ -1,65 +1,30 @@
 import React from 'react';
+import { Container } from '@/components/ui/Container';
+import { Accordion } from '@/components/ui/Accordion';
 import { useT } from '@/hooks/useLocale';
-import { Section } from '../../components/ui/Section';
-import { Accordion } from '../../components/ui/Accordion';
-import { Typography } from '../../components/ui/Typography';
-import { motion } from 'framer-motion';
-import { CircleHelp } from 'lucide-react';
 
 export const FAQ: React.FC = () => {
-    const t = useT();
+  const t = useT();
+  const faqItems = [
+    { title: t('faq.q1'), content: t('faq.a1') },
+    { title: t('faq.q2'), content: t('faq.a2') },
+    { title: t('faq.q3'), content: t('faq.a3') },
+    { title: t('faq.q4'), content: t('faq.a4') },
+    { title: t('faq.q5'), content: t('faq.a5') },
+  ];
 
-    const faqItems = [
-        { title: t('faq.q1'), content: t('faq.a1') },
-        { title: t('faq.q2'), content: t('faq.a2') },
-        { title: t('faq.q3'), content: t('faq.a3') },
-        { title: t('faq.q4'), content: t('faq.a4') },
-        { title: t('faq.q5'), content: t('faq.a5') },
-    ];
-
-    return (
-        <Section id="faq" className="bg-bg-primary relative py-0 overflow-hidden" fullWidth>
-            {/* Smooth Top Transition Mask */}
-            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-bg-primary to-transparent z-10" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[70vh] relative z-20">
-                {/* Questions Content - Left Side */}
-                <div className="relative order-2 lg:order-1 flex items-center justify-center lg:justify-end py-24 px-6 lg:pl-0 lg:pr-16 lg:col-span-7">
-                    <div className="w-full max-w-3xl">
-                        <Accordion items={faqItems} />
-                    </div>
-                </div>
-
-                {/* Title Content - Right Side */}
-                <div className="relative order-1 lg:order-2 flex items-center justify-center lg:justify-start py-24 px-6 lg:pr-0 lg:pl-16 bg-bg-secondary/30 lg:col-span-5">
-                    {/* Background Decorative Element */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="relative z-10 text-center lg:text-left"
-                    >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6">
-                            <CircleHelp size={16} className="text-brand-primary" />
-                            <Typography variant="small" className="uppercase tracking-[0.2em] text-brand-primary font-bold">
-                                {t('faq.label')}
-                            </Typography>
-                        </div>
-                        <Typography variant="h2" className="mb-6">
-                            {t('faq.title')}
-                        </Typography>
-                        <Typography variant="lead" className="max-w-md text-text-secondary/80">
-                            {t('faq.subtitle')}
-                        </Typography>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Bottom Smooth Transition Mask */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-bg-primary to-transparent z-10" />
-        </Section>
-    );
+  return (
+    <section id="faq" className="border-b border-[var(--color-line)] py-16 md:py-24">
+      <Container className="grid gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <p className="eyebrow mb-3">{t('faq.label')}</p>
+          <h2 className="font-display text-4xl font-medium">{t('faq.title')}</h2>
+          <p className="mt-4 text-[var(--color-text-secondary)]">{t('faq.subtitle')}</p>
+        </div>
+        <div className="lg:col-span-8">
+          <Accordion items={faqItems} />
+        </div>
+      </Container>
+    </section>
+  );
 };

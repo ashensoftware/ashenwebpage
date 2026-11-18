@@ -4,7 +4,6 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SEO } from '@/components/SEO';
 import { breadcrumbJsonLd } from '@/config/schema';
-import { ServiceHeroBackdrop } from '@/components/ui/ServiceHeroBackdrop';
 import { ContactUs } from '@/features/contact/ContactUs';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { contactPath, pathFor, servicePath, SERVICE_PILLAR, type RouteId } from '@/config/routes';
@@ -16,12 +15,6 @@ interface PillarPageProps {
   copyKey: 'softwarePage' | 'dataPage' | 'integrationsPage';
   serviceIds: string[];
 }
-
-const PILLAR_HERO: Record<PillarPageProps['copyKey'], string> = {
-  softwarePage: '/assets/services/web.jpg',
-  dataPage: '/assets/services/data.jpg',
-  integrationsPage: '/assets/services/automation.jpg',
-};
 
 export function PillarPage({ routeId, copyKey, serviceIds }: PillarPageProps) {
   const t = useT();
@@ -60,12 +53,11 @@ export function PillarPage({ routeId, copyKey, serviceIds }: PillarPageProps) {
         ]}
       />
 
-      <section className="relative min-h-[70vh] flex items-center pt-28 pb-20 overflow-hidden">
-        <ServiceHeroBackdrop src={PILLAR_HERO[copyKey]} />
-        <Container className="relative z-10 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-black mb-6">{t(`${copyKey}.title`)}</h1>
-          <p className="text-xl text-text-secondary mb-8">{t(`${copyKey}.subtitle`)}</p>
-          <Link to={contactPath(locale)} onClick={() => track('service_cta', { routeId })}>
+      <section className="border-b border-[var(--color-line)]">
+        <Container className="max-w-4xl py-16 md:py-24">
+          <h1 className="font-display text-4xl font-medium md:text-6xl">{t(`${copyKey}.title`)}</h1>
+          <p className="mt-6 text-lg text-[var(--color-text-secondary)]">{t(`${copyKey}.subtitle`)}</p>
+          <Link className="mt-8 inline-block" to={contactPath(locale)} onClick={() => track('service_cta', { routeId })}>
             <Button variant="primary" size="lg">{t('cta.startProject')}</Button>
           </Link>
         </Container>
@@ -85,11 +77,11 @@ export function PillarPage({ routeId, copyKey, serviceIds }: PillarPageProps) {
       <section className="py-20 bg-bg-secondary">
         <Container>
           <h2 className="text-3xl font-bold mb-10">{t(`${copyKey}.workTitle`)}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-x-12 md:grid-cols-2">
             {work.map((item) => (
-              <article key={item.title} className="p-6 rounded-2xl border border-black/10 dark:border-white/10">
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{item.body}</p>
+              <article key={item.title} className="border-t border-[var(--color-line)] py-5">
+                <h3 className="font-display text-2xl font-medium">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{item.body}</p>
               </article>
             ))}
           </div>

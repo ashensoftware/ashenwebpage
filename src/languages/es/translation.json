@@ -28,7 +28,32 @@
     "cta": {
       "primary": "Hablemos de tu proyecto",
       "secondary": "Ver nuestro trabajo"
+    },
+    "seoTitle": "Software a medida y agentes de IA | Ashen Software",
+    "meta": {
+      "base": "Base",
+      "delivery": "Entrega",
+      "remote": "Remoto",
+      "languages": "Idiomas"
     }
+  },
+  "system": {
+    "label": "Cómo se mueve un trabajo",
+    "operator": "Operador",
+    "agent": "Agente",
+    "tools": "Herramientas",
+    "records": "Registros",
+    "approval": "Aprobación",
+    "caption": "Un trabajo entra por un operador o un evento. El agente llama herramientas. Una persona aprueba lo que escribe en un sistema de registro.",
+    "ui": "Interfaz",
+    "api": "API",
+    "data": "Datos",
+    "ingest": "Ingesta",
+    "check": "Control",
+    "model": "Modelo",
+    "crm": "CRM",
+    "erp": "ERP",
+    "inbox": "Bandeja"
   },
   "pillars": {
     "label": "Qué construimos",
@@ -57,7 +82,8 @@
     "title": "Trabajo que podemos mostrar",
     "subtitle": "Un sitio en vivo que diseñamos y construimos para una organización B2B técnica.",
     "cta": "Leer el caso",
-    "visit": "Ver sitio en vivo"
+    "visit": "Ver sitio en vivo",
+    "liveFrame": "Sitio en vivo"
   },
   "spotlight": {
     "label": "Oferta principal",
@@ -97,6 +123,8 @@
     "label": "Capacidades",
     "title": "Ingeniería para operaciones",
     "subtitle": "Trabajo especializado que vive debajo de los cuatro pilares comerciales.",
+    "secondaryNote": "La lista de abajo es el catálogo técnico. No tiene el mismo peso comercial que las cuatro ofertas de arriba. Desarrollo de videojuegos y blockchain siguen disponibles cuando el encargo de verdad los necesita.",
+    "secondary": "Secundario",
     "cta": "Hablemos de tu proyecto",
     "features-label": "Qué incluye",
     "tech-label": "Tecnologías habituales",

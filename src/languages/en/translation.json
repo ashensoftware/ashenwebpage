@@ -28,7 +28,32 @@
     "cta": {
       "primary": "Discuss Your Project",
       "secondary": "See Our Work"
+    },
+    "seoTitle": "Custom Software & AI Agents | Ashen Software",
+    "meta": {
+      "base": "Base",
+      "delivery": "Delivery",
+      "remote": "Remote",
+      "languages": "Languages"
     }
+  },
+  "system": {
+    "label": "How a job moves",
+    "operator": "Operator",
+    "agent": "Agent",
+    "tools": "Tools",
+    "records": "Records",
+    "approval": "Approval",
+    "caption": "A job enters from an operator or an event. The agent calls tools. A person approves anything that writes to a system of record.",
+    "ui": "Interface",
+    "api": "API",
+    "data": "Data",
+    "ingest": "Ingest",
+    "check": "Check",
+    "model": "Model",
+    "crm": "CRM",
+    "erp": "ERP",
+    "inbox": "Inbox"
   },
   "pillars": {
     "label": "What we build",
@@ -57,7 +82,8 @@
     "title": "Work we can show",
     "subtitle": "A live website we designed and built for a technical B2B organization.",
     "cta": "Read the case study",
-    "visit": "Visit live site"
+    "visit": "Visit live site",
+    "liveFrame": "Live site"
   },
   "spotlight": {
     "label": "Flagship",
@@ -97,6 +123,8 @@
     "label": "Capabilities",
     "title": "Engineering for operations",
     "subtitle": "Specialized work that sits under the four commercial pillars.",
+    "secondaryNote": "The list below is the technical catalog. It does not have the same commercial weight as the four offers above. Game development and blockchain stay available when a brief actually needs them.",
+    "secondary": "Secondary",
     "cta": "Discuss Your Project",
     "features-label": "What this includes",
     "tech-label": "Typical technologies",

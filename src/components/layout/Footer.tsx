@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-bg-secondary border-t border-black/5 dark:border-white/10 pt-24 pb-12 relative z-10">
+    <footer className="border-t border-[var(--color-line)] bg-[var(--color-bg-secondary)] py-16">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5 flex flex-col gap-6">
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-text-muted hover:text-white hover:bg-brand-primary hover:border-brand-primary transition-all"
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--color-line-strong)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <Typography variant="h3" className="mb-6 text-base font-bold">{t('footer.company')}</Typography>
+              <h2 className="mb-6 font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{t('footer.company')}</h2>
               <ul className="space-y-4">
                 <li><Link to={`${pathFor('home', locale)}#services`} className="text-text-secondary hover:text-brand-primary text-sm">{t('footer.services')}</Link></li>
                 <li><Link to={pathFor('about', locale)} className="text-text-secondary hover:text-brand-primary text-sm">{t('footer.about')}</Link></li>
@@ -61,14 +61,14 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
             <div>
-              <Typography variant="h3" className="mb-6 text-base font-bold">{t('footer.legal')}</Typography>
+              <h2 className="mb-6 font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{t('footer.legal')}</h2>
               <ul className="space-y-4">
                 <li><Link to={pathFor('privacy', locale)} className="text-text-secondary hover:text-brand-primary text-sm">{t('footer.privacy')}</Link></li>
                 <li><Link to={pathFor('terms', locale)} className="text-text-secondary hover:text-brand-primary text-sm">{t('footer.terms')}</Link></li>
               </ul>
             </div>
             <div>
-              <Typography variant="h3" className="mb-6 text-base font-bold">{t('footer.contact')}</Typography>
+              <h2 className="mb-6 font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{t('footer.contact')}</h2>
               <ul className="space-y-4">
                 <li>
                   <a href={`mailto:${COMPANY.email}`} className="text-text-secondary hover:text-brand-primary text-sm block">
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[var(--color-line)] pt-8 text-xs text-[var(--color-text-muted)] md:flex-row">
           <p>{t('footer.copyright', { year })}</p>
           <p>{t('footer.tagline')}</p>
         </div>

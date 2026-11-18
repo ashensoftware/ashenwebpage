@@ -16,6 +16,7 @@ export function organizationJsonLd() {
       addressCountry: 'CO',
     },
     sameAs: [...COMPANY_SAME_AS],
+    knowsLanguage: ['en', 'es'],
   };
 }
 

@@ -4,8 +4,8 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SEO } from '@/components/SEO';
 import { breadcrumbJsonLd } from '@/config/schema';
-import { ServiceHeroBackdrop } from '@/components/ui/ServiceHeroBackdrop';
 import { ContactUs } from '@/features/contact/ContactUs';
+import { SystemDiagram } from '@/features/diagrams/SystemDiagram';
 import { contactPath, pathFor } from '@/config/routes';
 import { useLocale, useT } from '@/hooks/useLocale';
 import { track } from '@/config/analytics';
@@ -47,15 +47,27 @@ export default function AiAgentsPage() {
         ]}
       />
 
-      <section className="relative min-h-[70vh] flex items-center pt-28 pb-20 overflow-hidden">
-        <ServiceHeroBackdrop src="/assets/services/ai.jpg" />
-        <Container className="relative z-10 max-w-4xl">
-          <p className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4">{t('aiAgents.eyebrow')}</p>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">{t('aiAgents.title')}</h1>
-          <p className="text-xl text-text-secondary mb-8">{t('aiAgents.subtitle')}</p>
-          <Link to={contactPath(locale)} onClick={() => track('ai_agents_cta', { source: 'hero' })}>
-            <Button variant="primary" size="lg">{t('cta.startProject')}</Button>
-          </Link>
+      <section className="border-b border-[var(--color-line)]">
+        <Container className="grid items-end gap-10 py-16 md:py-24 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <p className="eyebrow mb-4">{t('aiAgents.eyebrow')}</p>
+            <h1 className="font-display text-4xl font-medium leading-tight md:text-6xl">{t('aiAgents.title')}</h1>
+            <p className="mt-6 text-lg text-[var(--color-text-secondary)]">{t('aiAgents.subtitle')}</p>
+            <Link to={contactPath(locale)} className="mt-8 inline-block" onClick={() => track('ai_agents_cta', { source: 'hero' })}>
+              <Button variant="primary" size="lg">{t('cta.startProject')}</Button>
+            </Link>
+          </div>
+          <div className="lg:col-span-6">
+            <SystemDiagram
+              label={t('system.label')}
+              operator={t('system.operator')}
+              agent={t('system.agent')}
+              tools={t('system.tools')}
+              records={t('system.records')}
+              approval={t('system.approval')}
+              caption={t('system.caption')}
+            />
+          </div>
         </Container>
       </section>
 
@@ -73,11 +85,11 @@ export default function AiAgentsPage() {
       <section className="py-20 bg-bg-secondary">
         <Container>
           <h2 className="text-3xl font-bold mb-10">{t('aiAgents.workflowsTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-x-12 md:grid-cols-2">
             {workflows.map((item) => (
-              <article key={item.title} className="p-6 rounded-2xl border border-black/10 dark:border-white/10">
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{item.body}</p>
+              <article key={item.title} className="border-t border-[var(--color-line)] py-5">
+                <h3 className="font-display text-2xl font-medium">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">{item.body}</p>
               </article>
             ))}
           </div>

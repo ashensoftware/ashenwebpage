@@ -45,7 +45,10 @@ export const MARKETING_ROUTES = [
     id: 'home',
     indexable: true,
     paths: { en: '/', es: '/es' },
-    titles: { en: 'Ashen Software', es: 'Ashen Software' },
+    titles: {
+      en: 'Custom Software & AI Agents | Ashen Software',
+      es: 'Software a medida y agentes de IA | Ashen Software',
+    },
     descKey: 'hero.subtitle',
     h1Keys: ['hero.titleBefore', 'hero.titleEmphasis'],
     bodyKey: 'hero.subtitle',

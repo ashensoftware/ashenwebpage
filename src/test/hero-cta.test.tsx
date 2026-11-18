@@ -1,16 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Hero } from '@/features/hero/Hero';
 import '@/i18n';
-
-vi.mock('@/features/animations/InteractiveGridBackground', () => ({
-  default: () => null,
-}));
-vi.mock('@/features/animations/FallingParticles', () => ({
-  FallingParticles: () => null,
-}));
 
 describe('Hero CTAs', () => {
   it('links the primary CTA to contact and See Our Work to case studies', () => {
