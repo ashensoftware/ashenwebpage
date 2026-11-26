@@ -78,7 +78,7 @@ The geo redirect runs only for `GET` and `HEAD` on the exact path `/`. It is a t
 
 There is no loop: `/ja` and `/es` are not `/`, so the next request is left alone. English stays on `/`, which keeps the prerendered English homepage and its canonical.
 
-Redirect responses set `Cache-Control: private, no-store`, `CDN-Cache-Control: no-store`, `Vercel-CDN-Cache-Control: no-store`, and `Vary: Cookie, Accept-Language`. A Japanese redirect must not be stored as the global response for `/`.
+Redirect responses set `Cache-Control: private, no-store`, `CDN-Cache-Control: no-store`, and `Vary: Cookie, Accept-Language`. A Japanese redirect must not be stored as the global response for `/`. The internal `Vercel-CDN-Cache-Control` header is not set by the function; Vercel rejected the previous middleware invocation when the `@vercel/functions` barrel was imported.
 
 The middleware does not read or store the IP address, city, or coordinates. The cookie stores only the language code. `Path=/`, `SameSite=Lax`, `Max-Age` of one year, and `Secure` on HTTPS.
 
@@ -97,7 +97,7 @@ Choosing the language you are already viewing still writes the cookie. A visitor
 
 Static files, images, fonts, `sitemap.xml`, `robots.txt`, and the IndexNow key file do not match `/`, and the function also ignores every path other than `/`.
 
-`geolocation(request)` from `@vercel/functions` reads `x-vercel-ip-country`, which Vercel sets. The site does not call a third-party IP service and does not use browser geolocation permission. `navigator.language` is not used.
+The function calls `geolocation(request)` from `@vercel/functions/headers`, which reads `x-vercel-ip-country`. Importing the package root crashed the Node middleware on production with `MIDDLEWARE_INVOCATION_FAILED` and took `/` offline. The country header is the fallback when that module cannot load or when `geolocation()` throws. Any other unexpected error continues to the prerendered English homepage instead of returning 500. The site does not call a third-party IP service and does not use browser geolocation permission. `navigator.language` is not used.
 
 Vite dev and `vite preview` do not run this middleware. Country redirects happen on Vercel.
 
