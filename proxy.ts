@@ -6,37 +6,16 @@ const PRIVATE_REDIRECT_HEADERS = {
   Vary: 'Cookie, Accept-Language',
 };
 
-type Geolocation = (request: Request) => { country?: string | null };
-
 /**
- * Continue signal for Routing Middleware. Kept local so a failure inside
- * `@vercel/functions` cannot take the homepage down.
+ * Continue signal for Routing Middleware.
+ * Inlined on purpose: importing `@vercel/functions` from this file made
+ * production `/` return 500 MIDDLEWARE_INVOCATION_FAILED. `geolocation()`
+ * only reads `x-vercel-ip-country`, so the header is used directly.
  */
 function continueRequest(): Response {
   return new Response(null, {
     headers: { 'x-middleware-next': '1' },
   });
-}
-
-/**
- * `@vercel/functions` is a CommonJS barrel. Importing it from this Node
- * middleware made production return MIDDLEWARE_INVOCATION_FAILED on `/`.
- * Load only the headers entry, and only when the call runs. If that module
- * cannot be resolved or `geolocation()` throws (its city header is decoded
- * with decodeURIComponent), read the same country header it uses.
- */
-async function countryOf(request: Request): Promise<string | null> {
-  try {
-    const { geolocation } = (await import('@vercel/functions/headers')) as {
-      geolocation?: Geolocation;
-    };
-    if (typeof geolocation === 'function') {
-      return geolocation(request).country ?? null;
-    }
-  } catch {
-    // Fall through to the header Vercel already set on the request.
-  }
-  return request.headers.get('x-vercel-ip-country');
 }
 
 function requestUrl(request: Request): URL {
@@ -54,10 +33,10 @@ function requestUrl(request: Request): URL {
  * Vercel Routing Middleware. The matcher in vercel.json is `/` only, so static
  * files, sitemap, robots, IndexNow, and explicit pages never reach this function.
  * The pathname guard below keeps that true even if the matcher is widened.
- * Country comes from Vercel's geolocation helper. IP and coordinates are not read or stored.
+ * Country comes from the header Vercel sets. IP and coordinates are not read or stored.
  * Any unexpected failure continues to the prerendered English homepage.
  */
-export default async function proxy(request: Request): Promise<Response> {
+export default function proxy(request: Request): Response {
   try {
     const url = requestUrl(request);
     if (url.pathname !== '/') return continueRequest();
@@ -66,7 +45,7 @@ export default async function proxy(request: Request): Promise<Response> {
     const decision = negotiateLocale({
       pathname: url.pathname,
       search: url.search,
-      country: await countryOf(request),
+      country: request.headers.get('x-vercel-ip-country'),
       acceptLanguage: request.headers.get('accept-language'),
       cookie: request.headers.get('cookie'),
     });
