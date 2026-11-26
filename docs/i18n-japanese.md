@@ -97,7 +97,7 @@ Choosing the language you are already viewing still writes the cookie. A visitor
 
 Static files, images, fonts, `sitemap.xml`, `robots.txt`, and the IndexNow key file do not match `/`, and the function also ignores every path other than `/`.
 
-The country is the `x-vercel-ip-country` header Vercel sets on the request. That is the same header `geolocation()` from `@vercel/functions` reads. Importing that package from `proxy.ts` made the Node middleware crash on production with `MIDDLEWARE_INVOCATION_FAILED`, so the homepage no longer imports it. Any unexpected error continues to the prerendered English homepage instead of returning 500. The site does not call a third-party IP service and does not use browser geolocation permission. `navigator.language` is not used.
+The country is the `x-vercel-ip-country` header Vercel sets on the request. `proxy.ts` is self-contained and imports nothing: importing `@vercel/functions` or another local module made the Node middleware crash on production with `MIDDLEWARE_INVOCATION_FAILED`. Any unexpected error continues to the prerendered English homepage instead of returning 500. The site does not call a third-party IP service and does not use browser geolocation permission. `navigator.language` is not used.
 
 Vite dev and `vite preview` do not run this middleware. Country redirects happen on Vercel.
 
