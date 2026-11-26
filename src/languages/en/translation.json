@@ -191,7 +191,8 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "copyright": "© {{year}} Ashen Software. All rights reserved.",
-    "tagline": "Engineering for real operations."
+    "tagline": "Engineering for real operations.",
+    "languageHint": "Switch language"
   },
   "contact": {
     "title": "Tell us what you need to ship",

@@ -1,21 +1,33 @@
-export const LOCALES = ['en', 'es'] as const;
+export const LOCALES = ['en', 'es', 'ja'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
+const PREFIXED_LOCALES = LOCALES.filter((locale) => locale !== DEFAULT_LOCALE);
+
 export function isLocale(value: string | undefined | null): value is Locale {
-  return value === 'en' || value === 'es';
+  return value != null && (LOCALES as readonly string[]).includes(value);
+}
+
+function pathnameOnly(pathname: string): string {
+  const path = pathname.split(/[?#]/)[0] || '/';
+  if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+  return path;
 }
 
 export function localeFromPathname(pathname: string): Locale {
-  if (pathname === '/es' || pathname.startsWith('/es/')) return 'es';
-  return 'en';
+  const path = pathnameOnly(pathname);
+  for (const locale of PREFIXED_LOCALES) {
+    if (path === `/${locale}` || path.startsWith(`/${locale}/`)) return locale;
+  }
+  return DEFAULT_LOCALE;
 }
 
 export function stripLocalePrefix(pathname: string): string {
-  if (pathname === '/es') return '/';
-  if (pathname.startsWith('/es/')) {
-    const rest = pathname.slice(3);
-    return rest.startsWith('/') ? rest : `/${rest}`;
+  const path = pathnameOnly(pathname);
+  for (const locale of PREFIXED_LOCALES) {
+    if (path === `/${locale}`) return '/';
+    const prefix = `/${locale}/`;
+    if (path.startsWith(prefix)) return `/${path.slice(prefix.length)}`;
   }
-  return pathname;
+  return path;
 }

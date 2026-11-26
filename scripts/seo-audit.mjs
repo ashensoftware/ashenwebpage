@@ -38,6 +38,24 @@ function text(html) {
     .trim();
 }
 
+/** CJK characters carry more meaning per code point, so Japanese pages are not rejected for being shorter than English. */
+function contentWeight(value) {
+  let weight = 0;
+  for (const char of value) {
+    weight += /[\u3040-\u30ff\u3400-\u9fff]/.test(char) ? 2 : 1;
+  }
+  return weight;
+}
+
+const HREFLANGS = ['en', 'es', 'ja', 'x-default'];
+const ENGLISH_LEAKS = [
+  'Built for Real Operations',
+  'Work we can show',
+  'Discuss Your Project',
+  'Frequently asked questions',
+  'Page not found',
+];
+
 const routes = getIndexableRoutes();
 const titles = new Map();
 const descriptions = new Map();
@@ -47,8 +65,11 @@ for (const route of routes) {
   if (!html) continue;
   const h1s = html.match(/<h1[\s>]/gi) || [];
   if (h1s.length !== 1) fail(`${route.path} has ${h1s.length} H1 elements`);
-  if (text(html).length < 400) fail(`${route.path} initial HTML is too thin`);
+  const visible = text(html);
+  if (contentWeight(visible) < 400) fail(`${route.path} initial HTML is too thin`);
   if (/prerender-shell/.test(html)) fail(`${route.path} still uses the summary shell`);
+  const htmlLang = attr(html, /<html[^>]*lang="([^"]+)"/i);
+  if (htmlLang !== route.locale) fail(`${route.path} html lang is ${htmlLang || 'missing'}`);
 
   const title = attr(html, /<title[^>]*>([^<]*)<\/title>/i);
   const description = attr(html, /<meta[^>]*name="description"[^>]*content="([^"]*)"/i)
@@ -68,11 +89,24 @@ for (const route of routes) {
   if (canonical !== canonicalUrl(route.path)) fail(`${route.path} canonical is ${canonical}`);
   if (/noindex/i.test(robots)) fail(`${route.path} is noindex`);
 
-  for (const lang of ['en', 'es', 'x-default']) {
+  for (const lang of HREFLANGS) {
     const href = attr(html, new RegExp(`<link[^>]*hreflang="${lang}"[^>]*href="([^"]+)"`, 'i'))
       || attr(html, new RegExp(`<link[^>]*href="([^"]+)"[^>]*hreflang="${lang}"`, 'i'));
-    const expected = lang === 'x-default' || lang === 'en' ? canonicalUrl(route.alternate.en) : canonicalUrl(route.alternate.es);
+    const expected = lang === 'x-default' || lang === 'en'
+      ? canonicalUrl(route.alternate.en)
+      : canonicalUrl(route.alternate[lang]);
     if (href !== expected) fail(`${route.path} hreflang ${lang} is ${href || 'missing'}`);
+  }
+
+  if (route.locale === 'ja') {
+    const jpChars = (visible.match(/[\u3040-\u30ff\u3400-\u9fff]/g) || []).length;
+    if (jpChars < 80) fail(`${route.path} has too little Japanese text (${jpChars})`);
+    for (const leak of ENGLISH_LEAKS) {
+      if (visible.includes(leak)) fail(`${route.path} still contains English copy: ${leak}`);
+    }
+    if (/\b(?:hero|nav|services_data|aboutPage)\.[a-zA-Z]/.test(visible)) {
+      fail(`${route.path} has an unresolved i18n key`);
+    }
   }
 
   const scripts = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
@@ -101,7 +135,7 @@ const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[
 const expected = routes.map((route) => canonicalUrl(route.path)).sort();
 const actual = [...locs].sort();
 if (actual.join('\n') !== expected.join('\n')) fail('Sitemap URLs do not match indexable routes');
-if (!sitemap.includes('hreflang="x-default"')) fail('Sitemap missing x-default');
+if (!sitemap.includes('hreflang="ja"') || !sitemap.includes('hreflang="x-default"')) fail('Sitemap missing ja or x-default');
 if (locs.some((loc) => loc.includes('?'))) fail('Sitemap contains a query string');
 
 const notFound = fs.readFileSync(path.join(distDir, '404.html'), 'utf8');
@@ -147,10 +181,11 @@ function assertSingleCapabilityCatalog(urlPath, locale) {
 
 assertSingleCapabilityCatalog('/', 'en');
 assertSingleCapabilityCatalog('/es', 'es');
+assertSingleCapabilityCatalog('/ja', 'ja');
 
-for (const urlPath of ['/case-studies/trengie', '/es/casos/trengie']) {
+for (const urlPath of ['/case-studies/trengie', '/es/casos/trengie', '/ja/case-studies/trengie']) {
   const html = read(urlPath);
-  if (text(html).length < 1200) fail(`${urlPath} case study HTML is thin`);
+  if (contentWeight(text(html)) < 1200) fail(`${urlPath} case study HTML is thin`);
   if (!html.includes('https://trengie.com')) fail(`${urlPath} is missing the live Trengie URL`);
   if ((html.match(/<h1[\s>]/gi) || []).length !== 1) fail(`${urlPath} does not have exactly one H1`);
 }

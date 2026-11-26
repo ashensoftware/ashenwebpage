@@ -1,5 +1,5 @@
 export const SITE_ORIGIN: string;
-export const LOCALES: readonly ['en', 'es'];
+export const LOCALES: readonly ['en', 'es', 'ja'];
 export type Locale = (typeof LOCALES)[number];
 export type LocalizedPath = Record<Locale, string>;
 
@@ -24,6 +24,8 @@ export interface MarketingRouteDef {
 export const MARKETING_ROUTES: readonly MarketingRouteDef[];
 
 export function servicePath(serviceId: string, locale: Locale): string;
+export function serviceRoutePattern(locale: Locale): string;
+export function caseStudyRoutePattern(locale: Locale): string;
 export function canonicalUrl(pathname: string): string;
 export function getMarketingRoute(id: string): MarketingRouteDef | undefined;
 export function getServiceRouteDefs(): MarketingRouteDef[];

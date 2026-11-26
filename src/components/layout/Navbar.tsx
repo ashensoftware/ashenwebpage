@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Bot, ChevronDown, Code, Database, Menu, Moon, Sun, Workflow, X } from 'lucide-react';
-import { FlagEN, FlagES } from '@/components/icons/BrandIcons';
 import { buttonClass } from '@/components/ui/button-styles';
 import { useTheme } from '@/hooks/useTheme';
 import { useLocale, useT } from '@/hooks/useLocale';
-import { alternatePath, contactPath, pathFor, servicePath } from '@/config/routes';
+import { contactPath, pathFor, servicePath } from '@/config/routes';
 import { ASHEN_SERVICES } from '@/core/constants/ashenServices';
 import { SERVICE_PILLARS } from '@/content/pillars';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 const PILLAR_ICONS = {
   bot: Bot,
@@ -21,7 +21,6 @@ export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const locale = useLocale();
   const location = useLocation();
-  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<number | null>(null);
@@ -50,15 +49,13 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileMenuOpen(false);
+      if (event.key !== 'Escape') return;
+      if (document.querySelector('[data-locale-open="true"]')) return;
+      setMobileMenuOpen(false);
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [mobileMenuOpen]);
-
-  const switchLocale = () => {
-    navigate(alternatePath(location.pathname, locale === 'en' ? 'es' : 'en'));
-  };
 
   const navLinks = [
     { name: t('nav.work'), href: pathFor('caseStudies', locale) },
@@ -137,17 +134,7 @@ export const Navbar: React.FC = () => {
           <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-[var(--glass-border)] bg-[var(--color-bg-secondary)]" aria-label={t('a11y.theme')}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button type="button" onClick={switchLocale} className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-[var(--glass-border)] bg-[var(--color-bg-secondary)] px-3 font-mono text-xs" aria-label={`${t('a11y.language')}: EN / ES`}>
-            <span className={`inline-flex items-center gap-1.5 ${locale === 'en' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}`}>
-              <FlagEN size={14} />
-              EN
-            </span>
-            <span className="text-[var(--color-text-muted)]">/</span>
-            <span className={`inline-flex items-center gap-1.5 ${locale === 'es' ? 'text-[var(--color-accent-primary)]' : 'text-[var(--color-text-muted)]'}`}>
-              <FlagES size={14} />
-              ES
-            </span>
-          </button>
+          <LocaleSwitcher />
           <Link to={contactPath(locale)} className={buttonClass({ size: 'sm' })}>
             {t('nav.cta')}
           </Link>
@@ -200,10 +187,8 @@ export const Navbar: React.FC = () => {
               {t('nav.contact')}
             </Link>
           </nav>
-          <div className="mt-4 flex gap-3">
-            <button type="button" onClick={switchLocale} className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-mono text-sm" aria-label={`${t('a11y.language')}: EN / ES`}>
-              {locale === 'en' ? 'ES' : 'EN'}
-            </button>
+          <div className="mt-4 flex flex-col gap-3">
+            <LocaleSwitcher variant="mobile" />
             <button type="button" onClick={toggleTheme} className="inline-flex min-h-11 cursor-pointer items-center gap-2 font-mono text-sm" aria-label={t('a11y.theme')}>
               {theme === 'dark' ? 'Light' : 'Dark'}
             </button>

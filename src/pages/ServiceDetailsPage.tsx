@@ -37,7 +37,7 @@ export const ServiceDetailsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-bg-primary overflow-x-hidden text-[var(--color-text-primary)]">
       <SEO
-        title={locale === 'es' ? `${title} · Ashen Software` : `${title} | Ashen Software`}
+        title={`${title}${locale === 'es' ? ' · ' : ' | '}Ashen Software`}
         description={description}
         jsonLd={[
           {

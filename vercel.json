@@ -3,7 +3,11 @@
   "outputDirectory": "dist",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "vite",
-  "trailingSlash": false,
+    "trailingSlash": false,
+  "proxy": {
+    "entrypoint": "proxy.ts",
+    "matcher": ["/"]
+  },
   "redirects": [
     { "source": "/es/services/:id", "destination": "/es/servicios/:id", "permanent": true },
     {

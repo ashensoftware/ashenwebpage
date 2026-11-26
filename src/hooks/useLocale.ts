@@ -23,6 +23,6 @@ export function useLocalizedPath() {
   return {
     locale,
     to: (id: RouteId) => pathFor(id, locale),
-    alternate: (pathname: string) => alternatePath(pathname, locale === 'en' ? 'es' : 'en'),
+    alternate: (pathname: string, targetLocale: Locale) => alternatePath(pathname, targetLocale),
   };
 }

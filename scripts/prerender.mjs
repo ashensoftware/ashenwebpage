@@ -17,7 +17,8 @@ const { render } = await import(pathToFileURL(serverEntry).href);
 const template = fs.readFileSync(indexPath, 'utf8');
 
 function pageHtml(url) {
-  const { html, helmet } = render(url);
+  const rendered = render(url);
+  return Promise.resolve(rendered).then(({ html, helmet }) => {
   if (!helmet) throw new Error(`Helmet did not render for ${url}`);
 
   let next = template.replace(/<title>[\s\S]*?<\/title>/g, '');
@@ -32,6 +33,20 @@ function pageHtml(url) {
   if (!next.includes('id="root"')) throw new Error('Missing #root');
   next = next.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${html}</div>`);
   return next;
+  });
+}
+
+function visibleText(html) {
+  return html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ');
+}
+
+/** CJK characters carry more meaning per code point than Latin letters. */
+function contentWeight(value) {
+  let weight = 0;
+  for (const char of value) {
+    weight += /[\u3040-\u30ff\u3400-\u9fff]/.test(char) ? 2 : 1;
+  }
+  return weight;
 }
 
 function writePage(urlPath, html) {
@@ -46,17 +61,26 @@ function writePage(urlPath, html) {
 
 const routes = getIndexableRoutes();
 for (const route of routes) {
-  const html = pageHtml(route.path);
-  const text = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
+  const html = await pageHtml(route.path);
+  const text = visibleText(html);
   if ((html.match(/<h1[\s>]/g) || []).length < 1) {
     throw new Error(`Prerender for ${route.path} has no H1`);
   }
-  if (text.trim().length < 400) {
-    throw new Error(`Prerender for ${route.path} looks too thin (${text.trim().length} chars)`);
+  if (contentWeight(text) < 400) {
+    throw new Error(`Prerender for ${route.path} looks too thin (${contentWeight(text)} weighted chars)`);
+  }
+  if (!html.includes(`lang="${route.locale}"`)) {
+    throw new Error(`Prerender for ${route.path} is missing lang="${route.locale}"`);
+  }
+  if (route.locale === 'ja' && !/[\u3040-\u30ff\u3400-\u9fff]/.test(text)) {
+    throw new Error(`Prerender for ${route.path} has no Japanese text`);
+  }
+  if (route.locale === 'ja' && text.includes('Built for Real Operations')) {
+    throw new Error(`Prerender for ${route.path} still contains English hero copy`);
   }
   writePage(route.path, html);
 }
 
-const notFound = pageHtml('/this-route-does-not-exist');
+const notFound = await pageHtml('/this-route-does-not-exist');
 fs.writeFileSync(path.join(distDir, '404.html'), notFound);
 console.log(`Prerendered ${routes.length} routes plus 404.html`);

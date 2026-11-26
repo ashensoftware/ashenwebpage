@@ -26,7 +26,7 @@ export function websiteJsonLd() {
     '@type': 'WebSite',
     name: COMPANY.displayName,
     url: COMPANY.origin,
-    inLanguage: ['en', 'es'],
+    inLanguage: ['en', 'es', 'ja'],
   };
 }
 

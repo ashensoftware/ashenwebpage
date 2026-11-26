@@ -22,10 +22,10 @@ vi.mock('@formspree/react', () => ({
   ValidationError: () => null,
 }));
 
-function renderForm() {
+function renderForm(path = '/') {
   return render(
     <HelmetProvider>
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[path]}>
         <ContactUs />
       </MemoryRouter>
     </HelmetProvider>,
@@ -84,5 +84,15 @@ describe('ContactUs', () => {
     const button = screen.getByRole('button', { name: /sending/i });
     await userEvent.click(button);
     expect(handleSubmit).not.toHaveBeenCalled();
+  });
+
+  it('submits Japanese copy with locale ja', () => {
+    renderForm('/ja#contact');
+    expect(screen.getByLabelText('お名前')).toBeInTheDocument();
+    expect(screen.getByLabelText('仕事用メール')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/どのツールに触れる必要があるか/)).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: '領域を選択' })).toBeInTheDocument();
+    const locale = document.querySelector('input[name="locale"]') as HTMLInputElement;
+    expect(locale.value).toBe('ja');
   });
 });
