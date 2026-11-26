@@ -33,7 +33,19 @@ export const AboutPage: React.FC = () => {
         <Container className="py-16 md:py-24">
           <p className="eyebrow mb-4">{t('aboutPage.dna')}</p>
           <h1 className="max-w-4xl font-display text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.02]">
-            {t('aboutPage.heroTitle1')} {t('aboutPage.heroTitle2')} {t('aboutPage.heroTitle3')}
+            {locale === 'ja' ? (
+              <>
+                {t('aboutPage.heroTitle1')}
+                <br />
+                {t('aboutPage.heroTitle2')}
+                <br />
+                {t('aboutPage.heroTitle3')}
+              </>
+            ) : (
+              <>
+                {t('aboutPage.heroTitle1')} {t('aboutPage.heroTitle2')} {t('aboutPage.heroTitle3')}
+              </>
+            )}
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-[var(--color-text-secondary)]">{t('aboutPage.heroDesc')}</p>
         </Container>
@@ -42,7 +54,18 @@ export const AboutPage: React.FC = () => {
       <section className="border-b border-[var(--color-line)] py-16 md:py-24">
         <Container>
           <h2 className="max-w-3xl font-display text-4xl font-medium">
-            {t('aboutPage.principles1')} {t('aboutPage.principles2')} {t('aboutPage.principles3')}
+            {locale === 'ja' ? (
+              <>
+                {t('aboutPage.principles1')}
+                <br />
+                {t('aboutPage.principles2')}
+                {t('aboutPage.principles3')}
+              </>
+            ) : (
+              <>
+                {t('aboutPage.principles1')} {t('aboutPage.principles2')} {t('aboutPage.principles3')}
+              </>
+            )}
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {PHOTOS.map((photo) => (

@@ -17,6 +17,20 @@ import {
   IntegrationsPage,
   SoftwareDevelopmentPage,
 } from './pages/PillarPage';
+import { LOCALES } from './config/i18n';
+import { caseStudyRoutePattern, pathFor, serviceRoutePattern, type RouteId } from './config/routes';
+
+const LOCALIZED_PAGES: { id: Exclude<RouteId, 'trengie'>; element: React.ReactElement }[] = [
+  { id: 'home', element: <HomePage /> },
+  { id: 'aiAgents', element: <AiAgentsPage /> },
+  { id: 'software', element: <SoftwareDevelopmentPage /> },
+  { id: 'dataAi', element: <DataAiEngineeringPage /> },
+  { id: 'integrations', element: <IntegrationsPage /> },
+  { id: 'caseStudies', element: <CaseStudiesPage /> },
+  { id: 'about', element: <AboutPage /> },
+  { id: 'privacy', element: <LegalPage kind="privacy" /> },
+  { id: 'terms', element: <LegalPage kind="terms" /> },
+];
 
 function SiteObservability() {
   const { pathname } = useLocation();
@@ -54,36 +68,17 @@ export function AppShell() {
       <ScrollToHash />
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/es" element={<HomePage />} />
-
-          <Route path="/ai-agents" element={<AiAgentsPage />} />
-          <Route path="/es/agentes-ia" element={<AiAgentsPage />} />
-
-          <Route path="/software-development" element={<SoftwareDevelopmentPage />} />
-          <Route path="/es/desarrollo-software" element={<SoftwareDevelopmentPage />} />
-
-          <Route path="/data-ai-engineering" element={<DataAiEngineeringPage />} />
-          <Route path="/es/datos-ia" element={<DataAiEngineeringPage />} />
-
-          <Route path="/integrations" element={<IntegrationsPage />} />
-          <Route path="/es/integraciones" element={<IntegrationsPage />} />
-
-          <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/es/casos" element={<CaseStudiesPage />} />
-          <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
-          <Route path="/es/casos/:slug" element={<CaseStudyDetailPage />} />
-
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/es/nosotros" element={<AboutPage />} />
-
-          <Route path="/privacy" element={<LegalPage kind="privacy" />} />
-          <Route path="/es/privacidad" element={<LegalPage kind="privacy" />} />
-          <Route path="/terms" element={<LegalPage kind="terms" />} />
-          <Route path="/es/terminos" element={<LegalPage kind="terms" />} />
-
-          <Route path="/services/:id" element={<ServiceDetailsPage />} />
-          <Route path="/es/servicios/:id" element={<ServiceDetailsPage />} />
+          {LOCALIZED_PAGES.flatMap(({ id, element }) =>
+            LOCALES.map((locale) => (
+              <Route key={`${id}:${locale}`} path={pathFor(id, locale)} element={element} />
+            )),
+          )}
+          {LOCALES.map((locale) => (
+            <Route key={`case:${locale}`} path={caseStudyRoutePattern(locale)} element={<CaseStudyDetailPage />} />
+          ))}
+          {LOCALES.map((locale) => (
+            <Route key={`service:${locale}`} path={serviceRoutePattern(locale)} element={<ServiceDetailsPage />} />
+          ))}
           <Route path="/es/services/:id" element={<ServiceDetailsPage />} />
 
           <Route path="*" element={<NotFoundPage />} />

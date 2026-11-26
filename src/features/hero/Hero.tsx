@@ -27,7 +27,8 @@ export const Hero: React.FC = () => {
       <Container className="rise relative z-10 flex flex-col items-center px-4 pb-20 pt-28 text-center">
         <p className="eyebrow mb-5">{t('hero.eyebrow')}</p>
         <h1 className="max-w-5xl font-display text-[clamp(2.7rem,6.4vw,5.4rem)] font-semibold leading-[1.02] tracking-tight">
-          {t('hero.titleBefore')}{' '}
+          {t('hero.titleBefore')}
+          {locale === 'ja' ? <br /> : ' '}
           <span className="text-gradient">{t('hero.titleEmphasis')}</span>
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)] md:text-lg">

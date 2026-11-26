@@ -143,3 +143,44 @@
     }
 }
 
+/* Japanese system fonts. Latin Outfit/Inter stay available for the wordmark and Latin tokens.
+   Noto Sans JP is named for devices that already have it. No CJK file is downloaded for EN/ES. */
+html[lang="ja"] body {
+    --font-family-primary: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", "Inter", system-ui, sans-serif;
+    --font-family-display: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", "Outfit", "Inter", system-ui, sans-serif;
+    font-family: var(--font-family-primary);
+    line-height: 1.75;
+    line-break: strict;
+    overflow-wrap: break-word;
+}
+
+html[lang="ja"] .eyebrow,
+html[lang="ja"] .tracking-tight,
+html[lang="ja"] .tracking-wide,
+html[lang="ja"] .tracking-wider,
+html[lang="ja"] .tracking-widest {
+    letter-spacing: 0;
+}
+
+html[lang="ja"] .eyebrow {
+    text-transform: none;
+}
+
+html[lang="ja"] .hero-stage h1 {
+    font-size: clamp(1.9rem, 5vw, 3.9rem);
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-wrap: balance;
+}
+
+html[lang="ja"] article h1 {
+    font-size: clamp(1.85rem, 7.2vw, 4.25rem);
+    line-height: 1.4;
+}
+
+html[lang="ja"] h1,
+html[lang="ja"] h2,
+html[lang="ja"] .font-display {
+    line-height: 1.35;
+}
+

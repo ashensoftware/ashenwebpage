@@ -6,7 +6,7 @@
 
 export const SITE_ORIGIN = 'https://ashensoftware.com';
 
-export const LOCALES = /** @type {const} */ (['en', 'es']);
+export const LOCALES = /** @type {const} */ (['en', 'es', 'ja']);
 
 export const SERVICE_IDS = /** @type {const} */ ([
   'web-development',
@@ -22,8 +22,8 @@ export const SERVICE_IDS = /** @type {const} */ ([
   'automation',
 ]);
 
-/** @typedef {'en' | 'es'} Locale */
-/** @typedef {{ en: string, es: string }} LocalizedPath */
+/** @typedef {'en' | 'es' | 'ja'} Locale */
+/** @typedef {{ en: string, es: string, ja: string }} LocalizedPath */
 
 /**
  * Canonical marketing routes. Service pages are generated from SERVICE_IDS.
@@ -44,10 +44,11 @@ export const MARKETING_ROUTES = [
   {
     id: 'home',
     indexable: true,
-    paths: { en: '/', es: '/es' },
+    paths: { en: '/', es: '/es', ja: '/ja' },
     titles: {
       en: 'Ashen Software',
       es: 'Ashen Software',
+      ja: 'Ashen Software',
     },
     descKey: 'hero.subtitle',
     h1Keys: ['hero.titleBefore', 'hero.titleEmphasis'],
@@ -57,7 +58,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'aiAgents',
     indexable: true,
-    paths: { en: '/ai-agents', es: '/es/agentes-ia' },
+    paths: { en: '/ai-agents', es: '/es/agentes-ia', ja: '/ja/ai-agents' },
     titleKey: 'aiAgents.seoTitle',
     descKey: 'aiAgents.seoDesc',
     h1Key: 'aiAgents.title',
@@ -67,7 +68,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'software',
     indexable: true,
-    paths: { en: '/software-development', es: '/es/desarrollo-software' },
+    paths: { en: '/software-development', es: '/es/desarrollo-software', ja: '/ja/software-development' },
     titleKey: 'softwarePage.seoTitle',
     descKey: 'softwarePage.seoDesc',
     h1Key: 'softwarePage.title',
@@ -77,7 +78,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'dataAi',
     indexable: true,
-    paths: { en: '/data-ai-engineering', es: '/es/datos-ia' },
+    paths: { en: '/data-ai-engineering', es: '/es/datos-ia', ja: '/ja/data-ai-engineering' },
     titleKey: 'dataPage.seoTitle',
     descKey: 'dataPage.seoDesc',
     h1Key: 'dataPage.title',
@@ -87,7 +88,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'integrations',
     indexable: true,
-    paths: { en: '/integrations', es: '/es/integraciones' },
+    paths: { en: '/integrations', es: '/es/integraciones', ja: '/ja/integrations' },
     titleKey: 'integrationsPage.seoTitle',
     descKey: 'integrationsPage.seoDesc',
     h1Key: 'integrationsPage.title',
@@ -97,7 +98,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'caseStudies',
     indexable: true,
-    paths: { en: '/case-studies', es: '/es/casos' },
+    paths: { en: '/case-studies', es: '/es/casos', ja: '/ja/case-studies' },
     titleKey: 'cases.seoTitle',
     descKey: 'cases.seoDesc',
     h1Key: 'cases.title',
@@ -107,7 +108,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'trengie',
     indexable: true,
-    paths: { en: '/case-studies/trengie', es: '/es/casos/trengie' },
+    paths: { en: '/case-studies/trengie', es: '/es/casos/trengie', ja: '/ja/case-studies/trengie' },
     titleKey: 'trengie.seoTitle',
     descKey: 'trengie.seoDesc',
     h1Key: 'cases.items.trengie.title',
@@ -117,7 +118,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'about',
     indexable: true,
-    paths: { en: '/about', es: '/es/nosotros' },
+    paths: { en: '/about', es: '/es/nosotros', ja: '/ja/about' },
     titleKey: 'aboutPage.seoTitle',
     descKey: 'aboutPage.seoDesc',
     h1Keys: ['aboutPage.heroTitle1', 'aboutPage.heroTitle2', 'aboutPage.heroTitle3'],
@@ -127,7 +128,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'privacy',
     indexable: true,
-    paths: { en: '/privacy', es: '/es/privacidad' },
+    paths: { en: '/privacy', es: '/es/privacidad', ja: '/ja/privacy' },
     titleKey: 'legal.privacyTitle',
     descKey: 'legal.privacyDesc',
     h1Key: 'footer.privacy',
@@ -137,7 +138,7 @@ export const MARKETING_ROUTES = [
   {
     id: 'terms',
     indexable: true,
-    paths: { en: '/terms', es: '/es/terminos' },
+    paths: { en: '/terms', es: '/es/terminos', ja: '/ja/terms' },
     titleKey: 'legal.termsTitle',
     descKey: 'legal.termsDesc',
     h1Key: 'footer.terms',
@@ -158,7 +159,23 @@ export const ROUTE_PATHS = Object.fromEntries(
  * @param {Locale} locale
  */
 export function servicePath(serviceId, locale) {
-  return locale === 'es' ? `/es/servicios/${serviceId}` : `/services/${serviceId}`;
+  if (locale === 'es') return `/es/servicios/${serviceId}`;
+  if (locale === 'ja') return `/ja/services/${serviceId}`;
+  return `/services/${serviceId}`;
+}
+
+/** React Router pattern for a capability page. English stays unprefixed. */
+export function serviceRoutePattern(locale) {
+  if (locale === 'es') return '/es/servicios/:id';
+  if (locale === 'ja') return '/ja/services/:id';
+  return '/services/:id';
+}
+
+/** React Router pattern for a case-study detail page. */
+export function caseStudyRoutePattern(locale) {
+  if (locale === 'es') return '/es/casos/:slug';
+  if (locale === 'ja') return '/ja/case-studies/:slug';
+  return '/case-studies/:slug';
 }
 
 /**
@@ -181,10 +198,7 @@ export function getServiceRouteDefs() {
     id: `service:${id}`,
     serviceId: id,
     indexable: true,
-    paths: {
-      en: servicePath(id, 'en'),
-      es: servicePath(id, 'es'),
-    },
+    paths: Object.fromEntries(LOCALES.map((locale) => [locale, servicePath(id, locale)])),
     titleKey: `services_data.${id}.title`,
     descKey: `services_data.${id}.description`,
     h1Key: `services_data.${id}.title`,

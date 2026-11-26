@@ -47,3 +47,16 @@ export const FlagEN: React.FC<IconProps> = ({ size = 16, className }) => (
     <path d="M8 0v12M0 6h16" stroke="#C8102E" strokeWidth="2.2" />
   </svg>
 );
+
+export const FlagJA: React.FC<IconProps> = ({ size = 16, className }) => (
+  <svg
+    width={size}
+    height={Math.round((size * 12) / 16)}
+    viewBox="0 0 16 12"
+    aria-hidden="true"
+    className={className}
+  >
+    <rect width="16" height="12" rx="1.5" fill="#ffffff" />
+    <circle cx="8" cy="6" r="3.1" fill="#BC002D" />
+  </svg>
+);

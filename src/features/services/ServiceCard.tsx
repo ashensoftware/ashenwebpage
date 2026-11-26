@@ -35,7 +35,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, eager 
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-end p-7">
-        <h3 className="mb-3 text-2xl font-bold leading-tight text-white drop-shadow-lg md:text-3xl">{title}</h3>
+        <h3 className="mb-3 line-clamp-3 text-2xl font-bold leading-snug text-white drop-shadow-lg md:text-3xl">{title}</h3>
         <p className="max-h-0 overflow-hidden text-sm leading-relaxed text-white/80 opacity-0 transition-all duration-500 group-hover:max-h-28 group-hover:opacity-100">
           {description}
         </p>

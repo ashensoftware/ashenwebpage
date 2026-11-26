@@ -2,10 +2,16 @@ import type { FC } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { COMPANY, absoluteUrl } from '@/config/company';
-import { localeFromPathname, type Locale } from '@/config/i18n';
+import { LOCALES, localeFromPathname, type Locale } from '@/config/i18n';
 import { alternatePath, canonicalUrl } from '@/config/routes';
 
 export type JsonLd = Record<string, unknown> | Record<string, unknown>[];
+
+const OG_LOCALE: Record<Locale, string> = {
+  en: 'en_US',
+  es: 'es_CO',
+  ja: 'ja_JP',
+};
 
 interface SEOProps {
   title: string;
@@ -15,14 +21,13 @@ interface SEOProps {
   jsonLd?: JsonLd;
 }
 
-function hreflangLinks(pathname: string) {
-  const en = alternatePath(pathname, 'en');
-  const es = alternatePath(pathname, 'es');
-  return [
-    { hrefLang: 'en', href: canonicalUrl(en) },
-    { hrefLang: 'es', href: canonicalUrl(es) },
-    { hrefLang: 'x-default', href: canonicalUrl(en) },
-  ];
+function hreflangLinks(pathname: string): { hrefLang: string; href: string }[] {
+  const links: { hrefLang: string; href: string }[] = LOCALES.map((locale) => ({
+    hrefLang: locale,
+    href: canonicalUrl(alternatePath(pathname, locale)),
+  }));
+  links.push({ hrefLang: 'x-default', href: canonicalUrl(alternatePath(pathname, 'en')) });
+  return links;
 }
 
 export const SEO: FC<SEOProps> = ({
@@ -60,7 +65,7 @@ export const SEO: FC<SEOProps> = ({
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content={COMPANY.displayName} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:locale" content={locale === 'es' ? 'es_CO' : 'en_US'} />
+      <meta property="og:locale" content={OG_LOCALE[locale]} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />

@@ -4,9 +4,11 @@ import {
   ROUTE_PATHS as REGISTRY_PATHS,
   SERVICE_IDS,
   canonicalUrl as registryCanonicalUrl,
+  caseStudyRoutePattern as registryCaseStudyRoutePattern,
   getIndexableRoutes as registryIndexableRoutes,
   getPrerenderPaths as registryPrerenderPaths,
   servicePath as registryServicePath,
+  serviceRoutePattern as registryServiceRoutePattern,
 } from './site-registry.mjs';
 
 export type RouteId =
@@ -47,8 +49,17 @@ export function servicePath(serviceId: string, locale: Locale): string {
   return registryServicePath(serviceId, locale);
 }
 
+export function serviceRoutePattern(locale: Locale): string {
+  return registryServiceRoutePattern(locale);
+}
+
+export function caseStudyRoutePattern(locale: Locale): string {
+  return registryCaseStudyRoutePattern(locale);
+}
+
 export function contactPath(locale: Locale): string {
-  return locale === 'es' ? '/es#contact' : '/#contact';
+  const home = pathFor('home', locale);
+  return home === '/' ? '/#contact' : `${home}#contact`;
 }
 
 export function homePath(locale: Locale): string {
@@ -56,16 +67,18 @@ export function homePath(locale: Locale): string {
 }
 
 export function alternatePath(pathname: string, targetLocale: Locale): string {
-  const currentLocale = localeFromPathname(pathname);
+  const pathOnly = pathname.split(/[?#]/)[0] || '/';
+  const normalized = pathOnly.length > 1 && pathOnly.endsWith('/') ? pathOnly.slice(0, -1) : pathOnly;
+  const currentLocale = localeFromPathname(normalized);
   if (currentLocale === targetLocale) return pathname;
 
   for (const id of Object.keys(ROUTE_PATHS) as RouteId[]) {
-    if (ROUTE_PATHS[id][currentLocale] === pathname) {
+    if (ROUTE_PATHS[id][currentLocale] === normalized) {
       return ROUTE_PATHS[id][targetLocale];
     }
   }
 
-  const serviceMatch = pathname.match(/^\/(?:es\/servicios|services)\/([^/]+)$/);
+  const serviceMatch = normalized.match(/^\/(?:es\/servicios|es\/services|ja\/services|services)\/([^/]+)$/);
   if (serviceMatch) {
     return servicePath(serviceMatch[1], targetLocale);
   }

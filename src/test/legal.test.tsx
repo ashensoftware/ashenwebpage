@@ -38,4 +38,14 @@ describe('legal localization', () => {
     expect(screen.getByText(/el contenido es informativo/i)).toBeInTheDocument();
     expect(screen.queryByText(/content is informational/i)).not.toBeInTheDocument();
   });
+
+  it('renders Japanese privacy copy without inventing a Japanese support promise', () => {
+    renderLegal('/ja/privacy', 'privacy');
+    expect(screen.getByRole('heading', { name: /プライバシーポリシー/ })).toBeInTheDocument();
+    expect(screen.getByText(/Formspreeがそのお問い合わせデータを処理し/)).toBeInTheDocument();
+    expect(screen.getByText(/弁護士の確認も受けていません/)).toBeInTheDocument();
+    expect(screen.queryByText(/\{\{legalName\}\}/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/\{\{domain\}\}/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/formspree processes that contact-form data/i)).not.toBeInTheDocument();
+  });
 });
